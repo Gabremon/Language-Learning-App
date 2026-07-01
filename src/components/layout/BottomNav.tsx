@@ -16,7 +16,7 @@ const navItems = [
 export function BottomNav() {
   const pathname = usePathname();
 
-  if (pathname === "/" || pathname.startsWith("/lesson/")) return null;
+  if (pathname === "/" || pathname.startsWith("/lesson/") || pathname.startsWith("/auth")) return null;
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-brand-100 bg-white/95 backdrop-blur-sm">

@@ -3,20 +3,19 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { getLessonById, getNextLesson } from "@/data/seed";
+import type { Lesson } from "@/types/course";
 import Link from "next/link";
 import { Star, Trophy } from "lucide-react";
 
 interface Props {
-  lessonId: string;
+  lesson: Lesson | null;
+  nextLesson: Lesson | null;
   score: number;
   total: number;
   xpGained: number;
 }
 
-export function LessonComplete({ lessonId, score, total, xpGained }: Props) {
-  const lesson = getLessonById(lessonId);
-  const nextLesson = getNextLesson(lessonId);
+export function LessonComplete({ lesson, nextLesson, score, total, xpGained }: Props) {
   const pct = Math.round((score / total) * 100);
 
   return (

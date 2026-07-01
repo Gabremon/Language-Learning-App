@@ -28,7 +28,7 @@ export default function LandingPage() {
           ))}
         </div>
 
-        <Link href="/dashboard" className="mt-10 w-full">
+        <Link href="/auth" className="mt-10 w-full">
           <Button size="lg" variant="secondary" className="w-full text-brand-700">
             Start Learning
           </Button>

@@ -1,8 +1,6 @@
 import type { VocabMemory } from "@/lib/srs";
 import { createInitialVocabMemory } from "@/lib/srs";
 
-const STORAGE_KEY = "mandarin-learn-progress";
-
 export interface UserProgress {
   xp: number;
   streakCount: number;
@@ -21,34 +19,8 @@ export interface LessonAttempt {
   completedAt: string;
 }
 
-const DEFAULT_PROGRESS: UserProgress = {
-  xp: 0,
-  streakCount: 0,
-  lastActiveDate: null,
-  currentLessonId: "lesson-1-1",
-  completedLessonIds: [],
-  vocabMemory: {},
-  lessonAttempts: [],
-};
-
 function getToday(): string {
   return new Date().toISOString().split("T")[0];
-}
-
-export function loadProgress(): UserProgress {
-  if (typeof window === "undefined") return { ...DEFAULT_PROGRESS };
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return { ...DEFAULT_PROGRESS };
-    return { ...DEFAULT_PROGRESS, ...JSON.parse(raw) };
-  } catch {
-    return { ...DEFAULT_PROGRESS };
-  }
-}
-
-export function saveProgress(progress: UserProgress): void {
-  if (typeof window === "undefined") return;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
 }
 
 export function updateStreak(progress: UserProgress): UserProgress {
@@ -71,23 +43,16 @@ export function addXp(progress: UserProgress, amount: number): UserProgress {
   return { ...progress, xp: progress.xp + amount };
 }
 
-export function completeLesson(
+export function applyLessonCompletion(
   progress: UserProgress,
   lessonId: string,
   score: number,
-  totalQuestions: number
+  totalQuestions: number,
+  attempt: LessonAttempt
 ): UserProgress {
   const completedLessonIds = progress.completedLessonIds.includes(lessonId)
     ? progress.completedLessonIds
     : [...progress.completedLessonIds, lessonId];
-
-  const attempt: LessonAttempt = {
-    id: `attempt-${Date.now()}`,
-    lessonId,
-    score,
-    totalQuestions,
-    completedAt: new Date().toISOString(),
-  };
 
   const xpGained = score * 10 + (score === totalQuestions ? 20 : 0);
 
@@ -129,4 +94,8 @@ export function setVocabMemory(
 
 export function getAllVocabMemories(progress: UserProgress): VocabMemory[] {
   return Object.values(progress.vocabMemory);
+}
+
+export function getXpForLesson(score: number, totalQuestions: number): number {
+  return score * 10 + (score === totalQuestions ? 20 : 0);
 }

@@ -8,29 +8,24 @@ import { LessonComplete } from "@/components/lesson/LessonComplete";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent } from "@/components/ui/card";
-import { getExercisesForLesson, getLessonById, getVocabForLesson } from "@/data/seed";
 import { checkExerciseAnswer } from "@/lib/exercise-checker";
-import {
-  completeLesson,
-  getVocabMemory,
-  loadProgress,
-  saveProgress,
-  setVocabMemory,
-} from "@/lib/progress";
+import { getVocabMemory, setVocabMemory } from "@/lib/progress";
 import { updateVocabMemoryOnReview } from "@/lib/srs";
-import type { ExerciseResult, UserAnswer } from "@/types/exercises";
+import { useProgress } from "@/contexts/ProgressContext";
+import type { Lesson, VocabItem } from "@/types/course";
+import type { BaseExercise, ExerciseResult, UserAnswer } from "@/types/exercises";
 import { isMatchPairs, isEnglishToHanziWordBank } from "@/types/exercises";
 import { X } from "lucide-react";
 import Link from "next/link";
 
 interface Props {
-  lessonId: string;
+  lesson: Lesson | null;
+  exercises: BaseExercise[];
+  lessonVocab: VocabItem[];
+  nextLesson: Lesson | null;
 }
 
-function isAnswerReady(
-  exercise: ReturnType<typeof getExercisesForLesson>[0],
-  answer: UserAnswer | null
-): boolean {
+function isAnswerReady(exercise: BaseExercise, answer: UserAnswer | null): boolean {
   if (answer === null) return false;
   if (isMatchPairs(exercise)) {
     const matches = answer as Record<string, string>;
@@ -43,10 +38,10 @@ function isAnswerReady(
   return true;
 }
 
-export function LessonPlayer({ lessonId }: Props) {
+export function LessonPlayer({ lesson, exercises, lessonVocab, nextLesson }: Props) {
   const router = useRouter();
-  const lesson = getLessonById(lessonId);
-  const exerciseList = getExercisesForLesson(lessonId);
+  const { progress, loading, updateVocabMemories, completeLesson } = useProgress();
+  const lessonId = lesson?.id ?? "";
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answer, setAnswer] = useState<UserAnswer | null>(null);
@@ -54,50 +49,44 @@ export function LessonPlayer({ lessonId }: Props) {
   const [score, setScore] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [xpGained, setXpGained] = useState(0);
-  const [ready, setReady] = useState(false);
+  const [saving, setSaving] = useState(false);
 
-  const exercise = exerciseList[currentIndex];
+  const exercise = exercises[currentIndex];
 
-  useEffect(() => {
-    setReady(true);
-  }, []);
-
-  const handleSubmit = useCallback(() => {
-    if (!exercise || answer === null) return;
+  const handleSubmit = useCallback(async () => {
+    if (!exercise || answer === null || !progress) return;
     const checkResult = checkExerciseAnswer(exercise, answer);
     setResult(checkResult);
     if (checkResult.isCorrect) setScore((s) => s + 1);
 
-    let progress = loadProgress();
-    const lessonVocab = getVocabForLesson(lessonId);
-    lessonVocab.forEach((v) => {
+    const updatedMemories = lessonVocab.map((v) => {
       const memory = getVocabMemory(progress, v.id);
-      progress = setVocabMemory(
-        progress,
-        updateVocabMemoryOnReview(memory, checkResult.isCorrect)
-      );
+      return updateVocabMemoryOnReview(memory, checkResult.isCorrect);
     });
-    saveProgress(progress);
-  }, [exercise, answer, lessonId]);
+    await updateVocabMemories(updatedMemories);
+  }, [exercise, answer, lessonVocab, progress, updateVocabMemories]);
 
-  const handleContinue = useCallback(() => {
-    if (currentIndex < exerciseList.length - 1) {
+  const handleContinue = useCallback(async () => {
+    if (currentIndex < exercises.length - 1) {
       setCurrentIndex((i) => i + 1);
       setAnswer(null);
       setResult(null);
       return;
     }
 
-    const progress = loadProgress();
-    const xp = score * 10 + (score === exerciseList.length ? 20 : 0);
-    saveProgress(completeLesson(progress, lessonId, score, exerciseList.length));
-    setXpGained(xp);
-    setIsComplete(true);
-  }, [currentIndex, exerciseList.length, lessonId, score]);
+    setSaving(true);
+    try {
+      const { xpGained: xp } = await completeLesson(lessonId, score, exercises.length);
+      setXpGained(xp);
+      setIsComplete(true);
+    } finally {
+      setSaving(false);
+    }
+  }, [currentIndex, exercises.length, lessonId, score, completeLesson]);
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key !== "Enter") return;
+      if (e.key !== "Enter" || saving) return;
       if (result) {
         e.preventDefault();
         handleContinue();
@@ -108,9 +97,9 @@ export function LessonPlayer({ lessonId }: Props) {
     }
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [result, exercise, answer, handleSubmit, handleContinue]);
+  }, [result, exercise, answer, handleSubmit, handleContinue, saving]);
 
-  if (!ready) {
+  if (loading || !progress) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
         <p className="text-gray-500">Loading lesson...</p>
@@ -118,7 +107,7 @@ export function LessonPlayer({ lessonId }: Props) {
     );
   }
 
-  if (!lesson || exerciseList.length === 0) {
+  if (!lesson || exercises.length === 0) {
     return (
       <div className="flex min-h-[50vh] flex-col items-center justify-center gap-4">
         <p className="text-gray-500">Lesson not found or has no exercises.</p>
@@ -130,16 +119,17 @@ export function LessonPlayer({ lessonId }: Props) {
   if (isComplete) {
     return (
       <LessonComplete
-        lessonId={lessonId}
+        lesson={lesson}
+        nextLesson={nextLesson}
         score={score}
-        total={exerciseList.length}
+        total={exercises.length}
         xpGained={xpGained}
       />
     );
   }
 
-  const canSubmit = isAnswerReady(exercise, answer);
-  const progressValue = ((currentIndex + (result ? 1 : 0)) / exerciseList.length) * 100;
+  const canSubmit = exercise ? isAnswerReady(exercise, answer) : false;
+  const progressValue = ((currentIndex + (result ? 1 : 0)) / exercises.length) * 100;
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
@@ -149,7 +139,7 @@ export function LessonPlayer({ lessonId }: Props) {
         </Link>
         <Progress value={progressValue} className="flex-1" />
         <span className="text-sm font-medium text-gray-500">
-          {currentIndex + 1}/{exerciseList.length}
+          {currentIndex + 1}/{exercises.length}
         </span>
       </div>
 
@@ -183,9 +173,10 @@ export function LessonPlayer({ lessonId }: Props) {
               <Button
                 onClick={handleContinue}
                 size="lg"
+                disabled={saving}
                 variant={result.isCorrect ? "success" : "default"}
               >
-                Continue
+                {saving ? "Saving..." : "Continue"}
               </Button>
             )}
           </div>
