@@ -20,9 +20,9 @@ export function FillInBlankExercise({ payload, selected, onSelect, disabled }: P
       )}
       {payload.options && (
         <div className="grid grid-cols-2 gap-3">
-          {payload.options.map((option) => (
+          {payload.options.map((option, index) => (
             <Button
-              key={option}
+              key={`${index}-${option}`}
               variant={selected === option ? "default" : "secondary"}
               className={cn("text-2xl h-16", disabled && "pointer-events-none")}
               onClick={() => onSelect(option)}

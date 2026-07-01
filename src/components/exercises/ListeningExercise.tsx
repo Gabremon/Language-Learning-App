@@ -33,9 +33,9 @@ export function ListeningExercise({ payload, selected, onSelect, disabled }: Pro
         <p className="text-gray-600">Tap to listen again</p>
       </div>
       <div className="grid gap-3">
-        {payload.options.map((option) => (
+        {payload.options.map((option, index) => (
           <Button
-            key={option}
+            key={`${index}-${option}`}
             variant={selected === option ? "default" : "secondary"}
             className={cn("w-full justify-start h-auto py-4", disabled && "pointer-events-none")}
             onClick={() => onSelect(option)}

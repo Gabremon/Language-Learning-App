@@ -17,9 +17,9 @@ export function PinyinRecognitionExercise({ payload, selected, onSelect, disable
       <p className="text-center text-6xl font-bold text-brand-800">{payload.hanzi}</p>
       <p className="text-center text-gray-600">Select the correct pinyin with tone marks</p>
       <div className="grid gap-3">
-        {payload.options.map((option) => (
+        {payload.options.map((option, index) => (
           <Button
-            key={option}
+            key={`${index}-${option}`}
             variant={selected === option ? "default" : "secondary"}
             className={cn("w-full justify-start text-lg h-auto py-4", disabled && "pointer-events-none")}
             onClick={() => onSelect(option)}

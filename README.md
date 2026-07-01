@@ -23,6 +23,8 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) and tap **Start Learning**.
 
+Changes hot-reload automatically — you only need `npm run dev`. If the app ever looks broken or styles disappear, stop the server and run `npm run dev:fresh` once to clear a stale cache.
+
 ## Pages
 
 | Route | Description |

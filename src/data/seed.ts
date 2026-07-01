@@ -112,10 +112,20 @@ export const lessonSentenceMap: Record<string, string[]> = {
   "lesson-3-3": ["s-7"],
 };
 
-function shuffle<T>(arr: T[]): T[] {
+function hashString(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+  }
+  return hash || 1;
+}
+
+function seededShuffle<T>(arr: T[], seed: string): T[] {
   const copy = [...arr];
+  let state = hashString(seed);
   for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    state = (state * 1664525 + 1013904223) >>> 0;
+    const j = state % (i + 1);
     [copy[i], copy[j]] = [copy[j], copy[i]];
   }
   return copy;
@@ -125,9 +135,36 @@ function getVocab(ids: string[]): VocabItem[] {
   return ids.map((id) => vocabItems.find((v) => v.id === id)!).filter(Boolean);
 }
 
-function distractors(target: VocabItem, pool: VocabItem[], field: "english" | "hanzi" | "pinyin", count = 3): string[] {
-  const others = pool.filter((v) => v.id !== target.id).map((v) => v[field]);
-  return shuffle(others).slice(0, count);
+function distractors(
+  target: VocabItem,
+  pool: VocabItem[],
+  field: "english" | "hanzi" | "pinyin",
+  seed: string,
+  count = 3
+): string[] {
+  const seen = new Set<string>([target[field]]);
+  const result: string[] = [];
+  for (const v of seededShuffle(
+    pool.filter((item) => item.id !== target.id),
+    seed
+  )) {
+    const value = v[field];
+    if (seen.has(value)) continue;
+    seen.add(value);
+    result.push(value);
+    if (result.length >= count) break;
+  }
+  return result;
+}
+
+function buildShuffledOptions(correct: string, wrong: string[], seed: string): string[] {
+  const seen = new Set<string>();
+  const unique = [correct, ...wrong].filter((option) => {
+    if (seen.has(option)) return false;
+    seen.add(option);
+    return true;
+  });
+  return seededShuffle(unique, seed);
 }
 
 function buildExercisesForLesson(lessonId: string, vocabIds: string[]): BaseExercise[] {
@@ -149,7 +186,11 @@ function buildExercisesForLesson(lessonId: string, vocabIds: string[]): BaseExer
   vocab.forEach((v) => {
     add("multiple_choice", "Select the correct translation", {
       question: `What does "${v.hanzi}" mean?`,
-      options: shuffle([v.english, ...distractors(v, vocab, "english")]),
+      options: buildShuffledOptions(
+        v.english,
+        distractors(v, vocab, "english", `${lessonId}-${v.id}-mc-d`),
+        `${lessonId}-${v.id}-mc`
+      ),
       correctAnswer: v.english,
       displayHanzi: v.hanzi,
     }, `${v.hanzi} (${v.pinyin}) means "${v.english}".`);
@@ -162,13 +203,21 @@ function buildExercisesForLesson(lessonId: string, vocabIds: string[]): BaseExer
 
     add("pinyin_recognition", "Select the correct pinyin", {
       hanzi: v.hanzi,
-      options: shuffle([v.pinyin, ...distractors(v, vocab, "pinyin")]),
+      options: buildShuffledOptions(
+        v.pinyin,
+        distractors(v, vocab, "pinyin", `${lessonId}-${v.id}-py-d`),
+        `${lessonId}-${v.id}-py`
+      ),
       correctAnswer: v.pinyin,
     }, `${v.hanzi} is pronounced ${v.pinyin}.`);
 
     add("reverse_pinyin", "Which hanzi matches this pinyin?", {
       pinyin: v.pinyin,
-      options: shuffle([v.hanzi, ...distractors(v, vocab, "hanzi")]),
+      options: buildShuffledOptions(
+        v.hanzi,
+        distractors(v, vocab, "hanzi", `${lessonId}-${v.id}-rp-d`),
+        `${lessonId}-${v.id}-rp`
+      ),
       correctAnswer: v.hanzi,
     }, `${v.pinyin} → ${v.hanzi}`);
   });
@@ -186,20 +235,25 @@ function buildExercisesForLesson(lessonId: string, vocabIds: string[]): BaseExer
 
   vocab.slice(0, 2).forEach((v) => {
     const chars = v.hanzi.split("");
-    const decoys = shuffle(
+    const decoys = seededShuffle(
       vocab
         .filter((x) => x.id !== v.id)
-        .flatMap((x) => x.hanzi.split(""))
+        .flatMap((x) => x.hanzi.split("")),
+      `${lessonId}-${v.id}-wb-d`
     ).slice(0, Math.max(4, 10 - chars.length));
     add("english_to_hanzi_word_bank", "Build the hanzi for this word", {
       english: v.english.split("/")[0].trim(),
-      wordBank: shuffle([...chars, ...decoys]),
+      wordBank: seededShuffle([...chars, ...decoys], `${lessonId}-${v.id}-wb`),
       correctAnswer: chars,
     }, `The hanzi for "${v.english}" is ${v.hanzi}.`);
 
     add("listening", "Listen and select the meaning", {
       hanzi: v.hanzi,
-      options: shuffle([v.english, ...distractors(v, vocab, "english")]),
+      options: buildShuffledOptions(
+        v.english,
+        distractors(v, vocab, "english", `${lessonId}-${v.id}-li-d`),
+        `${lessonId}-${v.id}-li`
+      ),
       correctAnswer: v.english,
     }, `You heard: ${v.hanzi} (${v.pinyin})`);
   });
@@ -218,7 +272,17 @@ function buildExercisesForLesson(lessonId: string, vocabIds: string[]): BaseExer
         correctAnswer: blankChar,
         fullSentence: s.hanzi,
         fullPinyin: s.pinyin,
-        options: shuffle([blankChar, ...shuffle(vocab.map((v) => v.hanzi[0])).filter((c) => c !== blankChar).slice(0, 3)]),
+        options: buildShuffledOptions(
+          blankChar,
+          seededShuffle(
+            vocab.map((item) => item.hanzi[0]),
+            `${lessonId}-${sid}-fib-d`
+          )
+            .filter((c) => c !== blankChar)
+            .filter((c, i, arr) => arr.indexOf(c) === i)
+            .slice(0, 3),
+          `${lessonId}-${sid}-fib`
+        ),
       }, s.grammarNotes ?? `Full sentence: ${s.hanzi} — ${s.english}`);
     }
   });

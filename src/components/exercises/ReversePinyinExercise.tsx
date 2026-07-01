@@ -17,9 +17,9 @@ export function ReversePinyinExercise({ payload, selected, onSelect, disabled }:
       <p className="text-center text-4xl font-bold text-brand-600">{payload.pinyin}</p>
       <p className="text-center text-gray-600">Which hanzi matches this pronunciation?</p>
       <div className="grid grid-cols-2 gap-3">
-        {payload.options.map((option) => (
+        {payload.options.map((option, index) => (
           <Button
-            key={option}
+            key={`${index}-${option}`}
             variant={selected === option ? "default" : "secondary"}
             className={cn("text-3xl h-20", disabled && "pointer-events-none")}
             onClick={() => onSelect(option)}
