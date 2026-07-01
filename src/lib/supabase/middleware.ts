@@ -25,8 +25,8 @@ export async function updateSession(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   const pathname = request.nextUrl.pathname;
-  const isAuthRoute = pathname.startsWith("/auth");
-  const isPublicRoute = pathname === "/";
+  const isAuthPage = pathname === "/auth";
+  const isAuthCallback = pathname === "/auth/callback";
 
   const protectedPrefixes = ["/dashboard", "/course", "/review", "/vocabulary", "/profile", "/lesson"];
   const isProtected = protectedPrefixes.some(
@@ -40,17 +40,15 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  if (user && isAuthRoute) {
+  if (user && isAuthPage) {
     const url = request.nextUrl.clone();
     url.pathname = request.nextUrl.searchParams.get("next") || "/dashboard";
     url.searchParams.delete("next");
     return NextResponse.redirect(url);
   }
 
-  if (!user && !isPublicRoute && !isAuthRoute && isProtected) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/auth";
-    return NextResponse.redirect(url);
+  if (isAuthCallback) {
+    return supabaseResponse;
   }
 
   return supabaseResponse;
