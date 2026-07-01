@@ -1,0 +1,238 @@
+Build a Duolingo-inspired Mandarin learning web app, but do not copy Duolingo branding, artwork, proprietary content, mascot, or exact UI. The goal is to build an original language-learning app with similar rapid exercise mechanics.
+
+Use:
+- Next.js 15
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Supabase for auth and database
+- Responsive PWA-style design
+
+Core app concept:
+Users learn Mandarin through short lessons made of rapid-fire exercises. The MVP focuses on vocabulary, pinyin, hanzi recognition, sentence construction, listening through browser text-to-speech, and spaced repetition review. Do not include speaking exercises in the MVP.
+
+Pages:
+1. Landing page
+2. Auth page
+3. Dashboard
+4. Course/unit path page
+5. Lesson player page
+6. Review page
+7. Vocabulary page
+8. Profile/stats page
+
+Exercise types to implement:
+1. Multiple choice translation
+2. Hanzi to English typed answer
+3. English to Hanzi word bank
+4. Match pairs
+5. Listening comprehension with browser speech synthesis
+6. Fill in the blank
+7. Pinyin recognition
+8. Reverse pinyin recognition
+
+Create a clean type system for exercises:
+
+BaseExercise:
+- id
+- lessonId
+- type
+- prompt
+- payload
+- orderIndex
+
+Each exercise type should have its own TypeScript interface.
+
+Build an ExerciseRenderer component that switches based on exercise.type and renders the correct exercise component.
+
+Lesson player behavior:
+- Load exercises for the lesson
+- Show progress bar
+- Show one question at a time
+- User submits answer
+- Show immediate feedback
+- If wrong, show correct answer and short explanation
+- Continue button moves to next question
+- Track correct/incorrect answers
+- At the end, show lesson complete screen with score and XP gained
+- Save lesson attempt and exercise attempts to Supabase
+
+Dashboard:
+- Show current course
+- Continue lesson button
+- XP
+- Streak
+- Due review count
+- Units and lessons path
+
+Spaced repetition:
+Create vocab_memory table logic.
+Each vocab item has:
+- strength
+- times_seen
+- times_correct
+- last_reviewed_at
+- next_review_at
+
+When the user answers correctly:
+- increase strength by 1
+- schedule next review using intervals:
+  strength 0 = immediate
+  strength 1 = 1 day
+  strength 2 = 3 days
+  strength 3 = 7 days
+  strength 4 = 14 days
+  strength 5+ = 30 days
+
+When incorrect:
+- decrease strength by 1, minimum 0
+- schedule review in 10 minutes
+
+Database schema:
+Create Supabase SQL migrations for:
+
+courses
+- id uuid primary key
+- title text
+- language_code text
+- created_at timestamp
+
+units
+- id uuid primary key
+- course_id uuid references courses(id)
+- title text
+- order_index int
+
+lessons
+- id uuid primary key
+- unit_id uuid references units(id)
+- title text
+- order_index int
+
+vocab_items
+- id uuid primary key
+- course_id uuid references courses(id)
+- hanzi text
+- pinyin text
+- english text
+- part_of_speech text
+- difficulty int
+- audio_url text nullable
+- created_at timestamp
+
+lesson_vocab
+- lesson_id uuid references lessons(id)
+- vocab_item_id uuid references vocab_items(id)
+
+sentences
+- id uuid primary key
+- course_id uuid references courses(id)
+- hanzi text
+- pinyin text
+- english text
+- difficulty int
+- grammar_notes text nullable
+
+lesson_sentences
+- lesson_id uuid references lessons(id)
+- sentence_id uuid references sentences(id)
+
+exercises
+- id uuid primary key
+- lesson_id uuid references lessons(id)
+- type text
+- prompt text
+- payload_json jsonb
+- order_index int
+
+user_progress
+- id uuid primary key
+- user_id uuid
+- course_id uuid references courses(id)
+- current_unit_id uuid references units(id)
+- current_lesson_id uuid references lessons(id)
+- xp int default 0
+- streak_count int default 0
+- last_active_date date
+
+lesson_attempts
+- id uuid primary key
+- user_id uuid
+- lesson_id uuid references lessons(id)
+- score int
+- total_questions int
+- completed_at timestamp
+
+exercise_attempts
+- id uuid primary key
+- user_id uuid
+- exercise_id uuid references exercises(id)
+- is_correct boolean
+- user_answer text
+- correct_answer text
+- created_at timestamp
+
+vocab_memory
+- id uuid primary key
+- user_id uuid
+- vocab_item_id uuid references vocab_items(id)
+- strength int default 0
+- last_reviewed_at timestamp
+- next_review_at timestamp
+- times_seen int default 0
+- times_correct int default 0
+
+Seed content:
+Create one Mandarin course with 3 units and 10 total lessons.
+
+Unit 1: Basics
+Lesson 1: I, you, he/she, to be
+Lesson 2: students and teachers
+Lesson 3: countries and nationalities
+Lesson 4: yes/no questions
+
+Unit 2: Food
+Lesson 1: water, tea, rice, noodles
+Lesson 2: like/dislike
+Lesson 3: ordering food
+
+Unit 3: Family
+Lesson 1: mom, dad, older brother, younger sister
+Lesson 2: my family
+Lesson 3: simple descriptions
+
+Include vocab items with hanzi, pinyin with tone marks, English, and part of speech.
+
+For each lesson, create 12–16 exercises using the exercise types above.
+
+Design style:
+- Clean, playful, original
+- Rounded cards
+- Big buttons
+- Mobile-first
+- No Duolingo green owl branding
+- Use original colors and icons
+- Smooth transitions
+- Strong correct/incorrect feedback
+
+Important implementation details:
+- Keep exercise checking logic separated in utility functions.
+- Normalize typed English answers by lowercasing, trimming, removing punctuation, and comparing against accepted answers.
+- For word bank answers, compare arrays exactly.
+- For multiple choice, compare selected answer to correct answer.
+- For listening exercises, use browser SpeechSynthesisUtterance with zh-CN.
+- Add loading states and error states.
+- Make the app usable with seed data even before Supabase is fully connected by including a local mock data fallback.
+
+Deliverables:
+- Full Next.js app
+- Supabase schema SQL
+- Seed script
+- TypeScript exercise types
+- Exercise renderer
+- All exercise components
+- Dashboard
+- Lesson player
+- Review system
+- Basic auth
+- Clean README explaining setup
