@@ -23,24 +23,33 @@ export interface MultipleChoicePayload {
   options: string[];
   correctAnswer: string;
   displayHanzi?: string;
+  pinyin?: string;
+  imageUrl?: string;
+  emoji?: string;
 }
 
 export interface HanziToEnglishPayload {
   hanzi: string;
   pinyin?: string;
   acceptedAnswers: string[];
+  imageUrl?: string;
+  emoji?: string;
 }
 
 export interface EnglishToHanziWordBankPayload {
   english: string;
   wordBank: string[];
   correctAnswer: string[];
+  imageUrl?: string;
+  emoji?: string;
 }
 
 export interface MatchPairItem {
   id: string;
   left: string;
   right: string;
+  imageUrl?: string;
+  emoji?: string;
 }
 
 export interface MatchPairsPayload {
@@ -51,6 +60,9 @@ export interface ListeningPayload {
   hanzi: string;
   options: string[];
   correctAnswer: string;
+  pinyin?: string;
+  imageUrl?: string;
+  emoji?: string;
 }
 
 export interface FillInBlankPayload {
@@ -66,6 +78,8 @@ export interface PinyinRecognitionPayload {
   hanzi: string;
   options: string[];
   correctAnswer: string;
+  imageUrl?: string;
+  emoji?: string;
 }
 
 export interface ReversePinyinPayload {

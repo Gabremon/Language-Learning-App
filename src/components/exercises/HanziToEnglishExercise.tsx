@@ -1,6 +1,9 @@
 "use client";
 
 import { Input } from "@/components/ui/input";
+import { VocabIllustration } from "@/components/ui/VocabIllustration";
+import { PinyinDisplay } from "@/components/ui/PinyinDisplay";
+import { AudioButton } from "@/components/ui/AudioButton";
 import type { HanziToEnglishPayload } from "@/types/exercises";
 
 interface Props {
@@ -12,11 +15,20 @@ interface Props {
 
 export function HanziToEnglishExercise({ payload, value, onChange, disabled }: Props) {
   return (
-    <div className="space-y-6">
-      <div className="text-center">
+    <div className="space-y-6 animate-fade-in">
+      <div className="flex flex-col items-center gap-4">
+        <VocabIllustration
+          emoji={payload.emoji}
+          imageUrl={payload.imageUrl}
+          hanzi={payload.hanzi}
+          size="lg"
+        />
         <p className="text-6xl font-bold text-brand-800">{payload.hanzi}</p>
         {payload.pinyin && (
-          <p className="mt-2 text-lg text-brand-500">{payload.pinyin}</p>
+          <div className="flex items-center gap-3">
+            <PinyinDisplay pinyin={payload.pinyin} size="lg" showToneLabels />
+            <AudioButton text={payload.hanzi} size="md" />
+          </div>
         )}
       </div>
       <Input
@@ -25,6 +37,7 @@ export function HanziToEnglishExercise({ payload, value, onChange, disabled }: P
         onChange={(e) => onChange(e.target.value)}
         disabled={disabled}
         autoFocus
+        className="text-lg py-6"
       />
     </div>
   );

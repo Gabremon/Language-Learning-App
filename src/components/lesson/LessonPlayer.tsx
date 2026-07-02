@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ExerciseRenderer } from "@/components/exercises/ExerciseRenderer";
 import { ExerciseFeedback } from "@/components/exercises/ExerciseFeedback";
 import { LessonComplete } from "@/components/lesson/LessonComplete";
+import { LessonPhaseBar } from "@/components/lesson/LessonPhaseBar";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent } from "@/components/ui/card";
@@ -132,20 +133,22 @@ export function LessonPlayer({ lesson, exercises, lessonVocab, nextLesson }: Pro
   const progressValue = ((currentIndex + (result ? 1 : 0)) / exercises.length) * 100;
 
   return (
-    <div className="mx-auto max-w-2xl space-y-6">
+    <div className="mx-auto max-w-2xl space-y-4">
       <div className="flex items-center gap-4">
-        <Link href="/dashboard" className="text-gray-400 hover:text-gray-600">
+        <Link href="/dashboard" className="rounded-full p-1 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600">
           <X className="h-6 w-6" />
         </Link>
-        <Progress value={progressValue} className="flex-1" />
-        <span className="text-sm font-medium text-gray-500">
+        <Progress value={progressValue} className="flex-1 h-3" />
+        <span className="text-sm font-bold text-brand-600">
           {currentIndex + 1}/{exercises.length}
         </span>
       </div>
 
-      <Card>
-        <CardContent className="space-y-6 pt-6">
-          <p className="text-sm font-semibold uppercase tracking-wide text-brand-500">
+      <LessonPhaseBar exercise={exercise} />
+
+      <Card className="overflow-hidden border-0 shadow-lg ring-1 ring-brand-100">
+        <CardContent className="space-y-6 bg-gradient-to-b from-white to-brand-50/30 p-6 pt-6">
+          <p className="text-center text-sm font-bold uppercase tracking-widest text-brand-500">
             {exercise.prompt}
           </p>
 

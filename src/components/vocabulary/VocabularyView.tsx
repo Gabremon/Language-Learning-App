@@ -5,9 +5,11 @@ import { AppShell } from "@/components/layout/AppShell";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { VocabIllustration } from "@/components/ui/VocabIllustration";
+import { PinyinDisplay } from "@/components/ui/PinyinDisplay";
+import { AudioButton } from "@/components/ui/AudioButton";
 import type { VocabItem } from "@/types/course";
-import { speakMandarin } from "@/lib/speech";
-import { Volume2, Search } from "lucide-react";
+import { Search } from "lucide-react";
 
 interface Props {
   vocab: VocabItem[];
@@ -26,9 +28,9 @@ export function VocabularyView({ vocab }: Props) {
   return (
     <AppShell>
       <div className="space-y-6">
-        <div>
-          <h1 className="text-2xl font-bold text-brand-800">Vocabulary</h1>
-          <p className="text-gray-500">{vocab.length} words in your course</p>
+        <div className="rounded-2xl bg-gradient-to-r from-brand-500 to-violet-600 p-6 text-white">
+          <h1 className="text-2xl font-bold">Vocabulary</h1>
+          <p className="text-brand-100">{vocab.length} words in your course</p>
         </div>
 
         <div className="relative">
@@ -41,24 +43,18 @@ export function VocabularyView({ vocab }: Props) {
           />
         </div>
 
-        <div className="space-y-3">
+        <div className="grid gap-3 sm:grid-cols-2">
           {filtered.map((v) => (
-            <Card key={v.id} className="transition hover:shadow-md">
-              <CardContent className="flex items-center justify-between p-4">
-                <div className="flex items-center gap-4">
-                  <span className="text-3xl font-bold text-brand-800">{v.hanzi}</span>
-                  <div>
-                    <p className="font-medium text-brand-600">{v.pinyin}</p>
-                    <p className="text-gray-700">{v.english}</p>
-                    <Badge variant="muted" className="mt-1 text-xs">{v.partOfSpeech}</Badge>
-                  </div>
+            <Card key={v.id} className="overflow-hidden border-0 shadow-md ring-1 ring-gray-100 transition hover:shadow-lg">
+              <CardContent className="flex items-center gap-4 p-4">
+                <VocabIllustration emoji={v.emoji} imageUrl={v.imageUrl} hanzi={v.hanzi} size="sm" />
+                <div className="min-w-0 flex-1">
+                  <p className="text-2xl font-bold text-brand-800">{v.hanzi}</p>
+                  <PinyinDisplay pinyin={v.pinyin} size="sm" />
+                  <p className="mt-1 text-gray-700">{v.english}</p>
+                  <Badge variant="muted" className="mt-1 text-xs">{v.partOfSpeech}</Badge>
                 </div>
-                <button
-                  onClick={() => speakMandarin(v.hanzi)}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-50 text-brand-500 hover:bg-brand-100"
-                >
-                  <Volume2 className="h-5 w-5" />
-                </button>
+                <AudioButton text={v.hanzi} size="sm" />
               </CardContent>
             </Card>
           ))}

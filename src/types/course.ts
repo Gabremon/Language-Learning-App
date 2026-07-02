@@ -26,6 +26,8 @@ export interface VocabItem {
   english: string;
   partOfSpeech: string;
   difficulty: number;
+  imageUrl?: string;
+  emoji?: string;
 }
 
 export interface Sentence {

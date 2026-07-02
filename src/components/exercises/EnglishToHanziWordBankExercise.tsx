@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { VocabIllustration } from "@/components/ui/VocabIllustration";
 import type { EnglishToHanziWordBankPayload } from "@/types/exercises";
 import { cn } from "@/lib/utils";
 
@@ -36,18 +37,21 @@ export function EnglishToHanziWordBankExercise({ payload, selected, onSelect, di
   }
 
   return (
-    <div className="space-y-6">
-      <p className="text-center text-2xl font-bold text-gray-800">{payload.english}</p>
-      <div className="flex min-h-[60px] flex-wrap justify-center gap-2 rounded-2xl border-2 border-dashed border-brand-200 bg-brand-50 p-4">
+    <div className="space-y-6 animate-fade-in">
+      <div className="flex flex-col items-center gap-3">
+        <VocabIllustration emoji={payload.emoji} imageUrl={payload.imageUrl} size="md" />
+        <p className="text-center text-2xl font-bold text-gray-800">{payload.english}</p>
+      </div>
+      <div className="flex min-h-[72px] flex-wrap justify-center gap-2 rounded-2xl border-2 border-dashed border-orange-200 bg-gradient-to-br from-orange-50 to-amber-50 p-4">
         {selected.length === 0 ? (
-          <span className="text-gray-400">Tap characters below</span>
+          <span className="text-gray-400">Tap characters below to build the word</span>
         ) : (
           selected.map((char, i) => (
             <button
               key={`${char}-${i}`}
               onClick={() => handleRemove(i)}
               className={cn(
-                "rounded-xl bg-white px-4 py-2 text-2xl font-bold shadow-sm transition hover:bg-red-50",
+                "rounded-xl bg-white px-4 py-2 text-2xl font-bold shadow-md ring-1 ring-orange-100 transition hover:bg-red-50 hover:ring-red-200",
                 disabled && "pointer-events-none"
               )}
             >
@@ -66,7 +70,10 @@ export function EnglishToHanziWordBankExercise({ payload, selected, onSelect, di
               key={`${char}-${i}`}
               variant="secondary"
               size="sm"
-              className="text-xl h-12 w-12"
+              className={cn(
+                "text-xl h-14 w-14 rounded-xl shadow-sm",
+                isUsedUp && "opacity-40"
+              )}
               onClick={() => handleTap(char)}
               disabled={disabled || isUsedUp}
             >

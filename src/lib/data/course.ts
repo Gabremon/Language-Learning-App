@@ -64,6 +64,8 @@ function mapVocab(row: {
   english: string;
   part_of_speech: string | null;
   difficulty: number | null;
+  image_url?: string | null;
+  emoji?: string | null;
 }): VocabItem {
   return {
     id: row.id,
@@ -73,6 +75,8 @@ function mapVocab(row: {
     english: row.english,
     partOfSpeech: row.part_of_speech ?? "",
     difficulty: row.difficulty ?? 1,
+    imageUrl: row.image_url ?? undefined,
+    emoji: row.emoji ?? undefined,
   };
 }
 
@@ -138,7 +142,7 @@ export async function getAllVocab(): Promise<VocabItem[]> {
 
   const { data, error } = await supabase
     .from("vocab_items")
-    .select("id, course_id, hanzi, pinyin, english, part_of_speech, difficulty")
+    .select("id, course_id, hanzi, pinyin, english, part_of_speech, difficulty, image_url, emoji")
     .order("hanzi");
 
   if (error) {
@@ -165,7 +169,7 @@ export async function getLessonBundle(lessonId: string): Promise<LessonBundle> {
       .order("order_index"),
     supabase
       .from("lesson_vocab")
-      .select("vocab_items(id, course_id, hanzi, pinyin, english, part_of_speech, difficulty)")
+      .select("vocab_items(id, course_id, hanzi, pinyin, english, part_of_speech, difficulty, image_url, emoji)")
       .eq("lesson_id", lessonId),
   ]);
 
@@ -181,7 +185,7 @@ export async function getLessonBundle(lessonId: string): Promise<LessonBundle> {
 
   const vocab = (vocabRes.data ?? [])
     .map((row) => {
-      const raw = row.vocab_items as {
+      const raw = row.vocab_items as unknown as {
         id: string;
         course_id: string;
         hanzi: string;
@@ -189,6 +193,8 @@ export async function getLessonBundle(lessonId: string): Promise<LessonBundle> {
         english: string;
         part_of_speech: string | null;
         difficulty: number | null;
+        image_url?: string | null;
+        emoji?: string | null;
       } | null;
       return raw ? mapVocab(raw) : null;
     })

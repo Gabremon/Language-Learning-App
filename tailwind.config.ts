@@ -33,6 +33,14 @@ const config: Config = {
         },
         success: "#22c55e",
         error: "#ef4444",
+        unit: {
+          1: { from: "#8B5CF6", to: "#7C3AED", light: "#EDE9FE" },
+          2: { from: "#EC4899", to: "#DB2777", light: "#FCE7F3" },
+          3: { from: "#0EA5E9", to: "#0284C7", light: "#E0F2FE" },
+          4: { from: "#10B981", to: "#059669", light: "#D1FAE5" },
+          5: { from: "#F97316", to: "#EA580C", light: "#FFEDD5" },
+          6: { from: "#6366F1", to: "#4F46E5", light: "#E0E7FF" },
+        },
       },
       borderRadius: {
         lg: "1rem",
