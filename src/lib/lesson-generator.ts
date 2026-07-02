@@ -25,27 +25,32 @@ export interface ExerciseMix {
 
 export interface LessonContext {
   lessonId: string;
+  unitId: string;
   unitOrderIndex: number;
   lessonOrderIndex: number;
   lessonsInUnit: number;
   band: Band;
 }
 
-const BAND_BY_UNIT: Record<number, Band> = {
-  1: "starter",
-  2: "starter",
-  3: "hsk1",
-  4: "hsk1",
-  5: "hsk1",
-  6: "hsk1",
-  7: "hsk2",
-  8: "hsk2",
-  9: "hsk2",
-  10: "hsk2",
-};
+export function getBandForUnitId(unitId: string): Band {
+  if (unitId.startsWith("unit-s")) return "starter";
+  if (unitId.startsWith("unit-h1")) return "hsk1";
+  if (unitId.startsWith("unit-h2") || unitId.startsWith("unit-dl")) return "hsk2";
+  if (unitId.startsWith("unit-h3") || unitId.startsWith("unit-c")) return "hsk3";
+  return "hsk4";
+}
 
+/** @deprecated Use getBandForUnitId — order-based lookup for legacy units only */
 export function getBandForUnit(unitOrderIndex: number): Band {
-  return BAND_BY_UNIT[unitOrderIndex] ?? "hsk4";
+  const legacy: Record<number, Band> = {
+    1: "starter",
+    2: "starter",
+    3: "hsk1",
+    4: "hsk1",
+    5: "hsk1",
+    6: "hsk1",
+  };
+  return legacy[unitOrderIndex] ?? "hsk1";
 }
 
 export function getLessonContext(
@@ -56,10 +61,11 @@ export function getLessonContext(
 ): LessonContext {
   return {
     lessonId,
+    unitId: unit.id,
     unitOrderIndex: unit.orderIndex,
     lessonOrderIndex,
     lessonsInUnit,
-    band: getBandForUnit(unit.orderIndex),
+    band: getBandForUnitId(unit.id),
   };
 }
 

@@ -11,6 +11,7 @@ import { getLessonsForUnit, isLessonUnlocked } from "@/lib/course-utils";
 import { getDueReviewCount } from "@/lib/srs";
 import { useProgress } from "@/contexts/ProgressContext";
 import { Flame, Star, RotateCcw, ChevronRight, Lock, BookOpen, Sparkles } from "lucide-react";
+import { COURSE_SECTIONS, getUnitsForSection } from "@/data/course-content";
 import { cn } from "@/lib/utils";
 
 const UNIT_THEMES = [
@@ -124,78 +125,127 @@ export function DashboardView({ catalog }: Props) {
           </Link>
         )}
 
-        <div className="space-y-4">
-          <div className="flex items-center gap-2">
-            <BookOpen className="h-5 w-5 text-brand-500" />
-            <h2 className="text-lg font-bold text-brand-800">Your learning path</h2>
+        <Link href="/practice">
+          <Card className="border-0 shadow-md ring-1 ring-emerald-100 transition hover:shadow-lg">
+            <CardContent className="flex items-center justify-between bg-gradient-to-r from-emerald-50 to-white p-4">
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-100 text-xl">
+                  🏋️
+                </div>
+                <div>
+                  <span className="font-semibold text-brand-800">Guided practice plan</span>
+                  <p className="text-xs text-gray-500">Tones, typing & speaking outside lessons</p>
+                </div>
+              </div>
+              <ChevronRight className="h-5 w-5 text-emerald-400" />
+            </CardContent>
+          </Card>
+        </Link>
+
+        <div className="space-y-6">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <BookOpen className="h-5 w-5 text-brand-500" />
+              <h2 className="text-lg font-bold text-brand-800">Your learning path</h2>
+            </div>
+            <Link href="/course" className="text-sm font-medium text-brand-600 hover:underline">
+              Full course
+            </Link>
           </div>
-          {units.map((unit, unitIdx) => {
-            const theme = UNIT_THEMES[unitIdx % UNIT_THEMES.length];
-            const unitLessons = getLessonsForUnit(lessons, unit.id);
-            const unitCompleted = unitLessons.filter((l) =>
+
+          {COURSE_SECTIONS.map((section) => {
+            const sectionUnits = getUnitsForSection(section.id)
+              .map((def) => units.find((u) => u.id === def.id)!)
+              .filter(Boolean);
+            const sectionLessons = sectionUnits.flatMap((u) => getLessonsForUnit(lessons, u.id));
+            const sectionCompleted = sectionLessons.filter((l) =>
               progress.completedLessonIds.includes(l.id)
             ).length;
 
             return (
-              <Card key={unit.id} className={cn("overflow-hidden border-0 shadow-md ring-1", theme.border)}>
-                <CardHeader className={cn("border-b pb-3", theme.bg)}>
+              <div key={section.id} className="space-y-3">
+                <div className="rounded-xl border border-brand-100 bg-brand-50/50 px-4 py-3">
                   <div className="flex items-center justify-between">
-                    <CardTitle className="flex items-center gap-2 text-base text-gray-800">
-                      <span className="text-xl">{theme.icon}</span>
-                      Unit {unit.orderIndex}: {unit.title}
-                    </CardTitle>
-                    <span className="text-xs font-semibold text-gray-500">
-                      {unitCompleted}/{unitLessons.length}
-                    </span>
+                    <div>
+                      <h3 className="font-bold text-brand-800">{section.title}</h3>
+                      <p className="text-xs text-gray-500">{section.subtitle}</p>
+                    </div>
+                    <Badge variant="muted">
+                      {sectionCompleted}/{sectionLessons.length}
+                    </Badge>
                   </div>
-                </CardHeader>
-                <CardContent className="space-y-2 pt-4">
-                  {unitLessons.map((lesson) => {
-                    const unlocked = isLessonUnlocked(
-                      lesson.id,
-                      progress.completedLessonIds,
-                      units,
-                      lessons
-                    );
-                    const completed = progress.completedLessonIds.includes(lesson.id);
-                    return (
-                      <Link
-                        key={lesson.id}
-                        href={unlocked ? `/lesson/${lesson.id}` : "#"}
-                        className={cn(
-                          "flex items-center justify-between rounded-xl border-2 px-4 py-3 transition-all",
-                          completed && "border-green-200 bg-green-50",
-                          unlocked && !completed && "border-gray-100 bg-white hover:border-brand-300 hover:shadow-md",
-                          !unlocked && "cursor-not-allowed border-gray-50 bg-gray-50 opacity-50"
-                        )}
-                      >
-                        <div className="flex items-center gap-3">
-                          {!unlocked ? (
-                            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200">
-                              <Lock className="h-4 w-4 text-gray-400" />
-                            </span>
-                          ) : completed ? (
-                            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-green-500 text-sm font-bold text-white shadow">
-                              ✓
-                            </span>
-                          ) : (
-                            <span
+                </div>
+
+                {sectionUnits.map((unit, unitIdx) => {
+                  const theme = UNIT_THEMES[unitIdx % UNIT_THEMES.length];
+                  const unitLessons = getLessonsForUnit(lessons, unit.id);
+                  const unitCompleted = unitLessons.filter((l) =>
+                    progress.completedLessonIds.includes(l.id)
+                  ).length;
+
+                  return (
+                    <Card key={unit.id} className={cn("overflow-hidden border-0 shadow-md ring-1", theme.border)}>
+                      <CardHeader className={cn("border-b pb-3", theme.bg)}>
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="flex items-center gap-2 text-base text-gray-800">
+                            <span className="text-xl">{theme.icon}</span>
+                            Unit {unit.orderIndex}: {unit.title}
+                          </CardTitle>
+                          <span className="text-xs font-semibold text-gray-500">
+                            {unitCompleted}/{unitLessons.length}
+                          </span>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="space-y-2 pt-4">
+                        {unitLessons.map((lesson) => {
+                          const unlocked = isLessonUnlocked(
+                            lesson.id,
+                            progress.completedLessonIds,
+                            units,
+                            lessons
+                          );
+                          const completed = progress.completedLessonIds.includes(lesson.id);
+                          return (
+                            <Link
+                              key={lesson.id}
+                              href={unlocked ? `/lesson/${lesson.id}` : "#"}
                               className={cn(
-                                "flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br text-sm font-bold text-white shadow",
-                                theme.gradient
+                                "flex items-center justify-between rounded-xl border-2 px-4 py-3 transition-all",
+                                completed && "border-green-200 bg-green-50",
+                                unlocked && !completed && "border-gray-100 bg-white hover:border-brand-300 hover:shadow-md",
+                                !unlocked && "cursor-not-allowed border-gray-50 bg-gray-50 opacity-50"
                               )}
                             >
-                              {lesson.orderIndex}
-                            </span>
-                          )}
-                          <span className="font-medium text-gray-800">{lesson.title}</span>
-                        </div>
-                        {unlocked && <ChevronRight className="h-5 w-5 text-gray-300" />}
-                      </Link>
-                    );
-                  })}
-                </CardContent>
-              </Card>
+                              <div className="flex items-center gap-3">
+                                {!unlocked ? (
+                                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200">
+                                    <Lock className="h-4 w-4 text-gray-400" />
+                                  </span>
+                                ) : completed ? (
+                                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-green-500 text-sm font-bold text-white shadow">
+                                    ✓
+                                  </span>
+                                ) : (
+                                  <span
+                                    className={cn(
+                                      "flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br text-sm font-bold text-white shadow",
+                                      theme.gradient
+                                    )}
+                                  >
+                                    {lesson.orderIndex}
+                                  </span>
+                                )}
+                                <span className="font-medium text-gray-800">{lesson.title}</span>
+                              </div>
+                              {unlocked && <ChevronRight className="h-5 w-5 text-gray-300" />}
+                            </Link>
+                          );
+                        })}
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
             );
           })}
         </div>

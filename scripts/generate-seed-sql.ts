@@ -348,7 +348,7 @@ function buildMigrationSql(): string {
   const firstUnit = units[0];
 
   return [
-    "-- Expand course content: Starter + Foundation units (28 lessons, 531 exercises)",
+    `-- Expand course content: Starter + HSK 1 (${lessons.length} lessons, ${exercises.length} exercises)`,
     "-- Generated from src/data/course-content.ts — run: npm run db:generate-seed",
     "-- Apply AFTER setup.sql on an existing database.",
     "",

@@ -99,9 +99,14 @@ export function getAllVocab() {
 }
 
 export function getNextLesson(currentLessonId: string): Lesson | null {
-  const idx = lessons.findIndex((l) => l.id === currentLessonId);
-  if (idx < 0 || idx >= lessons.length - 1) return null;
-  return lessons[idx + 1];
+  const ordered = [...lessons].sort((a, b) => {
+    const unitA = units.find((u) => u.id === a.unitId)?.orderIndex ?? 0;
+    const unitB = units.find((u) => u.id === b.unitId)?.orderIndex ?? 0;
+    return unitA - unitB || a.orderIndex - b.orderIndex;
+  });
+  const idx = ordered.findIndex((l) => l.id === currentLessonId);
+  if (idx < 0 || idx >= ordered.length - 1) return null;
+  return ordered[idx + 1];
 }
 
 export function isLessonUnlocked(lessonId: string, completedIds: string[]): boolean {

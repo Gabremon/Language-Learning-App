@@ -99,13 +99,18 @@ Then re-run `supabase/setup.sql` in the SQL Editor.
    - `http://localhost:3001/auth/callback` (if port 3000 is in use)
    - Your production URL + `/auth/callback`
 
-If you already ran `setup.sql` before auth was added, run this once in the SQL Editor to allow progress upserts:
+If progress saving fails with **"there is no unique or exclusion constraint matching the ON CONFLICT specification"**, your database is missing unique constraints required for upserts. Run once in the Supabase SQL Editor:
 
 ```sql
-alter table user_progress add constraint user_progress_user_course_unique unique (user_id, course_id);
+-- Or run: supabase/migrations/20260702000000_add_progress_unique_constraints.sql
+alter table user_progress
+  add constraint user_progress_user_course_unique unique (user_id, course_id);
+
+alter table vocab_memory
+  add constraint vocab_memory_user_vocab_unique unique (user_id, vocab_item_id);
 ```
 
-(Skip if you get "already exists".)
+(Skip any statement that errors with "already exists".)
 
 ## Tech Stack
 
