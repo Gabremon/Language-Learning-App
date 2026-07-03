@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { InkPanel } from "@/components/ui/ink-shell";
+import { demoLessonPath } from "@/lib/demo";
 
 export default function Error({
   error,
@@ -23,14 +25,20 @@ export default function Error({
         </div>
         <h1 className="text-lg font-bold text-stone-800">Something went wrong</h1>
         <p className="mt-2 text-sm text-stone-600">
-          The page failed to load. This often happens when the dev server cache gets stuck after a
-          code change.
+          The page failed to load. You can retry, head home, or try the free demo lesson.
         </p>
         <div className="mt-4 flex flex-col gap-2">
           <Button onClick={() => reset()}>Try again</Button>
-          <Button variant="secondary" onClick={() => window.location.assign("/dashboard")}>
-            Back to trail
-          </Button>
+          <Link href={demoLessonPath()}>
+            <Button variant="secondary" className="w-full">
+              Try demo lesson
+            </Button>
+          </Link>
+          <Link href="/">
+            <Button variant="ghost" className="w-full">
+              Back to home
+            </Button>
+          </Link>
         </div>
         {process.env.NODE_ENV === "development" && error.message && (
           <p className="mt-4 break-all text-left text-[10px] text-stone-400">{error.message}</p>

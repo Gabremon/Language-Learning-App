@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { APP_NAME } from "@/lib/brand";
+import { demoLessonPath } from "@/lib/demo";
 import {
   LessonPreviewCard,
   MarketingFeatureList,
   MarketingHeroPanel,
   MarketingNav,
 } from "@/components/marketing/MarketingShell";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 
 export default function LandingPage() {
   return (
@@ -18,26 +19,39 @@ export default function LandingPage() {
         <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
           <div className="animate-slide-up space-y-8">
             <MarketingHeroPanel>
-              <Link href="/auth" className="mt-8 inline-flex">
-                <Button
-                  size="lg"
-                  className="h-14 bg-white px-8 text-base font-bold text-brand-700 shadow-lg hover:bg-brand-50"
-                >
-                  Get started free
-                  <ArrowRight className="h-5 w-5" />
-                </Button>
-              </Link>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Link href={demoLessonPath()} className="inline-flex">
+                  <Button
+                    size="lg"
+                    className="h-14 bg-white px-8 text-base font-bold text-brand-700 shadow-lg hover:bg-brand-50"
+                  >
+                    <Play className="h-5 w-5" />
+                    Start demo lesson
+                  </Button>
+                </Link>
+                <Link href="/auth" className="inline-flex">
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="h-14 border-white/30 bg-white/15 px-8 text-base font-bold text-white backdrop-blur hover:bg-white/25"
+                  >
+                    Sign up to save progress
+                    <ArrowRight className="h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
             </MarketingHeroPanel>
           </div>
 
           <div className="animate-slide-up space-y-6 [animation-delay:80ms]">
             <LessonPreviewCard />
 
-            <div className="flex items-start gap-3 rounded-2xl border border-amber-200/80 bg-gradient-to-r from-amber-50 to-orange-50 px-4 py-3">
-              <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
+            <div className="flex items-start gap-3 rounded-2xl border border-brand-200/80 bg-gradient-to-r from-brand-50 to-violet-50 px-4 py-3">
+              <Play className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" />
               <p className="text-sm text-stone-600">
-                <span className="font-semibold text-stone-800">No credit card.</span> Sign in with
-                Google and your streak, XP, and review schedule sync everywhere.
+                <span className="font-semibold text-stone-800">No account needed to try.</span>{" "}
+                Play the first lesson instantly — sign in when you&apos;re ready to keep your streak
+                and XP.
               </p>
             </div>
           </div>
@@ -60,13 +74,17 @@ export default function LandingPage() {
           <MarketingFeatureList />
 
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
-            <Link href="/auth" className="w-full sm:w-auto">
+            <Link href={demoLessonPath()} className="w-full sm:w-auto">
               <Button size="lg" className="h-14 w-full px-10 shadow-lg sm:w-auto">
-                Start your first lesson
-                <ArrowRight className="h-5 w-5" />
+                <Play className="h-5 w-5" />
+                Start demo lesson
               </Button>
             </Link>
-            <p className="text-sm text-stone-400">Takes less than a minute to set up</p>
+            <Link href="/auth" className="w-full sm:w-auto">
+              <Button size="lg" variant="secondary" className="h-14 w-full px-8 sm:w-auto">
+                Sign up to save progress
+              </Button>
+            </Link>
           </div>
         </section>
       </main>

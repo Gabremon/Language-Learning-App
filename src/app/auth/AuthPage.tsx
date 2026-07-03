@@ -11,6 +11,7 @@ import {
   MarketingNav,
 } from "@/components/marketing/MarketingShell";
 import { APP_MARK, APP_NAME, APP_TAGLINE } from "@/lib/brand";
+import { demoLessonPath } from "@/lib/demo";
 import { CheckCircle2 } from "lucide-react";
 
 function getErrorMessage(error: string | null, description: string | null): string | null {
@@ -153,6 +154,13 @@ export default function AuthPage() {
             )}
 
             <GoogleSignInButton loading={loading} onClick={signInWithGoogle} />
+
+            <Link
+              href={demoLessonPath()}
+              className="mt-4 block text-center text-sm font-semibold text-brand-600 transition hover:text-brand-700"
+            >
+              Try demo lesson first — no sign-in needed
+            </Link>
 
             <p className="mt-4 text-center text-xs leading-relaxed text-stone-400">
               We only use your account to save learning progress. No spam, no upsells.

@@ -5,7 +5,7 @@ import { InkPanel } from "@/components/ui/ink-shell";
 import { Badge } from "@/components/ui/badge";
 import type { Lesson } from "@/types/course";
 import Link from "next/link";
-import { Star } from "lucide-react";
+import { Star, ArrowRight } from "lucide-react";
 
 interface Props {
   lesson: Lesson | null;
@@ -14,6 +14,7 @@ interface Props {
   total: number;
   xpGained: number;
   missedCount?: number;
+  isGuest?: boolean;
 }
 
 export function LessonComplete({
@@ -23,6 +24,7 @@ export function LessonComplete({
   total,
   xpGained,
   missedCount = 0,
+  isGuest = false,
 }: Props) {
   const pct = Math.round((score / total) * 100);
   const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : pct >= 50 ? 1 : 0;
@@ -35,9 +37,14 @@ export function LessonComplete({
       </div>
       <div>
         <h1 className="text-2xl font-bold text-stone-800">
-          {perfectFirstTry ? "Perfect lesson!" : "Step complete"}
+          {perfectFirstTry ? "Perfect lesson!" : isGuest ? "Demo complete!" : "Step complete"}
         </h1>
         <p className="text-sm text-stone-500">{lesson?.title}</p>
+        {isGuest && (
+          <p className="mt-2 text-sm text-brand-700">
+            Sign in to save your XP and pick up where you left off.
+          </p>
+        )}
       </div>
 
       <InkPanel className="p-5" tint="#FEF3C7">
@@ -61,21 +68,30 @@ export function LessonComplete({
           </p>
         )}
         <Badge variant="accent" className="mt-3 px-4 py-1 text-sm font-bold">
-          +{xpGained} XP
+          +{xpGained} XP{isGuest ? " (demo)" : ""}
         </Badge>
       </InkPanel>
 
       <div className="flex flex-col gap-2">
-        {nextLesson && (
-          <Link href={`/lesson/${nextLesson.id}`}>
-            <Button size="lg" className="w-full">
-              Next: {nextLesson.title}
+        {isGuest ? (
+          <Link href="/auth">
+            <Button size="lg" className="w-full gap-2">
+              Sign up to save progress
+              <ArrowRight className="h-5 w-5" />
             </Button>
           </Link>
+        ) : (
+          nextLesson && (
+            <Link href={`/lesson/${nextLesson.id}`}>
+              <Button size="lg" className="w-full">
+                Next: {nextLesson.title}
+              </Button>
+            </Link>
+          )
         )}
-        <Link href="/dashboard">
+        <Link href={isGuest ? "/" : "/dashboard"}>
           <Button variant="secondary" size="lg" className="w-full">
-            Back to trail
+            {isGuest ? "Back to home" : "Back to trail"}
           </Button>
         </Link>
       </div>

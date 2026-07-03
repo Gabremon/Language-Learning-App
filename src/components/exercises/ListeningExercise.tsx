@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { VocabIllustration } from "@/components/ui/VocabIllustration";
-import { PinyinDisplay } from "@/components/ui/PinyinDisplay";
 import { AudioButton } from "@/components/ui/AudioButton";
 import { speakMandarin } from "@/lib/speech";
 import type { ListeningPayload } from "@/types/exercises";
@@ -37,9 +36,6 @@ export function ListeningExercise({ payload, selected, onSelect, disabled }: Pro
         <p className="text-center text-xs text-stone-400">
           Uses your browser&apos;s Mandarin voice — tap replay if audio sounds unclear
         </p>
-        {payload.pinyin && !disabled && (
-          <PinyinDisplay pinyin={payload.pinyin} size="md" className="opacity-0" />
-        )}
       </div>
       <div className="grid gap-3">
         {payload.options.map((option, index) => (

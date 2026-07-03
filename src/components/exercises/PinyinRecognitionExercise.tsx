@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { VocabIllustration } from "@/components/ui/VocabIllustration";
+import { PinyinDisplay } from "@/components/ui/PinyinDisplay";
 import { AudioButton } from "@/components/ui/AudioButton";
 import type { PinyinRecognitionPayload } from "@/types/exercises";
 import { cn } from "@/lib/utils";
@@ -40,7 +41,7 @@ export function PinyinRecognitionExercise({ payload, selected, onSelect, disable
             onClick={() => onSelect(option)}
             disabled={disabled}
           >
-            {option}
+            <PinyinDisplay pinyin={option} size="md" className="justify-start" />
           </Button>
         ))}
       </div>

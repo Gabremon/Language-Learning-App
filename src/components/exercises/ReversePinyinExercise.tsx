@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { PinyinDisplay } from "@/components/ui/PinyinDisplay";
 import type { ReversePinyinPayload } from "@/types/exercises";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +15,7 @@ interface Props {
 export function ReversePinyinExercise({ payload, selected, onSelect, disabled }: Props) {
   return (
     <div className="space-y-6">
-      <p className="text-center text-4xl font-bold text-brand-600">{payload.pinyin}</p>
+      <PinyinDisplay pinyin={payload.pinyin} size="lg" />
       <p className="text-center text-gray-600">Which hanzi matches this pronunciation?</p>
       <div className="grid grid-cols-2 gap-3">
         {payload.options.map((option, index) => (

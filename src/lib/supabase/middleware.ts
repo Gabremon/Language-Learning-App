@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { DEMO_LESSON_ID } from "@/lib/demo";
 import { getSupabaseAnonKey, getSupabaseUrl } from "@/lib/supabase/env";
 
 export async function updateSession(request: NextRequest) {
@@ -29,11 +30,12 @@ export async function updateSession(request: NextRequest) {
   const isAuthCallback = pathname === "/auth/callback";
 
   const protectedPrefixes = ["/dashboard", "/course", "/practice", "/review", "/vocabulary", "/profile", "/lesson"];
+  const isDemoLessonRoute = pathname === `/lesson/${DEMO_LESSON_ID}`;
   const isProtected = protectedPrefixes.some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`)
   );
 
-  if (!user && isProtected) {
+  if (!user && isProtected && !isDemoLessonRoute) {
     const url = request.nextUrl.clone();
     url.pathname = "/auth";
     url.searchParams.set("next", pathname);

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { APP_MARK, APP_NAME, APP_TAGLINE } from "@/lib/brand";
+import { demoLessonPath } from "@/lib/demo";
 import { cn } from "@/lib/utils";
 import { BookOpen, Brain, Headphones, RotateCcw } from "lucide-react";
 
@@ -66,12 +67,20 @@ export function MarketingNav() {
           </p>
         </div>
       </Link>
-      <Link
-        href="/auth"
-        className="rounded-xl border border-stone-200 bg-white px-4 py-2 text-sm font-semibold text-stone-700 shadow-sm transition hover:border-brand-200 hover:text-brand-700"
-      >
-        Sign in
-      </Link>
+      <div className="flex items-center gap-2">
+        <Link
+          href={demoLessonPath()}
+          className="hidden rounded-xl border border-brand-200 bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700 shadow-sm transition hover:bg-brand-100 sm:inline-flex"
+        >
+          Try demo
+        </Link>
+        <Link
+          href="/auth"
+          className="rounded-xl border border-stone-200 bg-white px-4 py-2 text-sm font-semibold text-stone-700 shadow-sm transition hover:border-brand-200 hover:text-brand-700"
+        >
+          Sign in
+        </Link>
+      </div>
     </header>
   );
 }
@@ -89,11 +98,11 @@ export function MarketingHeroPanel({ children }: { children?: ReactNode }) {
           {APP_TAGLINE}
         </p>
         <h1 className="mt-2 max-w-md text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
-          Learn Mandarin from the ground up
+          Learn Mandarin through fast exercises
         </h1>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-brand-50/90 sm:text-base">
-          Short daily lessons, a visual course path, and spaced review — designed so you keep
-          coming back and building real fluency.
+          Short, rapid-fire drills for pinyin, hanzi, and listening — try a free lesson now, then
+          sign in to save your progress.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-6">
@@ -134,15 +143,18 @@ export function MarketingFeatureList() {
 
 export function LessonPreviewCard() {
   return (
-    <div className="rounded-2xl border border-stone-200/80 bg-white p-5 shadow-lg ring-1 ring-stone-100">
+    <Link
+      href={demoLessonPath()}
+      className="block rounded-2xl border border-stone-200/80 bg-white p-5 shadow-lg ring-1 ring-stone-100 transition hover:border-brand-200 hover:shadow-xl"
+    >
       <div className="flex items-center justify-between">
         <p className="text-[10px] font-bold uppercase tracking-wider text-brand-600">Try a lesson</p>
         <span className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700">
-          Free
+          Free demo
         </span>
       </div>
       <p className="mt-4 text-center text-5xl font-bold text-brand-800">你好</p>
-      <p className="mt-1 text-center text-sm text-stone-400">nǐ hǎo</p>
+      <p className="mt-1 text-center text-sm text-stone-500">nǐ hǎo</p>
       <p className="mt-4 text-center text-sm font-medium text-stone-600">What does this mean?</p>
       <div className="mt-3 grid gap-2">
         {["hello", "goodbye", "thank you"].map((option, i) => (
@@ -159,6 +171,7 @@ export function LessonPreviewCard() {
           </div>
         ))}
       </div>
-    </div>
+      <p className="mt-4 text-center text-xs font-semibold text-brand-600">Tap to start →</p>
+    </Link>
   );
 }

@@ -7,6 +7,7 @@ import { ExerciseFeedback } from "@/components/exercises/ExerciseFeedback";
 import { LessonComplete } from "@/components/lesson/LessonComplete";
 import { LessonPhaseBar } from "@/components/lesson/LessonPhaseBar";
 import { MissedConceptsPanel } from "@/components/lesson/MissedConceptsPanel";
+import { AuthProgressPrompt } from "@/components/errors/AuthProgressPrompt";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,6 +15,7 @@ import { Badge } from "@/components/ui/badge";
 import { checkExerciseAnswer } from "@/lib/exercise-checker";
 import { getRelatedVocab, recordMiss, type MissedExerciseRecord } from "@/lib/exercise-vocab";
 import { getVocabMemory } from "@/lib/progress";
+import { loadGuestProgress } from "@/lib/guest-progress";
 import { updateVocabMemoryOnReview } from "@/lib/srs";
 import { useProgress } from "@/contexts/ProgressContext";
 import type { Lesson, VocabItem } from "@/types/course";
@@ -27,6 +29,7 @@ interface Props {
   exercises: BaseExercise[];
   lessonVocab: VocabItem[];
   nextLesson: Lesson | null;
+  allowGuest?: boolean;
 }
 
 type LessonPhase = "main" | "review" | "concepts";
@@ -44,10 +47,18 @@ function isAnswerReady(exercise: BaseExercise, answer: UserAnswer | null): boole
   return true;
 }
 
-export function LessonPlayer({ lesson, exercises, lessonVocab, nextLesson }: Props) {
+export function LessonPlayer({
+  lesson,
+  exercises,
+  lessonVocab,
+  nextLesson,
+  allowGuest = false,
+}: Props) {
   const router = useRouter();
-  const { progress, loading, updateVocabMemories, completeLesson } = useProgress();
+  const { progress, loading, isGuest, updateVocabMemories, completeLesson } = useProgress();
   const lessonId = lesson?.id ?? "";
+  const exitHref = isGuest ? "/" : "/dashboard";
+  const activeProgress = progress ?? (allowGuest ? loadGuestProgress() : null);
 
   const [phase, setPhase] = useState<LessonPhase>("main");
   const [index, setIndex] = useState(0);
@@ -80,7 +91,7 @@ export function LessonPlayer({ lesson, exercises, lessonVocab, nextLesson }: Pro
   }, []);
 
   const handleSubmit = useCallback(async () => {
-    if (!exercise || answer === null || !progress) return;
+    if (!exercise || answer === null || !activeProgress) return;
     const checkResult = checkExerciseAnswer(exercise, answer);
     setResult(checkResult);
 
@@ -92,7 +103,7 @@ export function LessonPlayer({ lesson, exercises, lessonVocab, nextLesson }: Pro
 
     const related = getRelatedVocab(exercise, lessonVocab);
     const memories = related.map((v) => {
-      const memory = getVocabMemory(progress, v.id);
+      const memory = getVocabMemory(activeProgress, v.id);
       return updateVocabMemoryOnReview(memory, checkResult.isCorrect);
     });
     await updateVocabMemories(memories);
@@ -108,7 +119,7 @@ export function LessonPlayer({ lesson, exercises, lessonVocab, nextLesson }: Pro
   }, [
     exercise,
     answer,
-    progress,
+    activeProgress,
     lessonVocab,
     firstTrySeen,
     phase,
@@ -180,11 +191,14 @@ export function LessonPlayer({ lesson, exercises, lessonVocab, nextLesson }: Pro
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [result, exercise, answer, handleSubmit, handleContinue, saving]);
 
-  if (loading || !progress) {
+  const canPlay = Boolean(activeProgress) && (allowGuest || !loading);
+
+  if (!canPlay) {
     return (
-      <div className="flex min-h-[50vh] items-center justify-center">
-        <p className="text-gray-500">Loading lesson...</p>
-      </div>
+      <AuthProgressPrompt
+        compact
+        message="We couldn't load your lesson progress. Try the demo or sign in to continue."
+      />
     );
   }
 
@@ -192,7 +206,7 @@ export function LessonPlayer({ lesson, exercises, lessonVocab, nextLesson }: Pro
     return (
       <div className="flex min-h-[50vh] flex-col items-center justify-center gap-4">
         <p className="text-gray-500">Lesson not found or has no exercises.</p>
-        <Button onClick={() => router.push("/dashboard")}>Back to dashboard</Button>
+        <Button onClick={() => router.push(exitHref)}>Go back</Button>
       </div>
     );
   }
@@ -201,11 +215,12 @@ export function LessonPlayer({ lesson, exercises, lessonVocab, nextLesson }: Pro
     return (
       <LessonComplete
         lesson={lesson}
-        nextLesson={nextLesson}
+        nextLesson={isGuest ? null : nextLesson}
         score={firstTryCorrect}
         total={exercises.length}
         xpGained={xpGained}
         missedCount={missedLog.length}
+        isGuest={isGuest}
       />
     );
   }
@@ -224,7 +239,7 @@ export function LessonPlayer({ lesson, exercises, lessonVocab, nextLesson }: Pro
         <MissedConceptsPanel vocab={struggledVocab} />
 
         <Button size="lg" className="w-full" disabled={saving} onClick={() => finishLesson()}>
-          {saving ? "Saving..." : "Finish lesson"}
+          {saving ? "Saving..." : isGuest ? "Finish demo" : "Finish lesson"}
         </Button>
       </div>
     );
@@ -238,9 +253,18 @@ export function LessonPlayer({ lesson, exercises, lessonVocab, nextLesson }: Pro
 
   return (
     <div className="mx-auto max-w-2xl space-y-4">
+      {isGuest && (
+        <div className="rounded-xl border border-brand-200 bg-brand-50 px-3 py-2 text-center text-sm text-brand-800">
+          Demo mode —{" "}
+          <Link href="/auth" className="font-semibold underline hover:text-brand-900">
+            sign in to save progress
+          </Link>
+        </div>
+      )}
+
       <div className="flex items-center gap-4">
         <Link
-          href="/dashboard"
+          href={exitHref}
           className="rounded-full p-1 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600"
         >
           <X className="h-6 w-6" />

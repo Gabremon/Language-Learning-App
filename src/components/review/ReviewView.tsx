@@ -11,6 +11,7 @@ import { getVocabMemory } from "@/lib/progress";
 import { isDueForReview, updateVocabMemoryOnReview } from "@/lib/srs";
 import { matchesEnglishAnswer } from "@/lib/exercise-checker";
 import { speakMandarin } from "@/lib/speech";
+import { AuthProgressPrompt } from "@/components/errors/AuthProgressPrompt";
 import { useProgress } from "@/contexts/ProgressContext";
 import { Input } from "@/components/ui/input";
 import { Volume2 } from "lucide-react";
@@ -27,7 +28,7 @@ interface Props {
 }
 
 export function ReviewView({ vocabItems }: Props) {
-  const { progress, loading, applyReviewUpdate } = useProgress();
+  const { progress, loading, error, retryLoad, applyReviewUpdate } = useProgress();
   const [items, setItems] = useState<ReviewItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answer, setAnswer] = useState("");
@@ -105,11 +106,29 @@ export function ReviewView({ vocabItems }: Props) {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [result, answer, handleCheck, handleContinue]);
 
-  if (loading || !progress || !itemsReady) {
+  if (loading) {
     return (
       <AppShell>
         <div className="flex min-h-[40vh] items-center justify-center">
           <p className="text-sm text-stone-500">Loading review...</p>
+        </div>
+      </AppShell>
+    );
+  }
+
+  if (!progress) {
+    return (
+      <AppShell>
+        <AuthProgressPrompt error={error} onRetry={retryLoad} />
+      </AppShell>
+    );
+  }
+
+  if (!itemsReady) {
+    return (
+      <AppShell>
+        <div className="flex min-h-[40vh] items-center justify-center">
+          <p className="text-sm text-stone-500">Preparing review...</p>
         </div>
       </AppShell>
     );

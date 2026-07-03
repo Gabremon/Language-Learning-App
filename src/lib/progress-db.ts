@@ -3,8 +3,10 @@ import type { UserProgress, LessonAttempt } from "@/lib/progress";
 import type { VocabMemory } from "@/lib/srs";
 import { createInitialVocabMemory } from "@/lib/srs";
 
+import { DEMO_LESSON_ID } from "@/lib/demo";
+
 export const DEFAULT_COURSE_ID = "course-mandarin-1";
-export const DEFAULT_LESSON_ID = "lesson-sa-1";
+export const DEFAULT_LESSON_ID = DEMO_LESSON_ID;
 
 const EMPTY_PROGRESS: UserProgress = {
   xp: 0,

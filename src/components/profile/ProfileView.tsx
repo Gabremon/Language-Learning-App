@@ -6,6 +6,7 @@ import { InkPageHeader, InkPanel, InkProgress, InkStat } from "@/components/ui/i
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getAllVocabMemories } from "@/lib/progress";
+import { AuthProgressPrompt } from "@/components/errors/AuthProgressPrompt";
 import { useProgress } from "@/contexts/ProgressContext";
 import { createClient } from "@/lib/supabase/client";
 import { COURSE_TITLE, LESSON_COUNT } from "@/data/starter-hsk1/constants";
@@ -25,7 +26,7 @@ function ProfileSkeleton() {
 }
 
 export function ProfileView() {
-  const { user, progress, loading, resetProgress, signOut } = useProgress();
+  const { user, progress, loading, error, retryLoad, resetProgress, signOut } = useProgress();
   const [lessonTitles, setLessonTitles] = useState<Record<string, string>>({});
 
   useEffect(() => {
@@ -69,8 +70,10 @@ export function ProfileView() {
           />
         </div>
 
-        {loading || !progress ? (
+        {loading ? (
           <ProfileSkeleton />
+        ) : !progress ? (
+          <AuthProgressPrompt error={error} onRetry={retryLoad} />
         ) : (
           <>
             <div className="grid grid-cols-2 gap-2">

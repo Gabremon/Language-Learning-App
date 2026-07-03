@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { AppShell } from "@/components/layout/AppShell";
 import { DashboardSkeleton } from "@/components/dashboard/DashboardSkeleton";
+import { AuthProgressPrompt } from "@/components/errors/AuthProgressPrompt";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -23,12 +24,20 @@ interface Props {
 
 export function DashboardView({ catalog }: Props) {
   const { course, units, lessons } = catalog;
-  const { progress, loading, getAllMemories } = useProgress();
+  const { progress, loading, error, retryLoad, getAllMemories } = useProgress();
 
-  if (loading || !progress) {
+  if (loading) {
     return (
       <AppShell variant="paper">
         <DashboardSkeleton />
+      </AppShell>
+    );
+  }
+
+  if (!progress) {
+    return (
+      <AppShell variant="paper">
+        <AuthProgressPrompt error={error} onRetry={retryLoad} />
       </AppShell>
     );
   }
