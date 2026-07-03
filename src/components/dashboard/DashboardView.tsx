@@ -10,6 +10,7 @@ import type { CourseCatalog } from "@/lib/course-utils";
 import { getActiveUnit, getLessonsForUnit, isLessonUnlocked } from "@/lib/course-utils";
 import { getDueReviewCount } from "@/lib/srs";
 import { useProgress } from "@/contexts/ProgressContext";
+import { APP_NAME } from "@/lib/brand";
 import { Flame, Star, RotateCcw, ChevronRight, Sparkles, Map } from "lucide-react";
 import { COURSE_SECTIONS, getUnitsForSection } from "@/data/course-content";
 import { SECTION_STYLES } from "@/lib/unit-themes";
@@ -56,13 +57,13 @@ export function DashboardView({ catalog }: Props) {
     <AppShell variant="paper">
       <div className="space-y-4">
         <header className="relative overflow-hidden rounded-2xl border border-brand-200/50 bg-gradient-to-br from-brand-500 via-brand-600 to-violet-700 p-4 text-white shadow-lg">
-          <div className="pointer-events-none absolute -right-2 -top-4 text-7xl font-bold opacity-10">墨</div>
+          <div className="pointer-events-none absolute -right-2 -top-4 text-7xl font-bold opacity-10">环</div>
           <div className="relative flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-xl border-2 border-white/30 bg-white/15 text-xl font-bold backdrop-blur">
-              汉
+              环
             </div>
             <div className="min-w-0 flex-1">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-brand-100/80">Ink Trail</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-brand-100/80">{APP_NAME}</p>
               <h1 className="text-lg font-bold">{course.title}</h1>
               <p className="text-xs text-brand-100">
                 {completedCount}/{totalLessons} steps · {Math.round((completedCount / totalLessons) * 100)}%
@@ -111,32 +112,19 @@ export function DashboardView({ catalog }: Props) {
 
         <MiniTrail unit={activeUnit} items={miniTrailItems} remainingCount={remainingInUnit} />
 
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-          {dueReviews > 0 && (
-            <Link href="/review">
-              <Card className="border-0 bg-white/80 shadow-sm ring-1 ring-violet-100 transition hover:shadow-md">
-                <CardContent className="flex items-center justify-between p-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg">🔄</span>
-                    <span className="text-sm font-semibold text-stone-800">Review {dueReviews}</span>
-                  </div>
-                  <ChevronRight className="h-4 w-4 text-violet-400" />
-                </CardContent>
-              </Card>
-            </Link>
-          )}
-          <Link href="/practice" className={dueReviews === 0 ? "sm:col-span-2" : ""}>
-            <Card className="border-0 bg-white/80 shadow-sm ring-1 ring-emerald-100 transition hover:shadow-md">
+        {dueReviews > 0 && (
+          <Link href="/review">
+            <Card className="border-0 bg-white/80 shadow-sm ring-1 ring-violet-100 transition hover:shadow-md">
               <CardContent className="flex items-center justify-between p-3">
-                <div>
-                  <span className="text-sm font-semibold text-stone-800">Guided practice</span>
-                  <p className="text-[10px] text-stone-500">Step-by-step daily session</p>
+                <div className="flex items-center gap-2">
+                  <span className="text-lg">🔄</span>
+                  <span className="text-sm font-semibold text-stone-800">Review {dueReviews} words</span>
                 </div>
-                <ChevronRight className="h-4 w-4 text-emerald-400" />
+                <ChevronRight className="h-4 w-4 text-violet-400" />
               </CardContent>
             </Card>
           </Link>
-        </div>
+        )}
 
         <div className="space-y-2">
           <div className="flex items-center justify-between">

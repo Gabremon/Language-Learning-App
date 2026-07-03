@@ -34,6 +34,9 @@ export function ListeningExercise({ payload, selected, onSelect, disabled }: Pro
         </div>
         <AudioButton text={payload.hanzi} size="lg" />
         <p className="text-sm font-medium text-violet-600">Listen carefully, then choose the meaning</p>
+        <p className="text-center text-xs text-stone-400">
+          Uses your browser&apos;s Mandarin voice — tap replay if audio sounds unclear
+        </p>
         {payload.pinyin && !disabled && (
           <PinyinDisplay pinyin={payload.pinyin} size="md" className="opacity-0" />
         )}

@@ -2,13 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Home, RotateCcw, User, Library, Dumbbell } from "lucide-react";
+import { BookOpen, Home, RotateCcw, User, Library } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/dashboard", label: "Learn", icon: Home, glyph: "学" },
   { href: "/course", label: "Path", icon: BookOpen, glyph: "径" },
-  { href: "/practice", label: "Practice", icon: Dumbbell, glyph: "练" },
   { href: "/review", label: "Review", icon: RotateCcw, glyph: "复" },
   { href: "/vocabulary", label: "Words", icon: Library, glyph: "词" },
   { href: "/profile", label: "Profile", icon: User, glyph: "我" },

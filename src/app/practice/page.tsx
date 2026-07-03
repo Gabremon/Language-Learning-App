@@ -1,5 +1,6 @@
-import { PracticeView } from "@/components/practice/PracticeView";
+import { redirect } from "next/navigation";
 
+/** Guided practice is local-only for now — hidden until synced to Supabase. */
 export default function PracticePage() {
-  return <PracticeView />;
+  redirect("/dashboard");
 }

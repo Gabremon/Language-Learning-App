@@ -6,8 +6,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Hanzi Path — Learn Mandarin",
-  description: "A Duolingo-style app to learn Mandarin Chinese through rapid exercises",
+  title: "Lexloop — Learn Mandarin",
+  description: "Bite-sized Mandarin lessons, spaced review, and a visual HSK 1 learning path",
   manifest: "/manifest.json",
 };
 

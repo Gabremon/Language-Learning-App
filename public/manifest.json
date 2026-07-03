@@ -1,7 +1,7 @@
 {
-  "name": "Hanzi Path",
-  "short_name": "Hanzi Path",
-  "description": "Learn Mandarin Chinese through rapid exercises",
+  "name": "Lexloop",
+  "short_name": "Lexloop",
+  "description": "Learn Mandarin Chinese through bite-sized lessons and spaced review",
   "start_url": "/dashboard",
   "display": "standalone",
   "background_color": "#f0f9ff",

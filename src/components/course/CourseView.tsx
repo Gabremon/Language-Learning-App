@@ -10,6 +10,7 @@ import { SectionScroll } from "@/components/course/ink-trail/SectionScroll";
 import { UnitTrail } from "@/components/course/ink-trail/UnitTrail";
 import { Button } from "@/components/ui/button";
 import { InkPanel } from "@/components/ui/ink-shell";
+import { APP_NAME } from "@/lib/brand";
 import { useEffect, useMemo, useState } from "react";
 
 interface Props {
@@ -44,7 +45,7 @@ export function CourseView({ catalog }: Props) {
     <AppShell variant="paper">
       <div className="space-y-5">
         <header>
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-400">墨径 · Ink Trail</p>
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-400">{APP_NAME}</p>
           <h1 className="text-xl font-bold text-stone-800">Learning path</h1>
           <p className="text-sm text-stone-500">
             {units.length} seals · {lessons.length} steps

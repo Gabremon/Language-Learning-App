@@ -1,4 +1,4 @@
--- Hanzi Path — full Supabase setup (schema + seed + RLS)
+-- Lexloop — full Supabase setup (schema + seed + RLS)
 -- Generated from src/data/base-seed.ts — run: npm run db:generate-seed
 -- WARNING: Drops ALL tables in the public schema before recreating. All public data is lost.
 

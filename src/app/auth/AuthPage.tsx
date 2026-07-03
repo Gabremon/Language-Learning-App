@@ -6,6 +6,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { APP_NAME } from "@/lib/brand";
 
 function getErrorMessage(error: string | null, description: string | null): string | null {
   if (!error) return null;
@@ -76,10 +77,10 @@ export default function AuthPage() {
       <Card className="w-full max-w-md border-stone-200/70 bg-white/90 shadow-xl backdrop-blur">
         <CardContent className="space-y-6 pt-8 text-center">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-xl border-2 border-brand-300 bg-brand-50 text-3xl font-bold text-brand-700">
-            汉
+            环
           </div>
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400">墨径 · Ink Trail</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400">{APP_NAME}</p>
             <h1 className="text-2xl font-bold text-stone-800">Welcome back</h1>
             <p className="mt-2 text-sm text-stone-500">Sign in to save progress across devices</p>
           </div>
