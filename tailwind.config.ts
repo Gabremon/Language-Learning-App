@@ -51,6 +51,7 @@ const config: Config = {
         "fade-in": "fadeIn 0.3s ease-out",
         "slide-up": "slideUp 0.3s ease-out",
         "bounce-in": "bounceIn 0.4s ease-out",
+        "ink-pulse": "inkPulse 2s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
@@ -65,6 +66,10 @@ const config: Config = {
           "0%": { transform: "scale(0.9)", opacity: "0" },
           "50%": { transform: "scale(1.02)" },
           "100%": { transform: "scale(1)", opacity: "1" },
+        },
+        inkPulse: {
+          "0%, 100%": { transform: "scale(1) rotate(-2deg)", boxShadow: "0 2px 6px -1px rgba(28,25,23,0.18)" },
+          "50%": { transform: "scale(1.06) rotate(0deg)", boxShadow: "0 4px 14px -2px rgba(28,25,23,0.28)" },
         },
       },
     },

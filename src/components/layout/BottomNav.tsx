@@ -6,12 +6,12 @@ import { BookOpen, Home, RotateCcw, User, Library, Dumbbell } from "lucide-react
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "/dashboard", label: "Learn", icon: Home },
-  { href: "/course", label: "Path", icon: BookOpen },
-  { href: "/practice", label: "Practice", icon: Dumbbell },
-  { href: "/review", label: "Review", icon: RotateCcw },
-  { href: "/vocabulary", label: "Words", icon: Library },
-  { href: "/profile", label: "Profile", icon: User },
+  { href: "/dashboard", label: "Learn", icon: Home, glyph: "学" },
+  { href: "/course", label: "Path", icon: BookOpen, glyph: "径" },
+  { href: "/practice", label: "Practice", icon: Dumbbell, glyph: "练" },
+  { href: "/review", label: "Review", icon: RotateCcw, glyph: "复" },
+  { href: "/vocabulary", label: "Words", icon: Library, glyph: "词" },
+  { href: "/profile", label: "Profile", icon: User, glyph: "我" },
 ];
 
 export function BottomNav() {
@@ -20,20 +20,33 @@ export function BottomNav() {
   if (pathname === "/" || pathname.startsWith("/lesson/") || pathname.startsWith("/auth")) return null;
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-brand-100 bg-white/95 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-lg items-center justify-around px-2 py-2">
-        {navItems.map(({ href, label, icon: Icon }) => {
+    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-stone-200/80 bg-[#faf8f5]/95 backdrop-blur-md">
+      <div className="mx-auto flex max-w-lg items-center justify-around px-1 py-1.5">
+        {navItems.map(({ href, label, icon: Icon, glyph }) => {
           const active = pathname === href || pathname.startsWith(href + "/");
           return (
             <Link
               key={href}
               href={href}
               className={cn(
-                "flex flex-col items-center gap-0.5 rounded-xl px-3 py-2 text-xs font-medium transition",
-                active ? "text-brand-600" : "text-gray-400 hover:text-brand-500"
+                "flex flex-col items-center gap-0.5 rounded-xl px-2 py-1.5 text-[10px] font-semibold transition",
+                active ? "text-brand-700" : "text-stone-400 hover:text-brand-600"
               )}
             >
-              <Icon className={cn("h-5 w-5", active && "stroke-[2.5]")} />
+              <span
+                className={cn(
+                  "flex h-8 w-8 items-center justify-center rounded-lg border transition",
+                  active
+                    ? "border-brand-300/60 bg-white text-brand-700 shadow-sm ink-trail-shadow"
+                    : "border-transparent bg-transparent"
+                )}
+              >
+                {active ? (
+                  <span className="text-sm font-bold">{glyph}</span>
+                ) : (
+                  <Icon className="h-4 w-4" />
+                )}
+              </span>
               {label}
             </Link>
           );

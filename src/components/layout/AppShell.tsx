@@ -1,9 +1,23 @@
-import { BottomNav } from "@/components/layout/BottomNav";
+"use client";
 
-export function AppShell({ children }: { children: React.ReactNode }) {
+import { BottomNav } from "@/components/layout/BottomNav";
+import { cn } from "@/lib/utils";
+
+export function AppShell({
+  children,
+  variant = "paper",
+}: {
+  children: React.ReactNode;
+  variant?: "default" | "paper";
+}) {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-brand-50 to-white pb-20">
-      <main className="mx-auto max-w-2xl px-4 py-6">{children}</main>
+    <div
+      className={cn(
+        "min-h-screen pb-20",
+        variant === "paper" ? "bg-paper" : "bg-gradient-to-b from-brand-50 to-white"
+      )}
+    >
+      <main className="mx-auto max-w-2xl px-3 py-4 sm:px-4">{children}</main>
       <BottomNav />
     </div>
   );

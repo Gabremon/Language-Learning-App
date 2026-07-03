@@ -1,5 +1,6 @@
 import "server-only";
 
+import { cache } from "react";
 import type { Course, Lesson, VocabItem } from "@/types/course";
 import type { BaseExercise, ExercisePayload } from "@/types/exercises";
 import type { CourseCatalog, LessonBundle } from "@/lib/course-utils";
@@ -100,7 +101,7 @@ function mapExercise(row: {
   };
 }
 
-export async function getCourseCatalog(): Promise<CourseCatalog> {
+export const getCourseCatalog = cache(async function getCourseCatalog(): Promise<CourseCatalog> {
   requireSupabase();
   const supabase = await createClient();
 
@@ -134,7 +135,7 @@ export async function getCourseCatalog(): Promise<CourseCatalog> {
     units: (unitsRes.data ?? []).map(mapUnit),
     lessons: (lessonsRes.data ?? []).map(mapLesson),
   };
-}
+});
 
 export async function getAllVocab(): Promise<VocabItem[]> {
   requireSupabase();

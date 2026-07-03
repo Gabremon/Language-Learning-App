@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import Link from "next/link";
 import { AppShell } from "@/components/layout/AppShell";
+import { InkPageHeader, InkPanel, InkProgress } from "@/components/ui/ink-shell";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { ExerciseFeedback } from "@/components/exercises/ExerciseFeedback";
 import type { VocabItem } from "@/types/course";
 import { getVocabMemory } from "@/lib/progress";
@@ -14,7 +14,6 @@ import { speakMandarin } from "@/lib/speech";
 import { useProgress } from "@/contexts/ProgressContext";
 import { Input } from "@/components/ui/input";
 import { Volume2 } from "lucide-react";
-import Link from "next/link";
 
 interface ReviewItem {
   vocabId: string;
@@ -110,8 +109,8 @@ export function ReviewView({ vocabItems }: Props) {
   if (loading || !progress || !itemsReady) {
     return (
       <AppShell>
-        <div className="flex min-h-[50vh] items-center justify-center">
-          <p className="text-gray-500">Loading review...</p>
+        <div className="flex min-h-[40vh] items-center justify-center">
+          <p className="text-sm text-stone-500">Loading review...</p>
         </div>
       </AppShell>
     );
@@ -120,11 +119,14 @@ export function ReviewView({ vocabItems }: Props) {
   if (items.length === 0) {
     return (
       <AppShell>
-        <div className="flex min-h-[50vh] flex-col items-center justify-center gap-4 text-center">
-          <p className="text-2xl font-bold text-brand-800">All caught up!</p>
-          <p className="text-gray-500">No words due for review right now. Complete more lessons to build your vocabulary.</p>
+        <div className="flex min-h-[40vh] flex-col items-center justify-center gap-4 text-center">
+          <div className="flex h-14 w-14 items-center justify-center rounded-xl border-2 border-emerald-300 bg-emerald-50 text-xl font-bold text-emerald-600">
+            复
+          </div>
+          <p className="text-xl font-bold text-stone-800">All caught up!</p>
+          <p className="text-sm text-stone-500">No words due right now. Keep walking the trail.</p>
           <Link href="/dashboard">
-            <Button>Back to dashboard</Button>
+            <Button>Back to trail</Button>
           </Link>
         </div>
       </AppShell>
@@ -134,9 +136,14 @@ export function ReviewView({ vocabItems }: Props) {
   if (done) {
     return (
       <AppShell>
-        <div className="flex min-h-[50vh] flex-col items-center justify-center gap-4 text-center">
-          <p className="text-3xl font-bold text-brand-800">Review complete!</p>
-          <p className="text-gray-600">You got {score}/{items.length} correct</p>
+        <div className="flex min-h-[40vh] flex-col items-center justify-center gap-4 text-center">
+          <div className="flex h-16 w-16 items-center justify-center rounded-xl border-2 border-amber-300 bg-amber-50 text-2xl font-bold text-amber-600">
+            成
+          </div>
+          <p className="text-2xl font-bold text-stone-800">Review complete</p>
+          <p className="text-stone-600">
+            {score}/{items.length} correct
+          </p>
           <Link href="/dashboard">
             <Button size="lg">Continue learning</Button>
           </Link>
@@ -145,26 +152,32 @@ export function ReviewView({ vocabItems }: Props) {
     );
   }
 
+  const progressValue = ((currentIndex + (result ? 1 : 0)) / items.length) * 100;
+
   return (
     <AppShell>
-      <div className="mx-auto max-w-lg space-y-6">
-        <div>
-          <h1 className="text-2xl font-bold text-brand-800">Review</h1>
-          <p className="text-gray-500">Strengthen your vocabulary with spaced repetition</p>
-        </div>
+      <div className="space-y-4">
+        <InkPageHeader
+          eyebrow="复 · Spaced review"
+          title="Word recall"
+          subtitle="Type the English meaning from memory"
+          glyph="复"
+        />
 
-        <Progress value={((currentIndex + (result ? 1 : 0)) / items.length) * 100} />
+        <InkProgress value={progressValue} />
 
-        <Card>
-          <CardContent className="space-y-6 pt-6">
-            <p className="text-sm font-semibold uppercase text-brand-500">What does this mean?</p>
+        <InkPanel>
+          <div className="space-y-5 p-4">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-brand-600">
+              What does this mean?
+            </p>
             <div className="text-center">
-              <p className="text-6xl font-bold text-brand-800">{current.hanzi}</p>
+              <p className="text-5xl font-bold text-stone-800">{current.hanzi}</p>
               <button
                 onClick={() => speakMandarin(current.hanzi)}
-                className="mt-3 inline-flex items-center gap-2 text-brand-500 hover:text-brand-600"
+                className="mt-2 inline-flex items-center gap-1.5 text-sm text-brand-600 hover:text-brand-700"
               >
-                <Volume2 className="h-5 w-5" /> Listen
+                <Volume2 className="h-4 w-4" /> Listen
               </button>
             </div>
             <Input
@@ -179,6 +192,7 @@ export function ReviewView({ vocabItems }: Props) {
               }}
               disabled={!!result}
               autoFocus
+              className="border-stone-200 bg-white/80"
             />
             {result && (
               <ExerciseFeedback
@@ -189,17 +203,19 @@ export function ReviewView({ vocabItems }: Props) {
             )}
             <div className="flex justify-end">
               {!result ? (
-                <Button onClick={handleCheck} disabled={!answer.trim()} size="lg">Check</Button>
+                <Button onClick={handleCheck} disabled={!answer.trim()}>
+                  Check
+                </Button>
               ) : (
-                <Button onClick={handleContinue} size="lg" variant={result.isCorrect ? "success" : "default"}>
+                <Button onClick={handleContinue} variant={result.isCorrect ? "success" : "default"}>
                   Continue
                 </Button>
               )}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </InkPanel>
 
-        <p className="text-center text-sm text-gray-400">
+        <p className="text-center text-xs text-stone-400">
           {currentIndex + 1} of {items.length}
         </p>
       </div>

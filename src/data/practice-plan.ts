@@ -336,3 +336,71 @@ export function getActivityById(id: string): PracticeActivity | undefined {
 export function getWeeklyPlan(band: PracticeBand): WeeklyPracticePlan {
   return weeklyPlans.find((p) => p.band === band) ?? weeklyPlans[2];
 }
+
+/** Infer practice focus from course progress (Starter = first 20 lessons). */
+export function inferPracticeBand(completedLessonCount: number): PracticeBand {
+  if (completedLessonCount < 20) return "starter";
+  return "hsk1";
+}
+
+export interface GuidedStep {
+  id: string;
+  blockId: string;
+  blockLabel: string;
+  blockTitle: string;
+  activityId: string;
+  activityTitle: string;
+  activityDescription: string;
+  stepIndex: number;
+  stepText: string;
+  totalStepsInActivity: number;
+  href?: string;
+  category: PracticeCategory;
+  durationMinutes: number;
+  tips?: string[];
+}
+
+/** Flat ordered checklist for today's guided session. */
+export function getGuidedSteps(band: PracticeBand): GuidedStep[] {
+  const plan = getWeeklyPlan(band);
+  const steps: GuidedStep[] = [];
+
+  for (const block of plan.dailyBlocks) {
+    for (const activityId of block.activities) {
+      const activity = getActivityById(activityId);
+      if (!activity) continue;
+
+      activity.steps.forEach((stepText, stepIndex) => {
+        steps.push({
+          id: `${activityId}-${stepIndex}`,
+          blockId: block.id,
+          blockLabel: block.timeLabel,
+          blockTitle: block.title,
+          activityId,
+          activityTitle: activity.title,
+          activityDescription: activity.description,
+          stepIndex,
+          stepText,
+          totalStepsInActivity: activity.steps.length,
+          href: stepIndex === activity.steps.length - 1 ? activity.href : undefined,
+          category: activity.category,
+          durationMinutes: activity.durationMinutes,
+          tips: stepIndex === 0 ? activity.tips : undefined,
+        });
+      });
+    }
+  }
+
+  return steps;
+}
+
+export function getSessionSummary(band: PracticeBand) {
+  const plan = getWeeklyPlan(band);
+  const steps = getGuidedSteps(band);
+  return {
+    plan,
+    steps,
+    totalSteps: steps.length,
+    dailyMinutes: plan.dailyMinutes,
+  };
+}

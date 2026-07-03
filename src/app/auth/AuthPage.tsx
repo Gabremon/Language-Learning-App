@@ -65,22 +65,23 @@ export default function AuthPage() {
 
   if (checking) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-brand-50 to-white">
-        <p className="text-gray-500">Loading...</p>
+      <div className="flex min-h-screen items-center justify-center bg-paper">
+        <p className="text-sm text-stone-500">Loading...</p>
       </div>
     );
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-brand-500 via-brand-400 to-brand-600 px-6">
-      <Card className="w-full max-w-md shadow-xl">
+    <div className="flex min-h-screen items-center justify-center bg-paper px-6">
+      <Card className="w-full max-w-md border-stone-200/70 bg-white/90 shadow-xl backdrop-blur">
         <CardContent className="space-y-6 pt-8 text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-100 text-3xl font-bold text-brand-700">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-xl border-2 border-brand-300 bg-brand-50 text-3xl font-bold text-brand-700">
             汉
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-brand-800">Welcome to Hanzi Path</h1>
-            <p className="mt-2 text-gray-500">Sign in to save your progress across devices</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400">墨径 · Ink Trail</p>
+            <h1 className="text-2xl font-bold text-stone-800">Welcome back</h1>
+            <p className="mt-2 text-sm text-stone-500">Sign in to save progress across devices</p>
           </div>
 
           {errorMessage && (

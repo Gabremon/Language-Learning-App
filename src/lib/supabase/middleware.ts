@@ -28,7 +28,7 @@ export async function updateSession(request: NextRequest) {
   const isAuthPage = pathname === "/auth";
   const isAuthCallback = pathname === "/auth/callback";
 
-  const protectedPrefixes = ["/dashboard", "/course", "/review", "/vocabulary", "/profile", "/lesson"];
+  const protectedPrefixes = ["/dashboard", "/course", "/practice", "/review", "/vocabulary", "/profile", "/lesson"];
   const isProtected = protectedPrefixes.some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`)
   );

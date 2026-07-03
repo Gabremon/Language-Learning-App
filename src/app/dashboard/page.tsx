@@ -1,7 +1,16 @@
 import { DashboardView } from "@/components/dashboard/DashboardView";
-import { getCourseCatalog } from "@/lib/data/course";
+import { DataLoadError } from "@/components/errors/DataLoadError";
+import { AppShell } from "@/components/layout/AppShell";
+import { loadCourseCatalog } from "@/lib/data/load-course";
 
 export default async function DashboardPage() {
-  const catalog = await getCourseCatalog();
-  return <DashboardView catalog={catalog} />;
+  const result = await loadCourseCatalog();
+  if (!result.ok) {
+    return (
+      <AppShell>
+        <DataLoadError message={result.message} />
+      </AppShell>
+    );
+  }
+  return <DashboardView catalog={result.data} />;
 }

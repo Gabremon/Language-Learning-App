@@ -4,7 +4,7 @@ import type { VocabMemory } from "@/lib/srs";
 import { createInitialVocabMemory } from "@/lib/srs";
 
 export const DEFAULT_COURSE_ID = "course-mandarin-1";
-export const DEFAULT_LESSON_ID = "lesson-1-1";
+export const DEFAULT_LESSON_ID = "lesson-sa-1";
 
 const EMPTY_PROGRESS: UserProgress = {
   xp: 0,
@@ -15,6 +15,39 @@ const EMPTY_PROGRESS: UserProgress = {
   vocabMemory: {},
   lessonAttempts: [],
 };
+
+/** Ensure current_lesson_id references a real lesson (avoids FK errors after course migrations). */
+let cachedFirstLessonId: string | null | undefined;
+
+async function resolveCurrentLessonId(
+  supabase: SupabaseClient,
+  currentLessonId: string | null | undefined
+): Promise<string | null> {
+  if (currentLessonId) {
+    const { data, error } = await supabase
+      .from("lessons")
+      .select("id")
+      .eq("id", currentLessonId)
+      .maybeSingle();
+    if (error) throw new Error(error.message);
+    if (data) return currentLessonId;
+  }
+
+  if (cachedFirstLessonId !== undefined) {
+    return cachedFirstLessonId;
+  }
+
+  const { data: first, error: firstError } = await supabase
+    .from("lessons")
+    .select("id")
+    .order("order_index")
+    .limit(1)
+    .maybeSingle();
+
+  if (firstError) throw new Error(firstError.message);
+  cachedFirstLessonId = first?.id ?? null;
+  return cachedFirstLessonId ?? null;
+}
 
 function mapVocabMemoryRow(row: {
   vocab_item_id: string;
@@ -89,14 +122,23 @@ export async function fetchUserProgress(
 
   const row = progressRes.data;
   if (!row) {
-    return { ...EMPTY_PROGRESS, lessonAttempts, completedLessonIds, vocabMemory };
+    const firstLessonId = await resolveCurrentLessonId(supabase, null);
+    return {
+      ...EMPTY_PROGRESS,
+      currentLessonId: firstLessonId ?? DEFAULT_LESSON_ID,
+      lessonAttempts,
+      completedLessonIds,
+      vocabMemory,
+    };
   }
+
+  const currentLessonId = await resolveCurrentLessonId(supabase, row.current_lesson_id);
 
   return {
     xp: row.xp ?? 0,
     streakCount: row.streak_count ?? 0,
     lastActiveDate: row.last_active_date,
-    currentLessonId: row.current_lesson_id ?? DEFAULT_LESSON_ID,
+    currentLessonId: currentLessonId ?? DEFAULT_LESSON_ID,
     completedLessonIds,
     vocabMemory,
     lessonAttempts,
@@ -108,11 +150,13 @@ export async function saveUserProgressState(
   userId: string,
   progress: UserProgress
 ): Promise<void> {
+  const currentLessonId = await resolveCurrentLessonId(supabase, progress.currentLessonId);
+
   const { error: progressError } = await supabase.from("user_progress").upsert(
     {
       user_id: userId,
       course_id: DEFAULT_COURSE_ID,
-      current_lesson_id: progress.currentLessonId,
+      current_lesson_id: currentLessonId,
       xp: progress.xp,
       streak_count: progress.streakCount,
       last_active_date: progress.lastActiveDate,

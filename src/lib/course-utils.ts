@@ -47,3 +47,19 @@ export function isLessonUnlocked(
 
   return completedIds.includes(unitLessons[lessonIdx - 1].id);
 }
+
+/** First unit with incomplete lessons, or the last unit if all complete. */
+export function getActiveUnit(
+  units: Unit[],
+  lessons: Lesson[],
+  completedIds: string[]
+): Unit {
+  const sorted = [...units].sort((a, b) => a.orderIndex - b.orderIndex);
+  for (const unit of sorted) {
+    const unitLessons = getLessonsForUnit(lessons, unit.id);
+    if (unitLessons.some((lesson) => !completedIds.includes(lesson.id))) {
+      return unit;
+    }
+  }
+  return sorted[sorted.length - 1];
+}

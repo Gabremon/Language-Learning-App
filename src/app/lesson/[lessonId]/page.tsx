@@ -16,7 +16,7 @@ export default async function LessonPage({ params }: Props) {
   const nextLesson = getNextLesson(catalog.lessons, lessonId);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-violet-50 via-white to-brand-50 px-4 py-6">
+    <div className="min-h-screen bg-paper px-3 py-4 sm:px-4">
       <LessonPlayer
         lesson={bundle.lesson}
         exercises={bundle.exercises}

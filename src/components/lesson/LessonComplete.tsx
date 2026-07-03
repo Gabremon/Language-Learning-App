@@ -1,11 +1,11 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { InkPanel } from "@/components/ui/ink-shell";
 import { Badge } from "@/components/ui/badge";
 import type { Lesson } from "@/types/course";
 import Link from "next/link";
-import { Star, Trophy, Sparkles } from "lucide-react";
+import { Star } from "lucide-react";
 
 interface Props {
   lesson: Lesson | null;
@@ -20,52 +20,46 @@ export function LessonComplete({ lesson, nextLesson, score, total, xpGained }: P
   const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : pct >= 50 ? 1 : 0;
 
   return (
-    <div className="animate-bounce-in mx-auto max-w-lg space-y-6 text-center">
-      <div className="relative mx-auto">
-        <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full bg-gradient-to-br from-amber-400 to-orange-500 shadow-lg">
-          <Trophy className="h-14 w-14 text-white" />
-        </div>
-        <Sparkles className="absolute -right-2 top-0 h-8 w-8 text-amber-400 animate-pulse" />
-        <Sparkles className="absolute -left-2 bottom-2 h-6 w-6 text-violet-400 animate-pulse" />
+    <div className="animate-bounce-in mx-auto max-w-lg space-y-5 text-center">
+      <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-xl border-2 border-amber-300 bg-gradient-to-br from-amber-100 to-orange-100 text-3xl font-bold text-amber-700 ink-trail-shadow">
+        成
       </div>
-      <h1 className="bg-gradient-to-r from-brand-600 to-violet-600 bg-clip-text text-3xl font-bold text-transparent">
-        Lesson Complete!
-      </h1>
-      <p className="text-lg text-gray-600">{lesson?.title}</p>
+      <div>
+        <h1 className="text-2xl font-bold text-stone-800">Step complete</h1>
+        <p className="text-sm text-stone-500">{lesson?.title}</p>
+      </div>
 
-      <Card className="overflow-hidden border-0 shadow-xl ring-2 ring-amber-100">
-        <CardContent className="space-y-4 bg-gradient-to-b from-amber-50 to-white pt-8 pb-6">
-          <div className="flex justify-center gap-3">
-            {Array.from({ length: 3 }).map((_, i) => (
-              <Star
-                key={i}
-                className={`h-12 w-12 transition-all ${
-                  i < stars
-                    ? "fill-amber-400 text-amber-400 drop-shadow-md scale-110"
-                    : "text-gray-200"
-                }`}
-              />
-            ))}
-          </div>
-          <p className="text-5xl font-bold text-brand-700">{score}/{total}</p>
-          <p className="text-gray-600">{pct}% correct</p>
-          <Badge variant="accent" className="px-6 py-2 text-lg font-bold">
-            +{xpGained} XP
-          </Badge>
-        </CardContent>
-      </Card>
+      <InkPanel className="p-5" tint="#FEF3C7">
+        <div className="flex justify-center gap-2">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <Star
+              key={i}
+              className={`h-10 w-10 ${
+                i < stars ? "fill-amber-400 text-amber-400" : "text-stone-200"
+              }`}
+            />
+          ))}
+        </div>
+        <p className="mt-3 text-4xl font-bold text-stone-800">
+          {score}/{total}
+        </p>
+        <p className="text-sm text-stone-600">{pct}% correct</p>
+        <Badge variant="accent" className="mt-3 px-4 py-1 text-sm font-bold">
+          +{xpGained} XP
+        </Badge>
+      </InkPanel>
 
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
         {nextLesson && (
           <Link href={`/lesson/${nextLesson.id}`}>
-            <Button size="lg" className="w-full shadow-md">
-              Continue to: {nextLesson.title}
+            <Button size="lg" className="w-full">
+              Next: {nextLesson.title}
             </Button>
           </Link>
         )}
         <Link href="/dashboard">
           <Button variant="secondary" size="lg" className="w-full">
-            Back to dashboard
+            Back to trail
           </Button>
         </Link>
       </div>

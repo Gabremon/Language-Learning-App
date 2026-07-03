@@ -146,9 +146,9 @@ export function LessonPlayer({ lesson, exercises, lessonVocab, nextLesson }: Pro
 
       <LessonPhaseBar exercise={exercise} />
 
-      <Card className="overflow-hidden border-0 shadow-lg ring-1 ring-brand-100">
-        <CardContent className="space-y-6 bg-gradient-to-b from-white to-brand-50/30 p-6 pt-6">
-          <p className="text-center text-sm font-bold uppercase tracking-widest text-brand-500">
+      <Card className="overflow-hidden border-stone-200/70 bg-white/90 shadow-md">
+        <CardContent className="space-y-6 p-5">
+          <p className="text-center text-[10px] font-bold uppercase tracking-widest text-brand-600">
             {exercise.prompt}
           </p>
 
