@@ -2,7 +2,7 @@ import type { Sentence, Unit, VocabItem } from "@/types/course";
 import type { BaseExercise, ExerciseType } from "@/types/exercises";
 
 /** HSK band derived from unit order (PDF curriculum architecture). */
-export type Band = "starter" | "hsk1" | "hsk2" | "hsk3" | "hsk4";
+export type Band = "starter" | "hsk1" | "hsk2" | "hsk3" | "hsk4" | "hsk5" | "hsk6";
 
 export type LessonPhase =
   | "preview"
@@ -37,6 +37,9 @@ export function getBandForUnitId(unitId: string): Band {
   if (unitId.startsWith("unit-h1")) return "hsk1";
   if (unitId.startsWith("unit-h2") || unitId.startsWith("unit-dl")) return "hsk2";
   if (unitId.startsWith("unit-h3") || unitId.startsWith("unit-c")) return "hsk3";
+  if (unitId.startsWith("unit-h4") || unitId.startsWith("unit-i")) return "hsk4";
+  if (unitId.startsWith("unit-h5")) return "hsk5";
+  if (unitId.startsWith("unit-h6")) return "hsk6";
   return "hsk4";
 }
 
@@ -77,6 +80,8 @@ export function getTargetExerciseCount(band: Band, lessonOrderIndex: number): nu
     hsk2: 22,
     hsk3: 24,
     hsk4: 26,
+    hsk5: 28,
+    hsk6: 30,
   };
   const ramp = Math.min(lessonOrderIndex - 1, 3);
   return base[band] + ramp;
@@ -131,9 +136,23 @@ export function getExerciseMix(ctx: LessonContext): ExerciseMix {
     };
   }
 
+  if (band === "hsk3") {
+    return {
+      multiple_choice: 3,
+      hanzi_to_english: 6,
+      pinyin_recognition: 2,
+      reverse_pinyin: 2,
+      listening: 3,
+      english_to_hanzi_word_bank: 4,
+      match_pairs: 1,
+      fill_in_blank: 3,
+    };
+  }
+
+  // hsk4, hsk5, hsk6 — production-heavy
   return {
     multiple_choice: 3,
-    hanzi_to_english: 6,
+    hanzi_to_english: 7,
     pinyin_recognition: 2,
     reverse_pinyin: 2,
     listening: 3,

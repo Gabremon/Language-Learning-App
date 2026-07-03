@@ -6,8 +6,23 @@ import type { BaseExercise, ExercisePayload } from "@/types/exercises";
 import type { CourseCatalog, LessonBundle } from "@/lib/course-utils";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { createClient } from "@/lib/supabase/server";
+import {
+  course as seedCourse,
+  units as seedUnits,
+  lessons as seedLessons,
+} from "@/data/course-content";
 
 export type { CourseCatalog, LessonBundle };
+
+function localCatalog(): CourseCatalog {
+  return { course: seedCourse, units: seedUnits, lessons: seedLessons };
+}
+
+function dbMissingHskAdvanced(units: { id: string }[]): boolean {
+  const seedHasHsk2 = seedUnits.some((u) => u.id.startsWith("unit-h2"));
+  if (!seedHasHsk2) return false;
+  return !units.some((u) => u.id.startsWith("unit-h2"));
+}
 
 function requireSupabase() {
   if (!isSupabaseConfigured()) {
@@ -102,7 +117,10 @@ function mapExercise(row: {
 }
 
 export const getCourseCatalog = cache(async function getCourseCatalog(): Promise<CourseCatalog> {
-  requireSupabase();
+  if (!isSupabaseConfigured()) {
+    return localCatalog();
+  }
+
   const supabase = await createClient();
 
   const [courseRes, unitsRes, lessonsRes] = await Promise.all([
@@ -127,13 +145,27 @@ export const getCourseCatalog = cache(async function getCourseCatalog(): Promise
     throw new Error(`Failed to load lessons: ${lessonsRes.error.message}`);
   }
   if (!courseRes.data) {
-    throw new Error("No course found in database. Run supabase/setup.sql in the SQL Editor.");
+    console.warn(
+      "[getCourseCatalog] No course in database — using local seed. Run supabase/setup.sql in the SQL Editor."
+    );
+    return localCatalog();
+  }
+
+  const units = (unitsRes.data ?? []).map(mapUnit);
+  const lessons = (lessonsRes.data ?? []).map(mapLesson);
+
+  if (dbMissingHskAdvanced(units)) {
+    console.warn(
+      "[getCourseCatalog] Supabase is missing HSK 2–6 content — using local seed. " +
+        "Apply supabase/migrations/20260703000000_hsk2.sql through 20260707000000_hsk6.sql in the SQL Editor."
+    );
+    return localCatalog();
   }
 
   return {
     course: mapCourse(courseRes.data),
-    units: (unitsRes.data ?? []).map(mapUnit),
-    lessons: (lessonsRes.data ?? []).map(mapLesson),
+    units,
+    lessons,
   };
 });
 

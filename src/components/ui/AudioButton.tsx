@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 import { speakMandarin, stopSpeaking } from "@/lib/speech";
 import { cn } from "@/lib/utils";
@@ -8,12 +8,17 @@ import { cn } from "@/lib/utils";
 interface Props {
   text: string;
   size?: "sm" | "md" | "lg";
-  autoPlay?: boolean;
   className?: string;
 }
 
-export function AudioButton({ text, size = "md", autoPlay = false, className }: Props) {
+export function AudioButton({ text, size = "md", className }: Props) {
   const [playing, setPlaying] = useState(false);
+  const textRef = useRef(text);
+
+  useEffect(() => {
+    textRef.current = text;
+    setPlaying(false);
+  }, [text]);
 
   const sizeClasses = {
     sm: "h-8 w-8",
@@ -27,20 +32,22 @@ export function AudioButton({ text, size = "md", autoPlay = false, className }: 
     lg: "h-7 w-7",
   };
 
-  function handlePlay() {
+  const handlePlay = useCallback(() => {
+    const currentText = textRef.current.trim();
+    if (!currentText) return;
+
     if (playing) {
       stopSpeaking();
       setPlaying(false);
       return;
     }
-    setPlaying(true);
-    speakMandarin(text);
-    setTimeout(() => setPlaying(false), 1500);
-  }
 
-  if (autoPlay && typeof window !== "undefined") {
-    // Auto-play handled by parent via useEffect
-  }
+    speakMandarin(currentText, {
+      onStart: () => setPlaying(true),
+      onEnd: () => setPlaying(false),
+      onError: () => setPlaying(false),
+    });
+  }, [playing]);
 
   return (
     <button

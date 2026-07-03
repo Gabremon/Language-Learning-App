@@ -1,3 +1,4 @@
+import { buildVocabPreviewTitle } from "@/lib/lesson-titles";
 import { HSK1_UNIT_ORDER, HSK1_VOCAB_BY_UNIT, type Hsk1WordDef } from "./hsk1-vocab-data";
 import type { LessonDef } from "./lesson-catalog";
 import { STARTER_LESSONS } from "./starter-lessons";
@@ -20,11 +21,7 @@ function unitSlug(unitId: string): string {
 function lessonTitle(words: Hsk1WordDef[], unitTitle: string, index: number, isFinal: boolean, isLast: boolean): string {
   if (isFinal && isLast) return "HSK 1 Graduation Exam";
   if (isFinal) return `HSK 1 Review ${index + 1}`;
-  const preview = words
-    .slice(0, 2)
-    .map((w) => w.hanzi)
-    .join(" · ");
-  return preview || `${unitTitle} ${index + 1}`;
+  return buildVocabPreviewTitle(words, `${unitTitle} ${index + 1}`);
 }
 
 function buildHsk1Lessons(): LessonDef[] {

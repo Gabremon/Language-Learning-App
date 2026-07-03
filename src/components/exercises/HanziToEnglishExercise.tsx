@@ -27,7 +27,7 @@ export function HanziToEnglishExercise({ payload, value, onChange, disabled }: P
         {payload.pinyin && (
           <div className="flex items-center gap-3">
             <PinyinDisplay pinyin={payload.pinyin} size="lg" showToneLabels />
-            <AudioButton text={payload.hanzi} size="md" />
+            <AudioButton key={payload.hanzi} text={payload.hanzi} size="md" />
           </div>
         )}
       </div>

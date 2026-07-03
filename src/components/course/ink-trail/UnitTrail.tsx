@@ -2,6 +2,7 @@
 
 import type { Lesson, Unit } from "@/types/course";
 import { getLessonsForUnit, isLessonUnlocked } from "@/lib/course-utils";
+import { getLessonDisplayTitle, isReviewLesson } from "@/lib/lesson-titles";
 import { getTrailSide, getUnitTheme } from "@/lib/unit-themes";
 import { LessonTile, type LessonTileState } from "./LessonTile";
 import { UnitSeal } from "./UnitSeal";
@@ -76,13 +77,13 @@ export function UnitTrail({
             return (
               <LessonTile
                 key={lesson.id}
-                title={lesson.title}
+                title={getLessonDisplayTitle(lesson)}
                 orderIndex={lesson.orderIndex}
                 state={state}
                 theme={theme}
                 side={getTrailSide(index)}
                 href={unlocked ? `/lesson/${lesson.id}` : undefined}
-                isReview={lesson.title.toLowerCase().includes("review")}
+                isReview={isReviewLesson(lesson)}
                 showConnector={index > 0}
                 connectorFilled={prevCompleted && (completed || unlocked)}
               />

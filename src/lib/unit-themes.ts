@@ -35,17 +35,5 @@ export function getTrailSide(index: number): TrailSide {
   return pattern[index % pattern.length];
 }
 
-export const SECTION_STYLES = {
-  starter: {
-    paper: "from-amber-50/80 via-orange-50/40 to-white",
-    border: "border-amber-200/60",
-    accent: "#D97706",
-    glyph: "起",
-  },
-  hsk1: {
-    paper: "from-sky-50/80 via-brand-50/40 to-white",
-    border: "border-brand-200/60",
-    accent: "#0284C7",
-    glyph: "一",
-  },
-} as const;
+/** @deprecated Import from @/data/course-sections instead */
+export { SECTION_STYLES } from "@/data/course-sections";

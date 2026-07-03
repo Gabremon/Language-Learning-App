@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Lesson, Unit } from "@/types/course";
+import { getLessonDisplayTitle } from "@/lib/lesson-titles";
 import { getUnitTheme } from "@/lib/unit-themes";
 import { InkConnectorHorizontal } from "./InkConnector";
 
@@ -58,7 +59,7 @@ export function MiniTrail({ unit, items, remainingCount }: Props) {
               {unlocked ? (
                 <Link
                   href={`/lesson/${lesson.id}`}
-                  title={lesson.title}
+                  title={getLessonDisplayTitle(lesson)}
                   className={cn(
                     "flex h-10 w-10 shrink-0 items-center justify-center rounded-[0.6rem] text-xs font-bold text-white transition hover:scale-105",
                     completed && "bg-emerald-500",

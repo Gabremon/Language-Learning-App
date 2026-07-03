@@ -25,7 +25,7 @@ export function PinyinRecognitionExercise({ payload, selected, onSelect, disable
           size="md"
         />
         <p className="text-center text-6xl font-bold text-brand-800">{payload.hanzi}</p>
-        <AudioButton text={payload.hanzi} size="sm" />
+        <AudioButton key={payload.hanzi} text={payload.hanzi} size="sm" />
       </div>
       <p className="text-center font-medium text-gray-600">Select the correct pinyin with tone marks</p>
       <div className="grid gap-3">

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { InkPanel } from "@/components/ui/ink-shell";
 import { Badge } from "@/components/ui/badge";
+import { getLessonDisplayTitle } from "@/lib/lesson-titles";
 import type { Lesson } from "@/types/course";
 import Link from "next/link";
 import { Star, ArrowRight } from "lucide-react";
@@ -39,7 +40,7 @@ export function LessonComplete({
         <h1 className="text-2xl font-bold text-stone-800">
           {perfectFirstTry ? "Perfect lesson!" : isGuest ? "Demo complete!" : "Step complete"}
         </h1>
-        <p className="text-sm text-stone-500">{lesson?.title}</p>
+        <p className="text-sm text-stone-500">{lesson ? getLessonDisplayTitle(lesson) : null}</p>
         {isGuest && (
           <p className="mt-2 text-sm text-brand-700">
             Sign in to save your XP and pick up where you left off.
@@ -84,7 +85,7 @@ export function LessonComplete({
           nextLesson && (
             <Link href={`/lesson/${nextLesson.id}`}>
               <Button size="lg" className="w-full">
-                Next: {nextLesson.title}
+                Next: {getLessonDisplayTitle(nextLesson)}
               </Button>
             </Link>
           )

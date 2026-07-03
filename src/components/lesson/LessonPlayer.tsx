@@ -14,7 +14,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { checkExerciseAnswer } from "@/lib/exercise-checker";
 import { getRelatedVocab, recordMiss, type MissedExerciseRecord } from "@/lib/exercise-vocab";
-import { getVocabMemory } from "@/lib/progress";
+import { getLessonDisplayTitle } from "@/lib/lesson-titles";
 import { loadGuestProgress } from "@/lib/guest-progress";
 import { updateVocabMemoryOnReview } from "@/lib/srs";
 import { useProgress } from "@/contexts/ProgressContext";
@@ -232,7 +232,7 @@ export function LessonPlayer({
           <p className="text-[10px] font-bold uppercase tracking-widest text-amber-600">Lesson wrap-up</p>
           <h2 className="text-xl font-bold text-stone-800">Review what you missed</h2>
           <p className="mt-1 text-sm text-stone-500">
-            Study these concepts before you finish {lesson.title}
+            Study these concepts before you finish {getLessonDisplayTitle(lesson)}
           </p>
         </div>
 
@@ -296,6 +296,7 @@ export function LessonPlayer({
           </p>
 
           <ExerciseRenderer
+            key={exercise.id}
             exercise={exercise}
             answer={answer}
             onAnswerChange={setAnswer}

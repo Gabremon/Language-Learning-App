@@ -4,8 +4,8 @@ import { AppShell } from "@/components/layout/AppShell";
 import type { CourseCatalog } from "@/lib/course-utils";
 import { getActiveUnit, getLessonsForUnit } from "@/lib/course-utils";
 import { useProgress } from "@/contexts/ProgressContext";
-import { COURSE_SECTIONS, getUnitsForSection } from "@/data/course-content";
-import type { CourseSectionId } from "@/data/starter-hsk1/units";
+import { COURSE_SECTIONS, getUnitIdsForSection } from "@/data/course-sections";
+import type { CourseSectionId } from "@/data/course-sections";
 import { SectionScroll } from "@/components/course/ink-trail/SectionScroll";
 import { UnitTrail } from "@/components/course/ink-trail/UnitTrail";
 import { Button } from "@/components/ui/button";
@@ -69,8 +69,8 @@ export function CourseView({ catalog }: Props) {
         )}
 
         {COURSE_SECTIONS.map((section) => {
-          const sectionUnits = getUnitsForSection(section.id)
-            .map((def) => units.find((u) => u.id === def.id)!)
+          const sectionUnits = getUnitIdsForSection(section.id)
+            .map((id) => units.find((u) => u.id === id)!)
             .filter(Boolean);
           const sectionLessons = sectionUnits.flatMap((u) => getLessonsForUnit(lessons, u.id));
           const sectionCompleted = sectionLessons.filter((l) => completedIds.includes(l.id)).length;

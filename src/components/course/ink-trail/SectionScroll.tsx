@@ -2,8 +2,8 @@
 
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { SECTION_STYLES } from "@/lib/unit-themes";
-import type { CourseSectionId } from "@/data/starter-hsk1/units";
+import { SECTION_STYLES } from "@/data/course-sections";
+import type { CourseSectionId } from "@/data/course-sections";
 
 interface Props {
   sectionId: CourseSectionId;

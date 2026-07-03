@@ -13,10 +13,10 @@ import { getDueReviewCount } from "@/lib/srs";
 import { useProgress } from "@/contexts/ProgressContext";
 import { APP_MARK, APP_NAME } from "@/lib/brand";
 import { Flame, Star, RotateCcw, ChevronRight, Sparkles, Map } from "lucide-react";
-import { COURSE_SECTIONS, getUnitsForSection } from "@/data/course-content";
-import { SECTION_STYLES } from "@/lib/unit-themes";
+import { COURSE_SECTIONS, SECTION_STYLES, getUnitIdsForSection } from "@/data/course-sections";
 import { MiniTrail } from "@/components/course/ink-trail/MiniTrail";
 import { cn } from "@/lib/utils";
+import { getLessonDisplayTitle } from "@/lib/lesson-titles";
 
 interface Props {
   catalog: CourseCatalog;
@@ -109,7 +109,7 @@ export function DashboardView({ catalog }: Props) {
               <Badge variant="accent" className="mb-1.5 gap-1 px-1.5 py-0 text-[10px]">
                 <Sparkles className="h-2.5 w-2.5" /> Continue the trail
               </Badge>
-              <p className="truncate text-sm font-bold text-stone-800">{currentLesson.title}</p>
+              <p className="truncate text-sm font-bold text-stone-800">{getLessonDisplayTitle(currentLesson)}</p>
             </div>
             <Link href={`/lesson/${currentLesson.id}`} className="shrink-0">
               <Button size="sm" className="h-9 px-4 text-xs shadow-md">
@@ -148,8 +148,8 @@ export function DashboardView({ catalog }: Props) {
 
           <div className="grid gap-2 sm:grid-cols-2">
             {COURSE_SECTIONS.map((section) => {
-              const sectionUnits = getUnitsForSection(section.id)
-                .map((def) => units.find((u) => u.id === def.id)!)
+              const sectionUnits = getUnitIdsForSection(section.id)
+                .map((id) => units.find((u) => u.id === id)!)
                 .filter(Boolean);
               const sectionLessons = sectionUnits.flatMap((u) => getLessonsForUnit(lessons, u.id));
               const sectionCompleted = sectionLessons.filter((l) =>

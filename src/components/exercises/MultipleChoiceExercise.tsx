@@ -31,7 +31,11 @@ export function MultipleChoiceExercise({ payload, selected, onSelect, disabled }
           {payload.pinyin && (
             <div className="flex items-center gap-2">
               <PinyinDisplay pinyin={payload.pinyin} size="lg" />
-              <AudioButton text={payload.displayHanzi ?? payload.pinyin} size="sm" />
+              <AudioButton
+                key={payload.displayHanzi ?? payload.pinyin}
+                text={payload.displayHanzi ?? payload.pinyin}
+                size="sm"
+              />
             </div>
           )}
         </div>

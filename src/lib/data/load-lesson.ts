@@ -1,7 +1,6 @@
 import "server-only";
 
 import type { LessonBundle } from "@/lib/course-utils";
-import { DEMO_LESSON_ID } from "@/lib/demo";
 import { getLessonBundle } from "@/lib/data/course";
 import {
   getExercisesForLesson,
@@ -9,21 +8,34 @@ import {
   getVocabForLesson,
 } from "@/data/seed";
 
+function localLessonBundle(lessonId: string): LessonBundle | null {
+  const lesson = getLessonById(lessonId);
+  const exercises = getExercisesForLesson(lessonId);
+  const vocab = getVocabForLesson(lessonId);
+
+  if (!lesson || exercises.length === 0) {
+    return null;
+  }
+
+  return { lesson, exercises, vocab };
+}
+
 export async function loadLessonBundle(lessonId: string): Promise<LessonBundle> {
   try {
-    return await getLessonBundle(lessonId);
-  } catch (err) {
-    if (lessonId !== DEMO_LESSON_ID) throw err;
-
-    const lesson = getLessonById(lessonId);
-    const exercises = getExercisesForLesson(lessonId);
-    const vocab = getVocabForLesson(lessonId);
-
-    if (!lesson || exercises.length === 0) {
-      throw err;
+    const bundle = await getLessonBundle(lessonId);
+    if (bundle.lesson && bundle.exercises.length > 0) {
+      return bundle;
     }
-
-    console.warn("[loadLessonBundle] Using local seed fallback for demo lesson");
-    return { lesson, exercises, vocab };
+    throw new Error(`Lesson ${lessonId} not found in database`);
+  } catch (dbErr) {
+    const local = localLessonBundle(lessonId);
+    if (local) {
+      console.warn(
+        `[loadLessonBundle] Using local seed for ${lessonId}. ` +
+          "Apply HSK migrations in Supabase to persist lesson progress."
+      );
+      return local;
+    }
+    throw dbErr;
   }
 }
