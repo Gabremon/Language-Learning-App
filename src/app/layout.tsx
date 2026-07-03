@@ -6,7 +6,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Lexloop — Learn Mandarin",
+  title: "Ori — Learn Mandarin",
   description: "Bite-sized Mandarin lessons, spaced review, and a visual HSK 1 learning path",
   manifest: "/manifest.json",
 };

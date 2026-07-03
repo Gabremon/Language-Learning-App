@@ -1,44 +1,75 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { APP_NAME, APP_TAGLINE } from "@/lib/brand";
-import { BookOpen, Brain, Headphones, RotateCcw } from "lucide-react";
+import { APP_NAME } from "@/lib/brand";
+import {
+  LessonPreviewCard,
+  MarketingFeatureList,
+  MarketingHeroPanel,
+  MarketingNav,
+} from "@/components/marketing/MarketingShell";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-paper">
-      <div className="mx-auto flex min-h-screen max-w-lg flex-col items-center justify-center px-6 py-12">
-        <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl border-2 border-brand-300 bg-white text-4xl font-bold text-brand-700 ink-trail-shadow">
-          环
-        </div>
-        <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-stone-400">{APP_TAGLINE}</p>
-        <h1 className="mt-1 text-center text-3xl font-extrabold text-stone-800">{APP_NAME}</h1>
-        <p className="mt-2 text-center text-stone-600">
-          Bite-sized Mandarin lessons, spaced review, and a visual learning path — loop back daily and build fluency.
-        </p>
+      <MarketingNav />
 
-        <div className="mt-8 grid w-full gap-2">
-          {[
-            { icon: BookOpen, text: "117-lesson Starter + full HSK 1 path" },
-            { icon: Brain, text: "8 exercise types with progressive difficulty" },
-            { icon: Headphones, text: "Listening exercises with browser speech" },
-            { icon: RotateCcw, text: "Spaced repetition review synced to your account" },
-          ].map(({ icon: Icon, text }) => (
-            <div
-              key={text}
-              className="flex items-center gap-3 rounded-xl border border-stone-200/70 bg-white/80 px-4 py-3 shadow-sm"
-            >
-              <Icon className="h-4 w-4 shrink-0 text-brand-600" />
-              <span className="text-sm text-stone-700">{text}</span>
+      <main className="mx-auto max-w-6xl px-6 pb-16 pt-2">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
+          <div className="animate-slide-up space-y-8">
+            <MarketingHeroPanel>
+              <Link href="/auth" className="mt-8 inline-flex">
+                <Button
+                  size="lg"
+                  className="h-14 bg-white px-8 text-base font-bold text-brand-700 shadow-lg hover:bg-brand-50"
+                >
+                  Get started free
+                  <ArrowRight className="h-5 w-5" />
+                </Button>
+              </Link>
+            </MarketingHeroPanel>
+          </div>
+
+          <div className="animate-slide-up space-y-6 [animation-delay:80ms]">
+            <LessonPreviewCard />
+
+            <div className="flex items-start gap-3 rounded-2xl border border-amber-200/80 bg-gradient-to-r from-amber-50 to-orange-50 px-4 py-3">
+              <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
+              <p className="text-sm text-stone-600">
+                <span className="font-semibold text-stone-800">No credit card.</span> Sign in with
+                Google and your streak, XP, and review schedule sync everywhere.
+              </p>
             </div>
-          ))}
+          </div>
         </div>
 
-        <Link href="/auth" className="mt-8 w-full">
-          <Button size="lg" className="w-full shadow-md">
-            Start learning
-          </Button>
-        </Link>
-      </div>
+        <section className="mt-16 animate-fade-in [animation-delay:160ms]">
+          <div className="mb-6 text-center lg:text-left">
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-brand-600">
+              Why {APP_NAME}
+            </p>
+            <h2 className="mt-2 text-2xl font-extrabold text-stone-800 sm:text-3xl">
+              Everything you need to build a daily habit
+            </h2>
+            <p className="mt-2 max-w-2xl text-stone-500">
+              Bite-sized sessions, a clear path forward, and review that adapts to what you miss —
+              so every minute counts.
+            </p>
+          </div>
+
+          <MarketingFeatureList />
+
+          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
+            <Link href="/auth" className="w-full sm:w-auto">
+              <Button size="lg" className="h-14 w-full px-10 shadow-lg sm:w-auto">
+                Start your first lesson
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            </Link>
+            <p className="text-sm text-stone-400">Takes less than a minute to set up</p>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }

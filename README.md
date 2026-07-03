@@ -1,4 +1,4 @@
-# Lexloop — Mandarin Learning App
+# Ori — Mandarin Learning App
 
 Bite-sized Mandarin lessons, spaced repetition review, and a visual HSK 1 learning path. Built with Next.js 15, TypeScript, Tailwind CSS, and Supabase.
 
@@ -88,13 +88,13 @@ Run `supabase/migrations/20260702000000_add_progress_unique_constraints.sql` in 
 
 ## Hosting on Vercel (free)
 
-This walkthrough deploys Lexloop for free using **Vercel** (hosting) + **Supabase** (database + auth).
+This walkthrough deploys Ori for free using **Vercel** (hosting) + **Supabase** (database + auth).
 
 ### Step 1 — Push code to GitHub
 
 ```bash
 git add .
-git commit -m "Prepare Lexloop for deployment"
+git commit -m "Prepare Ori for deployment"
 git push -u origin main
 ```
 
@@ -136,7 +136,7 @@ Verify in **Table Editor** → `lessons` — you should see ~117 rows.
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 4. Click **Deploy**. Wait for the build to finish (~2 min).
-5. Copy your production URL (e.g. `https://lexloop.vercel.app`).
+5. Copy your production URL (e.g. `https://ori.vercel.app`).
 
 ### Step 6 — Wire up production OAuth
 
