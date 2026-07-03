@@ -31,6 +31,8 @@ interface ProgressContextValue {
   user: User | null;
   progress: UserProgress | null;
   loading: boolean;
+  error: string | null;
+  retryLoad: () => Promise<void>;
   saveProgress: (progress: UserProgress) => Promise<void>;
   completeLesson: (
     lessonId: string,
@@ -55,32 +57,56 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [progress, setProgress] = useState<UserProgress | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const loadProgressForUser = useCallback(
     async (userId: string) => {
+      setError(null);
       const data = await fetchUserProgress(supabase, userId);
       setProgress(data);
     },
     [supabase]
   );
 
+  const retryLoad = useCallback(async () => {
+    if (!user) return;
+    setLoading(true);
+    try {
+      await loadProgressForUser(user.id);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Failed to load progress";
+      setError(message);
+      console.error("[ProgressProvider]", err);
+    } finally {
+      setLoading(false);
+    }
+  }, [user, loadProgressForUser]);
+
   useEffect(() => {
     let mounted = true;
 
     async function init() {
-      const {
-        data: { user: currentUser },
-      } = await supabase.auth.getUser();
+      try {
+        const {
+          data: { user: currentUser },
+        } = await supabase.auth.getUser();
 
-      if (!mounted) return;
+        if (!mounted) return;
 
-      setUser(currentUser);
-      if (currentUser) {
-        await loadProgressForUser(currentUser.id);
-      } else {
-        setProgress(null);
+        setUser(currentUser);
+        if (currentUser) {
+          await loadProgressForUser(currentUser.id);
+        } else {
+          setProgress(null);
+        }
+      } catch (err) {
+        if (!mounted) return;
+        const message = err instanceof Error ? err.message : "Failed to load progress";
+        setError(message);
+        console.error("[ProgressProvider]", err);
+      } finally {
+        if (mounted) setLoading(false);
       }
-      setLoading(false);
     }
 
     init();
@@ -92,10 +118,19 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
       setUser(nextUser);
       if (nextUser) {
         setLoading(true);
-        await loadProgressForUser(nextUser.id);
-        setLoading(false);
+        try {
+          await loadProgressForUser(nextUser.id);
+          setError(null);
+        } catch (err) {
+          const message = err instanceof Error ? err.message : "Failed to load progress";
+          setError(message);
+          console.error("[ProgressProvider]", err);
+        } finally {
+          setLoading(false);
+        }
       } else {
         setProgress(null);
+        setError(null);
       }
     });
 
@@ -109,7 +144,14 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     async (nextProgress: UserProgress) => {
       if (!user) return;
       setProgress(nextProgress);
-      await saveUserProgressState(supabase, user.id, nextProgress);
+      try {
+        await saveUserProgressState(supabase, user.id, nextProgress);
+        setError(null);
+      } catch (err) {
+        const message = err instanceof Error ? err.message : "Failed to save progress";
+        setError(message);
+        throw err;
+      }
     },
     [supabase, user]
   );
@@ -187,6 +229,8 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     user,
     progress,
     loading,
+    error,
+    retryLoad,
     saveProgress,
     completeLesson,
     updateVocabMemories,

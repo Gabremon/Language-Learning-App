@@ -15,7 +15,45 @@ export function normalizeEnglishAnswer(answer: string): string {
     .toLowerCase()
     .trim()
     .replace(/[.,!?;:'"()]/g, "")
-    .replace(/\s+/g, " ");
+    .replace(/\s+/g, "");
+}
+
+/** Normalized forms that count as correct for a reference English answer. */
+export function expandEnglishAnswerVariants(answer: string): Set<string> {
+  const variants = new Set<string>();
+  const normParts = answer
+    .split("/")
+    .map((part) => normalizeEnglishAnswer(part))
+    .filter(Boolean);
+
+  for (const part of normParts) {
+    variants.add(part);
+  }
+
+  const fullNorm = normalizeEnglishAnswer(answer);
+  if (fullNorm) variants.add(fullNorm);
+
+  if (normParts.length > 1) {
+    variants.add([...normParts].sort().join("/"));
+  }
+
+  return variants;
+}
+
+export function matchesEnglishAnswer(
+  userAnswer: string,
+  acceptedAnswers: string[]
+): boolean {
+  const userForms = expandEnglishAnswerVariants(userAnswer);
+  if (userForms.size === 0) return false;
+
+  for (const accepted of acceptedAnswers) {
+    const acceptedForms = expandEnglishAnswerVariants(accepted);
+    for (const form of userForms) {
+      if (acceptedForms.has(form)) return true;
+    }
+  }
+  return false;
 }
 
 export function checkExerciseAnswer(
@@ -33,9 +71,9 @@ export function checkExerciseAnswer(
   }
 
   if (isHanziToEnglish(exercise)) {
-    const normalized = normalizeEnglishAnswer(String(userAnswer));
-    const isCorrect = exercise.payload.acceptedAnswers.some(
-      (a) => normalizeEnglishAnswer(a) === normalized
+    const isCorrect = matchesEnglishAnswer(
+      String(userAnswer),
+      exercise.payload.acceptedAnswers
     );
     return {
       isCorrect,

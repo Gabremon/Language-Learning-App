@@ -16,13 +16,28 @@ const EMPTY_PROGRESS: UserProgress = {
   lessonAttempts: [],
 };
 
+/** Lesson IDs from the expanded course catalog — skip DB round-trip on read. */
+function isKnownLessonId(lessonId: string): boolean {
+  return lessonId.startsWith("lesson-s") || lessonId.startsWith("lesson-h1-");
+}
+
 /** Ensure current_lesson_id references a real lesson (avoids FK errors after course migrations). */
 let cachedFirstLessonId: string | null | undefined;
 
 async function resolveCurrentLessonId(
   supabase: SupabaseClient,
-  currentLessonId: string | null | undefined
+  currentLessonId: string | null | undefined,
+  { validateInDb }: { validateInDb: boolean }
 ): Promise<string | null> {
+  if (currentLessonId && isKnownLessonId(currentLessonId)) {
+    return currentLessonId;
+  }
+
+  if (!validateInDb) {
+    if (currentLessonId && isKnownLessonId(currentLessonId)) return currentLessonId;
+    return DEFAULT_LESSON_ID;
+  }
+
   if (currentLessonId) {
     const { data, error } = await supabase
       .from("lessons")
@@ -34,7 +49,7 @@ async function resolveCurrentLessonId(
   }
 
   if (cachedFirstLessonId !== undefined) {
-    return cachedFirstLessonId;
+    return cachedFirstLessonId ?? DEFAULT_LESSON_ID;
   }
 
   const { data: first, error: firstError } = await supabase
@@ -46,7 +61,7 @@ async function resolveCurrentLessonId(
 
   if (firstError) throw new Error(firstError.message);
   cachedFirstLessonId = first?.id ?? null;
-  return cachedFirstLessonId ?? null;
+  return cachedFirstLessonId ?? DEFAULT_LESSON_ID;
 }
 
 function mapVocabMemoryRow(row: {
@@ -122,17 +137,18 @@ export async function fetchUserProgress(
 
   const row = progressRes.data;
   if (!row) {
-    const firstLessonId = await resolveCurrentLessonId(supabase, null);
     return {
       ...EMPTY_PROGRESS,
-      currentLessonId: firstLessonId ?? DEFAULT_LESSON_ID,
+      currentLessonId: DEFAULT_LESSON_ID,
       lessonAttempts,
       completedLessonIds,
       vocabMemory,
     };
   }
 
-  const currentLessonId = await resolveCurrentLessonId(supabase, row.current_lesson_id);
+  const currentLessonId = await resolveCurrentLessonId(supabase, row.current_lesson_id, {
+    validateInDb: false,
+  });
 
   return {
     xp: row.xp ?? 0,
@@ -150,7 +166,9 @@ export async function saveUserProgressState(
   userId: string,
   progress: UserProgress
 ): Promise<void> {
-  const currentLessonId = await resolveCurrentLessonId(supabase, progress.currentLessonId);
+  const currentLessonId = await resolveCurrentLessonId(supabase, progress.currentLessonId, {
+    validateInDb: true,
+  });
 
   const { error: progressError } = await supabase.from("user_progress").upsert(
     {

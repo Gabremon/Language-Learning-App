@@ -2,13 +2,14 @@
 
 import { AppShell } from "@/components/layout/AppShell";
 import type { CourseCatalog } from "@/lib/course-utils";
-import { getActiveUnit } from "@/lib/course-utils";
-import { getLessonsForUnit } from "@/lib/course-utils";
+import { getActiveUnit, getLessonsForUnit } from "@/lib/course-utils";
 import { useProgress } from "@/contexts/ProgressContext";
 import { COURSE_SECTIONS, getUnitsForSection } from "@/data/course-content";
 import type { CourseSectionId } from "@/data/starter-hsk1/units";
 import { SectionScroll } from "@/components/course/ink-trail/SectionScroll";
 import { UnitTrail } from "@/components/course/ink-trail/UnitTrail";
+import { Button } from "@/components/ui/button";
+import { InkPanel } from "@/components/ui/ink-shell";
 import { useEffect, useMemo, useState } from "react";
 
 interface Props {
@@ -17,37 +18,27 @@ interface Props {
 
 export function CourseView({ catalog }: Props) {
   const { units, lessons } = catalog;
-  const { progress, loading } = useProgress();
+  const { progress, loading, error, retryLoad } = useProgress();
   const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({
     hsk1: true,
   });
   const [collapsedUnits, setCollapsedUnits] = useState<Record<string, boolean>>({});
 
+  const completedIds = progress?.completedLessonIds ?? [];
+  const currentLessonId = progress?.currentLessonId ?? lessons[0]?.id ?? "";
+
   const activeUnitId = useMemo(
-    () =>
-      progress
-        ? getActiveUnit(units, lessons, progress.completedLessonIds).id
-        : units[0]?.id,
-    [progress, units, lessons]
+    () => getActiveUnit(units, lessons, completedIds).id,
+    [units, lessons, completedIds]
   );
 
   useEffect(() => {
-    if (!progress) return;
+    if (loading) return;
     setCollapsedUnits((prev) => {
       if (Object.keys(prev).length > 0) return prev;
       return Object.fromEntries(units.map((unit) => [unit.id, unit.id !== activeUnitId]));
     });
-  }, [progress, units, activeUnitId]);
-
-  if (loading || !progress) {
-    return (
-      <AppShell variant="paper">
-        <div className="flex min-h-[40vh] items-center justify-center">
-          <p className="text-sm text-stone-500">Loading your trail...</p>
-        </div>
-      </AppShell>
-    );
-  }
+  }, [loading, units, activeUnitId]);
 
   return (
     <AppShell variant="paper">
@@ -60,14 +51,28 @@ export function CourseView({ catalog }: Props) {
           </p>
         </header>
 
+        {error && (
+          <InkPanel className="border-amber-200 bg-amber-50/50 p-3">
+            <p className="text-sm text-amber-900">
+              Couldn&apos;t sync your progress. The trail is still visible — try again.
+            </p>
+            <p className="mt-1 text-xs text-amber-700">{error}</p>
+            <Button size="sm" variant="outline" className="mt-2" onClick={() => retryLoad()}>
+              Retry sync
+            </Button>
+          </InkPanel>
+        )}
+
+        {loading && !progress && (
+          <p className="text-center text-xs text-stone-400">Syncing progress…</p>
+        )}
+
         {COURSE_SECTIONS.map((section) => {
           const sectionUnits = getUnitsForSection(section.id)
             .map((def) => units.find((u) => u.id === def.id)!)
             .filter(Boolean);
           const sectionLessons = sectionUnits.flatMap((u) => getLessonsForUnit(lessons, u.id));
-          const sectionCompleted = sectionLessons.filter((l) =>
-            progress.completedLessonIds.includes(l.id)
-          ).length;
+          const sectionCompleted = sectionLessons.filter((l) => completedIds.includes(l.id)).length;
           const sectionCollapsed = collapsedSections[section.id];
 
           return (
@@ -95,8 +100,8 @@ export function CourseView({ catalog }: Props) {
                       unit={unit}
                       lessons={lessons}
                       allUnits={units}
-                      completedIds={progress.completedLessonIds}
-                      currentLessonId={progress.currentLessonId ?? lessons[0]?.id ?? ""}
+                      completedIds={completedIds}
+                      currentLessonId={currentLessonId}
                       isActive={unit.id === activeUnitId}
                       expanded={!collapsedUnits[unit.id]}
                       onToggle={() =>

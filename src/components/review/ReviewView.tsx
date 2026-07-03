@@ -9,7 +9,7 @@ import { ExerciseFeedback } from "@/components/exercises/ExerciseFeedback";
 import type { VocabItem } from "@/types/course";
 import { getVocabMemory } from "@/lib/progress";
 import { isDueForReview, updateVocabMemoryOnReview } from "@/lib/srs";
-import { normalizeEnglishAnswer } from "@/lib/exercise-checker";
+import { matchesEnglishAnswer } from "@/lib/exercise-checker";
 import { speakMandarin } from "@/lib/speech";
 import { useProgress } from "@/contexts/ProgressContext";
 import { Input } from "@/components/ui/input";
@@ -50,7 +50,7 @@ export function ReviewView({ vocabItems }: Props) {
         vocabId: vocab.id,
         hanzi: vocab.hanzi,
         pinyin: vocab.pinyin,
-        english: vocab.english.split("/")[0].trim(),
+        english: vocab.english,
       }));
 
     setItems(
@@ -60,7 +60,7 @@ export function ReviewView({ vocabItems }: Props) {
             vocabId: v.id,
             hanzi: v.hanzi,
             pinyin: v.pinyin,
-            english: v.english.split("/")[0].trim(),
+            english: v.english,
           }))
     );
     setItemsReady(true);
@@ -70,8 +70,7 @@ export function ReviewView({ vocabItems }: Props) {
 
   const handleCheck = useCallback(async () => {
     if (!current || !progress) return;
-    const isCorrect =
-      normalizeEnglishAnswer(answer) === normalizeEnglishAnswer(current.english);
+    const isCorrect = matchesEnglishAnswer(answer, [current.english]);
 
     setResult({ isCorrect, correctAnswer: current.english });
     if (isCorrect) setScore((s) => s + 1);
