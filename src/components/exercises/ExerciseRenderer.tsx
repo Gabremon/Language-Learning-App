@@ -8,7 +8,8 @@ import { MatchPairsExercise } from "@/components/exercises/MatchPairsExercise";
 import { MultipleChoiceExercise } from "@/components/exercises/MultipleChoiceExercise";
 import { PinyinRecognitionExercise } from "@/components/exercises/PinyinRecognitionExercise";
 import { ReversePinyinExercise } from "@/components/exercises/ReversePinyinExercise";
-import type { BaseExercise, UserAnswer } from "@/types/exercises";
+import { ToneAndEnglishExercise } from "@/components/exercises/ToneAndEnglishExercise";
+import type { BaseExercise, ToneAndEnglishAnswer, UserAnswer } from "@/types/exercises";
 import {
   isEnglishToHanziWordBank,
   isFillInBlank,
@@ -18,6 +19,7 @@ import {
   isMultipleChoice,
   isPinyinRecognition,
   isReversePinyin,
+  isToneAndEnglish,
 } from "@/types/exercises";
 
 interface Props {
@@ -73,9 +75,13 @@ export function ExerciseRenderer({ exercise, answer, onAnswerChange, disabled }:
   }
 
   if (isMatchPairs(exercise)) {
-    const matches =
-      answer !== null && typeof answer === "object" && !Array.isArray(answer)
-        ? answer
+    const matches: Record<string, string> =
+      answer !== null &&
+      typeof answer === "object" &&
+      !Array.isArray(answer) &&
+      !("tone" in answer) &&
+      !("english" in answer)
+        ? (answer as Record<string, string>)
         : {};
     return (
       <MatchPairsExercise
@@ -115,6 +121,25 @@ export function ExerciseRenderer({ exercise, answer, onAnswerChange, disabled }:
         payload={exercise.payload}
         selected={typeof answer === "string" ? answer : null}
         onSelect={onAnswerChange}
+        disabled={disabled}
+      />
+    );
+  }
+
+  if (isToneAndEnglish(exercise)) {
+    const toneAnswer =
+      typeof answer === "object" &&
+      answer !== null &&
+      !Array.isArray(answer) &&
+      "tone" in answer &&
+      "english" in answer
+        ? { tone: String(answer.tone), english: String(answer.english) }
+        : null;
+    return (
+      <ToneAndEnglishExercise
+        payload={exercise.payload}
+        value={toneAnswer}
+        onChange={onAnswerChange}
         disabled={disabled}
       />
     );

@@ -19,10 +19,44 @@ export function getLessonsForUnit(lessons: Lesson[], unitId: string): Lesson[] {
     .sort((a, b) => a.orderIndex - b.orderIndex);
 }
 
-export function getNextLesson(lessons: Lesson[], currentLessonId: string): Lesson | null {
-  const idx = lessons.findIndex((lesson) => lesson.id === currentLessonId);
-  if (idx < 0 || idx >= lessons.length - 1) return null;
-  return lessons[idx + 1];
+/** Lessons in course order: unit order, then lesson order within each unit. */
+export function sortLessonsByCourseOrder(lessons: Lesson[], units: Unit[]): Lesson[] {
+  const unitOrder = new Map(units.map((unit) => [unit.id, unit.orderIndex]));
+  return [...lessons].sort((a, b) => {
+    const unitA = unitOrder.get(a.unitId) ?? 0;
+    const unitB = unitOrder.get(b.unitId) ?? 0;
+    return unitA - unitB || a.orderIndex - b.orderIndex;
+  });
+}
+
+export function getNextLesson(
+  lessons: Lesson[],
+  currentLessonId: string,
+  units?: Unit[]
+): Lesson | null {
+  const ordered = units ? sortLessonsByCourseOrder(lessons, units) : lessons;
+  const idx = ordered.findIndex((lesson) => lesson.id === currentLessonId);
+  if (idx < 0 || idx >= ordered.length - 1) return null;
+  return ordered[idx + 1];
+}
+
+/** Lesson to show on "Continue" — first incomplete step, or current if still in progress. */
+export function getContinueLesson(
+  lessons: Lesson[],
+  units: Unit[],
+  currentLessonId: string | null,
+  completedIds: string[]
+): Lesson {
+  const ordered = sortLessonsByCourseOrder(lessons, units);
+  const completed = new Set(completedIds);
+
+  const current = ordered.find((lesson) => lesson.id === currentLessonId);
+  if (current && !completed.has(current.id)) return current;
+
+  const nextIncomplete = ordered.find((lesson) => !completed.has(lesson.id));
+  if (nextIncomplete) return nextIncomplete;
+
+  return current ?? ordered[0];
 }
 
 export function isLessonUnlocked(

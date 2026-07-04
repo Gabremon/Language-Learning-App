@@ -26,10 +26,10 @@ function v(
 
 /** Tone-drill characters (Starter only, not HSK 1 exam vocabulary). */
 const STARTER_TONE_VOCAB: VocabItem[] = [
-  v("v-ma-mother", "妈", "mā", "mother (tone 1)", "noun", 1),
-  v("v-ma-hemp", "麻", "má", "hemp (tone 2)", "noun", 1),
-  v("v-ma-horse", "马", "mǎ", "horse (tone 3)", "noun", 1),
-  v("v-ma-scold", "骂", "mà", "to scold (tone 4)", "verb", 1),
+  v("v-ma-mother", "妈", "mā", "mother", "noun", 1),
+  v("v-ma-hemp", "麻", "má", "hemp", "noun", 1),
+  v("v-ma-horse", "马", "mǎ", "horse", "noun", 1),
+  v("v-ma-scold", "骂", "mà", "to scold", "verb", 1),
   v("v-laizi", "来自", "láizì", "to come from", "verb", 2),
   v("v-duoda", "多大", "duō dà", "how old", "question", 2),
   v("v-zhongguoren", "中国人", "Zhōngguórén", "Chinese person", "noun", 2),

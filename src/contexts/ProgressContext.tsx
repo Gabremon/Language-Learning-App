@@ -43,7 +43,8 @@ interface ProgressContextValue {
   completeLesson: (
     lessonId: string,
     score: number,
-    totalQuestions: number
+    totalQuestions: number,
+    nextLessonId?: string | null
   ) => Promise<{ progress: UserProgress; xpGained: number }>;
   updateVocabMemories: (memories: VocabMemory[]) => Promise<void>;
   applyReviewUpdate: (
@@ -174,7 +175,12 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   );
 
   const completeLesson = useCallback(
-    async (lessonId: string, score: number, totalQuestions: number) => {
+    async (
+      lessonId: string,
+      score: number,
+      totalQuestions: number,
+      nextLessonId?: string | null
+    ) => {
       if (!progress) {
         throw new Error("Progress not loaded");
       }
@@ -194,32 +200,41 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
           lessonId,
           score,
           totalQuestions,
-          attempt
+          attempt,
+          nextLessonId
         );
         setProgress(nextProgress);
         saveGuestProgress(nextProgress);
         return { progress: nextProgress, xpGained };
       }
 
-      const attempt = await insertLessonAttempt(
-        supabase,
-        user.id,
-        lessonId,
-        score,
-        totalQuestions
-      );
+      try {
+        const attempt = await insertLessonAttempt(
+          supabase,
+          user.id,
+          lessonId,
+          score,
+          totalQuestions
+        );
 
-      const nextProgress = applyLessonCompletion(
-        progress,
-        lessonId,
-        score,
-        totalQuestions,
-        attempt
-      );
+        const nextProgress = applyLessonCompletion(
+          progress,
+          lessonId,
+          score,
+          totalQuestions,
+          attempt,
+          nextLessonId
+        );
 
-      await saveUserProgressState(supabase, user.id, nextProgress);
-      setProgress(nextProgress);
-      return { progress: nextProgress, xpGained };
+        await saveUserProgressState(supabase, user.id, nextProgress);
+        setProgress(nextProgress);
+        setError(null);
+        return { progress: nextProgress, xpGained };
+      } catch (err) {
+        const message = err instanceof Error ? err.message : "Failed to save lesson";
+        setError(message);
+        throw err;
+      }
     },
     [supabase, user, progress, isGuest]
   );

@@ -2,16 +2,16 @@
 
 import { AppShell } from "@/components/layout/AppShell";
 import type { CourseCatalog } from "@/lib/course-utils";
-import { getActiveUnit, getLessonsForUnit } from "@/lib/course-utils";
+import { getActiveUnit, getContinueLesson, getLessonsForUnit } from "@/lib/course-utils";
 import { useProgress } from "@/contexts/ProgressContext";
-import { COURSE_SECTIONS, getUnitIdsForSection } from "@/data/course-sections";
+import { COURSE_SECTIONS, getSectionIdForUnit, getUnitIdsForSection } from "@/data/course-sections";
 import type { CourseSectionId } from "@/data/course-sections";
 import { SectionScroll } from "@/components/course/ink-trail/SectionScroll";
 import { UnitTrail } from "@/components/course/ink-trail/UnitTrail";
 import { Button } from "@/components/ui/button";
 import { InkPanel } from "@/components/ui/ink-shell";
 import { APP_NAME } from "@/lib/brand";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 interface Props {
   catalog: CourseCatalog;
@@ -20,26 +20,50 @@ interface Props {
 export function CourseView({ catalog }: Props) {
   const { units, lessons } = catalog;
   const { progress, loading, error, retryLoad } = useProgress();
-  const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>({
-    hsk1: true,
-  });
-  const [collapsedUnits, setCollapsedUnits] = useState<Record<string, boolean>>({});
+  const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(COURSE_SECTIONS.map((section) => [section.id, true]))
+  );
+  const [collapsedUnits, setCollapsedUnits] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(units.map((unit) => [unit.id, true]))
+  );
+  const pathExpandedInitialized = useRef(false);
 
-  const completedIds = progress?.completedLessonIds ?? [];
-  const currentLessonId = progress?.currentLessonId ?? lessons[0]?.id ?? "";
+  const completedIds = useMemo(
+    () => progress?.completedLessonIds ?? [],
+    [progress?.completedLessonIds]
+  );
+  const currentLessonId = useMemo(() => {
+    if (!progress) return lessons[0]?.id ?? "";
+    return getContinueLesson(
+      lessons,
+      units,
+      progress.currentLessonId,
+      progress.completedLessonIds
+    ).id;
+  }, [progress, lessons, units]);
 
   const activeUnitId = useMemo(
     () => getActiveUnit(units, lessons, completedIds).id,
     [units, lessons, completedIds]
   );
 
+  const activeSectionId = useMemo(
+    () => getSectionIdForUnit(activeUnitId, units),
+    [activeUnitId, units]
+  );
+
   useEffect(() => {
-    if (loading) return;
-    setCollapsedUnits((prev) => {
-      if (Object.keys(prev).length > 0) return prev;
-      return Object.fromEntries(units.map((unit) => [unit.id, unit.id !== activeUnitId]));
-    });
-  }, [loading, units, activeUnitId]);
+    if (loading || pathExpandedInitialized.current || !activeSectionId) return;
+    pathExpandedInitialized.current = true;
+    setCollapsedSections(
+      Object.fromEntries(
+        COURSE_SECTIONS.map((section) => [section.id, section.id !== activeSectionId])
+      )
+    );
+    setCollapsedUnits(
+      Object.fromEntries(units.map((unit) => [unit.id, unit.id !== activeUnitId]))
+    );
+  }, [loading, activeSectionId, activeUnitId, units]);
 
   return (
     <AppShell variant="paper">
@@ -69,7 +93,7 @@ export function CourseView({ catalog }: Props) {
         )}
 
         {COURSE_SECTIONS.map((section) => {
-          const sectionUnits = getUnitIdsForSection(section.id)
+          const sectionUnits = getUnitIdsForSection(section.id, units)
             .map((id) => units.find((u) => u.id === id)!)
             .filter(Boolean);
           const sectionLessons = sectionUnits.flatMap((u) => getLessonsForUnit(lessons, u.id));

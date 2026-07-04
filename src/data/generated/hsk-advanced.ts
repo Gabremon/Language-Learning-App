@@ -61,5 +61,5 @@ export const hskAdvancedLessonSentenceMap: Record<string, string[]> = {
   ...hsk6.hsk6LessonSentenceMap,
 };
 
-export const HSK_ADVANCED_LESSON_COUNT = 752;
+export const HSK_ADVANCED_LESSON_COUNT = 629;
 export const HSK_ADVANCED_VOCAB_COUNT = 4809;

@@ -1,5 +1,7 @@
 import type { Sentence, Unit, VocabItem } from "@/types/course";
 import type { BaseExercise, ExerciseType } from "@/types/exercises";
+import { englishWithoutToneLabel, extractToneFromEnglish, isToneDrillVocab } from "@/lib/tone-vocab";
+import { getSyllableTone } from "@/lib/pinyin";
 
 /** HSK band derived from unit order (PDF curriculum architecture). */
 export type Band = "starter" | "hsk1" | "hsk2" | "hsk3" | "hsk4" | "hsk5" | "hsk6";
@@ -169,6 +171,7 @@ export const PHASE_FOR_TYPE: Record<ExerciseType, LessonPhase> = {
   pinyin_recognition: "input",
   reverse_pinyin: "memory",
   hanzi_to_english: "productive",
+  tone_and_english: "productive",
   english_to_hanzi_word_bank: "productive",
   match_pairs: "memory",
   fill_in_blank: "exit",
@@ -260,8 +263,16 @@ function buildShuffledOptions(correct: string, wrong: string[], seed: string): s
   return seededShuffle(unique, seed);
 }
 
-function englishPrimary(english: string): string {
-  return english.split("/")[0].trim();
+function englishGloss(english: string): string {
+  return englishWithoutToneLabel(english.split("/")[0].trim());
+}
+
+function toneForVocab(v: VocabItem): string | null {
+  const fromEnglish = extractToneFromEnglish(v.english);
+  if (fromEnglish) return fromEnglish;
+  if (!isToneDrillVocab(v.id)) return null;
+  const tone = getSyllableTone(v.pinyin.trim());
+  return tone === "0" ? null : tone;
 }
 
 export interface BuildLessonOptions {
@@ -318,11 +329,11 @@ export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[
       {
         hanzi: v.hanzi,
         options: buildShuffledOptions(
-          v.english,
-          distractors(v, vocab, "english", `${lessonId}-${v.id}-li-d`),
+          englishGloss(v.english),
+          distractors(v, vocab, "english", `${lessonId}-${v.id}-li-d`).map(englishGloss),
           `${lessonId}-${v.id}-li`
         ),
-        correctAnswer: v.english,
+        correctAnswer: englishGloss(v.english),
         ...(imageUrl ? { imageUrl } : {}),
         pinyin: v.pinyin,
       },
@@ -361,11 +372,11 @@ export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[
       {
         question: `What does "${v.hanzi}" mean?`,
         options: buildShuffledOptions(
-          v.english,
-          distractors(v, vocab, "english", `${lessonId}-${v.id}-mc-d`),
+          englishGloss(v.english),
+          distractors(v, vocab, "english", `${lessonId}-${v.id}-mc-d`).map(englishGloss),
           `${lessonId}-${v.id}-mc`
         ),
-        correctAnswer: v.english,
+        correctAnswer: englishGloss(v.english),
         displayHanzi: v.hanzi,
         ...(imageUrl ? { imageUrl } : {}),
         pinyin: v.pinyin,
@@ -374,17 +385,36 @@ export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[
     );
   }
 
-  // Productive: typed English
+  // Productive: typed English (tone drills use tone + English instead)
   for (let i = 0; i < mix.hanzi_to_english; i++) {
     const v = nextVocab();
     const imageUrl = getImageUrl?.(v.id);
+    const tone = toneForVocab(v);
+    if (tone) {
+      const gloss = englishGloss(v.english);
+      add(
+        "tone_and_english",
+        "Select the tone and type the English meaning",
+        {
+          hanzi: v.hanzi,
+          toneOptions: ["1", "2", "3", "4"],
+          correctTone: tone,
+          acceptedEnglishAnswers: [gloss],
+          ...(imageUrl ? { imageUrl } : {}),
+          emoji: v.emoji,
+        },
+        `${v.hanzi} = ${gloss} (tone ${tone})`
+      );
+      continue;
+    }
+
     add(
       "hanzi_to_english",
       "Type the English meaning",
       {
         hanzi: v.hanzi,
         pinyin: v.pinyin,
-        acceptedAnswers: [v.english, englishPrimary(v.english)],
+        acceptedAnswers: [v.english, englishGloss(v.english)],
         ...(imageUrl ? { imageUrl } : {}),
       },
       `${v.hanzi} = ${v.english}`
@@ -403,7 +433,7 @@ export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[
       "english_to_hanzi_word_bank",
       "Build the hanzi for this word",
       {
-        english: englishPrimary(v.english),
+        english: englishGloss(v.english),
         wordBank: seededShuffle([...chars, ...decoys], `${lessonId}-${v.id}-wb`),
         correctAnswer: chars,
         imageUrl: getImageUrl?.(v.id),
@@ -439,7 +469,7 @@ export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[
       pairs: pairVocab.map((v) => ({
         id: v.id,
         left: v.hanzi,
-        right: englishPrimary(v.english),
+        right: englishGloss(v.english),
         imageUrl: getImageUrl?.(v.id),
       })),
     });

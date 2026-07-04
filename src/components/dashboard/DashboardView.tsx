@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { CourseCatalog } from "@/lib/course-utils";
-import { getActiveUnit, getLessonsForUnit, isLessonUnlocked } from "@/lib/course-utils";
+import { getActiveUnit, getContinueLesson, getLessonsForUnit, isLessonUnlocked } from "@/lib/course-utils";
 import { getDueReviewCount } from "@/lib/srs";
 import { useProgress } from "@/contexts/ProgressContext";
 import { APP_MARK, APP_NAME } from "@/lib/brand";
@@ -43,7 +43,12 @@ export function DashboardView({ catalog }: Props) {
   }
 
   const dueReviews = getDueReviewCount(getAllMemories());
-  const currentLesson = lessons.find((l) => l.id === progress.currentLessonId) ?? lessons[0];
+  const currentLesson = getContinueLesson(
+    lessons,
+    units,
+    progress.currentLessonId,
+    progress.completedLessonIds
+  );
   const completedCount = progress.completedLessonIds.length;
   const totalLessons = lessons.length;
   const activeUnit = getActiveUnit(units, lessons, progress.completedLessonIds);
@@ -148,7 +153,7 @@ export function DashboardView({ catalog }: Props) {
 
           <div className="grid gap-2 sm:grid-cols-2">
             {COURSE_SECTIONS.map((section) => {
-              const sectionUnits = getUnitIdsForSection(section.id)
+              const sectionUnits = getUnitIdsForSection(section.id, units)
                 .map((id) => units.find((u) => u.id === id)!)
                 .filter(Boolean);
               const sectionLessons = sectionUnits.flatMap((u) => getLessonsForUnit(lessons, u.id));

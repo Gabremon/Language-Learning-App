@@ -3,1030 +3,856 @@ import type { Lesson, Sentence, Unit, VocabItem } from "@/types/course";
 
 export const hsk3Units: Unit[] = [
   {
-    "id": "unit-h3-ca",
+    "id": "unit-h3-ca-p1",
     "courseId": "course-mandarin-1",
-    "title": "Neighborhood & Services",
-    "orderIndex": 26
+    "title": "Neighborhood & Services · 1",
+    "orderIndex": 32
   },
   {
-    "id": "unit-h3-cb",
+    "id": "unit-h3-ca-p2",
     "courseId": "course-mandarin-1",
-    "title": "Experience & Past Events",
-    "orderIndex": 27
+    "title": "Neighborhood & Services · 2",
+    "orderIndex": 33
   },
   {
-    "id": "unit-h3-cc",
+    "id": "unit-h3-ca-p3",
     "courseId": "course-mandarin-1",
-    "title": "Plans & Arrangements",
-    "orderIndex": 28
+    "title": "Neighborhood & Services · 3",
+    "orderIndex": 34
   },
   {
-    "id": "unit-h3-cd",
+    "id": "unit-h3-cb-p1",
     "courseId": "course-mandarin-1",
-    "title": "Preferences & Reasons",
-    "orderIndex": 29
+    "title": "Experience & Past Events · 1",
+    "orderIndex": 35
+  },
+  {
+    "id": "unit-h3-cb-p2",
+    "courseId": "course-mandarin-1",
+    "title": "Experience & Past Events · 2",
+    "orderIndex": 36
+  },
+  {
+    "id": "unit-h3-cb-p3",
+    "courseId": "course-mandarin-1",
+    "title": "Experience & Past Events · 3",
+    "orderIndex": 37
+  },
+  {
+    "id": "unit-h3-cc-p1",
+    "courseId": "course-mandarin-1",
+    "title": "Plans & Arrangements · 1",
+    "orderIndex": 38
+  },
+  {
+    "id": "unit-h3-cc-p2",
+    "courseId": "course-mandarin-1",
+    "title": "Plans & Arrangements · 2",
+    "orderIndex": 39
+  },
+  {
+    "id": "unit-h3-cc-p3",
+    "courseId": "course-mandarin-1",
+    "title": "Plans & Arrangements · 3",
+    "orderIndex": 40
+  },
+  {
+    "id": "unit-h3-cd-p1",
+    "courseId": "course-mandarin-1",
+    "title": "Preferences & Reasons · 1",
+    "orderIndex": 41
+  },
+  {
+    "id": "unit-h3-cd-p2",
+    "courseId": "course-mandarin-1",
+    "title": "Preferences & Reasons · 2",
+    "orderIndex": 42
+  },
+  {
+    "id": "unit-h3-cd-p3",
+    "courseId": "course-mandarin-1",
+    "title": "Preferences & Reasons · 3",
+    "orderIndex": 43
   },
   {
     "id": "unit-h3-ce",
     "courseId": "course-mandarin-1",
     "title": "Media, Rules & Culture",
-    "orderIndex": 30
+    "orderIndex": 44
   }
 ];
 
 export const hsk3Lessons: Lesson[] = [
   {
-    "id": "lesson-h3-ca-1",
-    "unitId": "unit-h3-ca",
-    "title": "compassion · to install",
+    "id": "lesson-h3-ca-p1-1",
+    "unitId": "unit-h3-ca-p1",
+    "title": "compassion · according to",
     "orderIndex": 1
   },
   {
-    "id": "lesson-h3-ca-2",
-    "unitId": "unit-h3-ca",
-    "title": "Chinese cabbage · class",
+    "id": "lesson-h3-ca-p1-2",
+    "unitId": "unit-h3-ca-p1",
+    "title": "necessary · standard; norm; criterion",
     "orderIndex": 2
   },
   {
-    "id": "lesson-h3-ca-3",
-    "unitId": "unit-h3-ca",
-    "title": "to keep · to keep",
+    "id": "lesson-h3-ca-p1-3",
+    "unitId": "unit-h3-ca-p1",
+    "title": "situation · to quarrel",
     "orderIndex": 3
   },
   {
-    "id": "lesson-h3-ca-4",
-    "unitId": "unit-h3-ca",
-    "title": "behind · quilt",
+    "id": "lesson-h3-ca-p1-4",
+    "unitId": "unit-h3-ca-p1",
+    "title": "always · to exist",
     "orderIndex": 4
   },
   {
-    "id": "lesson-h3-ca-5",
-    "unitId": "unit-h3-ca",
-    "title": "inevitable · necessary",
+    "id": "lesson-h3-ca-p1-5",
+    "unitId": "unit-h3-ca-p1",
+    "title": "to transfer · at set dates",
     "orderIndex": 5
   },
   {
-    "id": "lesson-h3-ca-6",
-    "unitId": "unit-h3-ca",
-    "title": "surface · to make clear",
+    "id": "lesson-h3-ca-p1-6",
+    "unitId": "unit-h3-ca-p1",
+    "title": "landlord · Put in",
     "orderIndex": 6
   },
   {
-    "id": "lesson-h3-ca-7",
-    "unitId": "unit-h3-ca",
-    "title": "to broadcast · to broadcast; to transmit",
+    "id": "lesson-h3-ca-p1-7",
+    "unitId": "unit-h3-ca-p1",
+    "title": "see 干嘛 · fan of a singer",
     "orderIndex": 7
   },
   {
-    "id": "lesson-h3-ca-8",
-    "unitId": "unit-h3-ca",
-    "title": "unceasing · not the only one",
+    "id": "lesson-h3-ca-p1-8",
+    "unitId": "unit-h3-ca-p1",
+    "title": "to hang or suspend · to watch; to view",
     "orderIndex": 8
   },
   {
-    "id": "lesson-h3-ca-9",
-    "unitId": "unit-h3-ca",
-    "title": "to adopt or carry out · to adopt",
+    "id": "lesson-h3-ca-p1-9",
+    "unitId": "unit-h3-ca-p1",
+    "title": "Internet · to row a boat",
     "orderIndex": 9
   },
   {
-    "id": "lesson-h3-ca-10",
-    "unitId": "unit-h3-ca",
-    "title": "situation · location",
+    "id": "lesson-h3-ca-p1-10",
+    "unitId": "unit-h3-ca-p1",
+    "title": "family member · value",
     "orderIndex": 10
   },
   {
-    "id": "lesson-h3-ca-11",
-    "unitId": "unit-h3-ca",
-    "title": "shirt · shirt",
+    "id": "lesson-h3-ca-p1-11",
+    "unitId": "unit-h3-ca-p1",
+    "title": "gold medal · tight",
     "orderIndex": 11
   },
   {
-    "id": "lesson-h3-ca-12",
-    "unitId": "unit-h3-ca",
-    "title": "to establish · mature; ripe",
+    "id": "lesson-h3-ca-p1-review",
+    "unitId": "unit-h3-ca-p1",
+    "title": "Neighborhood & Services · 1 Review",
     "orderIndex": 12
   },
   {
-    "id": "lesson-h3-ca-13",
-    "unitId": "unit-h3-ca",
-    "title": "degree; level; extent · full of",
-    "orderIndex": 13
-  },
-  {
-    "id": "lesson-h3-ca-14",
-    "unitId": "unit-h3-ca",
-    "title": "besides · to pass on",
-    "orderIndex": 14
-  },
-  {
-    "id": "lesson-h3-ca-15",
-    "unitId": "unit-h3-ca",
-    "title": "to create · always",
-    "orderIndex": 15
-  },
-  {
-    "id": "lesson-h3-ca-16",
-    "unitId": "unit-h3-ca",
-    "title": "to exist · mistaken; false; wrong",
-    "orderIndex": 16
-  },
-  {
-    "id": "lesson-h3-ca-17",
-    "unitId": "unit-h3-ca",
-    "title": "embassy · to substitute",
-    "orderIndex": 17
-  },
-  {
-    "id": "lesson-h3-ca-18",
-    "unitId": "unit-h3-ca",
-    "title": "at that time · local",
-    "orderIndex": 18
-  },
-  {
-    "id": "lesson-h3-ca-19",
-    "unitId": "unit-h3-ca",
-    "title": "to reach; to arrive · to score",
-    "orderIndex": 19
-  },
-  {
-    "id": "lesson-h3-ca-20",
-    "unitId": "unit-h3-ca",
-    "title": "television station · transmitter-receiver",
-    "orderIndex": 20
-  },
-  {
-    "id": "lesson-h3-ca-21",
-    "unitId": "unit-h3-ca",
-    "title": "the east · motive power",
-    "orderIndex": 21
-  },
-  {
-    "id": "lesson-h3-ca-22",
-    "unitId": "unit-h3-ca",
-    "title": "short term · to break",
-    "orderIndex": 22
-  },
-  {
-    "id": "lesson-h3-ca-23",
-    "unitId": "unit-h3-ca",
-    "title": "well-developed; flourishing · to invent",
-    "orderIndex": 23
-  },
-  {
-    "id": "lesson-h3-ca-24",
-    "unitId": "unit-h3-ca",
-    "title": "to react · anyway",
-    "orderIndex": 24
-  },
-  {
-    "id": "lesson-h3-ca-25",
-    "unitId": "unit-h3-ca",
-    "title": "house · rent for a room or house",
-    "orderIndex": 25
-  },
-  {
-    "id": "lesson-h3-ca-26",
-    "unitId": "unit-h3-ca",
-    "title": "to enrich · risk; hazard",
-    "orderIndex": 26
-  },
-  {
-    "id": "lesson-h3-ca-27",
-    "unitId": "unit-h3-ca",
-    "title": "surname Fu · father and mother; parents",
-    "orderIndex": 27
-  },
-  {
-    "id": "lesson-h3-ca-28",
-    "unitId": "unit-h3-ca",
-    "title": "complicated; complex · surname Fu",
-    "orderIndex": 28
-  },
-  {
-    "id": "lesson-h3-ca-29",
-    "unitId": "unit-h3-ca",
-    "title": "quickly; at once · to dare",
-    "orderIndex": 29
-  },
-  {
-    "id": "lesson-h3-ca-30",
-    "unitId": "unit-h3-ca",
-    "title": "high speed · expressway; highway; freeway",
-    "orderIndex": 30
-  },
-  {
-    "id": "lesson-h3-ca-31",
-    "unitId": "unit-h3-ca",
-    "title": "individuality · each",
-    "orderIndex": 31
-  },
-  {
-    "id": "lesson-h3-ca-32",
-    "unitId": "unit-h3-ca",
-    "title": "factory · engineer",
-    "orderIndex": 32
-  },
-  {
-    "id": "lesson-h3-ca-33",
-    "unitId": "unit-h3-ca",
-    "title": "to announce · citizen",
-    "orderIndex": 33
-  },
-  {
-    "id": "lesson-h3-ca-34",
-    "unitId": "unit-h3-ca",
-    "title": "common · to have altogether",
-    "orderIndex": 34
-  },
-  {
-    "id": "lesson-h3-ca-35",
-    "unitId": "unit-h3-ca",
-    "title": "relation · to pay attention to",
-    "orderIndex": 35
-  },
-  {
-    "id": "lesson-h3-ca-36",
-    "unitId": "unit-h3-ca",
-    "title": "variant of 管 · to supervise",
-    "orderIndex": 36
-  },
-  {
-    "id": "lesson-h3-ca-37",
-    "unitId": "unit-h3-ca",
-    "title": "norm · domestic",
-    "orderIndex": 37
-  },
-  {
-    "id": "lesson-h3-ca-38",
-    "unitId": "unit-h3-ca",
-    "title": "to be afraid",
-    "orderIndex": 38
-  },
-  {
-    "id": "lesson-h3-ca-39",
-    "unitId": "unit-h3-ca",
-    "title": "to cooperate · Heping District of Shenyang city 沈阳市, Liaoning",
-    "orderIndex": 39
-  },
-  {
-    "id": "lesson-h3-ca-40",
-    "unitId": "unit-h3-ca",
-    "title": "variant of 花 · to row a boat",
-    "orderIndex": 40
-  },
-  {
-    "id": "lesson-h3-ca-41",
-    "unitId": "unit-h3-ca",
-    "title": "environment · member",
-    "orderIndex": 41
-  },
-  {
-    "id": "lesson-h3-ca-42",
-    "unitId": "unit-h3-ca",
-    "title": "zeal · basic",
-    "orderIndex": 42
-  },
-  {
-    "id": "lesson-h3-ca-43",
-    "unitId": "unit-h3-ca",
-    "title": "collective · to count",
-    "orderIndex": 43
-  },
-  {
-    "id": "lesson-h3-ca-44",
-    "unitId": "unit-h3-ca",
-    "title": "furniture · family member",
-    "orderIndex": 44
-  },
-  {
-    "id": "lesson-h3-ca-45",
-    "unitId": "unit-h3-ca",
-    "title": "to support · firm; resolute; determined",
-    "orderIndex": 45
-  },
-  {
-    "id": "lesson-h3-ca-46",
-    "unitId": "unit-h3-ca",
-    "title": "to establish · to establish",
-    "orderIndex": 46
-  },
-  {
-    "id": "lesson-h3-ca-47",
-    "unitId": "unit-h3-ca",
-    "title": "to associate · to deal; to trade; to transact",
-    "orderIndex": 47
-  },
-  {
-    "id": "lesson-h3-ca-48",
-    "unitId": "unit-h3-ca",
-    "title": "termination · to solve; to resolve; to settle",
-    "orderIndex": 48
-  },
-  {
-    "id": "lesson-h3-ca-49",
-    "unitId": "unit-h3-ca",
-    "title": "barely · as much as possible",
-    "orderIndex": 49
-  },
-  {
-    "id": "lesson-h3-ca-50",
-    "unitId": "unit-h3-ca",
-    "title": "to go a step further · Beijing opera",
-    "orderIndex": 50
-  },
-  {
-    "id": "lesson-h3-ca-51",
-    "unitId": "unit-h3-ca",
-    "title": "police; police officer · still",
-    "orderIndex": 51
-  },
-  {
-    "id": "lesson-h3-ca-52",
-    "unitId": "unit-h3-ca",
-    "title": "to get a job · to have; to possess",
-    "orderIndex": 52
-  },
-  {
-    "id": "lesson-h3-ca-53",
-    "unitId": "unit-h3-ca",
-    "title": "coffee · to exploit",
-    "orderIndex": 53
-  },
-  {
-    "id": "lesson-h3-ca-54",
-    "unitId": "unit-h3-ca",
-    "title": "seemingly · it would appear",
-    "orderIndex": 54
-  },
-  {
-    "id": "lesson-h3-ca-55",
-    "unitId": "unit-h3-ca",
-    "title": "objective",
-    "orderIndex": 55
-  },
-  {
-    "id": "lesson-h3-ca-56",
-    "unitId": "unit-h3-ca",
-    "title": "variant of 裤子, trousers · fast; high-speed; rapid",
-    "orderIndex": 56
-  },
-  {
-    "id": "lesson-h3-ca-57",
-    "unitId": "unit-h3-ca",
-    "title": "variant of 老板 · elderly lady",
-    "orderIndex": 57
-  },
-  {
-    "id": "lesson-h3-ca-58",
-    "unitId": "unit-h3-ca",
-    "title": "kind · similar",
-    "orderIndex": 58
-  },
-  {
-    "id": "lesson-h3-ca-59",
-    "unitId": "unit-h3-ca",
-    "title": "power · forthwith",
-    "orderIndex": 59
-  },
-  {
-    "id": "lesson-h3-ca-60",
-    "unitId": "unit-h3-ca",
-    "title": "United Nations · variant of 联系",
-    "orderIndex": 60
-  },
-  {
-    "id": "lesson-h3-ca-61",
-    "unitId": "unit-h3-ca",
-    "title": "additional · on the other hand",
-    "orderIndex": 61
-  },
-  {
-    "id": "lesson-h3-ca-62",
-    "unitId": "unit-h3-ca",
-    "title": "hotel · to fall behind",
-    "orderIndex": 62
-  },
-  {
-    "id": "lesson-h3-ca-63",
-    "unitId": "unit-h3-ca",
-    "title": "fault · useless",
-    "orderIndex": 63
-  },
-  {
-    "id": "lesson-h3-ca-64",
-    "unitId": "unit-h3-ca",
-    "title": "culinary delicacy · American dollar",
-    "orderIndex": 64
-  },
-  {
-    "id": "lesson-h3-ca-65",
-    "unitId": "unit-h3-ca",
-    "title": "clear-cut; definite; explicit · clear",
-    "orderIndex": 65
-  },
-  {
-    "id": "lesson-h3-ca-66",
-    "unitId": "unit-h3-ca",
-    "title": "target · at the present time",
-    "orderIndex": 66
-  },
-  {
-    "id": "lesson-h3-ca-67",
-    "unitId": "unit-h3-ca",
-    "title": "capability · a decade of a century",
-    "orderIndex": 67
-  },
-  {
-    "id": "lesson-h3-ca-68",
-    "unitId": "unit-h3-ca",
-    "title": "peasant · woman",
-    "orderIndex": 68
-  },
-  {
-    "id": "lesson-h3-ca-69",
-    "unitId": "unit-h3-ca",
-    "title": "to judge · healthy",
-    "orderIndex": 69
-  },
-  {
-    "id": "lesson-h3-ca-70",
-    "unitId": "unit-h3-ca",
-    "title": "beer · ticket price; fare; admission fee",
-    "orderIndex": 70
-  },
-  {
-    "id": "lesson-h3-ca-71",
-    "unitId": "unit-h3-ca",
-    "title": "universal · to spread extensively",
-    "orderIndex": 71
-  },
-  {
-    "id": "lesson-h3-ca-72",
-    "unitId": "unit-h3-ca",
-    "title": "strange",
-    "orderIndex": 72
-  },
-  {
-    "id": "lesson-h3-ca-73",
-    "unitId": "unit-h3-ca",
-    "title": "surname Qiang · large",
-    "orderIndex": 73
-  },
-  {
-    "id": "lesson-h3-ca-74",
-    "unitId": "unit-h3-ca",
-    "title": "parent · amiable",
-    "orderIndex": 74
-  },
-  {
-    "id": "lesson-h3-ca-75",
-    "unitId": "unit-h3-ca",
-    "title": "fan · surname Ou",
-    "orderIndex": 75
-  },
-  {
-    "id": "lesson-h3-ca-76",
-    "unitId": "unit-h3-ca",
-    "title": "deficiency · weak point",
-    "orderIndex": 76
-  },
-  {
-    "id": "lesson-h3-ca-77",
-    "unitId": "unit-h3-ca",
-    "title": "skirt · variant of 群",
-    "orderIndex": 77
-  },
-  {
-    "id": "lesson-h3-ca-78",
-    "unitId": "unit-h3-ca",
-    "title": "the people · Renminbi",
-    "orderIndex": 78
-  },
-  {
-    "id": "lesson-h3-ca-79",
-    "unitId": "unit-h3-ca",
-    "title": "surname Ren · any",
-    "orderIndex": 79
-  },
-  {
-    "id": "lesson-h3-ca-80",
-    "unitId": "unit-h3-ca",
-    "title": "sofa · sand",
-    "orderIndex": 80
-  },
-  {
-    "id": "lesson-h3-ca-81",
-    "unitId": "unit-h3-ca",
-    "title": "to come up · on top of",
-    "orderIndex": 81
-  },
-  {
-    "id": "lesson-h3-ca-82",
-    "unitId": "unit-h3-ca",
-    "title": "to set up; to establish · society",
-    "orderIndex": 82
-  },
-  {
-    "id": "lesson-h3-ca-83",
-    "unitId": "unit-h3-ca",
-    "title": "vivid · life",
-    "orderIndex": 83
-  },
-  {
-    "id": "lesson-h3-ca-84",
-    "unitId": "unit-h3-ca",
-    "title": "victory · stone",
-    "orderIndex": 84
-  },
-  {
-    "id": "lesson-h3-ca-85",
-    "unitId": "unit-h3-ca",
-    "title": "strength · to implement",
-    "orderIndex": 85
-  },
-  {
-    "id": "lesson-h3-ca-86",
-    "unitId": "unit-h3-ca",
-    "title": "world · World Cup",
-    "orderIndex": 86
-  },
-  {
-    "id": "lesson-h3-ca-87",
-    "unitId": "unit-h3-ca",
-    "title": "in fact · undertaking",
-    "orderIndex": 87
-  },
-  {
-    "id": "lesson-h3-ca-88",
-    "unitId": "unit-h3-ca",
-    "title": "to be applicable · to charge a fee",
-    "orderIndex": 88
-  },
-  {
-    "id": "lesson-h3-ca-89",
-    "unitId": "unit-h3-ca",
-    "title": "first · to receive",
-    "orderIndex": 89
-  },
-  {
-    "id": "lesson-h3-ca-90",
-    "unitId": "unit-h3-ca",
-    "title": "category · to be classified as",
-    "orderIndex": 90
-  },
-  {
-    "id": "lesson-h3-ca-91",
-    "unitId": "unit-h3-ca",
-    "title": "to die · speed",
-    "orderIndex": 91
-  },
-  {
-    "id": "lesson-h3-ca-92",
-    "unitId": "unit-h3-ca",
-    "title": "surname Tan · to talk",
-    "orderIndex": 92
-  },
-  {
-    "id": "lesson-h3-ca-93",
-    "unitId": "unit-h3-ca",
-    "title": "to shift to an earlier date · to question; to quiz; to grill",
-    "orderIndex": 93
-  },
-  {
-    "id": "lesson-h3-ca-94",
-    "unitId": "unit-h3-ca",
-    "title": "to jump · high jump",
-    "orderIndex": 94
-  },
-  {
-    "id": "lesson-h3-ca-95",
-    "unitId": "unit-h3-ca",
-    "title": "hearing · audience",
-    "orderIndex": 95
-  },
-  {
-    "id": "lesson-h3-ca-96",
-    "unitId": "unit-h3-ca",
-    "title": "brains · sudden; abrupt; unexpected",
-    "orderIndex": 96
-  },
-  {
-    "id": "lesson-h3-ca-97",
-    "unitId": "unit-h3-ca",
-    "title": "group · to impel",
-    "orderIndex": 97
-  },
-  {
-    "id": "lesson-h3-ca-98",
-    "unitId": "unit-h3-ca",
-    "title": "diplomacy · outside",
-    "orderIndex": 98
-  },
-  {
-    "id": "lesson-h3-ca-99",
-    "unitId": "unit-h3-ca",
-    "title": "usually · to jeopardize",
-    "orderIndex": 99
-  },
-  {
-    "id": "lesson-h3-ca-100",
-    "unitId": "unit-h3-ca",
-    "title": "warm · document",
-    "orderIndex": 100
-  },
-  {
-    "id": "lesson-h3-ca-101",
-    "unitId": "unit-h3-ca",
-    "title": "house · weapon",
-    "orderIndex": 101
-  },
-  {
-    "id": "lesson-h3-ca-102",
-    "unitId": "unit-h3-ca",
-    "title": "below · to go down",
-    "orderIndex": 102
-  },
-  {
-    "id": "lesson-h3-ca-103",
-    "unitId": "unit-h3-ca",
-    "title": "Hyundai, South Korean company · modernization",
-    "orderIndex": 103
-  },
-  {
-    "id": "lesson-h3-ca-104",
-    "unitId": "unit-h3-ca",
-    "title": "equivalent to · each other",
-    "orderIndex": 104
-  },
-  {
-    "id": "lesson-h3-ca-105",
-    "unitId": "unit-h3-ca",
-    "title": "result · to write",
-    "orderIndex": 105
-  },
-  {
-    "id": "lesson-h3-ca-106",
-    "unitId": "unit-h3-ca",
-    "title": "outer appearance · image",
-    "orderIndex": 106
-  },
-  {
-    "id": "lesson-h3-ca-107",
-    "unitId": "unit-h3-ca",
-    "title": "nature · surname Xiu",
-    "orderIndex": 107
-  },
-  {
-    "id": "lesson-h3-ca-108",
-    "unitId": "unit-h3-ca",
-    "title": "athlete · tuition fee",
-    "orderIndex": 108
-  },
-  {
-    "id": "lesson-h3-ca-109",
-    "unitId": "unit-h3-ca",
-    "title": "cigarette or pipe tobacco · to develop",
-    "orderIndex": 109
-  },
-  {
-    "id": "lesson-h3-ca-110",
-    "unitId": "unit-h3-ca",
-    "title": "sunshine",
-    "orderIndex": 110
-  },
-  {
-    "id": "lesson-h3-ca-111",
-    "unitId": "unit-h3-ca",
-    "title": "silver · silver medal",
-    "orderIndex": 111
-  },
-  {
-    "id": "lesson-h3-ca-112",
-    "unitId": "unit-h3-ca",
-    "title": "to beat · movies and television",
-    "orderIndex": 112
-  },
-  {
-    "id": "lesson-h3-ca-113",
-    "unitId": "unit-h3-ca",
-    "title": "mail",
-    "orderIndex": 113
-  },
-  {
-    "id": "lesson-h3-ca-114",
-    "unitId": "unit-h3-ca",
-    "title": "have plenty of · effective",
-    "orderIndex": 114
-  },
-  {
-    "id": "lesson-h3-ca-115",
-    "unitId": "unit-h3-ca",
-    "title": "staff · desire",
-    "orderIndex": 115
-  },
-  {
-    "id": "lesson-h3-ca-116",
-    "unitId": "unit-h3-ca",
-    "title": "to bring about · responsibility",
-    "orderIndex": 116
-  },
-  {
-    "id": "lesson-h3-ca-117",
-    "unitId": "unit-h3-ca",
-    "title": "the Great Wall · good aspects",
-    "orderIndex": 117
-  },
-  {
-    "id": "lesson-h3-ca-118",
-    "unitId": "unit-h3-ca",
-    "title": "to strive for · to fight for",
-    "orderIndex": 118
-  },
-  {
-    "id": "lesson-h3-ca-119",
-    "unitId": "unit-h3-ca",
-    "title": "all day long · whole",
-    "orderIndex": 119
-  },
-  {
-    "id": "lesson-h3-ca-120",
-    "unitId": "unit-h3-ca",
-    "title": "surname Zhi · to be in favor of",
-    "orderIndex": 120
-  },
-  {
-    "id": "lesson-h3-ca-121",
-    "unitId": "unit-h3-ca",
-    "title": "value · to be worth",
-    "orderIndex": 121
-  },
-  {
-    "id": "lesson-h3-ca-122",
-    "unitId": "unit-h3-ca",
-    "title": "to guide · so far",
-    "orderIndex": 122
-  },
-  {
-    "id": "lesson-h3-ca-123",
-    "unitId": "unit-h3-ca",
-    "title": "to manufacture; to make · to make; to manufacture",
-    "orderIndex": 123
-  },
-  {
-    "id": "lesson-h3-ca-124",
-    "unitId": "unit-h3-ca",
-    "title": "seed · great",
-    "orderIndex": 124
-  },
-  {
-    "id": "lesson-h3-ca-125",
-    "unitId": "unit-h3-ca",
-    "title": "director · to advocate",
-    "orderIndex": 125
-  },
-  {
-    "id": "lesson-h3-ca-126",
-    "unitId": "unit-h3-ca",
-    "title": "expert; specialist · specialist",
-    "orderIndex": 126
-  },
-  {
-    "id": "lesson-h3-ca-127",
-    "unitId": "unit-h3-ca",
-    "title": "funds; capital · children; sons and daughters",
-    "orderIndex": 127
-  },
-  {
-    "id": "lesson-h3-ca-128",
-    "unitId": "unit-h3-ca",
-    "title": "to sum up · always",
-    "orderIndex": 128
-  },
-  {
-    "id": "lesson-h3-ca-129",
-    "unitId": "unit-h3-ca",
-    "title": "author; writer",
-    "orderIndex": 129
-  },
-  {
-    "id": "lesson-h3-ca-review",
-    "unitId": "unit-h3-ca",
-    "title": "Neighborhood & Services Review",
-    "orderIndex": 130
-  },
-  {
-    "id": "lesson-h3-cb-1",
-    "unitId": "unit-h3-cb",
-    "title": "to handle; to transact; to conduct · original",
+    "id": "lesson-h3-ca-p2-1",
+    "unitId": "unit-h3-ca-p2",
+    "title": "to exploit · to launch",
     "orderIndex": 1
   },
   {
-    "id": "lesson-h3-cb-2",
-    "unitId": "unit-h3-cb",
-    "title": "to continue · to handle; to deal with",
+    "id": "lesson-h3-ca-p2-2",
+    "unitId": "unit-h3-ca-p2",
+    "title": "theory · forthwith",
     "orderIndex": 2
   },
   {
-    "id": "lesson-h3-cb-3",
-    "unitId": "unit-h3-cb",
-    "title": "to issue · to start",
+    "id": "lesson-h3-ca-p2-3",
+    "unitId": "unit-h3-ca-p2",
+    "title": "each · culinary delicacy",
     "orderIndex": 3
   },
   {
-    "id": "lesson-h3-cb-4",
-    "unitId": "unit-h3-cb",
-    "title": "to continue · to reinforce; to strengthen; to enhance",
+    "id": "lesson-h3-ca-p2-4",
+    "unitId": "unit-h3-ca-p2",
+    "title": "rural area · warm",
     "orderIndex": 4
   },
   {
-    "id": "lesson-h3-cb-5",
-    "unitId": "unit-h3-cb",
-    "title": "experience · to get a haircut; to have one's hair done",
+    "id": "lesson-h3-ca-p2-5",
+    "unitId": "unit-h3-ca-p2",
+    "title": "to leave for; to proceed towards; to go to · strong; intense",
     "orderIndex": 5
   },
   {
-    "id": "lesson-h3-cb-6",
-    "unitId": "unit-h3-cb",
-    "title": "day-to-day; daily; everyday · to ascend",
+    "id": "lesson-h3-ca-p2-6",
+    "unitId": "unit-h3-ca-p2",
+    "title": "the people · staff",
     "orderIndex": 6
   },
   {
-    "id": "lesson-h3-cb-7",
-    "unitId": "unit-h3-cb",
-    "title": "to experience for oneself · to stop; to halt; to cease",
+    "id": "lesson-h3-ca-p2-7",
+    "unitId": "unit-h3-ca-p2",
+    "title": "to ascend · life",
     "orderIndex": 7
   },
   {
-    "id": "lesson-h3-cb-8",
-    "unitId": "unit-h3-cb",
-    "title": "before one's eyes · everything",
+    "id": "lesson-h3-ca-p2-8",
+    "unitId": "unit-h3-ca-p2",
+    "title": "to fit; to suit · to watch",
     "orderIndex": 8
   },
   {
-    "id": "lesson-h3-cb-9",
-    "unitId": "unit-h3-cb",
-    "title": "independent · to be a guest or visitor",
+    "id": "lesson-h3-ca-p2-9",
+    "unitId": "unit-h3-ca-p2",
+    "title": "to shift to an earlier date · to embody",
     "orderIndex": 9
   },
   {
-    "id": "lesson-h3-cb-review",
-    "unitId": "unit-h3-cb",
-    "title": "Experience & Past Events Review",
+    "id": "lesson-h3-ca-p2-10",
+    "unitId": "unit-h3-ca-p2",
+    "title": "to withdraw · foreign language",
     "orderIndex": 10
   },
   {
-    "id": "lesson-h3-cc-1",
-    "unitId": "unit-h3-cc",
-    "title": "to arrange · first day of lunar month",
-    "orderIndex": 1
-  },
-  {
-    "id": "lesson-h3-cc-2",
-    "unitId": "unit-h3-cc",
-    "title": "the year after next · meeting",
-    "orderIndex": 2
-  },
-  {
-    "id": "lesson-h3-cc-3",
-    "unitId": "unit-h3-cc",
-    "title": "to design; to plan · Time, US weekly news magazine",
-    "orderIndex": 3
-  },
-  {
-    "id": "lesson-h3-cc-4",
-    "unitId": "unit-h3-cc",
-    "title": "to arrange · to draw up; to formulate",
-    "orderIndex": 4
-  },
-  {
-    "id": "lesson-h3-cc-review",
-    "unitId": "unit-h3-cc",
-    "title": "Plans & Arrangements Review",
-    "orderIndex": 5
-  },
-  {
-    "id": "lesson-h3-cd-1",
-    "unitId": "unit-h3-cd",
-    "title": "to conserve · to protect",
-    "orderIndex": 1
-  },
-  {
-    "id": "lesson-h3-cd-2",
-    "unitId": "unit-h3-cd",
-    "title": "approximately · to spur; to provide impetus; to drive",
-    "orderIndex": 2
-  },
-  {
-    "id": "lesson-h3-cd-3",
-    "unitId": "unit-h3-cd",
-    "title": "concept · rational; reasonable; sensible; fair",
-    "orderIndex": 3
-  },
-  {
-    "id": "lesson-h3-cd-4",
-    "unitId": "unit-h3-cd",
-    "title": "to process · to build; to construct; to establish; to develop; to institute",
-    "orderIndex": 4
-  },
-  {
-    "id": "lesson-h3-cd-5",
-    "unitId": "unit-h3-cd",
-    "title": "progress; improvement · to make headway; to make progress",
-    "orderIndex": 5
-  },
-  {
-    "id": "lesson-h3-cd-6",
-    "unitId": "unit-h3-cd",
-    "title": "air conditioning · reason",
-    "orderIndex": 6
-  },
-  {
-    "id": "lesson-h3-cd-7",
-    "unitId": "unit-h3-cd",
-    "title": "content · to approve; to ratify",
-    "orderIndex": 7
-  },
-  {
-    "id": "lesson-h3-cd-8",
-    "unitId": "unit-h3-cd",
-    "title": "foodstuff; food; provisions · to watch",
-    "orderIndex": 8
-  },
-  {
-    "id": "lesson-h3-cd-9",
-    "unitId": "unit-h3-cd",
-    "title": "to connect · to compare",
-    "orderIndex": 9
-  },
-  {
-    "id": "lesson-h3-cd-10",
-    "unitId": "unit-h3-cd",
-    "title": "advantageous; favorable · for a long time; long since",
-    "orderIndex": 10
-  },
-  {
-    "id": "lesson-h3-cd-11",
-    "unitId": "unit-h3-cd",
-    "title": "condition; state; situation · condition; state; state of affairs",
+    "id": "lesson-h3-ca-p2-11",
+    "unitId": "unit-h3-ca-p2",
+    "title": "to seem · Hyundai, South Korean company",
     "orderIndex": 11
   },
   {
-    "id": "lesson-h3-cd-review",
-    "unitId": "unit-h3-cd",
-    "title": "Preferences & Reasons Review",
+    "id": "lesson-h3-ca-p2-review",
+    "unitId": "unit-h3-ca-p2",
+    "title": "Neighborhood & Services · 2 Review",
     "orderIndex": 12
   },
   {
-    "id": "lesson-h3-ce-1",
+    "id": "lesson-h3-ca-p3-1",
+    "unitId": "unit-h3-ca-p3",
+    "title": "to amend · to disseminate",
+    "orderIndex": 1
+  },
+  {
+    "id": "lesson-h3-ca-p3-2",
+    "unitId": "unit-h3-ca-p3",
+    "title": "nutrition · superiority",
+    "orderIndex": 2
+  },
+  {
+    "id": "lesson-h3-ca-p3-3",
+    "unitId": "unit-h3-ca-p3",
+    "title": "long term · to strive for",
+    "orderIndex": 3
+  },
+  {
+    "id": "lesson-h3-ca-p3-4",
+    "unitId": "unit-h3-ca-p3",
+    "title": "aspiration · to manufacture; to make",
+    "orderIndex": 4
+  },
+  {
+    "id": "lesson-h3-ca-p3-5",
+    "unitId": "unit-h3-ca-p3",
+    "title": "children; sons and daughters · nature",
+    "orderIndex": 5
+  },
+  {
+    "id": "lesson-h3-ca-p3-review",
+    "unitId": "unit-h3-ca-p3",
+    "title": "Neighborhood & Services · 3 Review",
+    "orderIndex": 6
+  },
+  {
+    "id": "lesson-h3-cb-p1-1",
+    "unitId": "unit-h3-cb-p1",
+    "title": "to arrange · to hold; to grasp",
+    "orderIndex": 1
+  },
+  {
+    "id": "lesson-h3-cb-p1-2",
+    "unitId": "unit-h3-cb-p1",
+    "title": "to express; to convey",
+    "orderIndex": 2
+  },
+  {
+    "id": "lesson-h3-cb-p1-3",
+    "unitId": "unit-h3-cb-p1",
+    "title": "location · to quarrel",
+    "orderIndex": 3
+  },
+  {
+    "id": "lesson-h3-cb-p1-4",
+    "unitId": "unit-h3-cb-p1",
+    "title": "previously · to exist",
+    "orderIndex": 4
+  },
+  {
+    "id": "lesson-h3-cb-p1-5",
+    "unitId": "unit-h3-cb-p1",
+    "title": "investigation · the east",
+    "orderIndex": 5
+  },
+  {
+    "id": "lesson-h3-cb-p1-6",
+    "unitId": "unit-h3-cb-p1",
+    "title": "house",
+    "orderIndex": 6
+  },
+  {
+    "id": "lesson-h3-cb-p1-7",
+    "unitId": "unit-h3-cb-p1",
+    "title": "high speed · singing voice",
+    "orderIndex": 7
+  },
+  {
+    "id": "lesson-h3-cb-p1-8",
+    "unitId": "unit-h3-cb-p1",
+    "title": "relation · notion",
+    "orderIndex": 8
+  },
+  {
+    "id": "lesson-h3-cb-p1-9",
+    "unitId": "unit-h3-cb-p1",
+    "title": "each other · stage play",
+    "orderIndex": 9
+  },
+  {
+    "id": "lesson-h3-cb-p1-10",
+    "unitId": "unit-h3-cb-p1",
+    "title": "hometown · to support",
+    "orderIndex": 10
+  },
+  {
+    "id": "lesson-h3-cb-p1-11",
+    "unitId": "unit-h3-cb-p1",
+    "title": "barely · urgent",
+    "orderIndex": 11
+  },
+  {
+    "id": "lesson-h3-cb-p1-review",
+    "unitId": "unit-h3-cb-p1",
+    "title": "Experience & Past Events · 1 Review",
+    "orderIndex": 12
+  },
+  {
+    "id": "lesson-h3-cb-p2-1",
+    "unitId": "unit-h3-cb-p2",
+    "title": "to bloom · seemingly",
+    "orderIndex": 1
+  },
+  {
+    "id": "lesson-h3-cb-p2-2",
+    "unitId": "unit-h3-cb-p2",
+    "title": "reason · to exploit",
+    "orderIndex": 2
+  },
+  {
+    "id": "lesson-h3-cb-p2-3",
+    "unitId": "unit-h3-cb-p2",
+    "title": "art",
+    "orderIndex": 3
+  },
+  {
+    "id": "lesson-h3-cb-p2-4",
+    "unitId": "unit-h3-cb-p2",
+    "title": "peasant · to pat",
+    "orderIndex": 4
+  },
+  {
+    "id": "lesson-h3-cb-p2-5",
+    "unitId": "unit-h3-cb-p2",
+    "title": "surname Qiang · bridge",
+    "orderIndex": 5
+  },
+  {
+    "id": "lesson-h3-cb-p2-6",
+    "unitId": "unit-h3-cb-p2",
+    "title": "Renminbi · recognition",
+    "orderIndex": 6
+  },
+  {
+    "id": "lesson-h3-cb-p2-7",
+    "unitId": "unit-h3-cb-p2",
+    "title": "to produce; to manufacture · life force",
+    "orderIndex": 7
+  },
+  {
+    "id": "lesson-h3-cb-p2-8",
+    "unitId": "unit-h3-cb-p2",
+    "title": "to adapt · to listen to",
+    "orderIndex": 8
+  },
+  {
+    "id": "lesson-h3-cb-p2-9",
+    "unitId": "unit-h3-cb-p2",
+    "title": "to question; to quiz; to grill · to experience for oneself",
+    "orderIndex": 9
+  },
+  {
+    "id": "lesson-h3-cb-p2-10",
+    "unitId": "unit-h3-cb-p2",
+    "title": "to retire · perfect",
+    "orderIndex": 10
+  },
+  {
+    "id": "lesson-h3-cb-p2-11",
+    "unitId": "unit-h3-cb-p2",
+    "title": "clearly; evidently; obviously · modernization",
+    "orderIndex": 11
+  },
+  {
+    "id": "lesson-h3-cb-p2-review",
+    "unitId": "unit-h3-cb-p2",
+    "title": "Experience & Past Events · 2 Review",
+    "orderIndex": 12
+  },
+  {
+    "id": "lesson-h3-cb-p3-1",
+    "unitId": "unit-h3-cb-p3",
+    "title": "requirement · athlete",
+    "orderIndex": 1
+  },
+  {
+    "id": "lesson-h3-cb-p3-2",
+    "unitId": "unit-h3-cb-p3",
+    "title": "to beat · to follow",
+    "orderIndex": 2
+  },
+  {
+    "id": "lesson-h3-cb-p3-3",
+    "unitId": "unit-h3-cb-p3",
+    "title": "variant of 照 · to fight for",
+    "orderIndex": 3
+  },
+  {
+    "id": "lesson-h3-cb-p3-4",
+    "unitId": "unit-h3-cb-p3",
+    "title": "volunteer · to make; to manufacture",
+    "orderIndex": 4
+  },
+  {
+    "id": "lesson-h3-cb-p3-5",
+    "unitId": "unit-h3-cb-p3",
+    "title": "since · itself",
+    "orderIndex": 5
+  },
+  {
+    "id": "lesson-h3-cb-p3-review",
+    "unitId": "unit-h3-cb-p3",
+    "title": "Experience & Past Events · 3 Review",
+    "orderIndex": 6
+  },
+  {
+    "id": "lesson-h3-cc-p1-1",
+    "unitId": "unit-h3-cc-p1",
+    "title": "to install · to grasp",
+    "orderIndex": 1
+  },
+  {
+    "id": "lesson-h3-cc-p1-2",
+    "unitId": "unit-h3-cc-p1",
+    "title": "to change into · form",
+    "orderIndex": 2
+  },
+  {
+    "id": "lesson-h3-cc-p1-3",
+    "unitId": "unit-h3-cc-p1",
+    "title": "super- · shirt",
+    "orderIndex": 3
+  },
+  {
+    "id": "lesson-h3-cc-p1-4",
+    "unitId": "unit-h3-cc-p1",
+    "title": "to go for · mistaken; false; wrong",
+    "orderIndex": 4
+  },
+  {
+    "id": "lesson-h3-cc-p1-5",
+    "unitId": "unit-h3-cc-p1",
+    "title": "to adjust · motive power",
+    "orderIndex": 5
+  },
+  {
+    "id": "lesson-h3-cc-p1-6",
+    "unitId": "unit-h3-cc-p1",
+    "title": "rent for a room or house · surname Fei",
+    "orderIndex": 6
+  },
+  {
+    "id": "lesson-h3-cc-p1-7",
+    "unitId": "unit-h3-cc-p1",
+    "title": "expressway; highway; freeway · singer",
+    "orderIndex": 7
+  },
+  {
+    "id": "lesson-h3-cc-p1-8",
+    "unitId": "unit-h3-cc-p1",
+    "title": "to pay attention to · spectators",
+    "orderIndex": 8
+  },
+  {
+    "id": "lesson-h3-cc-p1-9",
+    "unitId": "unit-h3-cc-p1",
+    "title": "ethnic Chinese person or people · subject",
+    "orderIndex": 9
+  },
+  {
+    "id": "lesson-h3-cc-p1-10",
+    "unitId": "unit-h3-cc-p1",
+    "title": "price · to persevere with",
+    "orderIndex": 10
+  },
+  {
+    "id": "lesson-h3-cc-p1-11",
+    "unitId": "unit-h3-cc-p1",
+    "title": "barely · nervous",
+    "orderIndex": 11
+  },
+  {
+    "id": "lesson-h3-cc-p1-review",
+    "unitId": "unit-h3-cc-p1",
+    "title": "Plans & Arrangements · 1 Review",
+    "orderIndex": 12
+  },
+  {
+    "id": "lesson-h3-cc-p2-1",
+    "unitId": "unit-h3-cc-p2",
+    "title": "to begin · it would appear",
+    "orderIndex": 1
+  },
+  {
+    "id": "lesson-h3-cc-p2-2",
+    "unitId": "unit-h3-cc-p2",
+    "title": "surname Li · surname Lian",
+    "orderIndex": 2
+  },
+  {
+    "id": "lesson-h3-cc-p2-3",
+    "unitId": "unit-h3-cc-p2",
+    "title": "beautiful · American dollar",
+    "orderIndex": 3
+  },
+  {
+    "id": "lesson-h3-cc-p2-4",
+    "unitId": "unit-h3-cc-p2",
+    "title": "agriculture · to rank",
+    "orderIndex": 4
+  },
+  {
+    "id": "lesson-h3-cc-p2-5",
+    "unitId": "unit-h3-cc-p2",
+    "title": "large · opportunely",
+    "orderIndex": 5
+  },
+  {
+    "id": "lesson-h3-cc-p2-6",
+    "unitId": "unit-h3-cc-p2",
+    "title": "crowd · to recognize",
+    "orderIndex": 6
+  },
+  {
+    "id": "lesson-h3-cc-p2-7",
+    "unitId": "unit-h3-cc-p2",
+    "title": "to exist · to grow",
+    "orderIndex": 7
+  },
+  {
+    "id": "lesson-h3-cc-p2-8",
+    "unitId": "unit-h3-cc-p2",
+    "title": "to be applicable · radio",
+    "orderIndex": 8
+  },
+  {
+    "id": "lesson-h3-cc-p2-9",
+    "unitId": "unit-h3-cc-p2",
+    "title": "subject · sky",
+    "orderIndex": 9
+  },
+  {
+    "id": "lesson-h3-cc-p2-10",
+    "unitId": "unit-h3-cc-p2",
+    "title": "diplomacy",
+    "orderIndex": 10
+  },
+  {
+    "id": "lesson-h3-cc-p2-11",
+    "unitId": "unit-h3-cc-p2",
+    "title": "to show · cash",
+    "orderIndex": 11
+  },
+  {
+    "id": "lesson-h3-cc-p2-review",
+    "unitId": "unit-h3-cc-p2",
+    "title": "Plans & Arrangements · 2 Review",
+    "orderIndex": 12
+  },
+  {
+    "id": "lesson-h3-cc-p3-1",
+    "unitId": "unit-h3-cc-p3",
+    "title": "to need; to want; to demand; to require · tuition fee",
+    "orderIndex": 1
+  },
+  {
+    "id": "lesson-h3-cc-p3-2",
+    "unitId": "unit-h3-cc-p3",
+    "title": "movies and television · due to",
+    "orderIndex": 2
+  },
+  {
+    "id": "lesson-h3-cc-p3-3",
+    "unitId": "unit-h3-cc-p3",
+    "title": "exactly",
+    "orderIndex": 3
+  },
+  {
+    "id": "lesson-h3-cc-p3-4",
+    "unitId": "unit-h3-cc-p3",
+    "title": "to draw up; to formulate · middle part",
+    "orderIndex": 4
+  },
+  {
+    "id": "lesson-h3-cc-p3-5",
+    "unitId": "unit-h3-cc-p3",
+    "title": "automatic · independent",
+    "orderIndex": 5
+  },
+  {
+    "id": "lesson-h3-cc-p3-review",
+    "unitId": "unit-h3-cc-p3",
+    "title": "Plans & Arrangements · 3 Review",
+    "orderIndex": 6
+  },
+  {
+    "id": "lesson-h3-cd-p1-1",
+    "unitId": "unit-h3-cd-p1",
+    "title": "to press · Chinese cabbage",
+    "orderIndex": 1
+  },
+  {
+    "id": "lesson-h3-cd-p1-2",
+    "unitId": "unit-h3-cd-p1",
+    "title": "title · surface",
+    "orderIndex": 2
+  },
+  {
+    "id": "lesson-h3-cd-p1-3",
+    "unitId": "unit-h3-cd-p1",
+    "title": "abbr. for 朝鲜 Korea · shirt",
+    "orderIndex": 3
+  },
+  {
+    "id": "lesson-h3-cd-p1-4",
+    "unitId": "unit-h3-cd-p1",
+    "title": "village · to reach; to achieve; to attain",
+    "orderIndex": 4
+  },
+  {
+    "id": "lesson-h3-cd-p1-5",
+    "unitId": "unit-h3-cd-p1",
+    "title": "to agree · touching",
+    "orderIndex": 5
+  },
+  {
+    "id": "lesson-h3-cd-p1-6",
+    "unitId": "unit-h3-cd-p1",
+    "title": "to visit · cost",
+    "orderIndex": 6
+  },
+  {
+    "id": "lesson-h3-cd-p1-7",
+    "unitId": "unit-h3-cd-p1",
+    "title": "to leave; to part from · individual",
+    "orderIndex": 7
+  },
+  {
+    "id": "lesson-h3-cd-p1-8",
+    "unitId": "unit-h3-cd-p1",
+    "title": "to observe; to watch; to survey · variant of 管",
+    "orderIndex": 8
+  },
+  {
+    "id": "lesson-h3-cd-p1-9",
+    "unitId": "unit-h3-cd-p1",
+    "title": "variant of 花 · gaiety",
+    "orderIndex": 9
+  },
+  {
+    "id": "lesson-h3-cd-p1-10",
+    "unitId": "unit-h3-cd-p1",
+    "title": "price · firm; resolute; determined",
+    "orderIndex": 10
+  },
+  {
+    "id": "lesson-h3-cd-p1-11",
+    "unitId": "unit-h3-cd-p1",
+    "title": "as much as possible · near in time",
+    "orderIndex": 11
+  },
+  {
+    "id": "lesson-h3-cd-p1-review",
+    "unitId": "unit-h3-cd-p1",
+    "title": "Preferences & Reasons · 1 Review",
+    "orderIndex": 12
+  },
+  {
+    "id": "lesson-h3-cd-p2-1",
+    "unitId": "unit-h3-cd-p2",
+    "title": "to open a business · to test",
+    "orderIndex": 1
+  },
+  {
+    "id": "lesson-h3-cd-p2-2",
+    "unitId": "unit-h3-cd-p2",
+    "title": "power · promptly",
+    "orderIndex": 2
+  },
+  {
+    "id": "lesson-h3-cd-p2-3",
+    "unitId": "unit-h3-cd-p2",
+    "title": "beautiful · to bewilder",
+    "orderIndex": 3
+  },
+  {
+    "id": "lesson-h3-cd-p2-4",
+    "unitId": "unit-h3-cd-p2",
+    "title": "woman · sign",
+    "orderIndex": 4
+  },
+  {
+    "id": "lesson-h3-cd-p2-5",
+    "unitId": "unit-h3-cd-p2",
+    "title": "to emphasize · parent",
+    "orderIndex": 5
+  },
+  {
+    "id": "lesson-h3-cd-p2-6",
+    "unitId": "unit-h3-cd-p2",
+    "title": "life · to approve",
+    "orderIndex": 6
+  },
+  {
+    "id": "lesson-h3-cd-p2-7",
+    "unitId": "unit-h3-cd-p2",
+    "title": "vivid · to state",
+    "orderIndex": 7
+  },
+  {
+    "id": "lesson-h3-cd-p2-8",
+    "unitId": "unit-h3-cd-p2",
+    "title": "to charge a fee · procedure",
+    "orderIndex": 8
+  },
+  {
+    "id": "lesson-h3-cd-p2-9",
+    "unitId": "unit-h3-cd-p2",
+    "title": "to know from experience · sweet",
+    "orderIndex": 9
+  },
+  {
+    "id": "lesson-h3-cd-p2-10",
+    "unitId": "unit-h3-cd-p2",
+    "title": "outside · complete",
+    "orderIndex": 10
+  },
+  {
+    "id": "lesson-h3-cd-p2-11",
+    "unitId": "unit-h3-cd-p2",
+    "title": "the scene · reality",
+    "orderIndex": 11
+  },
+  {
+    "id": "lesson-h3-cd-p2-review",
+    "unitId": "unit-h3-cd-p2",
+    "title": "Preferences & Reasons · 2 Review",
+    "orderIndex": 12
+  },
+  {
+    "id": "lesson-h3-cd-p3-1",
+    "unitId": "unit-h3-cd-p3",
+    "title": "to declare · blood",
+    "orderIndex": 1
+  },
+  {
+    "id": "lesson-h3-cd-p3-2",
+    "unitId": "unit-h3-cd-p3",
+    "title": "merit · mail",
+    "orderIndex": 2
+  },
+  {
+    "id": "lesson-h3-cd-p3-3",
+    "unitId": "unit-h3-cd-p3",
+    "title": "true; real · whole",
+    "orderIndex": 3
+  },
+  {
+    "id": "lesson-h3-cd-p3-4",
+    "unitId": "unit-h3-cd-p3",
+    "title": "system · the Chinese nation",
+    "orderIndex": 4
+  },
+  {
+    "id": "lesson-h3-cd-p3-5",
+    "unitId": "unit-h3-cd-p3",
+    "title": "conscious · general; overall",
+    "orderIndex": 5
+  },
+  {
+    "id": "lesson-h3-cd-p3-review",
+    "unitId": "unit-h3-cd-p3",
+    "title": "Preferences & Reasons · 3 Review",
+    "orderIndex": 6
+  },
+  {
+    "id": "lesson-h3-ce-review-1",
     "unitId": "unit-h3-ce",
     "title": "HSK 3 Review 1",
     "orderIndex": 1
   },
   {
-    "id": "lesson-h3-ce-2",
+    "id": "lesson-h3-ce-review-2",
     "unitId": "unit-h3-ce",
     "title": "HSK 3 Review 2",
     "orderIndex": 2
   },
   {
-    "id": "lesson-h3-ce-3",
+    "id": "lesson-h3-ce-review-3",
     "unitId": "unit-h3-ce",
     "title": "HSK 3 Review 3",
     "orderIndex": 3
   },
   {
-    "id": "lesson-h3-ce-4",
+    "id": "lesson-h3-ce-review-4",
     "unitId": "unit-h3-ce",
     "title": "HSK 3 Review 4",
     "orderIndex": 4
   },
   {
-    "id": "lesson-h3-ce-5",
+    "id": "lesson-h3-ce-review-5",
     "unitId": "unit-h3-ce",
     "title": "HSK 3 Review 5",
     "orderIndex": 5
   },
   {
-    "id": "lesson-h3-ce-6",
+    "id": "lesson-h3-ce-review-6",
     "unitId": "unit-h3-ce",
     "title": "HSK 3 Review 6",
     "orderIndex": 6
   },
   {
-    "id": "lesson-h3-ce-7",
+    "id": "lesson-h3-ce-review-7",
     "unitId": "unit-h3-ce",
     "title": "HSK 3 Review 7",
     "orderIndex": 7
   },
   {
-    "id": "lesson-h3-ce-8",
+    "id": "lesson-h3-ce-review-8",
     "unitId": "unit-h3-ce",
     "title": "HSK 3 Review 8",
     "orderIndex": 8
   },
   {
-    "id": "lesson-h3-ce-9",
+    "id": "lesson-h3-ce-graduation",
     "unitId": "unit-h3-ce",
     "title": "HSK 3 Graduation Exam",
     "orderIndex": 9
@@ -1044,56 +870,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-an-zhuang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "安装",
-    "pinyin": "ān zhuāng",
-    "english": "to install",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-an",
-    "courseId": "course-mandarin-1",
-    "hanzi": "按",
-    "pinyin": "àn",
-    "english": "to press",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-an-zhao",
     "courseId": "course-mandarin-1",
     "hanzi": "按照",
     "pinyin": "àn zhào",
     "english": "according to",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ba",
-    "courseId": "course-mandarin-1",
-    "hanzi": "把",
-    "pinyin": "bǎ",
-    "english": "to hold; to grasp",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ba-wo",
-    "courseId": "course-mandarin-1",
-    "hanzi": "把握",
-    "pinyin": "bǎ wò",
-    "english": "to grasp (also fig.)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bai-cai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "白菜",
-    "pinyin": "bái cài",
-    "english": "Chinese cabbage",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -1107,65 +888,20 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ban",
+    "id": "v-h3-ban-li",
     "courseId": "course-mandarin-1",
-    "hanzi": "搬",
-    "pinyin": "bān",
-    "english": "to move (i.e. relocate oneself)",
+    "hanzi": "办理",
+    "pinyin": "bàn lǐ",
+    "english": "to handle; to transact; to conduct",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-ban-jia",
+    "id": "v-h3-bao-cun",
     "courseId": "course-mandarin-1",
-    "hanzi": "搬家",
-    "pinyin": "bān jiā",
-    "english": "to move house; to relocate",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ban-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "板",
-    "pinyin": "bǎn",
-    "english": "board",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "保",
-    "pinyin": "Bǎo",
-    "english": "Bulgaria",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bao-chi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "保持",
-    "pinyin": "bǎo chí",
-    "english": "to keep",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bao-liu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "保留",
-    "pinyin": "bǎo liú",
-    "english": "to keep",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bao-xian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "保险",
-    "pinyin": "bǎo xiǎn",
-    "english": "insurance",
+    "hanzi": "保存",
+    "pinyin": "bǎo cún",
+    "english": "to conserve",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -1179,38 +915,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-bao-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "报",
-    "pinyin": "bào",
-    "english": "to announce",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-bao-gao",
     "courseId": "course-mandarin-1",
     "hanzi": "报告",
     "pinyin": "bào gào",
     "english": "to inform",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bei-hou",
-    "courseId": "course-mandarin-1",
-    "hanzi": "背后",
-    "pinyin": "bèi hòu",
-    "english": "behind",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "被",
-    "pinyin": "bèi",
-    "english": "quilt",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -1224,38 +933,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ben-ling",
+    "id": "v-h3-bi-jiao",
     "courseId": "course-mandarin-1",
-    "hanzi": "本领",
-    "pinyin": "běn lǐng",
-    "english": "skill",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ben-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "本事",
-    "pinyin": "běn shì",
-    "english": "source material",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bi-sai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "比赛",
-    "pinyin": "bǐ sài",
-    "english": "competition (sports etc)",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bi-ran",
-    "courseId": "course-mandarin-1",
-    "hanzi": "必然",
-    "pinyin": "bì rán",
-    "english": "inevitable",
+    "hanzi": "比较",
+    "pinyin": "bǐ jiào",
+    "english": "to compare",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -1269,47 +951,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-biao-ti",
-    "courseId": "course-mandarin-1",
-    "hanzi": "标题",
-    "pinyin": "biāo tí",
-    "english": "title",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-biao-zhun",
     "courseId": "course-mandarin-1",
     "hanzi": "标准",
     "pinyin": "biāo zhǔn",
     "english": "standard; norm; criterion",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-biao-da",
-    "courseId": "course-mandarin-1",
-    "hanzi": "表达",
-    "pinyin": "biǎo dá",
-    "english": "to express; to convey",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-biao-ge",
-    "courseId": "course-mandarin-1",
-    "hanzi": "表格",
-    "pinyin": "biǎo gé",
-    "english": "form",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-biao-mian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "表面",
-    "pinyin": "biǎo miàn",
-    "english": "surface",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -1323,65 +969,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-biao-xian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "表现",
-    "pinyin": "biǎo xiàn",
-    "english": "to show",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-biao-yan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "表演",
-    "pinyin": "biǎo yǎn",
-    "english": "play",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bing",
-    "courseId": "course-mandarin-1",
-    "hanzi": "并",
-    "pinyin": "bìng",
-    "english": "and",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-bing-qie",
     "courseId": "course-mandarin-1",
     "hanzi": "并且",
     "pinyin": "bìng qiě",
     "english": "and",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bo-chu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "播出",
-    "pinyin": "bō chū",
-    "english": "to broadcast",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bo-fang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "播放",
-    "pinyin": "bō fàng",
-    "english": "to broadcast; to transmit (by radio or TV)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "补",
-    "pinyin": "bǔ",
-    "english": "to repair",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -1395,24 +987,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-bu-an",
-    "courseId": "course-mandarin-1",
-    "hanzi": "不安",
-    "pinyin": "bù ān",
-    "english": "unpeaceful",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bu-bi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "不必",
-    "pinyin": "bù bì",
-    "english": "need not",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-bu-duan",
     "courseId": "course-mandarin-1",
     "hanzi": "不断",
@@ -1422,16 +996,7 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-bu-guang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "不光",
-    "pinyin": "bù guāng",
-    "english": "not the only one",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bu-2",
+    "id": "v-h3-bu",
     "courseId": "course-mandarin-1",
     "hanzi": "布",
     "pinyin": "bù",
@@ -1440,47 +1005,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-bu-3",
+    "id": "v-h3-bu-zhang",
     "courseId": "course-mandarin-1",
-    "hanzi": "步",
-    "pinyin": "Bù",
-    "english": "surname Bu",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bu-4",
-    "courseId": "course-mandarin-1",
-    "hanzi": "部",
-    "pinyin": "bù",
-    "english": "ministry",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-cai-neng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "才能",
-    "pinyin": "cái néng",
-    "english": "talent",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-cai-qu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "采取",
-    "pinyin": "cǎi qǔ",
-    "english": "to adopt or carry out (measures, policies, course of action)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-cai-yong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "采用",
-    "pinyin": "cǎi yòng",
-    "english": "to adopt",
+    "hanzi": "部长",
+    "pinyin": "bù zhǎng",
+    "english": "head of a (government etc) department",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -1494,33 +1023,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ceng-jing",
-    "courseId": "course-mandarin-1",
-    "hanzi": "曾经",
-    "pinyin": "céng jīng",
-    "english": "once",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chan-sheng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "产生",
-    "pinyin": "chǎn shēng",
-    "english": "to arise; to come into being; to come about",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-han",
-    "courseId": "course-mandarin-1",
-    "hanzi": "厂",
-    "pinyin": "hǎn",
-    "english": "\"cliff\" radical in Chinese characters (Kangxi radical 27), occurring in 原, 历, 压 etc",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-chang-he",
     "courseId": "course-mandarin-1",
     "hanzi": "场合",
@@ -1530,65 +1032,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-chang-suo",
-    "courseId": "course-mandarin-1",
-    "hanzi": "场所",
-    "pinyin": "chǎng suǒ",
-    "english": "location",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chao-ji",
-    "courseId": "course-mandarin-1",
-    "hanzi": "超级",
-    "pinyin": "chāo jí",
-    "english": "super-",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-chao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "朝",
-    "pinyin": "Cháo",
-    "english": "abbr. for 朝鲜 Korea",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chao-2",
     "courseId": "course-mandarin-1",
     "hanzi": "吵",
     "pinyin": "chǎo",
     "english": "to quarrel",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chao-jia",
-    "courseId": "course-mandarin-1",
-    "hanzi": "吵架",
-    "pinyin": "chǎo jià",
-    "english": "to quarrel",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chen-shan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "衬衫",
-    "pinyin": "chèn shān",
-    "english": "shirt",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chen-yi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "衬衣",
-    "pinyin": "chèn yī",
-    "english": "shirt",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -1602,65 +1050,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-cheng-gong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "成功",
-    "pinyin": "Chéng gōng",
-    "english": "Chenggong or Chengkung town in Taitung County 台东县, southeast Taiwan",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-cheng-guo",
-    "courseId": "course-mandarin-1",
-    "hanzi": "成果",
-    "pinyin": "chéng guǒ",
-    "english": "result",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-cheng-jiu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "成就",
-    "pinyin": "chéng jiù",
-    "english": "accomplishment",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-cheng-li",
     "courseId": "course-mandarin-1",
     "hanzi": "成立",
     "pinyin": "chéng lì",
     "english": "to establish",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-cheng-shu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "成熟",
-    "pinyin": "chéng shú",
-    "english": "mature; ripe",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-cheng-yuan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "成员",
-    "pinyin": "chéng yuán",
-    "english": "member",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-cheng-zhang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "成长",
-    "pinyin": "chéng zhǎng",
-    "english": "to mature",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -1674,24 +1068,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-cheng-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "城市",
-    "pinyin": "chéng shì",
-    "english": "city; town",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-cheng-du",
-    "courseId": "course-mandarin-1",
-    "hanzi": "程度",
-    "pinyin": "chéng dù",
-    "english": "degree; level; extent",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-chong-man",
     "courseId": "course-mandarin-1",
     "hanzi": "充满",
@@ -1701,47 +1077,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-chu",
+    "id": "v-h3-chu-yi",
     "courseId": "course-mandarin-1",
-    "hanzi": "初",
-    "pinyin": "chū",
-    "english": "at first",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chu-bu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "初步",
-    "pinyin": "chū bù",
-    "english": "initial",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chu-ji",
-    "courseId": "course-mandarin-1",
-    "hanzi": "初级",
-    "pinyin": "chū jí",
-    "english": "junior",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chu-zhong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "初中",
-    "pinyin": "chū zhōng",
-    "english": "junior high school (abbr. for 初级中学)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chu-le",
-    "courseId": "course-mandarin-1",
-    "hanzi": "除了",
-    "pinyin": "chú le",
-    "english": "besides",
+    "hanzi": "初一",
+    "pinyin": "chū yī",
+    "english": "first day of lunar month",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -1755,47 +1095,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-chuan-lai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "传来",
-    "pinyin": "chuán lái",
-    "english": "(of a sound) to come through",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-chuang-xin",
     "courseId": "course-mandarin-1",
     "hanzi": "创新",
     "pinyin": "chuàng xīn",
     "english": "to bring forth new ideas; to blaze new trails",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chuang-ye",
-    "courseId": "course-mandarin-1",
-    "hanzi": "创业",
-    "pinyin": "chuàng yè",
-    "english": "to begin an undertaking",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chuang-zao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "创造",
-    "pinyin": "chuàng zào",
-    "english": "to create",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chuang-zuo",
-    "courseId": "course-mandarin-1",
-    "hanzi": "创作",
-    "pinyin": "chuàng zuò",
-    "english": "to create",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -1809,56 +1113,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-cong-qian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "从前",
-    "pinyin": "cóng qián",
-    "english": "previously",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-cong-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "从事",
-    "pinyin": "cóng shì",
-    "english": "to go for",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-cun",
-    "courseId": "course-mandarin-1",
-    "hanzi": "村",
-    "pinyin": "cūn",
-    "english": "village",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-cun-2",
     "courseId": "course-mandarin-1",
     "hanzi": "存",
     "pinyin": "cún",
     "english": "to exist",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-cun-zai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "存在",
-    "pinyin": "cún zài",
-    "english": "to exist",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-cuo-wu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "错误",
-    "pinyin": "cuò wù",
-    "english": "mistaken; false; wrong",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -1872,56 +1131,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-da-ting",
-    "courseId": "course-mandarin-1",
-    "hanzi": "打听",
-    "pinyin": "dǎ ting",
-    "english": "to ask about",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-da-fu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "大夫",
-    "pinyin": "dà fū",
-    "english": "senior official (in imperial China)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-da-gai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "大概",
-    "pinyin": "dà gài",
-    "english": "roughly",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-da-shi-guan",
     "courseId": "course-mandarin-1",
     "hanzi": "大使馆",
     "pinyin": "dà shǐ guǎn",
     "english": "embassy",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-dai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "代",
-    "pinyin": "dài",
-    "english": "to substitute",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-dai-biao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "代表",
-    "pinyin": "dài biǎo",
-    "english": "representative",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -1935,56 +1149,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-dai-ling",
-    "courseId": "course-mandarin-1",
-    "hanzi": "带领",
-    "pinyin": "dài lǐng",
-    "english": "to guide",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-dan-yuan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "单元",
-    "pinyin": "dān yuán",
-    "english": "unit (forming an entity)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-dang-chu",
     "courseId": "course-mandarin-1",
     "hanzi": "当初",
     "pinyin": "dāng chū",
     "english": "at that time",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-dang-di",
-    "courseId": "course-mandarin-1",
-    "hanzi": "当地",
-    "pinyin": "dāng dì",
-    "english": "local",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-dang-ran",
-    "courseId": "course-mandarin-1",
-    "hanzi": "当然",
-    "pinyin": "dāng rán",
-    "english": "only natural",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-dang-zhong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "当中",
-    "pinyin": "dāng zhōng",
-    "english": "among",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -1998,56 +1167,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-dao-yan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "导演",
-    "pinyin": "dǎo yǎn",
-    "english": "to direct",
-    "partOfSpeech": "noun",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-dao-da",
-    "courseId": "course-mandarin-1",
-    "hanzi": "到达",
-    "pinyin": "dào dá",
-    "english": "to reach; to arrive",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-de-fen",
     "courseId": "course-mandarin-1",
     "hanzi": "得分",
     "pinyin": "dé fēn",
     "english": "to score",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-di-qu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "地区",
-    "pinyin": "dì qū",
-    "english": "local",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-deng-dai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "等待",
-    "pinyin": "děng dài",
-    "english": "to wait; to wait for",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-di-xia",
-    "courseId": "course-mandarin-1",
-    "hanzi": "底下",
-    "pinyin": "dǐ xia",
-    "english": "the location below sth",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -2061,47 +1185,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-dian-shi-tai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "电视台",
-    "pinyin": "diàn shì tái",
-    "english": "television station",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-dian-tai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "电台",
-    "pinyin": "diàn tái",
-    "english": "transmitter-receiver",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-dian-zi-you-jian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "电子邮件",
-    "pinyin": "diàn zǐ yóu jiàn",
-    "english": "email",
-    "partOfSpeech": "noun",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-diao",
     "courseId": "course-mandarin-1",
     "hanzi": "调",
     "pinyin": "diào",
     "english": "to transfer",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-diao-cha",
-    "courseId": "course-mandarin-1",
-    "hanzi": "调查",
-    "pinyin": "diào chá",
-    "english": "investigation",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -2115,65 +1203,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-dong-bu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "东部",
-    "pinyin": "dōng bù",
-    "english": "the east",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-dong-li",
-    "courseId": "course-mandarin-1",
-    "hanzi": "动力",
-    "pinyin": "dòng lì",
-    "english": "motive power",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-dong-ren",
-    "courseId": "course-mandarin-1",
-    "hanzi": "动人",
-    "pinyin": "dòng rén",
-    "english": "touching",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-du-zhe",
     "courseId": "course-mandarin-1",
     "hanzi": "读者",
     "pinyin": "dú zhě",
     "english": "reader",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-duan-chu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "短处",
-    "pinyin": "duǎn chù",
-    "english": "shortcoming",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-duan-ku",
-    "courseId": "course-mandarin-1",
-    "hanzi": "短裤",
-    "pinyin": "duǎn kù",
-    "english": "short pants",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-duan-qi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "短期",
-    "pinyin": "duǎn qī",
-    "english": "short term",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -2187,15 +1221,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-dui-dai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "对待",
-    "pinyin": "duì dài",
-    "english": "to treat",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-dui-shou",
     "courseId": "course-mandarin-1",
     "hanzi": "对手",
@@ -2205,92 +1230,29 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-dui-xiang",
+    "id": "v-h3-fa-chu",
     "courseId": "course-mandarin-1",
-    "hanzi": "对象",
-    "pinyin": "duì xiàng",
-    "english": "target; object",
+    "hanzi": "发出",
+    "pinyin": "fā chū",
+    "english": "to issue (an order, decree etc); to send out; to dispatch",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-fa-biao",
+    "id": "v-h3-fa-sheng",
     "courseId": "course-mandarin-1",
-    "hanzi": "发表",
-    "pinyin": "fā biǎo",
-    "english": "to issue",
+    "hanzi": "发生",
+    "pinyin": "fā shēng",
+    "english": "to happen; to occur; to take place; to break out",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-fa-da",
+    "id": "v-h3-fan-dui",
     "courseId": "course-mandarin-1",
-    "hanzi": "发达",
-    "pinyin": "fā dá",
-    "english": "well-developed; flourishing",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fa-ming",
-    "courseId": "course-mandarin-1",
-    "hanzi": "发明",
-    "pinyin": "fā míng",
-    "english": "to invent",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fa-song",
-    "courseId": "course-mandarin-1",
-    "hanzi": "发送",
-    "pinyin": "fā sòng",
-    "english": "to transmit",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fa-yan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "发言",
-    "pinyin": "fā yán",
-    "english": "to make a speech",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fa-zhan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "发展",
-    "pinyin": "fā zhǎn",
-    "english": "development",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fan-fu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "反复",
-    "pinyin": "fǎn fù",
-    "english": "variant of 反复",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fan-ying",
-    "courseId": "course-mandarin-1",
-    "hanzi": "反应",
-    "pinyin": "fǎn yìng",
-    "english": "to react",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fan-zheng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "反正",
-    "pinyin": "fǎn zhèng",
-    "english": "anyway",
+    "hanzi": "反对",
+    "pinyin": "fǎn duì",
+    "english": "to oppose; to be against; to object to",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -2304,47 +1266,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-fang-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "方式",
-    "pinyin": "fāng shì",
-    "english": "way; manner; style; mode; pattern",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fang-zhi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "防止",
-    "pinyin": "fáng zhǐ",
-    "english": "to prevent",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-fang-dong",
     "courseId": "course-mandarin-1",
     "hanzi": "房东",
     "pinyin": "fáng dōng",
     "english": "landlord",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fang-wu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "房屋",
-    "pinyin": "fáng wū",
-    "english": "house",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fang-zu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "房租",
-    "pinyin": "fáng zū",
-    "english": "rent for a room or house",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -2358,38 +1284,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-fei",
+    "id": "v-h3-fen-bie",
     "courseId": "course-mandarin-1",
-    "hanzi": "费",
-    "pinyin": "Fèi",
-    "english": "surname Fei",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fei-yong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "费用",
-    "pinyin": "fèi yòng",
-    "english": "cost",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fen-zu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "分组",
-    "pinyin": "fēn zǔ",
-    "english": "to divide into groups",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-feng-fu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "丰富",
-    "pinyin": "fēng fù",
-    "english": "to enrich",
+    "hanzi": "分别",
+    "pinyin": "fēn bié",
+    "english": "to part; to leave each other",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -2399,24 +1298,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "hanzi": "风险",
     "pinyin": "fēng xiǎn",
     "english": "risk; hazard",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fou-ding",
-    "courseId": "course-mandarin-1",
-    "hanzi": "否定",
-    "pinyin": "fǒu dìng",
-    "english": "to negate",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fou-ren",
-    "courseId": "course-mandarin-1",
-    "hanzi": "否认",
-    "pinyin": "fǒu rèn",
-    "english": "to declare to be untrue",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -2432,33 +1313,6 @@ export const hsk3VocabItems: VocabItem[] = [
   {
     "id": "v-h3-fu",
     "courseId": "course-mandarin-1",
-    "hanzi": "福",
-    "pinyin": "Fú",
-    "english": "surname Fu",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fu-mu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "父母",
-    "pinyin": "fù mǔ",
-    "english": "father and mother; parents",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fu-qin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "父亲",
-    "pinyin": "fù qīn",
-    "english": "father",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fu-2",
-    "courseId": "course-mandarin-1",
     "hanzi": "付",
     "pinyin": "Fù",
     "english": "surname Fu",
@@ -2466,47 +1320,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-fu-ze",
-    "courseId": "course-mandarin-1",
-    "hanzi": "负责",
-    "pinyin": "fù zé",
-    "english": "to be in charge of",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fu-yin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "复印",
-    "pinyin": "fù yìn",
-    "english": "to photocopy",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fu-za",
-    "courseId": "course-mandarin-1",
-    "hanzi": "复杂",
-    "pinyin": "fù zá",
-    "english": "complicated; complex",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fu-3",
+    "id": "v-h3-fu-2",
     "courseId": "course-mandarin-1",
     "hanzi": "富",
     "pinyin": "Fù",
     "english": "surname Fu",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gai-zao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "改造",
-    "pinyin": "gǎi zào",
-    "english": "to transform",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -2520,65 +1338,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-gan-dao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "赶到",
-    "pinyin": "gǎn dào",
-    "english": "to hurry (to some place)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gan-jin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "赶紧",
-    "pinyin": "gǎn jǐn",
-    "english": "hurriedly",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gan-kuai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "赶快",
-    "pinyin": "gǎn kuài",
-    "english": "quickly; at once",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-gan-2",
     "courseId": "course-mandarin-1",
     "hanzi": "敢",
     "pinyin": "gǎn",
     "english": "to dare",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gan-mao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "感冒",
-    "pinyin": "gǎn mào",
-    "english": "to catch cold",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gan-qing",
-    "courseId": "course-mandarin-1",
-    "hanzi": "感情",
-    "pinyin": "gǎn qíng",
-    "english": "emotion",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gan-shou",
-    "courseId": "course-mandarin-1",
-    "hanzi": "感受",
-    "pinyin": "gǎn shòu",
-    "english": "to sense",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -2592,56 +1356,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-gao-su",
-    "courseId": "course-mandarin-1",
-    "hanzi": "高速",
-    "pinyin": "gāo sù",
-    "english": "high speed",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gao-su-gong-lu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "高速公路",
-    "pinyin": "gāo sù gōng lù",
-    "english": "expressway; highway; freeway",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-ge-mi",
     "courseId": "course-mandarin-1",
     "hanzi": "歌迷",
     "pinyin": "gē mí",
     "english": "fan of a singer",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ge-sheng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "歌声",
-    "pinyin": "gē shēng",
-    "english": "singing voice",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ge-shou",
-    "courseId": "course-mandarin-1",
-    "hanzi": "歌手",
-    "pinyin": "gē shǒu",
-    "english": "singer",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ge-ren",
-    "courseId": "course-mandarin-1",
-    "hanzi": "个人",
-    "pinyin": "gè rén",
-    "english": "individual",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -2655,47 +1374,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ge",
-    "courseId": "course-mandarin-1",
-    "hanzi": "各",
-    "pinyin": "gè",
-    "english": "each",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-ge-zhong",
     "courseId": "course-mandarin-1",
     "hanzi": "各种",
     "pinyin": "gè zhǒng",
     "english": "every kind of; all kinds of; various",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ge-zi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "各自",
-    "pinyin": "gè zì",
-    "english": "each",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gen-ben",
-    "courseId": "course-mandarin-1",
-    "hanzi": "根本",
-    "pinyin": "gēn běn",
-    "english": "fundamental",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-geng-jia",
-    "courseId": "course-mandarin-1",
-    "hanzi": "更加",
-    "pinyin": "gèng jiā",
-    "english": "more (than sth else)",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -2709,33 +1392,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-gong-cheng-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "工程师",
-    "pinyin": "gōng chéng shī",
-    "english": "engineer",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gong-fu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "工夫",
-    "pinyin": "gōng fū",
-    "english": "(old) laborer",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gong-ju",
-    "courseId": "course-mandarin-1",
-    "hanzi": "工具",
-    "pinyin": "gōng jù",
-    "english": "tool",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-gong-ye",
     "courseId": "course-mandarin-1",
     "hanzi": "工业",
@@ -2745,47 +1401,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-gong-zi",
+    "id": "v-h3-gong-kai",
     "courseId": "course-mandarin-1",
-    "hanzi": "工资",
-    "pinyin": "gōng zī",
-    "english": "wages; pay",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gong-bu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "公布",
-    "pinyin": "gōng bù",
-    "english": "to announce",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gong-min",
-    "courseId": "course-mandarin-1",
-    "hanzi": "公民",
-    "pinyin": "gōng mín",
-    "english": "citizen",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gong-wu-yuan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "公务员",
-    "pinyin": "gōng wù yuán",
-    "english": "functionary",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gong-fu-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "功夫",
-    "pinyin": "gōng fu",
-    "english": "skill",
+    "hanzi": "公开",
+    "pinyin": "gōng kāi",
+    "english": "open; overt; public",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -2799,33 +1419,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-gong-neng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "功能",
-    "pinyin": "gōng néng",
-    "english": "function; capability",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gong-tong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "共同",
-    "pinyin": "gòng tóng",
-    "english": "common",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gong-you",
-    "courseId": "course-mandarin-1",
-    "hanzi": "共有",
-    "pinyin": "gòng yǒu",
-    "english": "to have altogether",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-gu-niang",
     "courseId": "course-mandarin-1",
     "hanzi": "姑娘",
@@ -2835,56 +1428,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-gu",
+    "id": "v-h3-gua",
     "courseId": "course-mandarin-1",
-    "hanzi": "古",
-    "pinyin": "Gǔ",
-    "english": "surname Gu",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gu-dai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "古代",
-    "pinyin": "gǔ dài",
-    "english": "ancient times",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gu-xiang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "故乡",
-    "pinyin": "gù xiāng",
-    "english": "home",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-guan-xi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "关系",
-    "pinyin": "guān xi",
-    "english": "relation",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-guan-zhu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "关注",
-    "pinyin": "guān zhù",
-    "english": "to pay attention to",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-guan-cha",
-    "courseId": "course-mandarin-1",
-    "hanzi": "观察",
-    "pinyin": "guān chá",
-    "english": "to observe; to watch; to survey",
+    "hanzi": "挂",
+    "pinyin": "guà",
+    "english": "to hang or suspend (from a hook etc)",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -2898,65 +1446,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-guan-nian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "观念",
-    "pinyin": "guān niàn",
-    "english": "notion",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-guan-zhong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "观众",
-    "pinyin": "guān zhòng",
-    "english": "spectators",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-guan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "管",
-    "pinyin": "guǎn",
-    "english": "variant of 管",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-guan-li",
     "courseId": "course-mandarin-1",
     "hanzi": "管理",
     "pinyin": "guǎn lǐ",
     "english": "to supervise",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-guang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "光",
-    "pinyin": "guāng",
-    "english": "light; ray",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-guang-ming",
-    "courseId": "course-mandarin-1",
-    "hanzi": "光明",
-    "pinyin": "guāng míng",
-    "english": "light",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-guang-bo",
-    "courseId": "course-mandarin-1",
-    "hanzi": "广播",
-    "pinyin": "guǎng bō",
-    "english": "broadcast",
     "partOfSpeech": "verb",
     "difficulty": 3
   },
@@ -2970,56 +1464,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-gui-fan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "规范",
-    "pinyin": "guī fàn",
-    "english": "norm",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-guo-nei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "国内",
-    "pinyin": "guó nèi",
-    "english": "domestic",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-guo-qing",
     "courseId": "course-mandarin-1",
     "hanzi": "国庆",
     "pinyin": "Guó qìng",
     "english": "National Day",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-guo-ran",
-    "courseId": "course-mandarin-1",
-    "hanzi": "果然",
-    "pinyin": "guǒ rán",
-    "english": "really",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-guo-zhi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "果汁",
-    "pinyin": "guǒ zhī",
-    "english": "fruit juice",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-guo-cheng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "过程",
-    "pinyin": "guò chéng",
-    "english": "course of events",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -3033,24 +1482,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-hai-pa",
-    "courseId": "course-mandarin-1",
-    "hanzi": "害怕",
-    "pinyin": "hài pà",
-    "english": "to be afraid",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-hao-hao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "好好",
-    "pinyin": "hǎo hǎo",
-    "english": "well",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-hao-qi",
     "courseId": "course-mandarin-1",
     "hanzi": "好奇",
@@ -3060,39 +1491,21 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ge-2",
+    "id": "v-h3-he-li",
     "courseId": "course-mandarin-1",
-    "hanzi": "合",
-    "pinyin": "gě",
-    "english": "100 ml",
+    "hanzi": "合理",
+    "pinyin": "hé lǐ",
+    "english": "rational; reasonable; sensible; fair",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-he-fa",
+    "id": "v-h3-hong-jiu",
     "courseId": "course-mandarin-1",
-    "hanzi": "合法",
-    "pinyin": "hé fǎ",
-    "english": "lawful",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-he-zuo",
-    "courseId": "course-mandarin-1",
-    "hanzi": "合作",
-    "pinyin": "hé zuò",
-    "english": "to cooperate",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-he-ping",
-    "courseId": "course-mandarin-1",
-    "hanzi": "和平",
-    "pinyin": "Hé píng",
-    "english": "Heping District of Shenyang city 沈阳市, Liaoning",
-    "partOfSpeech": "word",
+    "hanzi": "红酒",
+    "pinyin": "hóng jiǔ",
+    "english": "red wine",
+    "partOfSpeech": "noun",
     "difficulty": 3
   },
   {
@@ -3101,33 +1514,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "hanzi": "互联网",
     "pinyin": "Hù lián wǎng",
     "english": "Internet",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-hu-xiang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "互相",
-    "pinyin": "hù xiāng",
-    "english": "each other",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-hua-ren",
-    "courseId": "course-mandarin-1",
-    "hanzi": "华人",
-    "pinyin": "Huá rén",
-    "english": "ethnic Chinese person or people",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-hua",
-    "courseId": "course-mandarin-1",
-    "hanzi": "化",
-    "pinyin": "huā",
-    "english": "variant of 花",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -3141,47 +1527,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-hua-ju",
-    "courseId": "course-mandarin-1",
-    "hanzi": "话剧",
-    "pinyin": "huà jù",
-    "english": "stage play",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-huan-le",
-    "courseId": "course-mandarin-1",
-    "hanzi": "欢乐",
-    "pinyin": "huān lè",
-    "english": "gaiety",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-huan",
     "courseId": "course-mandarin-1",
     "hanzi": "环",
     "pinyin": "Huán",
     "english": "surname Huan",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-huan-bao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "环保",
-    "pinyin": "huán bǎo",
-    "english": "environmental protection",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-huan-jing",
-    "courseId": "course-mandarin-1",
-    "hanzi": "环境",
-    "pinyin": "huán jìng",
-    "english": "environment",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -3195,65 +1545,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-huo",
-    "courseId": "course-mandarin-1",
-    "hanzi": "活",
-    "pinyin": "huó",
-    "english": "to live",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-huo-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "火",
-    "pinyin": "Huǒ",
-    "english": "surname Huo",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ji-qi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "机器",
-    "pinyin": "jī qì",
-    "english": "machine",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-ji-ji",
     "courseId": "course-mandarin-1",
     "hanzi": "积极",
     "pinyin": "jī jí",
     "english": "active",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ji-ji-xing",
-    "courseId": "course-mandarin-1",
-    "hanzi": "积极性",
-    "pinyin": "jī jí xìng",
-    "english": "zeal",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ji-ben",
-    "courseId": "course-mandarin-1",
-    "hanzi": "基本",
-    "pinyin": "jī běn",
-    "english": "basic",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ji-ben-shang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "基本上",
-    "pinyin": "jī běn shang",
-    "english": "basically",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -3267,83 +1563,29 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ji-shi",
+    "id": "v-h3-ji-zhong",
     "courseId": "course-mandarin-1",
-    "hanzi": "及时",
-    "pinyin": "jí shí",
-    "english": "timely; at the right time",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ji-le",
-    "courseId": "course-mandarin-1",
-    "hanzi": "极了",
-    "pinyin": "jí le",
-    "english": "extremely",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ji-ti",
-    "courseId": "course-mandarin-1",
-    "hanzi": "集体",
-    "pinyin": "jí tǐ",
-    "english": "collective (decision)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ji-suan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "计算",
-    "pinyin": "jì suàn",
-    "english": "to count",
+    "hanzi": "集中",
+    "pinyin": "jí zhōng",
+    "english": "to concentrate",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
     "id": "v-h3-ji-lu",
     "courseId": "course-mandarin-1",
-    "hanzi": "记录",
+    "hanzi": "纪录",
     "pinyin": "jì lù",
-    "english": "to record",
+    "english": "variant of 记录 (but in Taiwan, not for the verb sense \"to record\")",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-ji-nian",
+    "id": "v-h3-jia-gong",
     "courseId": "course-mandarin-1",
-    "hanzi": "纪念",
-    "pinyin": "jì niàn",
-    "english": "to commemorate; to honor the memory of",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ji-shu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "技术",
-    "pinyin": "jì shù",
-    "english": "technology; technique; skill",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jia-kuai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "加快",
-    "pinyin": "jiā kuài",
-    "english": "to accelerate",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jia-ju",
-    "courseId": "course-mandarin-1",
-    "hanzi": "家具",
-    "pinyin": "jiā jù",
-    "english": "furniture",
+    "hanzi": "加工",
+    "pinyin": "jiā gōng",
+    "english": "to process",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -3357,56 +1599,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-jia-xiang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "家乡",
-    "pinyin": "jiā xiāng",
-    "english": "hometown",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jia-ge",
-    "courseId": "course-mandarin-1",
-    "hanzi": "价格",
-    "pinyin": "jià gé",
-    "english": "price",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jia-qian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "价钱",
-    "pinyin": "jià qian",
-    "english": "price",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-jia-zhi",
     "courseId": "course-mandarin-1",
     "hanzi": "价值",
     "pinyin": "jià zhí",
     "english": "value",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jia",
-    "courseId": "course-mandarin-1",
-    "hanzi": "架",
-    "pinyin": "jià",
-    "english": "to support",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jian-jue",
-    "courseId": "course-mandarin-1",
-    "hanzi": "坚决",
-    "pinyin": "jiān jué",
-    "english": "firm; resolute; determined",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -3420,46 +1617,10 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-jian-dan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "简单",
-    "pinyin": "jiǎn dān",
-    "english": "simple",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jian-zhi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "简直",
-    "pinyin": "jiǎn zhí",
-    "english": "simply; really",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "建",
-    "pinyin": "jiàn",
-    "english": "to establish",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-jian-cheng",
     "courseId": "course-mandarin-1",
     "hanzi": "建成",
     "pinyin": "jiàn chéng",
-    "english": "to establish",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jian-li",
-    "courseId": "course-mandarin-1",
-    "hanzi": "建立",
-    "pinyin": "jiàn lì",
     "english": "to establish",
     "partOfSpeech": "word",
     "difficulty": 3
@@ -3474,83 +1635,29 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-jiang-lai",
+    "id": "v-h3-jiao-liu",
     "courseId": "course-mandarin-1",
-    "hanzi": "将来",
-    "pinyin": "jiāng lái",
-    "english": "in the future",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jiao-fei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "交费",
-    "pinyin": "jiāo fèi",
-    "english": "to pay a fee",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jiao-jing",
-    "courseId": "course-mandarin-1",
-    "hanzi": "交警",
-    "pinyin": "jiāo jǐng",
-    "english": "traffic police (abbr. for 察)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jiao-wang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "交往",
-    "pinyin": "jiāo wǎng",
-    "english": "to associate (with)",
+    "hanzi": "交流",
+    "pinyin": "jiāo liú",
+    "english": "to exchange",
     "partOfSpeech": "verb",
     "difficulty": 3
   },
   {
-    "id": "v-h3-jiao-yi",
+    "id": "v-h3-jiao-cai",
     "courseId": "course-mandarin-1",
-    "hanzi": "交易",
-    "pinyin": "jiāo yì",
-    "english": "to deal; to trade; to transact",
+    "hanzi": "教材",
+    "pinyin": "jiào cái",
+    "english": "teaching material",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-jiao-lian",
+    "id": "v-h3-jie-yue",
     "courseId": "course-mandarin-1",
-    "hanzi": "教练",
-    "pinyin": "jiào liàn",
-    "english": "instructor",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jie-he",
-    "courseId": "course-mandarin-1",
-    "hanzi": "结合",
-    "pinyin": "jié hé",
-    "english": "to combine",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jie-hun",
-    "courseId": "course-mandarin-1",
-    "hanzi": "结婚",
-    "pinyin": "jié hūn",
-    "english": "to marry",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jie-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "结实",
-    "pinyin": "jiē shí",
-    "english": "to bear fruit",
+    "hanzi": "节约",
+    "pinyin": "jié yuē",
+    "english": "to economize",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -3564,33 +1671,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-jie-jue",
-    "courseId": "course-mandarin-1",
-    "hanzi": "解决",
-    "pinyin": "jiě jué",
-    "english": "to solve; to resolve; to settle (a problem)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jie-kai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "解开",
-    "pinyin": "jiě kāi",
-    "english": "to untie",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "金",
-    "pinyin": "Jīn",
-    "english": "surname Jin",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-jin-pai",
     "courseId": "course-mandarin-1",
     "hanzi": "金牌",
@@ -3600,34 +1680,7 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-jin-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "仅",
-    "pinyin": "jǐn",
-    "english": "barely",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jin-jin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "仅仅",
-    "pinyin": "jǐn jǐn",
-    "english": "barely",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jin-liang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "尽量",
-    "pinyin": "jǐn liàng",
-    "english": "as much as possible",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jin-3",
+    "id": "v-h3-jin",
     "courseId": "course-mandarin-1",
     "hanzi": "紧",
     "pinyin": "jǐn",
@@ -3636,56 +1689,20 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-jin-ji",
+    "id": "v-h3-jin-bu",
     "courseId": "course-mandarin-1",
-    "hanzi": "紧急",
-    "pinyin": "jǐn jí",
-    "english": "urgent",
-    "partOfSpeech": "word",
+    "hanzi": "进步",
+    "pinyin": "jìn bù",
+    "english": "progress; improvement",
+    "partOfSpeech": "verb",
     "difficulty": 3
   },
   {
-    "id": "v-h3-jin-zhang",
+    "id": "v-h3-jing-ji",
     "courseId": "course-mandarin-1",
-    "hanzi": "紧张",
-    "pinyin": "jǐn zhāng",
-    "english": "nervous",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jin-qi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "近期",
-    "pinyin": "jìn qī",
-    "english": "near in time",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jin-yi-bu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "进一步",
-    "pinyin": "jìn yī bù",
-    "english": "to go a step further",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jing-ju",
-    "courseId": "course-mandarin-1",
-    "hanzi": "京剧",
-    "pinyin": "Jīng jù",
-    "english": "Beijing opera",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jing-ying",
-    "courseId": "course-mandarin-1",
-    "hanzi": "经营",
-    "pinyin": "jīng yíng",
-    "english": "to engage in (business etc); to run; to operate",
+    "hanzi": "经济",
+    "pinyin": "jīng jì",
+    "english": "economy",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -3699,56 +1716,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-jing-shen",
-    "courseId": "course-mandarin-1",
-    "hanzi": "精神",
-    "pinyin": "jīng shén",
-    "english": "spirit",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jing-se",
-    "courseId": "course-mandarin-1",
-    "hanzi": "景色",
-    "pinyin": "jǐng sè",
-    "english": "scenery",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jing-cha",
-    "courseId": "course-mandarin-1",
-    "hanzi": "警察",
-    "pinyin": "jǐng chá",
-    "english": "police; police officer",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-jing",
     "courseId": "course-mandarin-1",
     "hanzi": "静",
     "pinyin": "jìng",
     "english": "still",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jiu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "久",
-    "pinyin": "jiǔ",
-    "english": "(long) time",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jiu-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "救",
-    "pinyin": "jiù",
-    "english": "variant of 救",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -3762,29 +1734,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-jiu-ye",
-    "courseId": "course-mandarin-1",
-    "hanzi": "就业",
-    "pinyin": "jiù yè",
-    "english": "to get a job",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-ju-you",
     "courseId": "course-mandarin-1",
     "hanzi": "具有",
     "pinyin": "jù yǒu",
     "english": "to have; to possess",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ju-chang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "剧场",
-    "pinyin": "jù chǎng",
-    "english": "theater",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -3798,56 +1752,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-jue-xin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "决心",
-    "pinyin": "jué xīn",
-    "english": "determination",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jue-dui",
-    "courseId": "course-mandarin-1",
-    "hanzi": "绝对",
-    "pinyin": "jué duì",
-    "english": "absolute",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-kai-fa",
     "courseId": "course-mandarin-1",
     "hanzi": "开发",
     "pinyin": "kāi fā",
     "english": "to exploit (a resource)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-kai-fang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "开放",
-    "pinyin": "kāi fàng",
-    "english": "to bloom",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-kai-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "开始",
-    "pinyin": "kāi shǐ",
-    "english": "to begin",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-kai-ye",
-    "courseId": "course-mandarin-1",
-    "hanzi": "开业",
-    "pinyin": "kāi yè",
-    "english": "to open a business",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -3861,65 +1770,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-kan-qi-lai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "看起来",
-    "pinyin": "kàn qǐ lai",
-    "english": "seemingly",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-kan-shang-qu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "看上去",
-    "pinyin": "kàn shang qu",
-    "english": "it would appear",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-kao-yan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "考验",
-    "pinyin": "kǎo yàn",
-    "english": "to test",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-ke-ji",
     "courseId": "course-mandarin-1",
     "hanzi": "科技",
     "pinyin": "kē jì",
     "english": "science and technology",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ke-kao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "可靠",
-    "pinyin": "kě kào",
-    "english": "reliable",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ke-le",
-    "courseId": "course-mandarin-1",
-    "hanzi": "可乐",
-    "pinyin": "kě lè",
-    "english": "amusing",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ke-fu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "克服",
-    "pinyin": "kè fú",
-    "english": "(try to) overcome (hardships etc)",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -3933,56 +1788,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ke-cheng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "课程",
-    "pinyin": "kè chéng",
-    "english": "course",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-kong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "空",
-    "pinyin": "kōng",
-    "english": "empty",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-kong-r",
     "courseId": "course-mandarin-1",
     "hanzi": "空儿",
     "pinyin": "kòng r",
     "english": "spare time",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-kong-pa",
-    "courseId": "course-mandarin-1",
-    "hanzi": "恐怕",
-    "pinyin": "kǒng pà",
-    "english": "fear",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ku-zi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "裤子",
-    "pinyin": "kù zi",
-    "english": "variant of 裤子, trousers",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-kuai-su",
-    "courseId": "course-mandarin-1",
-    "hanzi": "快速",
-    "pinyin": "kuài sù",
-    "english": "fast; high-speed; rapid",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -3996,33 +1806,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-kun-nan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "困难",
-    "pinyin": "kùn nan",
-    "english": "difficult",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-lang-fei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "浪费",
-    "pinyin": "làng fèi",
-    "english": "to waste",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-lao-bai-xing",
-    "courseId": "course-mandarin-1",
-    "hanzi": "老百姓",
-    "pinyin": "lǎo bǎi xìng",
-    "english": "ordinary people",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-lao-ban",
     "courseId": "course-mandarin-1",
     "hanzi": "老板",
@@ -4032,65 +1815,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-lao-tai-tai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "老太太",
-    "pinyin": "lǎo tài tai",
-    "english": "elderly lady (respectful)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-lao-tou-r",
-    "courseId": "course-mandarin-1",
-    "hanzi": "老头儿",
-    "pinyin": "lǎo tóu r",
-    "english": "see 老头子",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-le",
-    "courseId": "course-mandarin-1",
-    "hanzi": "乐",
-    "pinyin": "Lè",
-    "english": "surname Le",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-yue-dui",
     "courseId": "course-mandarin-1",
     "hanzi": "乐队",
     "pinyin": "yuè duì",
     "english": "band",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-le-guan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "乐观",
-    "pinyin": "lè guān",
-    "english": "optimistic",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-lei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "类",
-    "pinyin": "lèi",
-    "english": "kind",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-lei-si",
-    "courseId": "course-mandarin-1",
-    "hanzi": "类似",
-    "pinyin": "lèi sì",
-    "english": "similar",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -4113,24 +1842,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-li",
-    "courseId": "course-mandarin-1",
-    "hanzi": "力",
-    "pinyin": "Lì",
-    "english": "surname Li",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-li-liang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "力量",
-    "pinyin": "lì liang",
-    "english": "power",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-li-ke",
     "courseId": "course-mandarin-1",
     "hanzi": "立刻",
@@ -4140,48 +1851,12 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-li-yong",
+    "id": "v-h3-lian-xu",
     "courseId": "course-mandarin-1",
-    "hanzi": "利用",
-    "pinyin": "lì yòng",
-    "english": "to exploit",
+    "hanzi": "连续",
+    "pinyin": "lián xù",
+    "english": "continuous",
     "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-lian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "连",
-    "pinyin": "Lián",
-    "english": "surname Lian",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-lian-xu-ju",
-    "courseId": "course-mandarin-1",
-    "hanzi": "连续剧",
-    "pinyin": "lián xù jù",
-    "english": "serialized drama",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-lian-he",
-    "courseId": "course-mandarin-1",
-    "hanzi": "联合",
-    "pinyin": "lián hé",
-    "english": "to combine",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-lian-he-guo",
-    "courseId": "course-mandarin-1",
-    "hanzi": "联合国",
-    "pinyin": "Lián hé guó",
-    "english": "United Nations",
-    "partOfSpeech": "noun",
     "difficulty": 3
   },
   {
@@ -4190,33 +1865,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "hanzi": "联系",
     "pinyin": "lián xì",
     "english": "variant of 联系",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-liang-shui",
-    "courseId": "course-mandarin-1",
-    "hanzi": "凉水",
-    "pinyin": "liáng shuǐ",
-    "english": "cool water",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ling",
-    "courseId": "course-mandarin-1",
-    "hanzi": "领",
-    "pinyin": "lǐng",
-    "english": "neck",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ling-dao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "领导",
-    "pinyin": "lǐng dǎo",
-    "english": "lead",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -4230,56 +1878,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ling-wai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "另外",
-    "pinyin": "lìng wài",
-    "english": "additional",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ling-yi-fang-mian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "另一方面",
-    "pinyin": "lìng yī fāng miàn",
-    "english": "on the other hand",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-long",
     "courseId": "course-mandarin-1",
     "hanzi": "龙",
     "pinyin": "Lóng",
     "english": "surname Long",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-lu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "录",
-    "pinyin": "lù",
-    "english": "to carve wood",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-lu-yin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "录音",
-    "pinyin": "lù yīn",
-    "english": "to record (sound)",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-lu-xian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "路线",
-    "pinyin": "lù xiàn",
-    "english": "itinerary",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -4302,74 +1905,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ma-fan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "麻烦",
-    "pinyin": "má fan",
-    "english": "trouble; inconvenience",
-    "partOfSpeech": "adjective",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-man-zu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "满足",
-    "pinyin": "mǎn zú",
-    "english": "to satisfy",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-man-man",
     "courseId": "course-mandarin-1",
     "hanzi": "慢慢",
     "pinyin": "màn màn",
     "english": "slowly",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-mao-bing",
-    "courseId": "course-mandarin-1",
-    "hanzi": "毛病",
-    "pinyin": "máo bìng",
-    "english": "fault",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-mei-yong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "没用",
-    "pinyin": "méi yòng",
-    "english": "useless",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-mei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "美",
-    "pinyin": "Měi",
-    "english": "(bound form) the Americas (abbr. for 洲)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-mei-hao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "美好",
-    "pinyin": "měi hǎo",
-    "english": "beautiful",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-mei-li",
-    "courseId": "course-mandarin-1",
-    "hanzi": "美丽",
-    "pinyin": "měi lì",
-    "english": "beautiful",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -4383,47 +1923,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-mei-yuan",
+    "id": "v-h3-mian-dui",
     "courseId": "course-mandarin-1",
-    "hanzi": "美元",
-    "pinyin": "Měi yuán",
-    "english": "American dollar",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-mi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "迷",
-    "pinyin": "mí",
-    "english": "to bewilder",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-mian-ji",
-    "courseId": "course-mandarin-1",
-    "hanzi": "面积",
-    "pinyin": "miàn jī",
-    "english": "area (of a floor, piece of land etc)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-min-jian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "民间",
-    "pinyin": "mín jiān",
-    "english": "among the people",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-min-zu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "民族",
-    "pinyin": "mín zú",
-    "english": "nationality; ethnic group",
+    "hanzi": "面对",
+    "pinyin": "miàn duì",
+    "english": "to face; to confront",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -4437,33 +1941,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ming-xian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "明显",
-    "pinyin": "míng xiǎn",
-    "english": "clear",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ming-yun",
-    "courseId": "course-mandarin-1",
-    "hanzi": "命运",
-    "pinyin": "mìng yùn",
-    "english": "fate; destiny",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-mou",
-    "courseId": "course-mandarin-1",
-    "hanzi": "某",
-    "pinyin": "mǒu",
-    "english": "some",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-mu-qin",
     "courseId": "course-mandarin-1",
     "hanzi": "母亲",
@@ -4473,38 +1950,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-mu-tou",
+    "id": "v-h3-nai-cha",
     "courseId": "course-mandarin-1",
-    "hanzi": "木头",
-    "pinyin": "mù tou",
-    "english": "slow-witted",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-mu-biao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "目标",
-    "pinyin": "mù biāo",
-    "english": "target",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-mu-qian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "目前",
-    "pinyin": "mù qián",
-    "english": "at the present time",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-nan-zi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "男子",
-    "pinyin": "nán zǐ",
-    "english": "a man; a male",
+    "hanzi": "奶茶",
+    "pinyin": "nǎi chá",
+    "english": "milk tea",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -4518,15 +1968,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-nei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "内",
-    "pinyin": "nèi",
-    "english": "inside",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-neng-buneng",
     "courseId": "course-mandarin-1",
     "hanzi": "能不能",
@@ -4536,47 +1977,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-neng-li",
+    "id": "v-h3-nian-di",
     "courseId": "course-mandarin-1",
-    "hanzi": "能力",
-    "pinyin": "néng lì",
-    "english": "capability",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-nian-dai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "年代",
-    "pinyin": "nián dài",
-    "english": "a decade of a century (e.g. the Sixties)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-nian-ji",
-    "courseId": "course-mandarin-1",
-    "hanzi": "年纪",
-    "pinyin": "nián jì",
-    "english": "age",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-nian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "念",
-    "pinyin": "niàn",
-    "english": "variant of 念, to read aloud",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-niu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "牛",
-    "pinyin": "Niú",
-    "english": "surname Niu",
+    "hanzi": "年底",
+    "pinyin": "nián dǐ",
+    "english": "the end of the year",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -4586,24 +1991,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "hanzi": "农村",
     "pinyin": "nóng cūn",
     "english": "rural area",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-nong-min",
-    "courseId": "course-mandarin-1",
-    "hanzi": "农民",
-    "pinyin": "nóng mín",
-    "english": "peasant",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-nu-zi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "女子",
-    "pinyin": "nǚ zǐ",
-    "english": "woman",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -4619,24 +2006,6 @@ export const hsk3VocabItems: VocabItem[] = [
   {
     "id": "v-h3-pai",
     "courseId": "course-mandarin-1",
-    "hanzi": "拍",
-    "pinyin": "pāi",
-    "english": "to pat",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-pai-ming",
-    "courseId": "course-mandarin-1",
-    "hanzi": "排名",
-    "pinyin": "pái míng",
-    "english": "to rank (1st, 2nd etc)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-pai-2",
-    "courseId": "course-mandarin-1",
     "hanzi": "派",
     "pinyin": "pài",
     "english": "clique",
@@ -4644,38 +2013,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-pan-duan",
+    "id": "v-h3-pei",
     "courseId": "course-mandarin-1",
-    "hanzi": "判断",
-    "pinyin": "pàn duàn",
-    "english": "to judge",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-pan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "胖",
-    "pinyin": "pán",
-    "english": "healthy",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-pao-bu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "跑步",
-    "pinyin": "pǎo bù",
-    "english": "to run",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-pi-ping",
-    "courseId": "course-mandarin-1",
-    "hanzi": "批评",
-    "pinyin": "pī píng",
-    "english": "to criticize; criticism",
+    "hanzi": "配",
+    "pinyin": "pèi",
+    "english": "to join",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -4689,47 +2031,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-pi-bao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "皮包",
-    "pinyin": "pí bāo",
-    "english": "handbag",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-piao-jia",
-    "courseId": "course-mandarin-1",
-    "hanzi": "票价",
-    "pinyin": "piào jià",
-    "english": "ticket price; fare; admission fee",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-ping-jia",
     "courseId": "course-mandarin-1",
     "hanzi": "评价",
     "pinyin": "píng jià",
     "english": "to evaluate",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-po",
-    "courseId": "course-mandarin-1",
-    "hanzi": "破",
-    "pinyin": "pò",
-    "english": "broken",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-po-huai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "破坏",
-    "pinyin": "pò huài",
-    "english": "destruction",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -4743,65 +2049,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-pu-ji",
-    "courseId": "course-mandarin-1",
-    "hanzi": "普及",
-    "pinyin": "pǔ jí",
-    "english": "to spread extensively",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "期",
-    "pinyin": "qī",
-    "english": "variant of 期",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qi-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "齐",
-    "pinyin": "Qí",
-    "english": "(name of states and dynasties at several different periods)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-qi-ci",
     "courseId": "course-mandarin-1",
     "hanzi": "其次",
     "pinyin": "qí cì",
     "english": "next",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qi-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "其实",
-    "pinyin": "qí shí",
-    "english": "actually; in fact; really",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qi-guai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "奇怪",
-    "pinyin": "qí guài",
-    "english": "strange",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qi-hou",
-    "courseId": "course-mandarin-1",
-    "hanzi": "气候",
-    "pinyin": "qì hòu",
-    "english": "(meteorology) climate",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -4815,47 +2067,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-qian-hou",
+    "id": "v-h3-qian-wang",
     "courseId": "course-mandarin-1",
-    "hanzi": "前后",
-    "pinyin": "qián hòu",
-    "english": "around",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qian-jin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "前进",
-    "pinyin": "qián jìn",
-    "english": "to go forward",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qiang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "强",
-    "pinyin": "Qiáng",
-    "english": "surname Qiang",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qiang-da",
-    "courseId": "course-mandarin-1",
-    "hanzi": "强大",
-    "pinyin": "qiáng dà",
-    "english": "large",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qiang-diao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "强调",
-    "pinyin": "qiáng diào",
-    "english": "to emphasize (a statement)",
+    "hanzi": "前往",
+    "pinyin": "qián wǎng",
+    "english": "to leave for; to proceed towards; to go to",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -4869,56 +2085,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-qiao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "桥",
-    "pinyin": "qiáo",
-    "english": "bridge",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qiao-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "巧",
-    "pinyin": "qiǎo",
-    "english": "opportunely",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "亲",
-    "pinyin": "qīn",
-    "english": "parent",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-qin-qie",
     "courseId": "course-mandarin-1",
     "hanzi": "亲切",
     "pinyin": "qīn qiè",
     "english": "amiable",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qin-zi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "亲自",
-    "pinyin": "qīn zì",
-    "english": "personally",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qing-gan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "情感",
-    "pinyin": "qíng gǎn",
-    "english": "feeling",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -4932,24 +2103,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-qing-jiao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "请教",
-    "pinyin": "qǐng jiào",
-    "english": "to ask for guidance",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qiu-mi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "球迷",
-    "pinyin": "qiú mí",
-    "english": "fan (ball sports)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-ou",
     "courseId": "course-mandarin-1",
     "hanzi": "区",
@@ -4959,47 +2112,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-qu-bie",
+    "id": "v-h3-quan-chang",
     "courseId": "course-mandarin-1",
-    "hanzi": "区别",
-    "pinyin": "qū bié",
-    "english": "difference",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qu-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "去世",
-    "pinyin": "qù shì",
-    "english": "to pass away",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-quan-mian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "全面",
-    "pinyin": "quán miàn",
-    "english": "all-around",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-quan-qiu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "全球",
-    "pinyin": "quán qiú",
-    "english": "entire",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-que",
-    "courseId": "course-mandarin-1",
-    "hanzi": "缺",
-    "pinyin": "quē",
-    "english": "deficiency",
+    "hanzi": "全场",
+    "pinyin": "quán chǎng",
+    "english": "everyone present",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -5013,65 +2130,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-que-shao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "缺少",
-    "pinyin": "quē shǎo",
-    "english": "lack",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-que-bao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "确保",
-    "pinyin": "què bǎo",
-    "english": "to ensure; to guarantee",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-que-ding",
-    "courseId": "course-mandarin-1",
-    "hanzi": "确定",
-    "pinyin": "què dìng",
-    "english": "definite",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-que-shi",
     "courseId": "course-mandarin-1",
     "hanzi": "确实",
     "pinyin": "què shí",
     "english": "indeed",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qun-zi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "裙子",
-    "pinyin": "qún zi",
-    "english": "skirt",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qun",
-    "courseId": "course-mandarin-1",
-    "hanzi": "群",
-    "pinyin": "qún",
-    "english": "variant of 群",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-re-ai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "热爱",
-    "pinyin": "rè ài",
-    "english": "to love ardently",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -5085,47 +2148,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ren-cai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "人才",
-    "pinyin": "rén cái",
-    "english": "talent",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ren-lei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "人类",
-    "pinyin": "rén lèi",
-    "english": "humanity",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-ren-min",
     "courseId": "course-mandarin-1",
     "hanzi": "人民",
     "pinyin": "rén mín",
     "english": "the people",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ren-min-bi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "人民币",
-    "pinyin": "rén mín bì",
-    "english": "Renminbi (RMB)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ren-qun",
-    "courseId": "course-mandarin-1",
-    "hanzi": "人群",
-    "pinyin": "rén qún",
-    "english": "crowd",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -5139,24 +2166,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ren-chu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "认出",
-    "pinyin": "rèn chū",
-    "english": "recognition",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ren-de",
-    "courseId": "course-mandarin-1",
-    "hanzi": "认得",
-    "pinyin": "rèn de",
-    "english": "to recognize",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-ren",
     "courseId": "course-mandarin-1",
     "hanzi": "任",
@@ -5166,38 +2175,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ren-he",
+    "id": "v-h3-reng-ran",
     "courseId": "course-mandarin-1",
-    "hanzi": "任何",
-    "pinyin": "rèn hé",
-    "english": "any",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-reng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "仍",
-    "pinyin": "réng",
-    "english": "still; yet",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-rong-yi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "容易",
-    "pinyin": "róng yì",
-    "english": "easy; straightforward",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ru-he",
-    "courseId": "course-mandarin-1",
-    "hanzi": "如何",
-    "pinyin": "rú hé",
-    "english": "how",
+    "hanzi": "仍然",
+    "pinyin": "réng rán",
+    "english": "still; as before; yet",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -5211,65 +2193,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-sha-fa",
-    "courseId": "course-mandarin-1",
-    "hanzi": "沙发",
-    "pinyin": "shā fā",
-    "english": "sofa (loanword)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-sha-zi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "沙子",
-    "pinyin": "shā zi",
-    "english": "sand",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "伤",
-    "pinyin": "shāng",
-    "english": "to injure",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-shang-xin",
     "courseId": "course-mandarin-1",
     "hanzi": "伤心",
     "pinyin": "shāng xīn",
     "english": "to grieve",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shang-pin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "商品",
-    "pinyin": "shāng pǐn",
-    "english": "commodity",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shang-ye",
-    "courseId": "course-mandarin-1",
-    "hanzi": "商业",
-    "pinyin": "shāng yè",
-    "english": "business",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shang-lai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "上来",
-    "pinyin": "shàng lái",
-    "english": "to come up",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -5283,56 +2211,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-shang-qu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "上去",
-    "pinyin": "shàng qù",
-    "english": "to go up",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shang-sheng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "上升",
-    "pinyin": "shàng shēng",
-    "english": "to rise",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shang-yi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "上衣",
-    "pinyin": "shàng yī",
-    "english": "jacket",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-she-bei",
     "courseId": "course-mandarin-1",
     "hanzi": "设备",
     "pinyin": "shè bèi",
     "english": "equipment; facilities; installations",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-she-li",
-    "courseId": "course-mandarin-1",
-    "hanzi": "设立",
-    "pinyin": "shè lì",
-    "english": "to set up; to establish",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-she-hui",
-    "courseId": "course-mandarin-1",
-    "hanzi": "社会",
-    "pinyin": "shè huì",
-    "english": "society",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -5346,38 +2229,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-shen",
+    "id": "v-h3-sheng",
     "courseId": "course-mandarin-1",
-    "hanzi": "深",
-    "pinyin": "shēn",
-    "english": "old variant of 深",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shen-ru",
-    "courseId": "course-mandarin-1",
-    "hanzi": "深入",
-    "pinyin": "shēn rù",
-    "english": "to penetrate deeply",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-sheng-cun",
-    "courseId": "course-mandarin-1",
-    "hanzi": "生存",
-    "pinyin": "shēng cún",
-    "english": "to exist",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-sheng-dong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "生动",
-    "pinyin": "shēng dòng",
-    "english": "vivid",
+    "hanzi": "升",
+    "pinyin": "shēng",
+    "english": "to ascend",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -5391,56 +2247,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-sheng-yi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "生意",
-    "pinyin": "shēng yì",
-    "english": "life force",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-sheng-zhang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "生长",
-    "pinyin": "shēng zhǎng",
-    "english": "to grow",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-sheng-ming-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "声明",
-    "pinyin": "shēng míng",
-    "english": "to state",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-sheng",
+    "id": "v-h3-sheng-2",
     "courseId": "course-mandarin-1",
     "hanzi": "胜",
     "pinyin": "shèng",
     "english": "victory",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-sheng-li",
-    "courseId": "course-mandarin-1",
-    "hanzi": "胜利",
-    "pinyin": "shèng lì",
-    "english": "victory",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-tou",
-    "courseId": "course-mandarin-1",
-    "hanzi": "石头",
-    "pinyin": "shí tou",
-    "english": "stone",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -5454,24 +2265,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "时",
-    "pinyin": "shí",
-    "english": "old variant of 时",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-ke",
-    "courseId": "course-mandarin-1",
-    "hanzi": "时刻",
-    "pinyin": "shí kè",
-    "english": "time",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-shi-ji-shang",
     "courseId": "course-mandarin-1",
     "hanzi": "实际上",
@@ -5481,47 +2274,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-shi-li",
-    "courseId": "course-mandarin-1",
-    "hanzi": "实力",
-    "pinyin": "shí lì",
-    "english": "strength",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-xing",
-    "courseId": "course-mandarin-1",
-    "hanzi": "实行",
-    "pinyin": "shí xíng",
-    "english": "to implement",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-yan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "实验",
-    "pinyin": "shí yàn",
-    "english": "experiment",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-shi-yan-shi",
     "courseId": "course-mandarin-1",
     "hanzi": "实验室",
     "pinyin": "shí yàn shì",
     "english": "laboratory",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "使",
-    "pinyin": "shǐ",
-    "english": "to make",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -5535,65 +2292,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-shi-jie",
-    "courseId": "course-mandarin-1",
-    "hanzi": "世界",
-    "pinyin": "shì jiè",
-    "english": "world",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-jie-bei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "世界杯",
-    "pinyin": "Shì jiè bēi",
-    "english": "World Cup",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-chang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "市场",
-    "pinyin": "shì chǎng",
-    "english": "marketplace",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-shi-gu",
     "courseId": "course-mandarin-1",
     "hanzi": "事故",
     "pinyin": "shì gù",
     "english": "accident",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-jian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "事件",
-    "pinyin": "shì jiàn",
-    "english": "event",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "事实",
-    "pinyin": "shì shí",
-    "english": "fact",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-shi-shang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "事实上",
-    "pinyin": "shì shí shàng",
-    "english": "in fact",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -5607,33 +2310,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-shi-ti",
-    "courseId": "course-mandarin-1",
-    "hanzi": "试题",
-    "pinyin": "shì tí",
-    "english": "exam question",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-yan-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "试验",
-    "pinyin": "shì yàn",
-    "english": "experiment",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-3",
-    "courseId": "course-mandarin-1",
-    "hanzi": "室",
-    "pinyin": "Shì",
-    "english": "surname Shi",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-shi-he",
     "courseId": "course-mandarin-1",
     "hanzi": "适合",
@@ -5643,38 +2319,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-shi-yong",
+    "id": "v-h3-shou-kan",
     "courseId": "course-mandarin-1",
-    "hanzi": "适用",
-    "pinyin": "shì yòng",
-    "english": "to be applicable",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shou-fei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "收费",
-    "pinyin": "shōu fèi",
-    "english": "to charge a fee",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shou-ting",
-    "courseId": "course-mandarin-1",
-    "hanzi": "收听",
-    "pinyin": "shōu tīng",
-    "english": "to listen to (a radio broadcast)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shou-yin-ji",
-    "courseId": "course-mandarin-1",
-    "hanzi": "收音机",
-    "pinyin": "shōu yīn jī",
-    "english": "radio",
+    "hanzi": "收看",
+    "pinyin": "shōu kàn",
+    "english": "to watch (a TV program)",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -5688,56 +2337,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-shou-du",
-    "courseId": "course-mandarin-1",
-    "hanzi": "首都",
-    "pinyin": "shǒu dū",
-    "english": "capital (city)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shou-xian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "首先",
-    "pinyin": "shǒu xiān",
-    "english": "first (of all)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shou",
-    "courseId": "course-mandarin-1",
-    "hanzi": "受",
-    "pinyin": "shòu",
-    "english": "to receive",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-shou-shang",
     "courseId": "course-mandarin-1",
     "hanzi": "受伤",
     "pinyin": "shòu shāng",
     "english": "to sustain injuries",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shu-jia",
-    "courseId": "course-mandarin-1",
-    "hanzi": "书架",
-    "pinyin": "shū jià",
-    "english": "bookshelf",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shu-ru",
-    "courseId": "course-mandarin-1",
-    "hanzi": "输入",
-    "pinyin": "shū rù",
-    "english": "to import",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -5751,56 +2355,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-shu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "属",
-    "pinyin": "shǔ",
-    "english": "category",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shu-yu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "属于",
-    "pinyin": "shǔ yú",
-    "english": "to be classified as",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shu-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "束",
-    "pinyin": "Shù",
-    "english": "surname Shu",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-shu-liang",
     "courseId": "course-mandarin-1",
     "hanzi": "数量",
     "pinyin": "shù liàng",
     "english": "amount",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shuang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "双",
-    "pinyin": "Shuāng",
-    "english": "surname Shuang",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-si-xiang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "思想",
-    "pinyin": "sī xiǎng",
-    "english": "thought",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -5814,66 +2373,12 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-su-du",
-    "courseId": "course-mandarin-1",
-    "hanzi": "速度",
-    "pinyin": "sù dù",
-    "english": "speed",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-sui",
-    "courseId": "course-mandarin-1",
-    "hanzi": "随",
-    "pinyin": "Suí",
-    "english": "surname Sui",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-suo",
-    "courseId": "course-mandarin-1",
-    "hanzi": "所",
-    "pinyin": "suǒ",
-    "english": "actually",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-suo-chang",
     "courseId": "course-mandarin-1",
     "hanzi": "所长",
     "pinyin": "suǒ cháng",
     "english": "what one is good at",
     "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "台",
-    "pinyin": "Tái",
-    "english": "Taiwan (abbr.)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "谈",
-    "pinyin": "Tán",
-    "english": "surname Tan",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tan-hua",
-    "courseId": "course-mandarin-1",
-    "hanzi": "谈话",
-    "pinyin": "tán huà",
-    "english": "to talk (with sb)",
-    "partOfSpeech": "verb",
     "difficulty": 3
   },
   {
@@ -5886,47 +2391,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-tang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "糖",
-    "pinyin": "táng",
-    "english": "sugar",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-te-se",
-    "courseId": "course-mandarin-1",
-    "hanzi": "特色",
-    "pinyin": "tè sè",
-    "english": "characteristic",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-ti-qian",
     "courseId": "course-mandarin-1",
     "hanzi": "提前",
     "pinyin": "tí qián",
     "english": "to shift to an earlier date",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ti-wen",
-    "courseId": "course-mandarin-1",
-    "hanzi": "提问",
-    "pinyin": "tí wèn",
-    "english": "to question; to quiz; to grill",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ti-mu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "题目",
-    "pinyin": "tí mù",
-    "english": "subject",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -5940,57 +2409,12 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-tian-kong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "天空",
-    "pinyin": "tiān kōng",
-    "english": "sky",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "甜",
-    "pinyin": "tián",
-    "english": "sweet",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-tiao",
     "courseId": "course-mandarin-1",
     "hanzi": "跳",
     "pinyin": "tiào",
     "english": "to jump",
     "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tiao-gao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "跳高",
-    "pinyin": "tiào gāo",
-    "english": "high jump (athletics)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tiao-wu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "跳舞",
-    "pinyin": "tiào wǔ",
-    "english": "to dance",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tiao-yuan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "跳远",
-    "pinyin": "tiào yuǎn",
-    "english": "long jump (athletics)",
-    "partOfSpeech": "verb",
     "difficulty": 3
   },
   {
@@ -6003,48 +2427,12 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-tie-lu",
+    "id": "v-h3-ting-zhi",
     "courseId": "course-mandarin-1",
-    "hanzi": "铁路",
-    "pinyin": "tiě lù",
-    "english": "railroad",
+    "hanzi": "停止",
+    "pinyin": "tíng zhǐ",
+    "english": "to stop; to halt; to cease",
     "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ting-li",
-    "courseId": "course-mandarin-1",
-    "hanzi": "听力",
-    "pinyin": "tīng lì",
-    "english": "hearing",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ting-zhong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "听众",
-    "pinyin": "tīng zhòng",
-    "english": "audience",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tong-chang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "通常",
-    "pinyin": "tōng cháng",
-    "english": "regular",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tong-xin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "通信",
-    "pinyin": "tōng xìn",
-    "english": "to correspond (by letter etc)",
-    "partOfSpeech": "verb",
     "difficulty": 3
   },
   {
@@ -6053,24 +2441,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "hanzi": "痛",
     "pinyin": "tòng",
     "english": "ache",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tong-ku",
-    "courseId": "course-mandarin-1",
-    "hanzi": "痛苦",
-    "pinyin": "tòng kǔ",
-    "english": "pain",
-    "partOfSpeech": "adjective",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tou-nao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "头脑",
-    "pinyin": "tóu nǎo",
-    "english": "brains",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -6084,24 +2454,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-tu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "图",
-    "pinyin": "tú",
-    "english": "diagram",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tu-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "土",
-    "pinyin": "Tǔ",
-    "english": "Tu (ethnic group)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-tuan",
     "courseId": "course-mandarin-1",
     "hanzi": "团",
@@ -6111,47 +2463,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-tuan-jie",
+    "id": "v-h3-tui-guang",
     "courseId": "course-mandarin-1",
-    "hanzi": "团结",
-    "pinyin": "tuán jié",
-    "english": "to unite",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tuan-ti",
-    "courseId": "course-mandarin-1",
-    "hanzi": "团体",
-    "pinyin": "tuán tǐ",
-    "english": "group",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tui-jin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "推进",
-    "pinyin": "tuī jìn",
-    "english": "to impel",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tui-kai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "推开",
-    "pinyin": "tuī kāi",
-    "english": "to push open (a gate etc)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tui",
-    "courseId": "course-mandarin-1",
-    "hanzi": "退",
-    "pinyin": "tuì",
-    "english": "to retreat; to withdraw",
+    "hanzi": "推广",
+    "pinyin": "tuī guǎng",
+    "english": "to extend",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -6165,47 +2481,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-tui-xiu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "退休",
-    "pinyin": "tuì xiū",
-    "english": "to retire (from the workforce); to go into retirement",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-wai-jiao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "外交",
-    "pinyin": "wài jiāo",
-    "english": "diplomacy",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-wai-wen",
     "courseId": "course-mandarin-1",
     "hanzi": "外文",
     "pinyin": "wài wén",
     "english": "foreign language (written)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-wan-mei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "完美",
-    "pinyin": "wán měi",
-    "english": "perfect",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-wan-shan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "完善",
-    "pinyin": "wán shàn",
-    "english": "(of systems, facilities etc) comprehensive",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -6219,47 +2499,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-wang-wang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "往往",
-    "pinyin": "wǎng wǎng",
-    "english": "usually",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-wei-hai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "危害",
-    "pinyin": "wēi hài",
-    "english": "to jeopardize",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-wei",
     "courseId": "course-mandarin-1",
     "hanzi": "围",
     "pinyin": "Wéi",
     "english": "surname Wei",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-wei-sheng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "卫生",
-    "pinyin": "wèi shēng",
-    "english": "health",
-    "partOfSpeech": "adjective",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-wei-sheng-jian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "卫生间",
-    "pinyin": "wèi shēng jiān",
-    "english": "bathroom",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -6273,47 +2517,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-wen-nuan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "温暖",
-    "pinyin": "wēn nuǎn",
-    "english": "warm",
-    "partOfSpeech": "adjective",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-wen-jian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "文件",
-    "pinyin": "wén jiàn",
-    "english": "document",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-wen-ming",
     "courseId": "course-mandarin-1",
     "hanzi": "文明",
     "pinyin": "wén míng",
     "english": "civilized",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-wen-xue",
-    "courseId": "course-mandarin-1",
-    "hanzi": "文学",
-    "pinyin": "wén xué",
-    "english": "literature",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-wen-zi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "文字",
-    "pinyin": "wén zì",
-    "english": "character",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -6327,47 +2535,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-wu-zi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "屋子",
-    "pinyin": "wū zi",
-    "english": "house",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-wu-qi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "武器",
-    "pinyin": "wǔ qì",
-    "english": "weapon",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-wu-shu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "武术",
-    "pinyin": "wǔ shù",
-    "english": "military skill or technique (in former times)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-wu-tai",
     "courseId": "course-mandarin-1",
     "hanzi": "舞台",
     "pinyin": "wǔ tái",
     "english": "(lit. and fig.) stage; arena",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xi-wang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "希望",
-    "pinyin": "xī wàng",
-    "english": "to hope",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -6381,56 +2553,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-xia-mian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "下面",
-    "pinyin": "xià miàn",
-    "english": "below",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xia-qu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "下去",
-    "pinyin": "xià qù",
-    "english": "to go down",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-xian-de",
     "courseId": "course-mandarin-1",
     "hanzi": "显得",
     "pinyin": "xiǎn de",
     "english": "to seem",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xian-ran",
-    "courseId": "course-mandarin-1",
-    "hanzi": "显然",
-    "pinyin": "xiǎn rán",
-    "english": "clearly; evidently; obviously",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xian-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "显示",
-    "pinyin": "xiǎn shì",
-    "english": "to show",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xian-chang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "现场",
-    "pinyin": "xiàn chǎng",
-    "english": "the scene (of a crime, accident etc)",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -6444,33 +2571,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-xian-dai-hua",
-    "courseId": "course-mandarin-1",
-    "hanzi": "现代化",
-    "pinyin": "xiàn dài huà",
-    "english": "modernization",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xian-jin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "现金",
-    "pinyin": "xiàn jīn",
-    "english": "cash",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xian-shi-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "现实",
-    "pinyin": "xiàn shí",
-    "english": "reality",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-xian-xiang",
     "courseId": "course-mandarin-1",
     "hanzi": "现象",
@@ -6480,57 +2580,12 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-xian",
+    "id": "v-h3-xiang-guan",
     "courseId": "course-mandarin-1",
-    "hanzi": "线",
-    "pinyin": "xiàn",
-    "english": "variant of 线",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xiang-dang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "相当",
-    "pinyin": "xiāng dāng",
-    "english": "equivalent to",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xiang-hu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "相互",
-    "pinyin": "xiāng hù",
-    "english": "each other",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xiang-si",
-    "courseId": "course-mandarin-1",
-    "hanzi": "相似",
-    "pinyin": "xiāng sì",
-    "english": "similar; alike",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xiang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "香",
-    "pinyin": "xiāng",
-    "english": "fragrant",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xiao-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "消失",
-    "pinyin": "xiāo shī",
-    "english": "to disappear; to fade away",
-    "partOfSpeech": "word",
+    "hanzi": "相关",
+    "pinyin": "xiāng guān",
+    "english": "related",
+    "partOfSpeech": "verb",
     "difficulty": 3
   },
   {
@@ -6539,24 +2594,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "hanzi": "效果",
     "pinyin": "xiào guǒ",
     "english": "result",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xie-zuo",
-    "courseId": "course-mandarin-1",
-    "hanzi": "写作",
-    "pinyin": "xiě zuò",
-    "english": "to write",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xin-feng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "信封",
-    "pinyin": "xìn fēng",
-    "english": "envelope",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -6570,65 +2607,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-xing-li",
-    "courseId": "course-mandarin-1",
-    "hanzi": "行李",
-    "pinyin": "xíng li",
-    "english": "luggage",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xing-cheng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "形成",
-    "pinyin": "xíng chéng",
-    "english": "to form",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xing-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "形式",
-    "pinyin": "xíng shì",
-    "english": "outer appearance",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-xing-xiang",
     "courseId": "course-mandarin-1",
     "hanzi": "形象",
     "pinyin": "xíng xiàng",
     "english": "image",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xing-zhuang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "形状",
-    "pinyin": "xíng zhuàng",
-    "english": "form; shape",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xing-fu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "幸福",
-    "pinyin": "xìng fú",
-    "english": "happiness",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xing-yun",
-    "courseId": "course-mandarin-1",
-    "hanzi": "幸运",
-    "pinyin": "xìng yùn",
-    "english": "fortunate",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -6642,47 +2625,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-xing-ge",
+    "id": "v-h3-xiu-gai",
     "courseId": "course-mandarin-1",
-    "hanzi": "性格",
-    "pinyin": "xìng gé",
-    "english": "nature",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xiu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "修",
-    "pinyin": "Xiū",
-    "english": "surname Xiu",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xu-qiu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "需求",
-    "pinyin": "xū qiú",
-    "english": "requirement",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xu-yao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "需要",
-    "pinyin": "xū yào",
-    "english": "to need; to want; to demand; to require",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xuan-bu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "宣布",
-    "pinyin": "xuān bù",
-    "english": "to declare",
+    "hanzi": "修改",
+    "pinyin": "xiū gǎi",
+    "english": "to amend",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -6696,33 +2643,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-xuan-shou",
-    "courseId": "course-mandarin-1",
-    "hanzi": "选手",
-    "pinyin": "xuǎn shǒu",
-    "english": "athlete",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xue-fei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "学费",
-    "pinyin": "xué fèi",
-    "english": "tuition fee",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xue",
-    "courseId": "course-mandarin-1",
-    "hanzi": "血",
-    "pinyin": "xuè",
-    "english": "blood",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-xun-lian",
     "courseId": "course-mandarin-1",
     "hanzi": "训练",
@@ -6732,47 +2652,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ya",
+    "id": "v-h3-yan-qian",
     "courseId": "course-mandarin-1",
-    "hanzi": "压",
-    "pinyin": "yā",
-    "english": "to press",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ya-li",
-    "courseId": "course-mandarin-1",
-    "hanzi": "压力",
-    "pinyin": "yā lì",
-    "english": "pressure",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "烟",
-    "pinyin": "yān",
-    "english": "cigarette or pipe tobacco",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yan-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "演",
-    "pinyin": "yǎn",
-    "english": "to develop",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yan-chang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "演唱",
-    "pinyin": "yǎn chàng",
-    "english": "sung performance",
+    "hanzi": "眼前",
+    "pinyin": "yǎn qián",
+    "english": "before one's eyes",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -6786,33 +2670,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-yan-yuan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "演员",
-    "pinyin": "yǎn yuán",
-    "english": "actor or actress",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "羊",
-    "pinyin": "Yáng",
-    "english": "surname Yang",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yang-guang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "阳光",
-    "pinyin": "yáng guāng",
-    "english": "sunshine",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-yao-shi",
     "courseId": "course-mandarin-1",
     "hanzi": "要是",
@@ -6822,29 +2679,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-yi-fang-mian",
+    "id": "v-h3-yi",
     "courseId": "course-mandarin-1",
-    "hanzi": "一方面",
-    "pinyin": "yī fāng miàn",
-    "english": "on the one hand",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yi-jia",
-    "courseId": "course-mandarin-1",
-    "hanzi": "衣架",
-    "pinyin": "yī jià",
-    "english": "clothes hanger",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yi-wai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "意外",
-    "pinyin": "yì wài",
-    "english": "unexpected",
+    "hanzi": "已",
+    "pinyin": "yǐ",
+    "english": "already",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -6858,47 +2697,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-yin",
+    "id": "v-h3-yin-xiang",
     "courseId": "course-mandarin-1",
-    "hanzi": "银",
-    "pinyin": "yín",
-    "english": "silver",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yin-pai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "银牌",
-    "pinyin": "yín pái",
-    "english": "silver medal",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ying-dang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "应当",
-    "pinyin": "yīng dāng",
-    "english": "should; ought to",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ying-yong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "应用",
-    "pinyin": "yìng yòng",
-    "english": "to put to use",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ying-jie",
-    "courseId": "course-mandarin-1",
-    "hanzi": "迎接",
-    "pinyin": "yíng jiē",
-    "english": "to welcome; to greet",
+    "hanzi": "印象",
+    "pinyin": "yìn xiàng",
+    "english": "impression (sth that stays in one's mind)",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -6912,65 +2715,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ying",
-    "courseId": "course-mandarin-1",
-    "hanzi": "赢",
-    "pinyin": "yíng",
-    "english": "to beat",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ying-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "影视",
-    "pinyin": "yǐng shì",
-    "english": "movies and television",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-you-dian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "优点",
-    "pinyin": "yōu diǎn",
-    "english": "merit",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-you-shi",
     "courseId": "course-mandarin-1",
     "hanzi": "优势",
     "pinyin": "yōu shì",
     "english": "superiority",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-you",
-    "courseId": "course-mandarin-1",
-    "hanzi": "由",
-    "pinyin": "yóu",
-    "english": "to follow",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-you-yu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "由于",
-    "pinyin": "yóu yú",
-    "english": "due to",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-you-jian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "邮件",
-    "pinyin": "yóu jiàn",
-    "english": "mail",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -6984,56 +2733,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-you-xiang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "邮箱",
-    "pinyin": "yóu xiāng",
-    "english": "mailbox",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-you-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "游",
-    "pinyin": "Yóu",
-    "english": "surname You",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-you-xi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "游戏",
-    "pinyin": "yóu xì",
-    "english": "game",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-you-yong",
     "courseId": "course-mandarin-1",
     "hanzi": "游泳",
     "pinyin": "yóu yǒng",
     "english": "swimming",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-you-de-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "有的是",
-    "pinyin": "yǒu de shì",
-    "english": "have plenty of",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-you-xiao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "有效",
-    "pinyin": "yǒu xiào",
-    "english": "effective",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -7047,56 +2751,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-yu-fang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "预防",
-    "pinyin": "yù fáng",
-    "english": "to prevent",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yu-ji",
-    "courseId": "course-mandarin-1",
-    "hanzi": "预计",
-    "pinyin": "yù jì",
-    "english": "to forecast",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-yuan",
     "courseId": "course-mandarin-1",
     "hanzi": "员",
     "pinyin": "yuán",
     "english": "person",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yuan-gong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "员工",
-    "pinyin": "yuán gōng",
-    "english": "staff",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yuan-wang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "愿望",
-    "pinyin": "yuàn wàng",
-    "english": "desire",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "约",
-    "pinyin": "yāo",
-    "english": "to weigh in a balance or on a scale",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -7110,56 +2769,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-za-zhi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "杂志",
-    "pinyin": "zá zhì",
-    "english": "magazine",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "造",
-    "pinyin": "zào",
-    "english": "to make",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-zao-cheng",
     "courseId": "course-mandarin-1",
     "hanzi": "造成",
     "pinyin": "zào chéng",
     "english": "to bring about",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ze-ren",
-    "courseId": "course-mandarin-1",
-    "hanzi": "责任",
-    "pinyin": "zé rèn",
-    "english": "responsibility",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zeng-jia",
-    "courseId": "course-mandarin-1",
-    "hanzi": "增加",
-    "pinyin": "zēng jiā",
-    "english": "to raise",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zeng-zhang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "增长",
-    "pinyin": "zēng zhǎng",
-    "english": "to grow",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -7173,65 +2787,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-zhang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "张",
-    "pinyin": "Zhāng",
-    "english": "surname Zhang",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chang-cheng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "长城",
-    "pinyin": "Cháng chéng",
-    "english": "the Great Wall",
-    "partOfSpeech": "noun",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chang-chu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "长处",
-    "pinyin": "cháng chù",
-    "english": "good aspects",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-chang-qi",
     "courseId": "course-mandarin-1",
     "hanzi": "长期",
     "pinyin": "cháng qī",
     "english": "long term",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "照",
-    "pinyin": "zhào",
-    "english": "variant of 照",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhe",
-    "courseId": "course-mandarin-1",
-    "hanzi": "者",
-    "pinyin": "zhě",
-    "english": "(after a verb or adjective) one who (is) ...",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhen-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "真实",
-    "pinyin": "zhēn shí",
-    "english": "true; real",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -7245,56 +2805,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-zheng-qu",
+    "id": "v-h3-zheng-li",
     "courseId": "course-mandarin-1",
-    "hanzi": "争取",
-    "pinyin": "zhēng qǔ",
-    "english": "to fight for",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zheng-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "整",
-    "pinyin": "zhěng",
-    "english": "exactly",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zheng-ge",
-    "courseId": "course-mandarin-1",
-    "hanzi": "整个",
-    "pinyin": "zhěng gè",
-    "english": "whole",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zheng-qi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "整齐",
-    "pinyin": "zhěng qí",
-    "english": "orderly",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zheng-ti",
-    "courseId": "course-mandarin-1",
-    "hanzi": "整体",
-    "pinyin": "zhěng tǐ",
-    "english": "whole entity",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zheng-tian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "整天",
-    "pinyin": "zhěng tiān",
-    "english": "all day long",
+    "hanzi": "整理",
+    "pinyin": "zhěng lǐ",
+    "english": "to arrange",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -7308,56 +2823,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-zheng-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "正式",
-    "pinyin": "zhèng shì",
-    "english": "formal; official",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zheng-3",
-    "courseId": "course-mandarin-1",
-    "hanzi": "证",
-    "pinyin": "zhèng",
-    "english": "to admonish",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zheng-jian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "证件",
-    "pinyin": "zhèng jiàn",
-    "english": "certificate; papers; credentials; document; ID",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-zheng-ju",
     "courseId": "course-mandarin-1",
     "hanzi": "证据",
     "pinyin": "zhèng jù",
     "english": "evidence",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "支",
-    "pinyin": "Zhī",
-    "english": "surname Zhi",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhi-chi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "支持",
-    "pinyin": "zhī chí",
-    "english": "to be in favor of",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -7371,34 +2841,7 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-zhi-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "直",
-    "pinyin": "Zhí",
-    "english": "surname Zhi",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhi-bo",
-    "courseId": "course-mandarin-1",
-    "hanzi": "直播",
-    "pinyin": "zhí bō",
-    "english": "(TV, radio) to broadcast live",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhi-dao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "直到",
-    "pinyin": "zhí dào",
-    "english": "until",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhi-3",
+    "id": "v-h3-zhi",
     "courseId": "course-mandarin-1",
     "hanzi": "值",
     "pinyin": "zhí",
@@ -7407,38 +2850,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-zhi-de",
+    "id": "v-h3-zhi-hao",
     "courseId": "course-mandarin-1",
-    "hanzi": "值得",
-    "pinyin": "zhí de",
-    "english": "to be worth",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhi-gong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "职工",
-    "pinyin": "zhí gōng",
-    "english": "workers; staff",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhi-you",
-    "courseId": "course-mandarin-1",
-    "hanzi": "只有",
-    "pinyin": "zhǐ yǒu",
-    "english": "only have ...",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhi-4",
-    "courseId": "course-mandarin-1",
-    "hanzi": "指",
-    "pinyin": "zhǐ",
-    "english": "finger",
+    "hanzi": "只好",
+    "pinyin": "zhǐ hǎo",
+    "english": "to have no other option but to ...; to have to; to be forced to",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -7452,56 +2868,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-zhi-dao-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "指导",
-    "pinyin": "zhǐ dǎo",
-    "english": "to guide",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhi-jin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "至今",
-    "pinyin": "zhì jīn",
-    "english": "so far",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhi-shao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "至少",
-    "pinyin": "zhì shǎo",
-    "english": "at least",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-zhi-yuan",
     "courseId": "course-mandarin-1",
     "hanzi": "志愿",
     "pinyin": "zhì yuàn",
     "english": "aspiration",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhi-yuan-zhe",
-    "courseId": "course-mandarin-1",
-    "hanzi": "志愿者",
-    "pinyin": "zhì yuàn zhě",
-    "english": "volunteer",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhi-du",
-    "courseId": "course-mandarin-1",
-    "hanzi": "制度",
-    "pinyin": "zhì dù",
-    "english": "system (e.g. political, adminstrative etc)",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -7515,56 +2886,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-zhi-zuo",
-    "courseId": "course-mandarin-1",
-    "hanzi": "制作",
-    "pinyin": "zhì zuò",
-    "english": "to make; to manufacture",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhong-hua-min-zu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "中华民族",
-    "pinyin": "Zhōng huá mín zú",
-    "english": "the Chinese nation",
-    "partOfSpeech": "noun",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-zhong-yu",
     "courseId": "course-mandarin-1",
     "hanzi": "终于",
     "pinyin": "zhōng yú",
     "english": "at last",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "钟",
-    "pinyin": "Zhōng",
-    "english": "surname Zhong",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhong-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "种",
-    "pinyin": "zhǒng",
-    "english": "seed",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhong-zi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "种子",
-    "pinyin": "zhǒng zi",
-    "english": "seed",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -7578,56 +2904,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-zhou-wei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "周围",
-    "pinyin": "zhōu wéi",
-    "english": "environs; surroundings; periphery",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "猪",
-    "pinyin": "zhū",
-    "english": "hog",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhu-chi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "主持",
-    "pinyin": "zhǔ chí",
-    "english": "to take charge of",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-zhu-dong",
     "courseId": "course-mandarin-1",
     "hanzi": "主动",
     "pinyin": "zhǔ dòng",
     "english": "to take the initiative",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhu-ren",
-    "courseId": "course-mandarin-1",
-    "hanzi": "主任",
-    "pinyin": "zhǔ rèn",
-    "english": "director",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhu-zhang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "主张",
-    "pinyin": "zhǔ zhāng",
-    "english": "to advocate",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -7641,56 +2922,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-zhu-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "祝",
-    "pinyin": "Zhù",
-    "english": "surname Zhu",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhua",
-    "courseId": "course-mandarin-1",
-    "hanzi": "抓",
-    "pinyin": "zhuā",
-    "english": "to grab",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhua-zhu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "抓住",
-    "pinyin": "zhuā zhù",
-    "english": "to grab hold of; to capture",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-zhuan-jia",
     "courseId": "course-mandarin-1",
     "hanzi": "专家",
     "pinyin": "zhuān jiā",
     "english": "expert; specialist",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhuan-men",
-    "courseId": "course-mandarin-1",
-    "hanzi": "专门",
-    "pinyin": "zhuān mén",
-    "english": "specialist",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhuan-ye",
-    "courseId": "course-mandarin-1",
-    "hanzi": "专业",
-    "pinyin": "zhuān yè",
-    "english": "specialty",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -7713,38 +2949,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-zi-ge",
-    "courseId": "course-mandarin-1",
-    "hanzi": "资格",
-    "pinyin": "zī gé",
-    "english": "qualifications",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zi-jin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "资金",
-    "pinyin": "zī jīn",
-    "english": "funds; capital",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-zi-nu",
     "courseId": "course-mandarin-1",
     "hanzi": "子女",
     "pinyin": "zǐ nǚ",
     "english": "children; sons and daughters",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zi-dong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "自动",
-    "pinyin": "zì dòng",
-    "english": "automatic",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -7758,24 +2967,6 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-zi-shen",
-    "courseId": "course-mandarin-1",
-    "hanzi": "自身",
-    "pinyin": "zì shēn",
-    "english": "itself",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "总",
-    "pinyin": "zǒng",
-    "english": "general; overall",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-zong-jie",
     "courseId": "course-mandarin-1",
     "hanzi": "总结",
@@ -7785,497 +2976,11 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-zong-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "总是",
-    "pinyin": "zǒng shì",
-    "english": "always",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zu-gou",
-    "courseId": "course-mandarin-1",
-    "hanzi": "足够",
-    "pinyin": "zú gòu",
-    "english": "enough",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zu-qiu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "足球",
-    "pinyin": "zú qiú",
-    "english": "soccer ball",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
     "id": "v-h3-zu-he",
     "courseId": "course-mandarin-1",
     "hanzi": "组合",
     "pinyin": "zǔ hé",
     "english": "to assemble",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zuo-you",
-    "courseId": "course-mandarin-1",
-    "hanzi": "左右",
-    "pinyin": "zuǒ yòu",
-    "english": "left and right",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zuo-zhe",
-    "courseId": "course-mandarin-1",
-    "hanzi": "作者",
-    "pinyin": "zuò zhě",
-    "english": "author; writer",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ban-li",
-    "courseId": "course-mandarin-1",
-    "hanzi": "办理",
-    "pinyin": "bàn lǐ",
-    "english": "to handle; to transact; to conduct",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ben-lai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "本来",
-    "pinyin": "běn lái",
-    "english": "original",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bian-hua",
-    "courseId": "course-mandarin-1",
-    "hanzi": "变化",
-    "pinyin": "biàn huà",
-    "english": "(intransitive) to change; to vary",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bian-wei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "变为",
-    "pinyin": "biàn wéi",
-    "english": "to change into",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bu-jin",
-    "courseId": "course-mandarin-1",
-    "hanzi": "不仅",
-    "pinyin": "bù jǐn",
-    "english": "not just; not limited to",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bu-lun",
-    "courseId": "course-mandarin-1",
-    "hanzi": "不论",
-    "pinyin": "bù lùn",
-    "english": "whatever",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chi-xu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "持续",
-    "pinyin": "chí xù",
-    "english": "to continue",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chu-li",
-    "courseId": "course-mandarin-1",
-    "hanzi": "处理",
-    "pinyin": "chǔ lǐ",
-    "english": "to handle; to deal with",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-chuan-shuo",
-    "courseId": "course-mandarin-1",
-    "hanzi": "传说",
-    "pinyin": "chuán shuō",
-    "english": "legend; folk tale",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-dao-di",
-    "courseId": "course-mandarin-1",
-    "hanzi": "到底",
-    "pinyin": "dào dǐ",
-    "english": "finally",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tiao-zheng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "调整",
-    "pinyin": "tiáo zhěng",
-    "english": "to adjust",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-dun",
-    "courseId": "course-mandarin-1",
-    "hanzi": "顿",
-    "pinyin": "dùn",
-    "english": "to stop",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fa-chu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "发出",
-    "pinyin": "fā chū",
-    "english": "to issue (an order, decree etc); to send out; to dispatch",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fa-dong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "发动",
-    "pinyin": "fā dòng",
-    "english": "to start",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fan-dui",
-    "courseId": "course-mandarin-1",
-    "hanzi": "反对",
-    "pinyin": "fǎn duì",
-    "english": "to oppose; to be against; to object to",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-fang-wen",
-    "courseId": "course-mandarin-1",
-    "hanzi": "访问",
-    "pinyin": "fǎng wèn",
-    "english": "to visit",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ge-wei",
-    "courseId": "course-mandarin-1",
-    "hanzi": "各位",
-    "pinyin": "gè wèi",
-    "english": "everybody",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gua",
-    "courseId": "course-mandarin-1",
-    "hanzi": "挂",
-    "pinyin": "guà",
-    "english": "to hang or suspend (from a hook etc)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ji-xu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "继续",
-    "pinyin": "jì xù",
-    "english": "to continue",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jia-qiang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "加强",
-    "pinyin": "jiā qiáng",
-    "english": "to reinforce; to strengthen; to enhance",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jian-chi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "坚持",
-    "pinyin": "jiān chí",
-    "english": "to persevere with",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jiao-liu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "交流",
-    "pinyin": "jiāo liú",
-    "english": "to exchange",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jie-dai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "接待",
-    "pinyin": "jiē dài",
-    "english": "to receive (a visitor)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jing-li",
-    "courseId": "course-mandarin-1",
-    "hanzi": "经历",
-    "pinyin": "jīng lì",
-    "english": "experience",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jing-yan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "经验",
-    "pinyin": "jīng yàn",
-    "english": "experience",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-li-fa",
-    "courseId": "course-mandarin-1",
-    "hanzi": "理发",
-    "pinyin": "lǐ fà",
-    "english": "to get a haircut; to have one's hair done",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-li-jie",
-    "courseId": "course-mandarin-1",
-    "hanzi": "理解",
-    "pinyin": "lǐ jiě",
-    "english": "to comprehend; to understand",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-lu-xing-she",
-    "courseId": "course-mandarin-1",
-    "hanzi": "旅行社",
-    "pinyin": "lǚ xíng shè",
-    "english": "travel agency",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-quan-chang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "全场",
-    "pinyin": "quán chǎng",
-    "english": "everyone present",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-reng-ran",
-    "courseId": "course-mandarin-1",
-    "hanzi": "仍然",
-    "pinyin": "réng rán",
-    "english": "still; as before; yet",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ri-chang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "日常",
-    "pinyin": "rì cháng",
-    "english": "day-to-day; daily; everyday",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-sheng-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "升",
-    "pinyin": "shēng",
-    "english": "to ascend",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-zhong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "始终",
-    "pinyin": "shǐ zhōng",
-    "english": "from beginning to end",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-ying",
-    "courseId": "course-mandarin-1",
-    "hanzi": "适应",
-    "pinyin": "shì yìng",
-    "english": "to adapt",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shuang-fang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "双方",
-    "pinyin": "shuāng fāng",
-    "english": "bilateral",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ti-hui",
-    "courseId": "course-mandarin-1",
-    "hanzi": "体会",
-    "pinyin": "tǐ huì",
-    "english": "to know from experience",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ti-yan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "体验",
-    "pinyin": "tǐ yàn",
-    "english": "to experience for oneself",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-ting-zhi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "停止",
-    "pinyin": "tíng zhǐ",
-    "english": "to stop; to halt; to cease",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tui-guang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "推广",
-    "pinyin": "tuī guǎng",
-    "english": "to extend",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-wan-zheng",
-    "courseId": "course-mandarin-1",
-    "hanzi": "完整",
-    "pinyin": "wán zhěng",
-    "english": "complete",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xing-bie",
-    "courseId": "course-mandarin-1",
-    "hanzi": "性别",
-    "pinyin": "xìng bié",
-    "english": "gender",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xiu-gai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "修改",
-    "pinyin": "xiū gǎi",
-    "english": "to amend",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yan-qian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "眼前",
-    "pinyin": "yǎn qián",
-    "english": "before one's eyes",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yi-qie",
-    "courseId": "course-mandarin-1",
-    "hanzi": "一切",
-    "pinyin": "yī qiè",
-    "english": "everything",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "已",
-    "pinyin": "yǐ",
-    "english": "already",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yin-xiang",
-    "courseId": "course-mandarin-1",
-    "hanzi": "印象",
-    "pinyin": "yìn xiàng",
-    "english": "impression (sth that stays in one's mind)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhi-shi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "只是",
-    "pinyin": "zhǐ shì",
-    "english": "merely; only; just; nothing but",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhuan-bian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "转变",
-    "pinyin": "zhuǎn biàn",
-    "english": "to change",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zi-zhu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "自主",
-    "pinyin": "zì zhǔ",
-    "english": "independent",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -8298,191 +3003,29 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-chu-yi",
+    "id": "v-h3-ba",
     "courseId": "course-mandarin-1",
-    "hanzi": "初一",
-    "pinyin": "chū yī",
-    "english": "first day of lunar month",
+    "hanzi": "把",
+    "pinyin": "bǎ",
+    "english": "to hold; to grasp",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-da-dao",
+    "id": "v-h3-ban",
     "courseId": "course-mandarin-1",
-    "hanzi": "达到",
-    "pinyin": "dá dào",
-    "english": "to reach; to achieve; to attain",
+    "hanzi": "搬",
+    "pinyin": "bān",
+    "english": "to move (i.e. relocate oneself)",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-fei-xing",
+    "id": "v-h3-bao",
     "courseId": "course-mandarin-1",
-    "hanzi": "飞行",
-    "pinyin": "fēi xíng",
-    "english": "(of planes etc) to fly",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-gui-ding",
-    "courseId": "course-mandarin-1",
-    "hanzi": "规定",
-    "pinyin": "guī dìng",
-    "english": "to stipulate; to specify; to prescribe; to fix (a price); to set (a quota)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-he-ge",
-    "courseId": "course-mandarin-1",
-    "hanzi": "合格",
-    "pinyin": "hé gé",
-    "english": "to meet the standard required",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-hou-nian",
-    "courseId": "course-mandarin-1",
-    "hanzi": "后年",
-    "pinyin": "hòu nián",
-    "english": "the year after next",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-hui-yi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "会议",
-    "pinyin": "huì yì",
-    "english": "meeting",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-liu-xue",
-    "courseId": "course-mandarin-1",
-    "hanzi": "留学",
-    "pinyin": "liú xué",
-    "english": "to study abroad",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-nian-chu",
-    "courseId": "course-mandarin-1",
-    "hanzi": "年初",
-    "pinyin": "nián chū",
-    "english": "beginning of the year",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-nian-di",
-    "courseId": "course-mandarin-1",
-    "hanzi": "年底",
-    "pinyin": "nián dǐ",
-    "english": "the end of the year",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-qu-xiao",
-    "courseId": "course-mandarin-1",
-    "hanzi": "取消",
-    "pinyin": "qǔ xiāo",
-    "english": "to cancel",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-she-ji",
-    "courseId": "course-mandarin-1",
-    "hanzi": "设计",
-    "pinyin": "shè jì",
-    "english": "to design; to plan",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-shi-dai",
-    "courseId": "course-mandarin-1",
-    "hanzi": "时代",
-    "pinyin": "Shí dài",
-    "english": "Time, US weekly news magazine",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-tui-dong",
-    "courseId": "course-mandarin-1",
-    "hanzi": "推动",
-    "pinyin": "tuī dòng",
-    "english": "to push (e.g. for acceptance of a plan); to promote; to give impetus to",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xian-jin-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "先进",
-    "pinyin": "xiān jìn",
-    "english": "advanced (technology)",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-xiang-guan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "相关",
-    "pinyin": "xiāng guān",
-    "english": "related",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-yu-xi",
-    "courseId": "course-mandarin-1",
-    "hanzi": "预习",
-    "pinyin": "yù xí",
-    "english": "to prepare a lesson",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zheng-li",
-    "courseId": "course-mandarin-1",
-    "hanzi": "整理",
-    "pinyin": "zhěng lǐ",
-    "english": "to arrange",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhi-ding",
-    "courseId": "course-mandarin-1",
-    "hanzi": "制定",
-    "pinyin": "zhì dìng",
-    "english": "to draw up; to formulate",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-zhu-yi-2",
-    "courseId": "course-mandarin-1",
-    "hanzi": "主意",
-    "pinyin": "zhǔ yi",
-    "english": "plan",
-    "partOfSpeech": "word",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-bao-cun",
-    "courseId": "course-mandarin-1",
-    "hanzi": "保存",
-    "pinyin": "bǎo cún",
-    "english": "to conserve",
+    "hanzi": "保",
+    "pinyin": "Bǎo",
+    "english": "Bulgaria",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -8496,11 +3039,29 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-bi-jiao",
+    "id": "v-h3-bao-2",
     "courseId": "course-mandarin-1",
-    "hanzi": "比较",
-    "pinyin": "bǐ jiào",
-    "english": "to compare",
+    "hanzi": "报",
+    "pinyin": "bào",
+    "english": "to announce",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bei-bu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "北部",
+    "pinyin": "běi bù",
+    "english": "northern part",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ben-lai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "本来",
+    "pinyin": "běn lái",
+    "english": "original",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -8514,11 +3075,146 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-bu-de-bu",
+    "id": "v-h3-bian-hua",
     "courseId": "course-mandarin-1",
-    "hanzi": "不得不",
-    "pinyin": "bù dé bù",
-    "english": "have no choice or option but to",
+    "hanzi": "变化",
+    "pinyin": "biàn huà",
+    "english": "(intransitive) to change; to vary",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-biao-da",
+    "courseId": "course-mandarin-1",
+    "hanzi": "表达",
+    "pinyin": "biǎo dá",
+    "english": "to express; to convey",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-biao-xian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "表现",
+    "pinyin": "biǎo xiàn",
+    "english": "to show",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bo-chu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "播出",
+    "pinyin": "bō chū",
+    "english": "to broadcast",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bu-an",
+    "courseId": "course-mandarin-1",
+    "hanzi": "不安",
+    "pinyin": "bù ān",
+    "english": "unpeaceful",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bu-guang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "不光",
+    "pinyin": "bù guāng",
+    "english": "not the only one",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bu-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "步",
+    "pinyin": "Bù",
+    "english": "surname Bu",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cai-neng",
+    "courseId": "course-mandarin-1",
+    "hanzi": "才能",
+    "pinyin": "cái néng",
+    "english": "talent",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ceng-jing",
+    "courseId": "course-mandarin-1",
+    "hanzi": "曾经",
+    "pinyin": "céng jīng",
+    "english": "once",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chang-suo",
+    "courseId": "course-mandarin-1",
+    "hanzi": "场所",
+    "pinyin": "chǎng suǒ",
+    "english": "location",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chao-jia",
+    "courseId": "course-mandarin-1",
+    "hanzi": "吵架",
+    "pinyin": "chǎo jià",
+    "english": "to quarrel",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cheng-gong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "成功",
+    "pinyin": "Chéng gōng",
+    "english": "Chenggong or Chengkung town in Taitung County 台东县, southeast Taiwan",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cheng-shu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "成熟",
+    "pinyin": "chéng shú",
+    "english": "mature; ripe",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cheng-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "城市",
+    "pinyin": "chéng shì",
+    "english": "city; town",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "初",
+    "pinyin": "chū",
+    "english": "at first",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chu-zhong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "初中",
+    "pinyin": "chū zhōng",
+    "english": "junior high school (abbr. for 初级中学)",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -8528,6 +3224,42 @@ export const hsk3VocabItems: VocabItem[] = [
     "hanzi": "传播",
     "pinyin": "chuán bō",
     "english": "to disseminate; to propagate; to spread",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chuang-ye",
+    "courseId": "course-mandarin-1",
+    "hanzi": "创业",
+    "pinyin": "chuàng yè",
+    "english": "to begin an undertaking",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cong-qian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "从前",
+    "pinyin": "cóng qián",
+    "english": "previously",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cun-zai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "存在",
+    "pinyin": "cún zài",
+    "english": "to exist",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-da-ting",
+    "courseId": "course-mandarin-1",
+    "hanzi": "打听",
+    "pinyin": "dǎ ting",
+    "english": "to ask about",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -8550,21 +3282,138 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ding",
+    "id": "v-h3-dang-di",
     "courseId": "course-mandarin-1",
-    "hanzi": "订",
-    "pinyin": "dìng",
-    "english": "to agree",
+    "hanzi": "当地",
+    "pinyin": "dāng dì",
+    "english": "local",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-fang",
+    "id": "v-h3-dao-yan",
     "courseId": "course-mandarin-1",
-    "hanzi": "防",
-    "pinyin": "fáng",
-    "english": "to protect",
+    "hanzi": "导演",
+    "pinyin": "dǎo yǎn",
+    "english": "to direct",
+    "partOfSpeech": "noun",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-di-qu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "地区",
+    "pinyin": "dì qū",
+    "english": "local",
     "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dian-shi-tai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "电视台",
+    "pinyin": "diàn shì tái",
+    "english": "television station",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-diao-cha",
+    "courseId": "course-mandarin-1",
+    "hanzi": "调查",
+    "pinyin": "diào chá",
+    "english": "investigation",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dong-bu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "东部",
+    "pinyin": "dōng bù",
+    "english": "the east",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-duan-chu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "短处",
+    "pinyin": "duǎn chù",
+    "english": "shortcoming",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dui-yuan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "队员",
+    "pinyin": "duì yuán",
+    "english": "team member",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dui-xiang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "对象",
+    "pinyin": "duì xiàng",
+    "english": "target; object",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fa-da",
+    "courseId": "course-mandarin-1",
+    "hanzi": "发达",
+    "pinyin": "fā dá",
+    "english": "well-developed; flourishing",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fa-song",
+    "courseId": "course-mandarin-1",
+    "hanzi": "发送",
+    "pinyin": "fā sòng",
+    "english": "to transmit",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fan-fu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "反复",
+    "pinyin": "fǎn fù",
+    "english": "variant of 反复",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fang-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "方式",
+    "pinyin": "fāng shì",
+    "english": "way; manner; style; mode; pattern",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fang-wu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "房屋",
+    "pinyin": "fáng wū",
+    "english": "house",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fei-xing",
+    "courseId": "course-mandarin-1",
+    "hanzi": "飞行",
+    "pinyin": "fēi xíng",
+    "english": "(of planes etc) to fly",
+    "partOfSpeech": "verb",
     "difficulty": 3
   },
   {
@@ -8573,6 +3422,33 @@ export const hsk3VocabItems: VocabItem[] = [
     "hanzi": "分配",
     "pinyin": "fēn pèi",
     "english": "to distribute",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fou-ding",
+    "courseId": "course-mandarin-1",
+    "hanzi": "否定",
+    "pinyin": "fǒu dìng",
+    "english": "to negate",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fu-3",
+    "courseId": "course-mandarin-1",
+    "hanzi": "福",
+    "pinyin": "Fú",
+    "english": "surname Fu",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fu-ze",
+    "courseId": "course-mandarin-1",
+    "hanzi": "负责",
+    "pinyin": "fù zé",
+    "english": "to be in charge of",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -8586,21 +3462,174 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-gai-nian",
+    "id": "v-h3-gan-dao",
     "courseId": "course-mandarin-1",
-    "hanzi": "概念",
-    "pinyin": "gài niàn",
-    "english": "concept",
+    "hanzi": "赶到",
+    "pinyin": "gǎn dào",
+    "english": "to hurry (to some place)",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-he-li",
+    "id": "v-h3-gan-mao",
     "courseId": "course-mandarin-1",
-    "hanzi": "合理",
-    "pinyin": "hé lǐ",
-    "english": "rational; reasonable; sensible; fair",
+    "hanzi": "感冒",
+    "pinyin": "gǎn mào",
+    "english": "to catch cold",
     "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gao-su",
+    "courseId": "course-mandarin-1",
+    "hanzi": "高速",
+    "pinyin": "gāo sù",
+    "english": "high speed",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ge-sheng",
+    "courseId": "course-mandarin-1",
+    "hanzi": "歌声",
+    "pinyin": "gē shēng",
+    "english": "singing voice",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ge",
+    "courseId": "course-mandarin-1",
+    "hanzi": "各",
+    "pinyin": "gè",
+    "english": "each",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ge-zi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "各自",
+    "pinyin": "gè zì",
+    "english": "each",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gong-cheng-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "工程师",
+    "pinyin": "gōng chéng shī",
+    "english": "engineer",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gong-zi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "工资",
+    "pinyin": "gōng zī",
+    "english": "wages; pay",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gong-min",
+    "courseId": "course-mandarin-1",
+    "hanzi": "公民",
+    "pinyin": "gōng mín",
+    "english": "citizen",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gong-neng",
+    "courseId": "course-mandarin-1",
+    "hanzi": "功能",
+    "pinyin": "gōng néng",
+    "english": "function; capability",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "古",
+    "pinyin": "Gǔ",
+    "english": "surname Gu",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-guan-xi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "关系",
+    "pinyin": "guān xi",
+    "english": "relation",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-guan-nian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "观念",
+    "pinyin": "guān niàn",
+    "english": "notion",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-guang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "光",
+    "pinyin": "guāng",
+    "english": "light; ray",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gui-ding",
+    "courseId": "course-mandarin-1",
+    "hanzi": "规定",
+    "pinyin": "guī dìng",
+    "english": "to stipulate; to specify; to prescribe; to fix (a price); to set (a quota)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-guo-ran",
+    "courseId": "course-mandarin-1",
+    "hanzi": "果然",
+    "pinyin": "guǒ rán",
+    "english": "really",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-hai-guan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "海关",
+    "pinyin": "hǎi guān",
+    "english": "customs (i.e. border crossing inspection)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ge-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "合",
+    "pinyin": "gě",
+    "english": "100 ml",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-he-zuo",
+    "courseId": "course-mandarin-1",
+    "hanzi": "合作",
+    "pinyin": "hé zuò",
+    "english": "to cooperate",
+    "partOfSpeech": "verb",
     "difficulty": 3
   },
   {
@@ -8613,146 +3642,317 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-hua-ti",
+    "id": "v-h3-hu-xiang",
     "courseId": "course-mandarin-1",
-    "hanzi": "话题",
-    "pinyin": "huà tí",
-    "english": "subject (of a talk or conversation)",
+    "hanzi": "互相",
+    "pinyin": "hù xiāng",
+    "english": "each other",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-ji-zhong",
+    "id": "v-h3-hua-ju",
     "courseId": "course-mandarin-1",
-    "hanzi": "集中",
-    "pinyin": "jí zhōng",
-    "english": "to concentrate",
+    "hanzi": "话剧",
+    "pinyin": "huà jù",
+    "english": "stage play",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-ji-lu-2",
+    "id": "v-h3-huan-bao",
     "courseId": "course-mandarin-1",
-    "hanzi": "纪录",
-    "pinyin": "jì lù",
-    "english": "variant of 记录 (but in Taiwan, not for the verb sense \"to record\")",
+    "hanzi": "环保",
+    "pinyin": "huán bǎo",
+    "english": "environmental protection",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-jia-gong",
+    "id": "v-h3-huo",
     "courseId": "course-mandarin-1",
-    "hanzi": "加工",
-    "pinyin": "jiā gōng",
-    "english": "to process",
+    "hanzi": "活",
+    "pinyin": "huó",
+    "english": "to live",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-jian-she",
+    "id": "v-h3-ji-ji-xing",
     "courseId": "course-mandarin-1",
-    "hanzi": "建设",
-    "pinyin": "jiàn shè",
-    "english": "to build; to construct; to establish; to develop; to institute",
+    "hanzi": "积极性",
+    "pinyin": "jī jí xìng",
+    "english": "zeal",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ji-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "及时",
+    "pinyin": "jí shí",
+    "english": "timely; at the right time",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ji-suan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "计算",
+    "pinyin": "jì suàn",
+    "english": "to count",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ji-nian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "纪念",
+    "pinyin": "jì niàn",
+    "english": "to commemorate; to honor the memory of",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jia-kuai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "加快",
+    "pinyin": "jiā kuài",
+    "english": "to accelerate",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jia-xiang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "家乡",
+    "pinyin": "jiā xiāng",
+    "english": "hometown",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jia",
+    "courseId": "course-mandarin-1",
+    "hanzi": "架",
+    "pinyin": "jià",
+    "english": "to support",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jian-dan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "简单",
+    "pinyin": "jiǎn dān",
+    "english": "simple",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jian-li",
+    "courseId": "course-mandarin-1",
+    "hanzi": "建立",
+    "pinyin": "jiàn lì",
+    "english": "to establish",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jiang-lai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "将来",
+    "pinyin": "jiāng lái",
+    "english": "in the future",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jiao-wang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "交往",
+    "pinyin": "jiāo wǎng",
+    "english": "to associate (with)",
     "partOfSpeech": "verb",
     "difficulty": 3
   },
   {
-    "id": "v-h3-jian-yi",
+    "id": "v-h3-jiao-lian",
     "courseId": "course-mandarin-1",
-    "hanzi": "建议",
-    "pinyin": "jiàn yì",
-    "english": "to propose; to suggest; to recommend",
+    "hanzi": "教练",
+    "pinyin": "jiào liàn",
+    "english": "instructor",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-jiao",
+    "id": "v-h3-jie-he",
     "courseId": "course-mandarin-1",
-    "hanzi": "较",
-    "pinyin": "jiào",
-    "english": "to compare",
+    "hanzi": "结合",
+    "pinyin": "jié hé",
+    "english": "to combine",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-jie-jin",
+    "id": "v-h3-jie-jue",
     "courseId": "course-mandarin-1",
-    "hanzi": "接近",
-    "pinyin": "jiē jìn",
-    "english": "to approach",
+    "hanzi": "解决",
+    "pinyin": "jiě jué",
+    "english": "to solve; to resolve; to settle (a problem)",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-jie-yue",
+    "id": "v-h3-jin-2",
     "courseId": "course-mandarin-1",
-    "hanzi": "节约",
-    "pinyin": "jié yuē",
-    "english": "to economize",
+    "hanzi": "仅",
+    "pinyin": "jǐn",
+    "english": "barely",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-jin-bu",
+    "id": "v-h3-jin-ji",
     "courseId": "course-mandarin-1",
-    "hanzi": "进步",
-    "pinyin": "jìn bù",
-    "english": "progress; improvement",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jin-zhan",
-    "courseId": "course-mandarin-1",
-    "hanzi": "进展",
-    "pinyin": "jìn zhǎn",
-    "english": "to make headway; to make progress",
-    "partOfSpeech": "verb",
-    "difficulty": 3
-  },
-  {
-    "id": "v-h3-jing-ji",
-    "courseId": "course-mandarin-1",
-    "hanzi": "经济",
-    "pinyin": "jīng jì",
-    "english": "economy",
+    "hanzi": "紧急",
+    "pinyin": "jǐn jí",
+    "english": "urgent",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-ju-ban",
+    "id": "v-h3-jin-yi-bu",
     "courseId": "course-mandarin-1",
-    "hanzi": "举办",
-    "pinyin": "jǔ bàn",
-    "english": "to conduct",
+    "hanzi": "进一步",
+    "pinyin": "jìn yī bù",
+    "english": "to go a step further",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-ju-ti",
+    "id": "v-h3-jing-li",
     "courseId": "course-mandarin-1",
-    "hanzi": "具体",
-    "pinyin": "jù tǐ",
-    "english": "concrete",
+    "hanzi": "经历",
+    "pinyin": "jīng lì",
+    "english": "experience",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-jue-ding",
+    "id": "v-h3-jing-shen",
     "courseId": "course-mandarin-1",
-    "hanzi": "决定",
-    "pinyin": "jué dìng",
-    "english": "to decide (to do something)",
+    "hanzi": "精神",
+    "pinyin": "jīng shén",
+    "english": "spirit",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-kong-tiao",
+    "id": "v-h3-jiu",
     "courseId": "course-mandarin-1",
-    "hanzi": "空调",
-    "pinyin": "kōng tiáo",
-    "english": "air conditioning",
+    "hanzi": "久",
+    "pinyin": "jiǔ",
+    "english": "(long) time",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jiu-ye",
+    "courseId": "course-mandarin-1",
+    "hanzi": "就业",
+    "pinyin": "jiù yè",
+    "english": "to get a job",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ju-chang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "剧场",
+    "pinyin": "jù chǎng",
+    "english": "theater",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jue-xin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "决心",
+    "pinyin": "jué xīn",
+    "english": "determination",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-kai-fang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "开放",
+    "pinyin": "kāi fàng",
+    "english": "to bloom",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-kan-qi-lai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "看起来",
+    "pinyin": "kàn qǐ lai",
+    "english": "seemingly",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ke-kao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "可靠",
+    "pinyin": "kě kào",
+    "english": "reliable",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ke-cheng",
+    "courseId": "course-mandarin-1",
+    "hanzi": "课程",
+    "pinyin": "kè chéng",
+    "english": "course",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-kong-pa",
+    "courseId": "course-mandarin-1",
+    "hanzi": "恐怕",
+    "pinyin": "kǒng pà",
+    "english": "fear",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-kun-nan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "困难",
+    "pinyin": "kùn nan",
+    "english": "difficult",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-lao-tai-tai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "老太太",
+    "pinyin": "lǎo tài tai",
+    "english": "elderly lady (respectful)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-le-guan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "乐观",
+    "pinyin": "lè guān",
+    "english": "optimistic",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -8766,83 +3966,389 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-lian-mang",
+    "id": "v-h3-li-yong",
     "courseId": "course-mandarin-1",
-    "hanzi": "连忙",
-    "pinyin": "lián máng",
-    "english": "promptly",
+    "hanzi": "利用",
+    "pinyin": "lì yòng",
+    "english": "to exploit",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-lian-xu",
+    "id": "v-h3-lian-xu-ju",
     "courseId": "course-mandarin-1",
-    "hanzi": "连续",
-    "pinyin": "lián xù",
-    "english": "continuous",
+    "hanzi": "连续剧",
+    "pinyin": "lián xù jù",
+    "english": "serialized drama",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-luan",
+    "id": "v-h3-liang-shui",
     "courseId": "course-mandarin-1",
-    "hanzi": "乱",
-    "pinyin": "luàn",
-    "english": "in confusion or disorder",
+    "hanzi": "凉水",
+    "pinyin": "liáng shuǐ",
+    "english": "cool water",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-mian-dui",
+    "id": "v-h3-ling-wai",
     "courseId": "course-mandarin-1",
-    "hanzi": "面对",
-    "pinyin": "miàn duì",
-    "english": "to face; to confront",
+    "hanzi": "另外",
+    "pinyin": "lìng wài",
+    "english": "additional",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-nei-rong",
+    "id": "v-h3-lu",
     "courseId": "course-mandarin-1",
-    "hanzi": "内容",
-    "pinyin": "nèi róng",
-    "english": "content",
+    "hanzi": "录",
+    "pinyin": "lù",
+    "english": "to carve wood",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-pi-zhun",
+    "id": "v-h3-lu-xing-she",
     "courseId": "course-mandarin-1",
-    "hanzi": "批准",
-    "pinyin": "pī zhǔn",
-    "english": "to approve; to ratify",
+    "hanzi": "旅行社",
+    "pinyin": "lǚ xíng shè",
+    "english": "travel agency",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-qian-wang",
+    "id": "v-h3-ma-fan",
     "courseId": "course-mandarin-1",
-    "hanzi": "前往",
-    "pinyin": "qián wǎng",
-    "english": "to leave for; to proceed towards; to go to",
+    "hanzi": "麻烦",
+    "pinyin": "má fan",
+    "english": "trouble; inconvenience",
+    "partOfSpeech": "adjective",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-mao-bing",
+    "courseId": "course-mandarin-1",
+    "hanzi": "毛病",
+    "pinyin": "máo bìng",
+    "english": "fault",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-ren-ke",
+    "id": "v-h3-mei",
     "courseId": "course-mandarin-1",
-    "hanzi": "认可",
-    "pinyin": "rèn kě",
-    "english": "to approve",
+    "hanzi": "美",
+    "pinyin": "Měi",
+    "english": "(bound form) the Americas (abbr. for 洲)",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-shen-ke",
+    "id": "v-h3-mei-shu",
     "courseId": "course-mandarin-1",
-    "hanzi": "深刻",
-    "pinyin": "shēn kè",
-    "english": "profound",
+    "hanzi": "美术",
+    "pinyin": "měi shù",
+    "english": "art",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-mian-ji",
+    "courseId": "course-mandarin-1",
+    "hanzi": "面积",
+    "pinyin": "miàn jī",
+    "english": "area (of a floor, piece of land etc)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ming-xian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "明显",
+    "pinyin": "míng xiǎn",
+    "english": "clear",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-mu-tou",
+    "courseId": "course-mandarin-1",
+    "hanzi": "木头",
+    "pinyin": "mù tou",
+    "english": "slow-witted",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-nan-zi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "男子",
+    "pinyin": "nán zǐ",
+    "english": "a man; a male",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-nei",
+    "courseId": "course-mandarin-1",
+    "hanzi": "内",
+    "pinyin": "nèi",
+    "english": "inside",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-neng-li",
+    "courseId": "course-mandarin-1",
+    "hanzi": "能力",
+    "pinyin": "néng lì",
+    "english": "capability",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-nian-ji",
+    "courseId": "course-mandarin-1",
+    "hanzi": "年纪",
+    "pinyin": "nián jì",
+    "english": "age",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-nong-min",
+    "courseId": "course-mandarin-1",
+    "hanzi": "农民",
+    "pinyin": "nóng mín",
+    "english": "peasant",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-pai-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "拍",
+    "pinyin": "pāi",
+    "english": "to pat",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-pan-duan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "判断",
+    "pinyin": "pàn duàn",
+    "english": "to judge",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-pei-he",
+    "courseId": "course-mandarin-1",
+    "hanzi": "配合",
+    "pinyin": "pèi hé",
+    "english": "matching",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-pi-bao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "皮包",
+    "pinyin": "pí bāo",
+    "english": "handbag",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-pu-ji",
+    "courseId": "course-mandarin-1",
+    "hanzi": "普及",
+    "pinyin": "pǔ jí",
+    "english": "to spread extensively",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qi-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "其实",
+    "pinyin": "qí shí",
+    "english": "actually; in fact; really",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qian-hou",
+    "courseId": "course-mandarin-1",
+    "hanzi": "前后",
+    "pinyin": "qián hòu",
+    "english": "around",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qiang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "强",
+    "pinyin": "Qiáng",
+    "english": "surname Qiang",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qiao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "桥",
+    "pinyin": "qiáo",
+    "english": "bridge",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qin-ren",
+    "courseId": "course-mandarin-1",
+    "hanzi": "亲人",
+    "pinyin": "qīn rén",
+    "english": "one's close relatives",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qing-jiao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "请教",
+    "pinyin": "qǐng jiào",
+    "english": "to ask for guidance",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qu-bie",
+    "courseId": "course-mandarin-1",
+    "hanzi": "区别",
+    "pinyin": "qū bié",
+    "english": "difference",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-quan-mian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "全面",
+    "pinyin": "quán miàn",
+    "english": "all-around",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-que-shao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "缺少",
+    "pinyin": "quē shǎo",
+    "english": "lack",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qun-zi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "裙子",
+    "pinyin": "qún zi",
+    "english": "skirt",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ren-cai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "人才",
+    "pinyin": "rén cái",
+    "english": "talent",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ren-min-bi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "人民币",
+    "pinyin": "rén mín bì",
+    "english": "Renminbi (RMB)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ren-chu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "认出",
+    "pinyin": "rèn chū",
+    "english": "recognition",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ren-he",
+    "courseId": "course-mandarin-1",
+    "hanzi": "任何",
+    "pinyin": "rèn hé",
+    "english": "any",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ri-chang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "日常",
+    "pinyin": "rì cháng",
+    "english": "day-to-day; daily; everyday",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-sha-fa",
+    "courseId": "course-mandarin-1",
+    "hanzi": "沙发",
+    "pinyin": "shā fā",
+    "english": "sofa (loanword)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shang-pin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "商品",
+    "pinyin": "shāng pǐn",
+    "english": "commodity",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shang-qu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "上去",
+    "pinyin": "shàng qù",
+    "english": "to go up",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-she-ji",
+    "courseId": "course-mandarin-1",
+    "hanzi": "设计",
+    "pinyin": "shè jì",
+    "english": "to design; to plan",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shen",
+    "courseId": "course-mandarin-1",
+    "hanzi": "深",
+    "pinyin": "shēn",
+    "english": "old variant of 深",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -8856,6 +4362,42 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
+    "id": "v-h3-sheng-yi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "生意",
+    "pinyin": "shēng yì",
+    "english": "life force",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-sheng-li",
+    "courseId": "course-mandarin-1",
+    "hanzi": "胜利",
+    "pinyin": "shèng lì",
+    "english": "victory",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "时",
+    "pinyin": "shí",
+    "english": "old variant of 时",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-li",
+    "courseId": "course-mandarin-1",
+    "hanzi": "实力",
+    "pinyin": "shí lì",
+    "english": "strength",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
     "id": "v-h3-shi-pin",
     "courseId": "course-mandarin-1",
     "hanzi": "食品",
@@ -8865,38 +4407,209 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-shou-kan",
+    "id": "v-h3-shi-jie",
     "courseId": "course-mandarin-1",
-    "hanzi": "收看",
-    "pinyin": "shōu kàn",
-    "english": "to watch (a TV program)",
+    "hanzi": "世界",
+    "pinyin": "shì jiè",
+    "english": "world",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-shou-xu",
+    "id": "v-h3-shi-jian",
     "courseId": "course-mandarin-1",
-    "hanzi": "手续",
-    "pinyin": "shǒu xù",
-    "english": "procedure",
+    "hanzi": "事件",
+    "pinyin": "shì jiàn",
+    "english": "event",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-tong-yi",
+    "id": "v-h3-shi-ti",
     "courseId": "course-mandarin-1",
-    "hanzi": "同意",
-    "pinyin": "tóng yì",
-    "english": "to agree",
+    "hanzi": "试题",
+    "pinyin": "shì tí",
+    "english": "exam question",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-tu-chu",
+    "id": "v-h3-shi-ying",
     "courseId": "course-mandarin-1",
-    "hanzi": "突出",
-    "pinyin": "tū chū",
-    "english": "prominent",
+    "hanzi": "适应",
+    "pinyin": "shì yìng",
+    "english": "to adapt",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shou-ting",
+    "courseId": "course-mandarin-1",
+    "hanzi": "收听",
+    "pinyin": "shōu tīng",
+    "english": "to listen to (a radio broadcast)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shou-du",
+    "courseId": "course-mandarin-1",
+    "hanzi": "首都",
+    "pinyin": "shǒu dū",
+    "english": "capital (city)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shu-jia",
+    "courseId": "course-mandarin-1",
+    "hanzi": "书架",
+    "pinyin": "shū jià",
+    "english": "bookshelf",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "属",
+    "pinyin": "shǔ",
+    "english": "category",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shuang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "双",
+    "pinyin": "Shuāng",
+    "english": "surname Shuang",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-su-du",
+    "courseId": "course-mandarin-1",
+    "hanzi": "速度",
+    "pinyin": "sù dù",
+    "english": "speed",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "台",
+    "pinyin": "Tái",
+    "english": "Taiwan (abbr.)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ti-wen",
+    "courseId": "course-mandarin-1",
+    "hanzi": "提问",
+    "pinyin": "tí wèn",
+    "english": "to question; to quiz; to grill",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ti-yan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "体验",
+    "pinyin": "tǐ yàn",
+    "english": "to experience for oneself",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tiao-gao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "跳高",
+    "pinyin": "tiào gāo",
+    "english": "high jump (athletics)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tie-lu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "铁路",
+    "pinyin": "tiě lù",
+    "english": "railroad",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tong-chang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "通常",
+    "pinyin": "tōng cháng",
+    "english": "regular",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tong-ku",
+    "courseId": "course-mandarin-1",
+    "hanzi": "痛苦",
+    "pinyin": "tòng kǔ",
+    "english": "pain",
+    "partOfSpeech": "adjective",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "图",
+    "pinyin": "tú",
+    "english": "diagram",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tuan-jie",
+    "courseId": "course-mandarin-1",
+    "hanzi": "团结",
+    "pinyin": "tuán jié",
+    "english": "to unite",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tui-jin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "推进",
+    "pinyin": "tuī jìn",
+    "english": "to impel",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tui-xiu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "退休",
+    "pinyin": "tuì xiū",
+    "english": "to retire (from the workforce); to go into retirement",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-wan-mei",
+    "courseId": "course-mandarin-1",
+    "hanzi": "完美",
+    "pinyin": "wán měi",
+    "english": "perfect",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-wang-wang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "往往",
+    "pinyin": "wǎng wǎng",
+    "english": "usually",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -8910,20 +4623,83 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-xi",
+    "id": "v-h3-wen-nuan",
     "courseId": "course-mandarin-1",
-    "hanzi": "系",
-    "pinyin": "xì",
-    "english": "to connect",
+    "hanzi": "温暖",
+    "pinyin": "wēn nuǎn",
+    "english": "warm",
+    "partOfSpeech": "adjective",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-wen-xue",
+    "courseId": "course-mandarin-1",
+    "hanzi": "文学",
+    "pinyin": "wén xué",
+    "english": "literature",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-xiang-bi",
+    "id": "v-h3-wu-zi",
     "courseId": "course-mandarin-1",
-    "hanzi": "相比",
-    "pinyin": "xiāng bǐ",
-    "english": "to compare",
+    "hanzi": "屋子",
+    "pinyin": "wū zi",
+    "english": "house",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xi-bu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "西部",
+    "pinyin": "xī bù",
+    "english": "western part",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xia-mian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "下面",
+    "pinyin": "xià miàn",
+    "english": "below",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xian-ran",
+    "courseId": "course-mandarin-1",
+    "hanzi": "显然",
+    "pinyin": "xiǎn rán",
+    "english": "clearly; evidently; obviously",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xian-dai-hua",
+    "courseId": "course-mandarin-1",
+    "hanzi": "现代化",
+    "pinyin": "xiàn dài huà",
+    "english": "modernization",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "线",
+    "pinyin": "xiàn",
+    "english": "variant of 线",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xiang-hu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "相互",
+    "pinyin": "xiāng hù",
+    "english": "each other",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -8937,11 +4713,92 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-yan-chang-hui",
+    "id": "v-h3-xie-zuo",
     "courseId": "course-mandarin-1",
-    "hanzi": "演唱会",
-    "pinyin": "yǎn chàng huì",
-    "english": "vocal recital or concert",
+    "hanzi": "写作",
+    "pinyin": "xiě zuò",
+    "english": "to write",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xing-li",
+    "courseId": "course-mandarin-1",
+    "hanzi": "行李",
+    "pinyin": "xíng li",
+    "english": "luggage",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xing-zhuang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "形状",
+    "pinyin": "xíng zhuàng",
+    "english": "form; shape",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xing-bie",
+    "courseId": "course-mandarin-1",
+    "hanzi": "性别",
+    "pinyin": "xìng bié",
+    "english": "gender",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xu-qiu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "需求",
+    "pinyin": "xū qiú",
+    "english": "requirement",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xuan-shou",
+    "courseId": "course-mandarin-1",
+    "hanzi": "选手",
+    "pinyin": "xuǎn shǒu",
+    "english": "athlete",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ya",
+    "courseId": "course-mandarin-1",
+    "hanzi": "压",
+    "pinyin": "yā",
+    "english": "to press",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "演",
+    "pinyin": "yǎn",
+    "english": "to develop",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yan-yuan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "演员",
+    "pinyin": "yǎn yuán",
+    "english": "actor or actress",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yi-fang-mian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "一方面",
+    "pinyin": "yī fāng miàn",
+    "english": "on the one hand",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -8964,20 +4821,128 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-you-li",
+    "id": "v-h3-ying-dang",
     "courseId": "course-mandarin-1",
-    "hanzi": "有利",
-    "pinyin": "yǒu lì",
-    "english": "advantageous; favorable",
+    "hanzi": "应当",
+    "pinyin": "yīng dāng",
+    "english": "should; ought to",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-zao-yi",
+    "id": "v-h3-ying",
     "courseId": "course-mandarin-1",
-    "hanzi": "早已",
-    "pinyin": "zǎo yǐ",
-    "english": "for a long time; long since",
+    "hanzi": "赢",
+    "pinyin": "yíng",
+    "english": "to beat",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-you",
+    "courseId": "course-mandarin-1",
+    "hanzi": "由",
+    "pinyin": "yóu",
+    "english": "to follow",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-you-xiang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "邮箱",
+    "pinyin": "yóu xiāng",
+    "english": "mailbox",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-you-de-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "有的是",
+    "pinyin": "yǒu de shì",
+    "english": "have plenty of",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yu-fang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "预防",
+    "pinyin": "yù fáng",
+    "english": "to prevent",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yuan-gong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "员工",
+    "pinyin": "yuán gōng",
+    "english": "staff",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-za-zhi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "杂志",
+    "pinyin": "zá zhì",
+    "english": "magazine",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ze-ren",
+    "courseId": "course-mandarin-1",
+    "hanzi": "责任",
+    "pinyin": "zé rèn",
+    "english": "responsibility",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "张",
+    "pinyin": "Zhāng",
+    "english": "surname Zhang",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "照",
+    "pinyin": "zhào",
+    "english": "variant of 照",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zheng-qu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "争取",
+    "pinyin": "zhēng qǔ",
+    "english": "to fight for",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zheng-qi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "整齐",
+    "pinyin": "zhěng qí",
+    "english": "orderly",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zheng-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "正式",
+    "pinyin": "zhèng shì",
+    "english": "formal; official",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -8991,20 +4956,2198 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-zhi-ye",
+    "id": "v-h3-zhi-2",
     "courseId": "course-mandarin-1",
-    "hanzi": "职业",
-    "pinyin": "zhí yè",
-    "english": "occupation; profession; vocation",
+    "hanzi": "直",
+    "pinyin": "Zhí",
+    "english": "surname Zhi",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-zhi-hao",
+    "id": "v-h3-zhi-de",
     "courseId": "course-mandarin-1",
-    "hanzi": "只好",
-    "pinyin": "zhǐ hǎo",
-    "english": "to have no other option but to ...; to have to; to be forced to",
+    "hanzi": "值得",
+    "pinyin": "zhí de",
+    "english": "to be worth",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "只是",
+    "pinyin": "zhǐ shì",
+    "english": "merely; only; just; nothing but",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-dao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "指导",
+    "pinyin": "zhǐ dǎo",
+    "english": "to guide",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-yuan-zhe",
+    "courseId": "course-mandarin-1",
+    "hanzi": "志愿者",
+    "pinyin": "zhì yuàn zhě",
+    "english": "volunteer",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-zuo",
+    "courseId": "course-mandarin-1",
+    "hanzi": "制作",
+    "pinyin": "zhì zuò",
+    "english": "to make; to manufacture",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "钟",
+    "pinyin": "Zhōng",
+    "english": "surname Zhong",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhou-wei",
+    "courseId": "course-mandarin-1",
+    "hanzi": "周围",
+    "pinyin": "zhōu wéi",
+    "english": "environs; surroundings; periphery",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhu-ren",
+    "courseId": "course-mandarin-1",
+    "hanzi": "主任",
+    "pinyin": "zhǔ rèn",
+    "english": "director",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "祝",
+    "pinyin": "Zhù",
+    "english": "surname Zhu",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhuan-men",
+    "courseId": "course-mandarin-1",
+    "hanzi": "专门",
+    "pinyin": "zhuān mén",
+    "english": "specialist",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhuan-bian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "转变",
+    "pinyin": "zhuǎn biàn",
+    "english": "to change",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhun",
+    "courseId": "course-mandarin-1",
+    "hanzi": "准",
+    "pinyin": "zhǔn",
+    "english": "to allow",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zi-cong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "自从",
+    "pinyin": "zì cóng",
+    "english": "since (a time)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zi-shen",
+    "courseId": "course-mandarin-1",
+    "hanzi": "自身",
+    "pinyin": "zì shēn",
+    "english": "itself",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zong-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "总是",
+    "pinyin": "zǒng shì",
+    "english": "always",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zuo-you",
+    "courseId": "course-mandarin-1",
+    "hanzi": "左右",
+    "pinyin": "zuǒ yòu",
+    "english": "left and right",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-an-zhuang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "安装",
+    "pinyin": "ān zhuāng",
+    "english": "to install",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ba-wo",
+    "courseId": "course-mandarin-1",
+    "hanzi": "把握",
+    "pinyin": "bǎ wò",
+    "english": "to grasp (also fig.)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ban-jia",
+    "courseId": "course-mandarin-1",
+    "hanzi": "搬家",
+    "pinyin": "bān jiā",
+    "english": "to move house; to relocate",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bao-an",
+    "courseId": "course-mandarin-1",
+    "hanzi": "保安",
+    "pinyin": "bǎo ān",
+    "english": "to ensure public security",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bao-liu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "保留",
+    "pinyin": "bǎo liú",
+    "english": "to keep",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bao-dao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "报到",
+    "pinyin": "bào dào",
+    "english": "to report for duty",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bei-hou",
+    "courseId": "course-mandarin-1",
+    "hanzi": "背后",
+    "pinyin": "bèi hòu",
+    "english": "behind",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ben-ling",
+    "courseId": "course-mandarin-1",
+    "hanzi": "本领",
+    "pinyin": "běn lǐng",
+    "english": "skill",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bi-sai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "比赛",
+    "pinyin": "bǐ sài",
+    "english": "competition (sports etc)",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bian-wei",
+    "courseId": "course-mandarin-1",
+    "hanzi": "变为",
+    "pinyin": "biàn wéi",
+    "english": "to change into",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-biao-ge",
+    "courseId": "course-mandarin-1",
+    "hanzi": "表格",
+    "pinyin": "biǎo gé",
+    "english": "form",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-biao-yan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "表演",
+    "pinyin": "biǎo yǎn",
+    "english": "play",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bo-fang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "播放",
+    "pinyin": "bō fàng",
+    "english": "to broadcast; to transmit (by radio or TV)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bu-bi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "不必",
+    "pinyin": "bù bì",
+    "english": "need not",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bu-jin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "不仅",
+    "pinyin": "bù jǐn",
+    "english": "not just; not limited to",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bu-3",
+    "courseId": "course-mandarin-1",
+    "hanzi": "部",
+    "pinyin": "bù",
+    "english": "ministry",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cai-qu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "采取",
+    "pinyin": "cǎi qǔ",
+    "english": "to adopt or carry out (measures, policies, course of action)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chan-sheng",
+    "courseId": "course-mandarin-1",
+    "hanzi": "产生",
+    "pinyin": "chǎn shēng",
+    "english": "to arise; to come into being; to come about",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chao-ji",
+    "courseId": "course-mandarin-1",
+    "hanzi": "超级",
+    "pinyin": "chāo jí",
+    "english": "super-",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chen-shan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "衬衫",
+    "pinyin": "chèn shān",
+    "english": "shirt",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cheng-guo",
+    "courseId": "course-mandarin-1",
+    "hanzi": "成果",
+    "pinyin": "chéng guǒ",
+    "english": "result",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cheng-yuan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "成员",
+    "pinyin": "chéng yuán",
+    "english": "member",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cheng-du",
+    "courseId": "course-mandarin-1",
+    "hanzi": "程度",
+    "pinyin": "chéng dù",
+    "english": "degree; level; extent",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chu-bu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "初步",
+    "pinyin": "chū bù",
+    "english": "initial",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chu-le",
+    "courseId": "course-mandarin-1",
+    "hanzi": "除了",
+    "pinyin": "chú le",
+    "english": "besides",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chuan-lai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "传来",
+    "pinyin": "chuán lái",
+    "english": "(of a sound) to come through",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chuang-zao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "创造",
+    "pinyin": "chuàng zào",
+    "english": "to create",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cong-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "从事",
+    "pinyin": "cóng shì",
+    "english": "to go for",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cuo-wu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "错误",
+    "pinyin": "cuò wù",
+    "english": "mistaken; false; wrong",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-da-fu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "大夫",
+    "pinyin": "dà fū",
+    "english": "senior official (in imperial China)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "代",
+    "pinyin": "dài",
+    "english": "to substitute",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dai-ling",
+    "courseId": "course-mandarin-1",
+    "hanzi": "带领",
+    "pinyin": "dài lǐng",
+    "english": "to guide",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dang-ran",
+    "courseId": "course-mandarin-1",
+    "hanzi": "当然",
+    "pinyin": "dāng rán",
+    "english": "only natural",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dao-da",
+    "courseId": "course-mandarin-1",
+    "hanzi": "到达",
+    "pinyin": "dào dá",
+    "english": "to reach; to arrive",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-deng-dai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "等待",
+    "pinyin": "děng dài",
+    "english": "to wait; to wait for",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dian-tai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "电台",
+    "pinyin": "diàn tái",
+    "english": "transmitter-receiver",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tiao-zheng",
+    "courseId": "course-mandarin-1",
+    "hanzi": "调整",
+    "pinyin": "tiáo zhěng",
+    "english": "to adjust",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dong-li",
+    "courseId": "course-mandarin-1",
+    "hanzi": "动力",
+    "pinyin": "dòng lì",
+    "english": "motive power",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-duan-ku",
+    "courseId": "course-mandarin-1",
+    "hanzi": "短裤",
+    "pinyin": "duǎn kù",
+    "english": "short pants",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dui-dai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "对待",
+    "pinyin": "duì dài",
+    "english": "to treat",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dun",
+    "courseId": "course-mandarin-1",
+    "hanzi": "顿",
+    "pinyin": "dùn",
+    "english": "to stop",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fa-dong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "发动",
+    "pinyin": "fā dòng",
+    "english": "to start",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fa-yan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "发言",
+    "pinyin": "fā yán",
+    "english": "to make a speech",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fan-ying",
+    "courseId": "course-mandarin-1",
+    "hanzi": "反应",
+    "pinyin": "fǎn yìng",
+    "english": "to react",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "防",
+    "pinyin": "fáng",
+    "english": "to protect",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fang-zu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "房租",
+    "pinyin": "fáng zū",
+    "english": "rent for a room or house",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fei",
+    "courseId": "course-mandarin-1",
+    "hanzi": "费",
+    "pinyin": "Fèi",
+    "english": "surname Fei",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fen-zu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "分组",
+    "pinyin": "fēn zǔ",
+    "english": "to divide into groups",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fou-ren",
+    "courseId": "course-mandarin-1",
+    "hanzi": "否认",
+    "pinyin": "fǒu rèn",
+    "english": "to declare to be untrue",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fu-mu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "父母",
+    "pinyin": "fù mǔ",
+    "english": "father and mother; parents",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fu-yin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "复印",
+    "pinyin": "fù yìn",
+    "english": "to photocopy",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gai-zao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "改造",
+    "pinyin": "gǎi zào",
+    "english": "to transform",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gan-jin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "赶紧",
+    "pinyin": "gǎn jǐn",
+    "english": "hurriedly",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gan-qing",
+    "courseId": "course-mandarin-1",
+    "hanzi": "感情",
+    "pinyin": "gǎn qíng",
+    "english": "emotion",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gao-su-gong-lu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "高速公路",
+    "pinyin": "gāo sù gōng lù",
+    "english": "expressway; highway; freeway",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ge-shou",
+    "courseId": "course-mandarin-1",
+    "hanzi": "歌手",
+    "pinyin": "gē shǒu",
+    "english": "singer",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ge-di",
+    "courseId": "course-mandarin-1",
+    "hanzi": "各地",
+    "pinyin": "gè dì",
+    "english": "in all parts of (a country)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gen-ben",
+    "courseId": "course-mandarin-1",
+    "hanzi": "根本",
+    "pinyin": "gēn běn",
+    "english": "fundamental",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gong-fu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "工夫",
+    "pinyin": "gōng fū",
+    "english": "(old) laborer",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gong-bu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "公布",
+    "pinyin": "gōng bù",
+    "english": "to announce",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gong-wu-yuan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "公务员",
+    "pinyin": "gōng wù yuán",
+    "english": "functionary",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gong-tong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "共同",
+    "pinyin": "gòng tóng",
+    "english": "common",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gu-dai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "古代",
+    "pinyin": "gǔ dài",
+    "english": "ancient times",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-guan-zhu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "关注",
+    "pinyin": "guān zhù",
+    "english": "to pay attention to",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-guan-zhong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "观众",
+    "pinyin": "guān zhòng",
+    "english": "spectators",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-guang-ming",
+    "courseId": "course-mandarin-1",
+    "hanzi": "光明",
+    "pinyin": "guāng míng",
+    "english": "light",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gui-fan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "规范",
+    "pinyin": "guī fàn",
+    "english": "norm",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-guo-zhi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "果汁",
+    "pinyin": "guǒ zhī",
+    "english": "fruit juice",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-hai-pa",
+    "courseId": "course-mandarin-1",
+    "hanzi": "害怕",
+    "pinyin": "hài pà",
+    "english": "to be afraid",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-he-fa",
+    "courseId": "course-mandarin-1",
+    "hanzi": "合法",
+    "pinyin": "hé fǎ",
+    "english": "lawful",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-he-ping",
+    "courseId": "course-mandarin-1",
+    "hanzi": "和平",
+    "pinyin": "Hé píng",
+    "english": "Heping District of Shenyang city 沈阳市, Liaoning",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-hua-ren",
+    "courseId": "course-mandarin-1",
+    "hanzi": "华人",
+    "pinyin": "Huá rén",
+    "english": "ethnic Chinese person or people",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-hua-ti",
+    "courseId": "course-mandarin-1",
+    "hanzi": "话题",
+    "pinyin": "huà tí",
+    "english": "subject (of a talk or conversation)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-huan-jing",
+    "courseId": "course-mandarin-1",
+    "hanzi": "环境",
+    "pinyin": "huán jìng",
+    "english": "environment",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-huo-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "火",
+    "pinyin": "Huǒ",
+    "english": "surname Huo",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ji-ben",
+    "courseId": "course-mandarin-1",
+    "hanzi": "基本",
+    "pinyin": "jī běn",
+    "english": "basic",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ji-le",
+    "courseId": "course-mandarin-1",
+    "hanzi": "极了",
+    "pinyin": "jí le",
+    "english": "extremely",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ji-lu-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "记录",
+    "pinyin": "jì lù",
+    "english": "to record",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ji-shu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "技术",
+    "pinyin": "jì shù",
+    "english": "technology; technique; skill",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jia-qiang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "加强",
+    "pinyin": "jiā qiáng",
+    "english": "to reinforce; to strengthen; to enhance",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jia-ge",
+    "courseId": "course-mandarin-1",
+    "hanzi": "价格",
+    "pinyin": "jià gé",
+    "english": "price",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jian-chi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "坚持",
+    "pinyin": "jiān chí",
+    "english": "to persevere with",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jian-zhi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "简直",
+    "pinyin": "jiǎn zhí",
+    "english": "simply; really",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jian-she",
+    "courseId": "course-mandarin-1",
+    "hanzi": "建设",
+    "pinyin": "jiàn shè",
+    "english": "to build; to construct; to establish; to develop; to institute",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jiao-fei",
+    "courseId": "course-mandarin-1",
+    "hanzi": "交费",
+    "pinyin": "jiāo fèi",
+    "english": "to pay a fee",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jiao-yi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "交易",
+    "pinyin": "jiāo yì",
+    "english": "to deal; to trade; to transact",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jie-dai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "接待",
+    "pinyin": "jiē dài",
+    "english": "to receive (a visitor)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jie-hun",
+    "courseId": "course-mandarin-1",
+    "hanzi": "结婚",
+    "pinyin": "jié hūn",
+    "english": "to marry",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jie-kai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "解开",
+    "pinyin": "jiě kāi",
+    "english": "to untie",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jin-jin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "仅仅",
+    "pinyin": "jǐn jǐn",
+    "english": "barely",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jin-zhang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "紧张",
+    "pinyin": "jǐn zhāng",
+    "english": "nervous",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jin-zhan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "进展",
+    "pinyin": "jìn zhǎn",
+    "english": "to make headway; to make progress",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jing-yan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "经验",
+    "pinyin": "jīng yàn",
+    "english": "experience",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jing-se",
+    "courseId": "course-mandarin-1",
+    "hanzi": "景色",
+    "pinyin": "jǐng sè",
+    "english": "scenery",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ju-ban",
+    "courseId": "course-mandarin-1",
+    "hanzi": "举办",
+    "pinyin": "jǔ bàn",
+    "english": "to conduct",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ju-shuo",
+    "courseId": "course-mandarin-1",
+    "hanzi": "据说",
+    "pinyin": "jù shuō",
+    "english": "it is said that; reportedly",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jue-dui",
+    "courseId": "course-mandarin-1",
+    "hanzi": "绝对",
+    "pinyin": "jué duì",
+    "english": "absolute",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-kai-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "开始",
+    "pinyin": "kāi shǐ",
+    "english": "to begin",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-kan-shang-qu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "看上去",
+    "pinyin": "kàn shang qu",
+    "english": "it would appear",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ke-le",
+    "courseId": "course-mandarin-1",
+    "hanzi": "可乐",
+    "pinyin": "kě lè",
+    "english": "amusing",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-kong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "空",
+    "pinyin": "kōng",
+    "english": "empty",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ku-zi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "裤子",
+    "pinyin": "kù zi",
+    "english": "variant of 裤子, trousers",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-lang-fei",
+    "courseId": "course-mandarin-1",
+    "hanzi": "浪费",
+    "pinyin": "làng fèi",
+    "english": "to waste",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-lao-tou-r",
+    "courseId": "course-mandarin-1",
+    "hanzi": "老头儿",
+    "pinyin": "lǎo tóu r",
+    "english": "see 老头子",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-lei",
+    "courseId": "course-mandarin-1",
+    "hanzi": "类",
+    "pinyin": "lèi",
+    "english": "kind",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-li-fa",
+    "courseId": "course-mandarin-1",
+    "hanzi": "理发",
+    "pinyin": "lǐ fà",
+    "english": "to get a haircut; to have one's hair done",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-li",
+    "courseId": "course-mandarin-1",
+    "hanzi": "力",
+    "pinyin": "Lì",
+    "english": "surname Li",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-lian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "连",
+    "pinyin": "Lián",
+    "english": "surname Lian",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-lian-he",
+    "courseId": "course-mandarin-1",
+    "hanzi": "联合",
+    "pinyin": "lián hé",
+    "english": "to combine",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ling",
+    "courseId": "course-mandarin-1",
+    "hanzi": "领",
+    "pinyin": "lǐng",
+    "english": "neck",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ling-yi-fang-mian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "另一方面",
+    "pinyin": "lìng yī fāng miàn",
+    "english": "on the other hand",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-lu-yin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "录音",
+    "pinyin": "lù yīn",
+    "english": "to record (sound)",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-lu-cha",
+    "courseId": "course-mandarin-1",
+    "hanzi": "绿茶",
+    "pinyin": "lǜ chá",
+    "english": "green tea",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-mei-yong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "没用",
+    "pinyin": "méi yòng",
+    "english": "useless",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-mei-hao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "美好",
+    "pinyin": "měi hǎo",
+    "english": "beautiful",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-mei-yuan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "美元",
+    "pinyin": "Měi yuán",
+    "english": "American dollar",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-min-jian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "民间",
+    "pinyin": "mín jiān",
+    "english": "among the people",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ming-yun",
+    "courseId": "course-mandarin-1",
+    "hanzi": "命运",
+    "pinyin": "mìng yùn",
+    "english": "fate; destiny",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-mu-biao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "目标",
+    "pinyin": "mù biāo",
+    "english": "target",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-nan-bu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "南部",
+    "pinyin": "nán bù",
+    "english": "southern part",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-nei-rong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "内容",
+    "pinyin": "nèi róng",
+    "english": "content",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-nian-chu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "年初",
+    "pinyin": "nián chū",
+    "english": "beginning of the year",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-nian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "念",
+    "pinyin": "niàn",
+    "english": "variant of 念, to read aloud",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-nong-ye",
+    "courseId": "course-mandarin-1",
+    "hanzi": "农业",
+    "pinyin": "nóng yè",
+    "english": "agriculture",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-pai-ming",
+    "courseId": "course-mandarin-1",
+    "hanzi": "排名",
+    "pinyin": "pái míng",
+    "english": "to rank (1st, 2nd etc)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-pan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "胖",
+    "pinyin": "pán",
+    "english": "healthy",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-pi-ping",
+    "courseId": "course-mandarin-1",
+    "hanzi": "批评",
+    "pinyin": "pī píng",
+    "english": "to criticize; criticism",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-po",
+    "courseId": "course-mandarin-1",
+    "hanzi": "破",
+    "pinyin": "pò",
+    "english": "broken",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "期",
+    "pinyin": "qī",
+    "english": "variant of 期",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qi-guai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "奇怪",
+    "pinyin": "qí guài",
+    "english": "strange",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qian-jin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "前进",
+    "pinyin": "qián jìn",
+    "english": "to go forward",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qiang-da",
+    "courseId": "course-mandarin-1",
+    "hanzi": "强大",
+    "pinyin": "qiáng dà",
+    "english": "large",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qiao-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "巧",
+    "pinyin": "qiǎo",
+    "english": "opportunely",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qin-zi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "亲自",
+    "pinyin": "qīn zì",
+    "english": "personally",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qing-zhu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "庆祝",
+    "pinyin": "qìng zhù",
+    "english": "to celebrate",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qu-xiao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "取消",
+    "pinyin": "qǔ xiāo",
+    "english": "to cancel",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-quan-qiu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "全球",
+    "pinyin": "quán qiú",
+    "english": "entire",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-que-bao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "确保",
+    "pinyin": "què bǎo",
+    "english": "to ensure; to guarantee",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qun",
+    "courseId": "course-mandarin-1",
+    "hanzi": "群",
+    "pinyin": "qún",
+    "english": "variant of 群",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ren-gong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "人工",
+    "pinyin": "rén gōng",
+    "english": "artificial",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ren-qun",
+    "courseId": "course-mandarin-1",
+    "hanzi": "人群",
+    "pinyin": "rén qún",
+    "english": "crowd",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ren-de",
+    "courseId": "course-mandarin-1",
+    "hanzi": "认得",
+    "pinyin": "rèn de",
+    "english": "to recognize",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ren-wu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "任务",
+    "pinyin": "rèn wu",
+    "english": "mission; assignment; task; duty; role",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-rong-yi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "容易",
+    "pinyin": "róng yì",
+    "english": "easy; straightforward",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-sha-zi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "沙子",
+    "pinyin": "shā zi",
+    "english": "sand",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shang-ye",
+    "courseId": "course-mandarin-1",
+    "hanzi": "商业",
+    "pinyin": "shāng yè",
+    "english": "business",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shang-sheng",
+    "courseId": "course-mandarin-1",
+    "hanzi": "上升",
+    "pinyin": "shàng shēng",
+    "english": "to rise",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-she-li",
+    "courseId": "course-mandarin-1",
+    "hanzi": "设立",
+    "pinyin": "shè lì",
+    "english": "to set up; to establish",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shen-ke",
+    "courseId": "course-mandarin-1",
+    "hanzi": "深刻",
+    "pinyin": "shēn kè",
+    "english": "profound",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-sheng-cun",
+    "courseId": "course-mandarin-1",
+    "hanzi": "生存",
+    "pinyin": "shēng cún",
+    "english": "to exist",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-sheng-zhang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "生长",
+    "pinyin": "shēng zhǎng",
+    "english": "to grow",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-qu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "失去",
+    "pinyin": "shī qù",
+    "english": "to lose",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-dai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "时代",
+    "pinyin": "Shí dài",
+    "english": "Time, US weekly news magazine",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-xing",
+    "courseId": "course-mandarin-1",
+    "hanzi": "实行",
+    "pinyin": "shí xíng",
+    "english": "to implement",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "使",
+    "pinyin": "shǐ",
+    "english": "to make",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-jie-bei",
+    "courseId": "course-mandarin-1",
+    "hanzi": "世界杯",
+    "pinyin": "Shì jiè bēi",
+    "english": "World Cup",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "事实",
+    "pinyin": "shì shí",
+    "english": "fact",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-yan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "试验",
+    "pinyin": "shì yàn",
+    "english": "experiment",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-yong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "适用",
+    "pinyin": "shì yòng",
+    "english": "to be applicable",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shou-yin-ji",
+    "courseId": "course-mandarin-1",
+    "hanzi": "收音机",
+    "pinyin": "shōu yīn jī",
+    "english": "radio",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shou-xian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "首先",
+    "pinyin": "shǒu xiān",
+    "english": "first (of all)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shu-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "输",
+    "pinyin": "shū",
+    "english": "to lose; to be beaten",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shu-yu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "属于",
+    "pinyin": "shǔ yú",
+    "english": "to be classified as",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shuang-fang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "双方",
+    "pinyin": "shuāng fāng",
+    "english": "bilateral",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-sui",
+    "courseId": "course-mandarin-1",
+    "hanzi": "随",
+    "pinyin": "Suí",
+    "english": "surname Sui",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "谈",
+    "pinyin": "Tán",
+    "english": "surname Tan",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "糖",
+    "pinyin": "táng",
+    "english": "sugar",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ti-mu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "题目",
+    "pinyin": "tí mù",
+    "english": "subject",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tian-kong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "天空",
+    "pinyin": "tiān kōng",
+    "english": "sky",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tiao-wu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "跳舞",
+    "pinyin": "tiào wǔ",
+    "english": "to dance",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ting-li",
+    "courseId": "course-mandarin-1",
+    "hanzi": "听力",
+    "pinyin": "tīng lì",
+    "english": "hearing",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tong-xin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "通信",
+    "pinyin": "tōng xìn",
+    "english": "to correspond (by letter etc)",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tou-nao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "头脑",
+    "pinyin": "tóu nǎo",
+    "english": "brains",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tu-hua",
+    "courseId": "course-mandarin-1",
+    "hanzi": "图画",
+    "pinyin": "tú huà",
+    "english": "drawing",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tuan-ti",
+    "courseId": "course-mandarin-1",
+    "hanzi": "团体",
+    "pinyin": "tuán tǐ",
+    "english": "group",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tui-kai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "推开",
+    "pinyin": "tuī kāi",
+    "english": "to push open (a gate etc)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-wai-jiao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "外交",
+    "pinyin": "wài jiāo",
+    "english": "diplomacy",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-wan-shan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "完善",
+    "pinyin": "wán shàn",
+    "english": "(of systems, facilities etc) comprehensive",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-wei-hai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "危害",
+    "pinyin": "wēi hài",
+    "english": "to jeopardize",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-wei-sheng",
+    "courseId": "course-mandarin-1",
+    "hanzi": "卫生",
+    "pinyin": "wèi shēng",
+    "english": "health",
+    "partOfSpeech": "adjective",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-wen-hua",
+    "courseId": "course-mandarin-1",
+    "hanzi": "文化",
+    "pinyin": "wén huà",
+    "english": "culture",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-wen-zhang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "文章",
+    "pinyin": "wén zhāng",
+    "english": "article",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-wu-qi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "武器",
+    "pinyin": "wǔ qì",
+    "english": "weapon",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xi-wang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "希望",
+    "pinyin": "xī wàng",
+    "english": "to hope",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xia-qu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "下去",
+    "pinyin": "xià qù",
+    "english": "to go down",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xian-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "显示",
+    "pinyin": "xiǎn shì",
+    "english": "to show",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xian-jin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "现金",
+    "pinyin": "xiàn jīn",
+    "english": "cash",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xiang-bi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "相比",
+    "pinyin": "xiāng bǐ",
+    "english": "to compare",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xiang-si",
+    "courseId": "course-mandarin-1",
+    "hanzi": "相似",
+    "pinyin": "xiāng sì",
+    "english": "similar; alike",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xiao-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "消失",
+    "pinyin": "xiāo shī",
+    "english": "to disappear; to fade away",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "心",
+    "pinyin": "xīn",
+    "english": "heart",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xing-cheng",
+    "courseId": "course-mandarin-1",
+    "hanzi": "形成",
+    "pinyin": "xíng chéng",
+    "english": "to form",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xing-fu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "幸福",
+    "pinyin": "xìng fú",
+    "english": "happiness",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xing-ge",
+    "courseId": "course-mandarin-1",
+    "hanzi": "性格",
+    "pinyin": "xìng gé",
+    "english": "nature",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xu-yao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "需要",
+    "pinyin": "xū yào",
+    "english": "to need; to want; to demand; to require",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xue-fei",
+    "courseId": "course-mandarin-1",
+    "hanzi": "学费",
+    "pinyin": "xué fèi",
+    "english": "tuition fee",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ya-li",
+    "courseId": "course-mandarin-1",
+    "hanzi": "压力",
+    "pinyin": "yā lì",
+    "english": "pressure",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yan-chang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "演唱",
+    "pinyin": "yǎn chàng",
+    "english": "sung performance",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "羊",
+    "pinyin": "Yáng",
+    "english": "surname Yang",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yi-qie",
+    "courseId": "course-mandarin-1",
+    "hanzi": "一切",
+    "pinyin": "yī qiè",
+    "english": "everything",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yi-shu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "艺术",
+    "pinyin": "yì shù",
+    "english": "art",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "银",
+    "pinyin": "yín",
+    "english": "silver",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ying-yong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "应用",
+    "pinyin": "yìng yòng",
+    "english": "to put to use",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ying-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "影视",
+    "pinyin": "yǐng shì",
+    "english": "movies and television",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-you-yu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "由于",
+    "pinyin": "yóu yú",
+    "english": "due to",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-you-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "游",
+    "pinyin": "Yóu",
+    "english": "surname You",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-you-li",
+    "courseId": "course-mandarin-1",
+    "hanzi": "有利",
+    "pinyin": "yǒu lì",
+    "english": "advantageous; favorable",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yu-ji",
+    "courseId": "course-mandarin-1",
+    "hanzi": "预计",
+    "pinyin": "yù jì",
+    "english": "to forecast",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yuan-wang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "愿望",
+    "pinyin": "yuàn wàng",
+    "english": "desire",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zao-yi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "早已",
+    "pinyin": "zǎo yǐ",
+    "english": "for a long time; long since",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zeng-jia",
+    "courseId": "course-mandarin-1",
+    "hanzi": "增加",
+    "pinyin": "zēng jiā",
+    "english": "to raise",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chang-cheng",
+    "courseId": "course-mandarin-1",
+    "hanzi": "长城",
+    "pinyin": "Cháng chéng",
+    "english": "the Great Wall",
+    "partOfSpeech": "noun",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhe",
+    "courseId": "course-mandarin-1",
+    "hanzi": "者",
+    "pinyin": "zhě",
+    "english": "(after a verb or adjective) one who (is) ...",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zheng-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "整",
+    "pinyin": "zhěng",
+    "english": "exactly",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zheng-ti",
+    "courseId": "course-mandarin-1",
+    "hanzi": "整体",
+    "pinyin": "zhěng tǐ",
+    "english": "whole entity",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zheng-3",
+    "courseId": "course-mandarin-1",
+    "hanzi": "证",
+    "pinyin": "zhèng",
+    "english": "to admonish",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-3",
+    "courseId": "course-mandarin-1",
+    "hanzi": "支",
+    "pinyin": "Zhī",
+    "english": "surname Zhi",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-bo",
+    "courseId": "course-mandarin-1",
+    "hanzi": "直播",
+    "pinyin": "zhí bō",
+    "english": "(TV, radio) to broadcast live",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-gong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "职工",
+    "pinyin": "zhí gōng",
+    "english": "workers; staff",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-you",
+    "courseId": "course-mandarin-1",
+    "hanzi": "只有",
+    "pinyin": "zhǐ yǒu",
+    "english": "only have ...",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-jin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "至今",
+    "pinyin": "zhì jīn",
+    "english": "so far",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-ding",
+    "courseId": "course-mandarin-1",
+    "hanzi": "制定",
+    "pinyin": "zhì dìng",
+    "english": "to draw up; to formulate",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhong-bu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "中部",
+    "pinyin": "zhōng bù",
+    "english": "middle part",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhong-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "种",
+    "pinyin": "zhǒng",
+    "english": "seed",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhu-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "猪",
+    "pinyin": "zhū",
+    "english": "hog",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhu-yi-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "主意",
+    "pinyin": "zhǔ yi",
+    "english": "plan",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhua",
+    "courseId": "course-mandarin-1",
+    "hanzi": "抓",
+    "pinyin": "zhuā",
+    "english": "to grab",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -9027,47 +7170,92 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-zhuang-tai",
+    "id": "v-h3-zi-ge",
     "courseId": "course-mandarin-1",
-    "hanzi": "状态",
-    "pinyin": "zhuàng tài",
-    "english": "condition; state; state of affairs",
+    "hanzi": "资格",
+    "pinyin": "zī gé",
+    "english": "qualifications",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-zi-cong",
+    "id": "v-h3-zi-dong",
     "courseId": "course-mandarin-1",
-    "hanzi": "自从",
-    "pinyin": "zì cóng",
-    "english": "since (a time)",
+    "hanzi": "自动",
+    "pinyin": "zì dòng",
+    "english": "automatic",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-zi-jue",
+    "id": "v-h3-zi-zhu",
     "courseId": "course-mandarin-1",
-    "hanzi": "自觉",
-    "pinyin": "zì jué",
-    "english": "conscious",
+    "hanzi": "自主",
+    "pinyin": "zì zhǔ",
+    "english": "independent",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-bao-an",
+    "id": "v-h3-zu-gou",
     "courseId": "course-mandarin-1",
-    "hanzi": "保安",
-    "pinyin": "bǎo ān",
-    "english": "to ensure public security",
+    "hanzi": "足够",
+    "pinyin": "zú gòu",
+    "english": "enough",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-bao-dao",
+    "id": "v-h3-zuo-pin",
     "courseId": "course-mandarin-1",
-    "hanzi": "报到",
-    "pinyin": "bào dào",
-    "english": "to report for duty",
+    "hanzi": "作品",
+    "pinyin": "zuò pǐn",
+    "english": "work (of art)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-an",
+    "courseId": "course-mandarin-1",
+    "hanzi": "按",
+    "pinyin": "àn",
+    "english": "to press",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bai-cai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "白菜",
+    "pinyin": "bái cài",
+    "english": "Chinese cabbage",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ban-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "板",
+    "pinyin": "bǎn",
+    "english": "board",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bao-chi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "保持",
+    "pinyin": "bǎo chí",
+    "english": "to keep",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bao-xian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "保险",
+    "pinyin": "bǎo xiǎn",
+    "english": "insurance",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -9081,11 +7269,83 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-bei-bu",
+    "id": "v-h3-bei",
     "courseId": "course-mandarin-1",
-    "hanzi": "北部",
-    "pinyin": "běi bù",
-    "english": "northern part",
+    "hanzi": "被",
+    "pinyin": "bèi",
+    "english": "quilt",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ben-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "本事",
+    "pinyin": "běn shì",
+    "english": "source material",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bi-ran",
+    "courseId": "course-mandarin-1",
+    "hanzi": "必然",
+    "pinyin": "bì rán",
+    "english": "inevitable",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-biao-ti",
+    "courseId": "course-mandarin-1",
+    "hanzi": "标题",
+    "pinyin": "biāo tí",
+    "english": "title",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-biao-mian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "表面",
+    "pinyin": "biǎo miàn",
+    "english": "surface",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bing",
+    "courseId": "course-mandarin-1",
+    "hanzi": "并",
+    "pinyin": "bìng",
+    "english": "and",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bu-4",
+    "courseId": "course-mandarin-1",
+    "hanzi": "补",
+    "pinyin": "bǔ",
+    "english": "to repair",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bu-de-bu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "不得不",
+    "pinyin": "bù dé bù",
+    "english": "have no choice or option but to",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-bu-lun",
+    "courseId": "course-mandarin-1",
+    "hanzi": "不论",
+    "pinyin": "bù lùn",
+    "english": "whatever",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -9099,20 +7359,209 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-bu-zhang",
+    "id": "v-h3-cai-yong",
     "courseId": "course-mandarin-1",
-    "hanzi": "部长",
-    "pinyin": "bù zhǎng",
-    "english": "head of a (government etc) department",
+    "hanzi": "采用",
+    "pinyin": "cǎi yòng",
+    "english": "to adopt",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-dui-yuan",
+    "id": "v-h3-han",
     "courseId": "course-mandarin-1",
-    "hanzi": "队员",
-    "pinyin": "duì yuán",
-    "english": "team member",
+    "hanzi": "厂",
+    "pinyin": "hǎn",
+    "english": "\"cliff\" radical in Chinese characters (Kangxi radical 27), occurring in 原, 历, 压 etc",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chao-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "朝",
+    "pinyin": "Cháo",
+    "english": "abbr. for 朝鲜 Korea",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chen-yi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "衬衣",
+    "pinyin": "chèn yī",
+    "english": "shirt",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cheng-jiu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "成就",
+    "pinyin": "chéng jiù",
+    "english": "accomplishment",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cheng-zhang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "成长",
+    "pinyin": "chéng zhǎng",
+    "english": "to mature",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chi-xu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "持续",
+    "pinyin": "chí xù",
+    "english": "to continue",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chu-ji",
+    "courseId": "course-mandarin-1",
+    "hanzi": "初级",
+    "pinyin": "chū jí",
+    "english": "junior",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chu-li",
+    "courseId": "course-mandarin-1",
+    "hanzi": "处理",
+    "pinyin": "chǔ lǐ",
+    "english": "to handle; to deal with",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chuan-shuo",
+    "courseId": "course-mandarin-1",
+    "hanzi": "传说",
+    "pinyin": "chuán shuō",
+    "english": "legend; folk tale",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chuang-zuo",
+    "courseId": "course-mandarin-1",
+    "hanzi": "创作",
+    "pinyin": "chuàng zuò",
+    "english": "to create",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-cun-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "村",
+    "pinyin": "cūn",
+    "english": "village",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-da-dao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "达到",
+    "pinyin": "dá dào",
+    "english": "to reach; to achieve; to attain",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-da-gai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "大概",
+    "pinyin": "dà gài",
+    "english": "roughly",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dai-biao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "代表",
+    "pinyin": "dài biǎo",
+    "english": "representative",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dan-yuan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "单元",
+    "pinyin": "dān yuán",
+    "english": "unit (forming an entity)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dang-zhong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "当中",
+    "pinyin": "dāng zhōng",
+    "english": "among",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dao-di",
+    "courseId": "course-mandarin-1",
+    "hanzi": "到底",
+    "pinyin": "dào dǐ",
+    "english": "finally",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-di-xia",
+    "courseId": "course-mandarin-1",
+    "hanzi": "底下",
+    "pinyin": "dǐ xia",
+    "english": "the location below sth",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dian-zi-you-jian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "电子邮件",
+    "pinyin": "diàn zǐ yóu jiàn",
+    "english": "email",
+    "partOfSpeech": "noun",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ding",
+    "courseId": "course-mandarin-1",
+    "hanzi": "订",
+    "pinyin": "dìng",
+    "english": "to agree",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-dong-ren",
+    "courseId": "course-mandarin-1",
+    "hanzi": "动人",
+    "pinyin": "dòng rén",
+    "english": "touching",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-duan-qi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "短期",
+    "pinyin": "duǎn qī",
+    "english": "short term",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -9126,20 +7575,119 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-fa-sheng",
+    "id": "v-h3-fa-biao",
     "courseId": "course-mandarin-1",
-    "hanzi": "发生",
-    "pinyin": "fā shēng",
-    "english": "to happen; to occur; to take place; to break out",
+    "hanzi": "发表",
+    "pinyin": "fā biǎo",
+    "english": "to issue",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-fen-bie",
+    "id": "v-h3-fa-ming",
     "courseId": "course-mandarin-1",
-    "hanzi": "分别",
-    "pinyin": "fēn bié",
-    "english": "to part; to leave each other",
+    "hanzi": "发明",
+    "pinyin": "fā míng",
+    "english": "to invent",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fa-zhan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "发展",
+    "pinyin": "fā zhǎn",
+    "english": "development",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fan-zheng",
+    "courseId": "course-mandarin-1",
+    "hanzi": "反正",
+    "pinyin": "fǎn zhèng",
+    "english": "anyway",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fang-zhi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "防止",
+    "pinyin": "fáng zhǐ",
+    "english": "to prevent",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fang-wen",
+    "courseId": "course-mandarin-1",
+    "hanzi": "访问",
+    "pinyin": "fǎng wèn",
+    "english": "to visit",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fei-yong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "费用",
+    "pinyin": "fèi yòng",
+    "english": "cost",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-feng-fu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "丰富",
+    "pinyin": "fēng fù",
+    "english": "to enrich",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fu-qin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "父亲",
+    "pinyin": "fù qīn",
+    "english": "father",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-fu-za",
+    "courseId": "course-mandarin-1",
+    "hanzi": "复杂",
+    "pinyin": "fù zá",
+    "english": "complicated; complex",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gai-nian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "概念",
+    "pinyin": "gài niàn",
+    "english": "concept",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gan-kuai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "赶快",
+    "pinyin": "gǎn kuài",
+    "english": "quickly; at once",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gan-shou",
+    "courseId": "course-mandarin-1",
+    "hanzi": "感受",
+    "pinyin": "gǎn shòu",
+    "english": "to sense",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -9153,11 +7701,38 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ge-di",
+    "id": "v-h3-ge-ren",
     "courseId": "course-mandarin-1",
-    "hanzi": "各地",
-    "pinyin": "gè dì",
-    "english": "in all parts of (a country)",
+    "hanzi": "个人",
+    "pinyin": "gè rén",
+    "english": "individual",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ge-wei",
+    "courseId": "course-mandarin-1",
+    "hanzi": "各位",
+    "pinyin": "gè wèi",
+    "english": "everybody",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-geng-jia",
+    "courseId": "course-mandarin-1",
+    "hanzi": "更加",
+    "pinyin": "gèng jiā",
+    "english": "more (than sth else)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gong-ju",
+    "courseId": "course-mandarin-1",
+    "hanzi": "工具",
+    "pinyin": "gōng jù",
+    "english": "tool",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -9171,20 +7746,92 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-gong-kai",
+    "id": "v-h3-gong-fu-2",
     "courseId": "course-mandarin-1",
-    "hanzi": "公开",
-    "pinyin": "gōng kāi",
-    "english": "open; overt; public",
+    "hanzi": "功夫",
+    "pinyin": "gōng fu",
+    "english": "skill",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-hai-guan",
+    "id": "v-h3-gong-you",
     "courseId": "course-mandarin-1",
-    "hanzi": "海关",
-    "pinyin": "hǎi guān",
-    "english": "customs (i.e. border crossing inspection)",
+    "hanzi": "共有",
+    "pinyin": "gòng yǒu",
+    "english": "to have altogether",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-gu-xiang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "故乡",
+    "pinyin": "gù xiāng",
+    "english": "home",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-guan-cha",
+    "courseId": "course-mandarin-1",
+    "hanzi": "观察",
+    "pinyin": "guān chá",
+    "english": "to observe; to watch; to survey",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-guan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "管",
+    "pinyin": "guǎn",
+    "english": "variant of 管",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-guang-bo",
+    "courseId": "course-mandarin-1",
+    "hanzi": "广播",
+    "pinyin": "guǎng bō",
+    "english": "broadcast",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-guo-nei",
+    "courseId": "course-mandarin-1",
+    "hanzi": "国内",
+    "pinyin": "guó nèi",
+    "english": "domestic",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-guo-cheng",
+    "courseId": "course-mandarin-1",
+    "hanzi": "过程",
+    "pinyin": "guò chéng",
+    "english": "course of events",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-hao-hao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "好好",
+    "pinyin": "hǎo hǎo",
+    "english": "well",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-he-ge",
+    "courseId": "course-mandarin-1",
+    "hanzi": "合格",
+    "pinyin": "hé gé",
+    "english": "to meet the standard required",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -9198,12 +7845,66 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-hong-jiu",
+    "id": "v-h3-hou-nian",
     "courseId": "course-mandarin-1",
-    "hanzi": "红酒",
-    "pinyin": "hóng jiǔ",
-    "english": "red wine",
-    "partOfSpeech": "noun",
+    "hanzi": "后年",
+    "pinyin": "hòu nián",
+    "english": "the year after next",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-hua",
+    "courseId": "course-mandarin-1",
+    "hanzi": "化",
+    "pinyin": "huā",
+    "english": "variant of 花",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-huan-le",
+    "courseId": "course-mandarin-1",
+    "hanzi": "欢乐",
+    "pinyin": "huān lè",
+    "english": "gaiety",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-hui-yi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "会议",
+    "pinyin": "huì yì",
+    "english": "meeting",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ji-qi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "机器",
+    "pinyin": "jī qì",
+    "english": "machine",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ji-ben-shang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "基本上",
+    "pinyin": "jī běn shang",
+    "english": "basically",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ji-ti",
+    "courseId": "course-mandarin-1",
+    "hanzi": "集体",
+    "pinyin": "jí tǐ",
+    "english": "collective (decision)",
+    "partOfSpeech": "word",
     "difficulty": 3
   },
   {
@@ -9216,29 +7917,326 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-jiao-cai",
+    "id": "v-h3-ji-xu",
     "courseId": "course-mandarin-1",
-    "hanzi": "教材",
-    "pinyin": "jiào cái",
-    "english": "teaching material",
+    "hanzi": "继续",
+    "pinyin": "jì xù",
+    "english": "to continue",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-ju-shuo",
+    "id": "v-h3-jia-ju",
     "courseId": "course-mandarin-1",
-    "hanzi": "据说",
-    "pinyin": "jù shuō",
-    "english": "it is said that; reportedly",
+    "hanzi": "家具",
+    "pinyin": "jiā jù",
+    "english": "furniture",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-lu-cha",
+    "id": "v-h3-jia-qian",
     "courseId": "course-mandarin-1",
-    "hanzi": "绿茶",
-    "pinyin": "lǜ chá",
-    "english": "green tea",
+    "hanzi": "价钱",
+    "pinyin": "jià qian",
+    "english": "price",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jian-jue",
+    "courseId": "course-mandarin-1",
+    "hanzi": "坚决",
+    "pinyin": "jiān jué",
+    "english": "firm; resolute; determined",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "建",
+    "pinyin": "jiàn",
+    "english": "to establish",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jian-yi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "建议",
+    "pinyin": "jiàn yì",
+    "english": "to propose; to suggest; to recommend",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jiao-jing",
+    "courseId": "course-mandarin-1",
+    "hanzi": "交警",
+    "pinyin": "jiāo jǐng",
+    "english": "traffic police (abbr. for 察)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jiao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "较",
+    "pinyin": "jiào",
+    "english": "to compare",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jie-jin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "接近",
+    "pinyin": "jiē jìn",
+    "english": "to approach",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jie-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "结实",
+    "pinyin": "jiē shí",
+    "english": "to bear fruit",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jin-3",
+    "courseId": "course-mandarin-1",
+    "hanzi": "金",
+    "pinyin": "Jīn",
+    "english": "surname Jin",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jin-liang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "尽量",
+    "pinyin": "jǐn liàng",
+    "english": "as much as possible",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jin-qi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "近期",
+    "pinyin": "jìn qī",
+    "english": "near in time",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jing-ju",
+    "courseId": "course-mandarin-1",
+    "hanzi": "京剧",
+    "pinyin": "Jīng jù",
+    "english": "Beijing opera",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jing-ying",
+    "courseId": "course-mandarin-1",
+    "hanzi": "经营",
+    "pinyin": "jīng yíng",
+    "english": "to engage in (business etc); to run; to operate",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jing-cha",
+    "courseId": "course-mandarin-1",
+    "hanzi": "警察",
+    "pinyin": "jǐng chá",
+    "english": "police; police officer",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jiu-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "救",
+    "pinyin": "jiù",
+    "english": "variant of 救",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ju-ti",
+    "courseId": "course-mandarin-1",
+    "hanzi": "具体",
+    "pinyin": "jù tǐ",
+    "english": "concrete",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-jue-ding",
+    "courseId": "course-mandarin-1",
+    "hanzi": "决定",
+    "pinyin": "jué dìng",
+    "english": "to decide (to do something)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-kai-ye",
+    "courseId": "course-mandarin-1",
+    "hanzi": "开业",
+    "pinyin": "kāi yè",
+    "english": "to open a business",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-kao-yan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "考验",
+    "pinyin": "kǎo yàn",
+    "english": "to test",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ke-fu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "克服",
+    "pinyin": "kè fú",
+    "english": "(try to) overcome (hardships etc)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-kong-tiao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "空调",
+    "pinyin": "kōng tiáo",
+    "english": "air conditioning",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-kuai-su",
+    "courseId": "course-mandarin-1",
+    "hanzi": "快速",
+    "pinyin": "kuài sù",
+    "english": "fast; high-speed; rapid",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-lao-bai-xing",
+    "courseId": "course-mandarin-1",
+    "hanzi": "老百姓",
+    "pinyin": "lǎo bǎi xìng",
+    "english": "ordinary people",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-le",
+    "courseId": "course-mandarin-1",
+    "hanzi": "乐",
+    "pinyin": "Lè",
+    "english": "surname Le",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-lei-si",
+    "courseId": "course-mandarin-1",
+    "hanzi": "类似",
+    "pinyin": "lèi sì",
+    "english": "similar",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-li-jie",
+    "courseId": "course-mandarin-1",
+    "hanzi": "理解",
+    "pinyin": "lǐ jiě",
+    "english": "to comprehend; to understand",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-li-liang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "力量",
+    "pinyin": "lì liang",
+    "english": "power",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-lian-mang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "连忙",
+    "pinyin": "lián máng",
+    "english": "promptly",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-lian-he-guo",
+    "courseId": "course-mandarin-1",
+    "hanzi": "联合国",
+    "pinyin": "Lián hé guó",
+    "english": "United Nations",
+    "partOfSpeech": "noun",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ling-dao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "领导",
+    "pinyin": "lǐng dǎo",
+    "english": "lead",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-liu-xue",
+    "courseId": "course-mandarin-1",
+    "hanzi": "留学",
+    "pinyin": "liú xué",
+    "english": "to study abroad",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-lu-xian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "路线",
+    "pinyin": "lù xiàn",
+    "english": "itinerary",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-luan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "乱",
+    "pinyin": "luàn",
+    "english": "in confusion or disorder",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-man-zu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "满足",
+    "pinyin": "mǎn zú",
+    "english": "to satisfy",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -9252,29 +8250,47 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-mei-shu",
+    "id": "v-h3-mei-li",
     "courseId": "course-mandarin-1",
-    "hanzi": "美术",
-    "pinyin": "měi shù",
-    "english": "art",
+    "hanzi": "美丽",
+    "pinyin": "měi lì",
+    "english": "beautiful",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-nai-cha",
+    "id": "v-h3-mi",
     "courseId": "course-mandarin-1",
-    "hanzi": "奶茶",
-    "pinyin": "nǎi chá",
-    "english": "milk tea",
+    "hanzi": "迷",
+    "pinyin": "mí",
+    "english": "to bewilder",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-nan-bu",
+    "id": "v-h3-min-zu",
     "courseId": "course-mandarin-1",
-    "hanzi": "南部",
-    "pinyin": "nán bù",
-    "english": "southern part",
+    "hanzi": "民族",
+    "pinyin": "mín zú",
+    "english": "nationality; ethnic group",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-mou",
+    "courseId": "course-mandarin-1",
+    "hanzi": "某",
+    "pinyin": "mǒu",
+    "english": "some",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-mu-qian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "目前",
+    "pinyin": "mù qián",
+    "english": "at the present time",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -9297,11 +8313,29 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-nong-ye",
+    "id": "v-h3-nian-dai",
     "courseId": "course-mandarin-1",
-    "hanzi": "农业",
-    "pinyin": "nóng yè",
-    "english": "agriculture",
+    "hanzi": "年代",
+    "pinyin": "nián dài",
+    "english": "a decade of a century (e.g. the Sixties)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-niu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "牛",
+    "pinyin": "Niú",
+    "english": "surname Niu",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-nu-zi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "女子",
+    "pinyin": "nǚ zǐ",
+    "english": "woman",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -9315,47 +8349,137 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-pei",
+    "id": "v-h3-pao-bu",
     "courseId": "course-mandarin-1",
-    "hanzi": "配",
-    "pinyin": "pèi",
-    "english": "to join",
+    "hanzi": "跑步",
+    "pinyin": "pǎo bù",
+    "english": "to run",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-pei-he",
+    "id": "v-h3-pi-zhun",
     "courseId": "course-mandarin-1",
-    "hanzi": "配合",
-    "pinyin": "pèi hé",
-    "english": "matching",
+    "hanzi": "批准",
+    "pinyin": "pī zhǔn",
+    "english": "to approve; to ratify",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-qin-ren",
+    "id": "v-h3-piao-jia",
     "courseId": "course-mandarin-1",
-    "hanzi": "亲人",
-    "pinyin": "qīn rén",
-    "english": "one's close relatives",
+    "hanzi": "票价",
+    "pinyin": "piào jià",
+    "english": "ticket price; fare; admission fee",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-qing-zhu",
+    "id": "v-h3-po-huai",
     "courseId": "course-mandarin-1",
-    "hanzi": "庆祝",
-    "pinyin": "qìng zhù",
-    "english": "to celebrate",
+    "hanzi": "破坏",
+    "pinyin": "pò huài",
+    "english": "destruction",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-ren-gong",
+    "id": "v-h3-qi-2",
     "courseId": "course-mandarin-1",
-    "hanzi": "人工",
-    "pinyin": "rén gōng",
-    "english": "artificial",
+    "hanzi": "齐",
+    "pinyin": "Qí",
+    "english": "(name of states and dynasties at several different periods)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qi-hou",
+    "courseId": "course-mandarin-1",
+    "hanzi": "气候",
+    "pinyin": "qì hòu",
+    "english": "(meteorology) climate",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qiang-diao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "强调",
+    "pinyin": "qiáng diào",
+    "english": "to emphasize (a statement)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "亲",
+    "pinyin": "qīn",
+    "english": "parent",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qing-gan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "情感",
+    "pinyin": "qíng gǎn",
+    "english": "feeling",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qiu-mi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "球迷",
+    "pinyin": "qiú mí",
+    "english": "fan (ball sports)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-qu-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "去世",
+    "pinyin": "qù shì",
+    "english": "to pass away",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-que",
+    "courseId": "course-mandarin-1",
+    "hanzi": "缺",
+    "pinyin": "quē",
+    "english": "deficiency",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-que-ding",
+    "courseId": "course-mandarin-1",
+    "hanzi": "确定",
+    "pinyin": "què dìng",
+    "english": "definite",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-re-ai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "热爱",
+    "pinyin": "rè ài",
+    "english": "to love ardently",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ren-lei",
+    "courseId": "course-mandarin-1",
+    "hanzi": "人类",
+    "pinyin": "rén lèi",
+    "english": "humanity",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -9369,38 +8493,326 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-ren-wu",
+    "id": "v-h3-ren-ke",
     "courseId": "course-mandarin-1",
-    "hanzi": "任务",
-    "pinyin": "rèn wu",
-    "english": "mission; assignment; task; duty; role",
+    "hanzi": "认可",
+    "pinyin": "rèn kě",
+    "english": "to approve",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-shi-qu",
+    "id": "v-h3-reng",
     "courseId": "course-mandarin-1",
-    "hanzi": "失去",
-    "pinyin": "shī qù",
-    "english": "to lose",
+    "hanzi": "仍",
+    "pinyin": "réng",
+    "english": "still; yet",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ru-he",
+    "courseId": "course-mandarin-1",
+    "hanzi": "如何",
+    "pinyin": "rú hé",
+    "english": "how",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "伤",
+    "pinyin": "shāng",
+    "english": "to injure",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shang-lai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "上来",
+    "pinyin": "shàng lái",
+    "english": "to come up",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shang-yi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "上衣",
+    "pinyin": "shàng yī",
+    "english": "jacket",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-she-hui",
+    "courseId": "course-mandarin-1",
+    "hanzi": "社会",
+    "pinyin": "shè huì",
+    "english": "society",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shen-ru",
+    "courseId": "course-mandarin-1",
+    "hanzi": "深入",
+    "pinyin": "shēn rù",
+    "english": "to penetrate deeply",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-sheng-dong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "生动",
+    "pinyin": "shēng dòng",
+    "english": "vivid",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-sheng-ming-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "声明",
+    "pinyin": "shēng míng",
+    "english": "to state",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-tou",
+    "courseId": "course-mandarin-1",
+    "hanzi": "石头",
+    "pinyin": "shí tou",
+    "english": "stone",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-ke",
+    "courseId": "course-mandarin-1",
+    "hanzi": "时刻",
+    "pinyin": "shí kè",
+    "english": "time",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-yan-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "实验",
+    "pinyin": "shí yàn",
+    "english": "experiment",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-zhong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "始终",
+    "pinyin": "shǐ zhōng",
+    "english": "from beginning to end",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-chang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "市场",
+    "pinyin": "shì chǎng",
+    "english": "marketplace",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-shi-shang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "事实上",
+    "pinyin": "shì shí shàng",
+    "english": "in fact",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shi-3",
+    "courseId": "course-mandarin-1",
+    "hanzi": "室",
+    "pinyin": "Shì",
+    "english": "surname Shi",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shou-fei",
+    "courseId": "course-mandarin-1",
+    "hanzi": "收费",
+    "pinyin": "shōu fèi",
+    "english": "to charge a fee",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shou-xu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "手续",
+    "pinyin": "shǒu xù",
+    "english": "procedure",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shou",
+    "courseId": "course-mandarin-1",
+    "hanzi": "受",
+    "pinyin": "shòu",
+    "english": "to receive",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-shu-ru",
+    "courseId": "course-mandarin-1",
+    "hanzi": "输入",
+    "pinyin": "shū rù",
+    "english": "to import",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
     "id": "v-h3-shu-3",
     "courseId": "course-mandarin-1",
-    "hanzi": "输",
-    "pinyin": "shū",
-    "english": "to lose; to be beaten",
+    "hanzi": "束",
+    "pinyin": "Shù",
+    "english": "surname Shu",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-tu-hua",
+    "id": "v-h3-si-xiang",
     "courseId": "course-mandarin-1",
-    "hanzi": "图画",
-    "pinyin": "tú huà",
-    "english": "drawing",
+    "hanzi": "思想",
+    "pinyin": "sī xiǎng",
+    "english": "thought",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-suo",
+    "courseId": "course-mandarin-1",
+    "hanzi": "所",
+    "pinyin": "suǒ",
+    "english": "actually",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tan-hua",
+    "courseId": "course-mandarin-1",
+    "hanzi": "谈话",
+    "pinyin": "tán huà",
+    "english": "to talk (with sb)",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-te-se",
+    "courseId": "course-mandarin-1",
+    "hanzi": "特色",
+    "pinyin": "tè sè",
+    "english": "characteristic",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ti-hui",
+    "courseId": "course-mandarin-1",
+    "hanzi": "体会",
+    "pinyin": "tǐ huì",
+    "english": "to know from experience",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "甜",
+    "pinyin": "tián",
+    "english": "sweet",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tiao-yuan",
+    "courseId": "course-mandarin-1",
+    "hanzi": "跳远",
+    "pinyin": "tiào yuǎn",
+    "english": "long jump (athletics)",
+    "partOfSpeech": "verb",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ting-zhong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "听众",
+    "pinyin": "tīng zhòng",
+    "english": "audience",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tong-yi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "同意",
+    "pinyin": "tóng yì",
+    "english": "to agree",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tu-chu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "突出",
+    "pinyin": "tū chū",
+    "english": "prominent",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tu-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "土",
+    "pinyin": "Tǔ",
+    "english": "Tu (ethnic group)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tui-dong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "推动",
+    "pinyin": "tuī dòng",
+    "english": "to push (e.g. for acceptance of a plan); to promote; to give impetus to",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-tui",
+    "courseId": "course-mandarin-1",
+    "hanzi": "退",
+    "pinyin": "tuì",
+    "english": "to retreat; to withdraw",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-wan-zheng",
+    "courseId": "course-mandarin-1",
+    "hanzi": "完整",
+    "pinyin": "wán zhěng",
+    "english": "complete",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -9414,29 +8826,92 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-wen-hua",
+    "id": "v-h3-wei-sheng-jian",
     "courseId": "course-mandarin-1",
-    "hanzi": "文化",
-    "pinyin": "wén huà",
-    "english": "culture",
+    "hanzi": "卫生间",
+    "pinyin": "wèi shēng jiān",
+    "english": "bathroom",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-wen-zhang",
+    "id": "v-h3-wen-jian",
     "courseId": "course-mandarin-1",
-    "hanzi": "文章",
-    "pinyin": "wén zhāng",
-    "english": "article",
+    "hanzi": "文件",
+    "pinyin": "wén jiàn",
+    "english": "document",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-xi-bu",
+    "id": "v-h3-wen-zi",
     "courseId": "course-mandarin-1",
-    "hanzi": "西部",
-    "pinyin": "xī bù",
-    "english": "western part",
+    "hanzi": "文字",
+    "pinyin": "wén zì",
+    "english": "character",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-wu-shu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "武术",
+    "pinyin": "wǔ shù",
+    "english": "military skill or technique (in former times)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "系",
+    "pinyin": "xì",
+    "english": "to connect",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xian-jin-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "先进",
+    "pinyin": "xiān jìn",
+    "english": "advanced (technology)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xian-chang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "现场",
+    "pinyin": "xiàn chǎng",
+    "english": "the scene (of a crime, accident etc)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xian-shi-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "现实",
+    "pinyin": "xiàn shí",
+    "english": "reality",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xiang-dang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "相当",
+    "pinyin": "xiāng dāng",
+    "english": "equivalent to",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xiang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "香",
+    "pinyin": "xiāng",
+    "english": "fragrant",
     "partOfSpeech": "word",
     "difficulty": 3
   },
@@ -9450,47 +8925,398 @@ export const hsk3VocabItems: VocabItem[] = [
     "difficulty": 3
   },
   {
-    "id": "v-h3-xin",
+    "id": "v-h3-xin-feng",
     "courseId": "course-mandarin-1",
-    "hanzi": "心",
-    "pinyin": "xīn",
-    "english": "heart",
+    "hanzi": "信封",
+    "pinyin": "xìn fēng",
+    "english": "envelope",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-yi-shu",
+    "id": "v-h3-xing-shi",
     "courseId": "course-mandarin-1",
-    "hanzi": "艺术",
-    "pinyin": "yì shù",
-    "english": "art",
+    "hanzi": "形式",
+    "pinyin": "xíng shì",
+    "english": "outer appearance",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-zhong-bu",
+    "id": "v-h3-xing-yun",
     "courseId": "course-mandarin-1",
-    "hanzi": "中部",
-    "pinyin": "zhōng bù",
-    "english": "middle part",
+    "hanzi": "幸运",
+    "pinyin": "xìng yùn",
+    "english": "fortunate",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-zhun",
+    "id": "v-h3-xiu",
     "courseId": "course-mandarin-1",
-    "hanzi": "准",
-    "pinyin": "zhǔn",
-    "english": "to allow",
+    "hanzi": "修",
+    "pinyin": "Xiū",
+    "english": "surname Xiu",
     "partOfSpeech": "word",
     "difficulty": 3
   },
   {
-    "id": "v-h3-zuo-pin",
+    "id": "v-h3-xuan-bu",
     "courseId": "course-mandarin-1",
-    "hanzi": "作品",
-    "pinyin": "zuò pǐn",
-    "english": "work (of art)",
+    "hanzi": "宣布",
+    "pinyin": "xuān bù",
+    "english": "to declare",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-xue",
+    "courseId": "course-mandarin-1",
+    "hanzi": "血",
+    "pinyin": "xuè",
+    "english": "blood",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yan-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "烟",
+    "pinyin": "yān",
+    "english": "cigarette or pipe tobacco",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yan-chang-hui",
+    "courseId": "course-mandarin-1",
+    "hanzi": "演唱会",
+    "pinyin": "yǎn chàng huì",
+    "english": "vocal recital or concert",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yang-guang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "阳光",
+    "pinyin": "yáng guāng",
+    "english": "sunshine",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yi-jia",
+    "courseId": "course-mandarin-1",
+    "hanzi": "衣架",
+    "pinyin": "yī jià",
+    "english": "clothes hanger",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yi-wai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "意外",
+    "pinyin": "yì wài",
+    "english": "unexpected",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yin-pai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "银牌",
+    "pinyin": "yín pái",
+    "english": "silver medal",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-ying-jie",
+    "courseId": "course-mandarin-1",
+    "hanzi": "迎接",
+    "pinyin": "yíng jiē",
+    "english": "to welcome; to greet",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-you-dian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "优点",
+    "pinyin": "yōu diǎn",
+    "english": "merit",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-you-jian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "邮件",
+    "pinyin": "yóu jiàn",
+    "english": "mail",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-you-xi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "游戏",
+    "pinyin": "yóu xì",
+    "english": "game",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-you-xiao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "有效",
+    "pinyin": "yǒu xiào",
+    "english": "effective",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yu-xi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "预习",
+    "pinyin": "yù xí",
+    "english": "to prepare a lesson",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-yao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "约",
+    "pinyin": "yāo",
+    "english": "to weigh in a balance or on a scale",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "造",
+    "pinyin": "zào",
+    "english": "to make",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zeng-zhang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "增长",
+    "pinyin": "zēng zhǎng",
+    "english": "to grow",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-chang-chu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "长处",
+    "pinyin": "cháng chù",
+    "english": "good aspects",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhen-shi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "真实",
+    "pinyin": "zhēn shí",
+    "english": "true; real",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zheng-ge",
+    "courseId": "course-mandarin-1",
+    "hanzi": "整个",
+    "pinyin": "zhěng gè",
+    "english": "whole",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zheng-tian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "整天",
+    "pinyin": "zhěng tiān",
+    "english": "all day long",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zheng-jian",
+    "courseId": "course-mandarin-1",
+    "hanzi": "证件",
+    "pinyin": "zhèng jiàn",
+    "english": "certificate; papers; credentials; document; ID",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-chi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "支持",
+    "pinyin": "zhī chí",
+    "english": "to be in favor of",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-dao-2",
+    "courseId": "course-mandarin-1",
+    "hanzi": "直到",
+    "pinyin": "zhí dào",
+    "english": "until",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-ye",
+    "courseId": "course-mandarin-1",
+    "hanzi": "职业",
+    "pinyin": "zhí yè",
+    "english": "occupation; profession; vocation",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-4",
+    "courseId": "course-mandarin-1",
+    "hanzi": "指",
+    "pinyin": "zhǐ",
+    "english": "finger",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-shao",
+    "courseId": "course-mandarin-1",
+    "hanzi": "至少",
+    "pinyin": "zhì shǎo",
+    "english": "at least",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhi-du",
+    "courseId": "course-mandarin-1",
+    "hanzi": "制度",
+    "pinyin": "zhì dù",
+    "english": "system (e.g. political, adminstrative etc)",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhong-hua-min-zu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "中华民族",
+    "pinyin": "Zhōng huá mín zú",
+    "english": "the Chinese nation",
+    "partOfSpeech": "noun",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhong-zi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "种子",
+    "pinyin": "zhǒng zi",
+    "english": "seed",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhu-chi",
+    "courseId": "course-mandarin-1",
+    "hanzi": "主持",
+    "pinyin": "zhǔ chí",
+    "english": "to take charge of",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhu-zhang",
+    "courseId": "course-mandarin-1",
+    "hanzi": "主张",
+    "pinyin": "zhǔ zhāng",
+    "english": "to advocate",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhua-zhu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "抓住",
+    "pinyin": "zhuā zhù",
+    "english": "to grab hold of; to capture",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhuan-ye",
+    "courseId": "course-mandarin-1",
+    "hanzi": "专业",
+    "pinyin": "zhuān yè",
+    "english": "specialty",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zhuang-tai",
+    "courseId": "course-mandarin-1",
+    "hanzi": "状态",
+    "pinyin": "zhuàng tài",
+    "english": "condition; state; state of affairs",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zi-jin",
+    "courseId": "course-mandarin-1",
+    "hanzi": "资金",
+    "pinyin": "zī jīn",
+    "english": "funds; capital",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zi-jue",
+    "courseId": "course-mandarin-1",
+    "hanzi": "自觉",
+    "pinyin": "zì jué",
+    "english": "conscious",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zong",
+    "courseId": "course-mandarin-1",
+    "hanzi": "总",
+    "pinyin": "zǒng",
+    "english": "general; overall",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zu-qiu",
+    "courseId": "course-mandarin-1",
+    "hanzi": "足球",
+    "pinyin": "zú qiú",
+    "english": "soccer ball",
+    "partOfSpeech": "word",
+    "difficulty": 3
+  },
+  {
+    "id": "v-h3-zuo-zhe",
+    "courseId": "course-mandarin-1",
+    "hanzi": "作者",
+    "pinyin": "zuò zhě",
+    "english": "author; writer",
     "partOfSpeech": "word",
     "difficulty": 3
   }
@@ -9508,53 +9334,13 @@ export const hsk3Sentences: Sentence[] = [
   {
     "id": "s-h3-132",
     "courseId": "course-mandarin-1",
-    "hanzi": "这是安装。",
-    "pinyin": "Zhè shì ān zhuāng.",
-    "english": "This is to install.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-133",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是按。",
-    "pinyin": "Zhè shì àn.",
-    "english": "This is to press.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-134",
-    "courseId": "course-mandarin-1",
     "hanzi": "这是按照。",
     "pinyin": "Zhè shì àn zhào.",
     "english": "This is according to.",
     "difficulty": 3
   },
   {
-    "id": "s-h3-135",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是把。",
-    "pinyin": "Zhè shì bǎ.",
-    "english": "This is to hold; to grasp.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-136",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是把握。",
-    "pinyin": "Zhè shì bǎ wò.",
-    "english": "This is to grasp (also fig.).",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-137",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是白菜。",
-    "pinyin": "Zhè shì bái cài.",
-    "english": "This is Chinese cabbage.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-138",
+    "id": "s-h3-133",
     "courseId": "course-mandarin-1",
     "hanzi": "这是班级。",
     "pinyin": "Zhè shì bān jí.",
@@ -9562,63 +9348,23 @@ export const hsk3Sentences: Sentence[] = [
     "difficulty": 3
   },
   {
-    "id": "s-h3-139",
+    "id": "s-h3-134",
     "courseId": "course-mandarin-1",
-    "hanzi": "这是搬。",
-    "pinyin": "Zhè shì bān.",
-    "english": "This is to move (i.e. relocate oneself).",
+    "hanzi": "这是办理。",
+    "pinyin": "Zhè shì bàn lǐ.",
+    "english": "This is to handle; to transact; to conduct.",
     "difficulty": 3
   },
   {
-    "id": "s-h3-140",
+    "id": "s-h3-135",
     "courseId": "course-mandarin-1",
-    "hanzi": "这是搬家。",
-    "pinyin": "Zhè shì bān jiā.",
-    "english": "This is to move house; to relocate.",
+    "hanzi": "这是保存。",
+    "pinyin": "Zhè shì bǎo cún.",
+    "english": "This is to conserve.",
     "difficulty": 3
   },
   {
-    "id": "s-h3-141",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是板。",
-    "pinyin": "Zhè shì bǎn.",
-    "english": "This is board.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-142",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是保。",
-    "pinyin": "Zhè shì Bǎo.",
-    "english": "This is Bulgaria.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-143",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是保持。",
-    "pinyin": "Zhè shì bǎo chí.",
-    "english": "This is to keep.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-144",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是保留。",
-    "pinyin": "Zhè shì bǎo liú.",
-    "english": "This is to keep.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-145",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是保险。",
-    "pinyin": "Zhè shì bǎo xiǎn.",
-    "english": "This is insurance.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-146",
+    "id": "s-h3-136",
     "courseId": "course-mandarin-1",
     "hanzi": "这是保证。",
     "pinyin": "Zhè shì bǎo zhèng.",
@@ -9626,15 +9372,7 @@ export const hsk3Sentences: Sentence[] = [
     "difficulty": 3
   },
   {
-    "id": "s-h3-147",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是报。",
-    "pinyin": "Zhè shì bào.",
-    "english": "This is to announce.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-148",
+    "id": "s-h3-137",
     "courseId": "course-mandarin-1",
     "hanzi": "这是报告。",
     "pinyin": "Zhè shì bào gào.",
@@ -9642,23 +9380,7 @@ export const hsk3Sentences: Sentence[] = [
     "difficulty": 3
   },
   {
-    "id": "s-h3-149",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是背后。",
-    "pinyin": "Zhè shì bèi hòu.",
-    "english": "This is behind.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-150",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是被。",
-    "pinyin": "Zhè shì bèi.",
-    "english": "This is quilt.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-151",
+    "id": "s-h3-138",
     "courseId": "course-mandarin-1",
     "hanzi": "这是被子。",
     "pinyin": "Zhè shì bèi zi.",
@@ -9666,39 +9388,15 @@ export const hsk3Sentences: Sentence[] = [
     "difficulty": 3
   },
   {
-    "id": "s-h3-152",
+    "id": "s-h3-139",
     "courseId": "course-mandarin-1",
-    "hanzi": "这是本领。",
-    "pinyin": "Zhè shì běn lǐng.",
-    "english": "This is skill.",
+    "hanzi": "这是比较。",
+    "pinyin": "Zhè shì bǐ jiào.",
+    "english": "This is to compare.",
     "difficulty": 3
   },
   {
-    "id": "s-h3-153",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是本事。",
-    "pinyin": "Zhè shì běn shì.",
-    "english": "This is source material.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-154",
-    "courseId": "course-mandarin-1",
-    "hanzi": "我会比赛。",
-    "pinyin": "Wǒ huì bǐ sài.",
-    "english": "I can competition (sports etc).",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-155",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是必然。",
-    "pinyin": "Zhè shì bì rán.",
-    "english": "This is inevitable.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-156",
+    "id": "s-h3-140",
     "courseId": "course-mandarin-1",
     "hanzi": "这是必要。",
     "pinyin": "Zhè shì bì yào.",
@@ -9706,15 +9404,7 @@ export const hsk3Sentences: Sentence[] = [
     "difficulty": 3
   },
   {
-    "id": "s-h3-157",
-    "courseId": "course-mandarin-1",
-    "hanzi": "这是标题。",
-    "pinyin": "Zhè shì biāo tí.",
-    "english": "This is title.",
-    "difficulty": 3
-  },
-  {
-    "id": "s-h3-158",
+    "id": "s-h3-141",
     "courseId": "course-mandarin-1",
     "hanzi": "这是标准。",
     "pinyin": "Zhè shì biāo zhǔn.",
@@ -9722,1847 +9412,1999 @@ export const hsk3Sentences: Sentence[] = [
     "difficulty": 3
   },
   {
+    "id": "s-h3-142",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是表明。",
+    "pinyin": "Zhè shì biǎo míng.",
+    "english": "This is to make clear.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-143",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是并且。",
+    "pinyin": "Zhè shì bìng qiě.",
+    "english": "This is and.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-144",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是补充。",
+    "pinyin": "Zhè shì bǔ chōng.",
+    "english": "This is to replenish.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-145",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是不断。",
+    "pinyin": "Zhè shì bù duàn.",
+    "english": "This is unceasing.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-146",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是布。",
+    "pinyin": "Zhè shì bù.",
+    "english": "This is variant of 布.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-147",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是部长。",
+    "pinyin": "Zhè shì bù zhǎng.",
+    "english": "This is head of a (government etc) department.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-148",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是彩色。",
+    "pinyin": "Zhè shì cǎi sè.",
+    "english": "This is color.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-149",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是场合。",
+    "pinyin": "Zhè shì chǎng hé.",
+    "english": "This is situation.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-150",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是吵。",
+    "pinyin": "Zhè shì chǎo.",
+    "english": "This is to quarrel.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-151",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是称为。",
+    "pinyin": "Zhè shì chēng wéi.",
+    "english": "This is to be called; to be known as; to call it \"...\".",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-152",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是成立。",
+    "pinyin": "Zhè shì chéng lì.",
+    "english": "This is to establish.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-153",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是城。",
+    "pinyin": "Zhè shì chéng.",
+    "english": "This is city walls.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-154",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是充满。",
+    "pinyin": "Zhè shì chōng mǎn.",
+    "english": "This is full of.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-155",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是初一。",
+    "pinyin": "Zhè shì chū yī.",
+    "english": "This is first day of lunar month.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-156",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是传。",
+    "pinyin": "Zhè shì chuán.",
+    "english": "This is to pass on.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-157",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是创新。",
+    "pinyin": "Zhè shì chuàng xīn.",
+    "english": "This is to bring forth new ideas; to blaze new trails.",
+    "difficulty": 3
+  },
+  {
+    "id": "s-h3-158",
+    "courseId": "course-mandarin-1",
+    "hanzi": "这是从来。",
+    "pinyin": "Zhè shì cóng lái.",
+    "english": "This is always.",
+    "difficulty": 3
+  },
+  {
     "id": "s-h3-159",
     "courseId": "course-mandarin-1",
-    "hanzi": "这是表达。",
-    "pinyin": "Zhè shì biǎo dá.",
-    "english": "This is to express; to convey.",
+    "hanzi": "这是存。",
+    "pinyin": "Zhè shì cún.",
+    "english": "This is to exist.",
     "difficulty": 3
   },
   {
     "id": "s-h3-160",
     "courseId": "course-mandarin-1",
-    "hanzi": "这是表格。",
-    "pinyin": "Zhè shì biǎo gé.",
-    "english": "This is form.",
+    "hanzi": "这是打破。",
+    "pinyin": "Zhè shì dǎ pò.",
+    "english": "This is to break; to smash.",
     "difficulty": 3
   }
 ];
 
 export const hsk3LessonVocabMap: Record<string, string[]> = {
-  "lesson-h3-ca-1": [
+  "lesson-h3-ca-p1-1": [
     "v-h3-ai-xin",
-    "v-h3-an-zhuang",
-    "v-h3-an",
     "v-h3-an-zhao",
-    "v-h3-ba",
-    "v-h3-ba-wo"
-  ],
-  "lesson-h3-ca-2": [
-    "v-h3-bai-cai",
     "v-h3-ban-ji",
-    "v-h3-ban",
-    "v-h3-ban-jia",
-    "v-h3-ban-2",
-    "v-h3-bao"
-  ],
-  "lesson-h3-ca-3": [
-    "v-h3-bao-chi",
-    "v-h3-bao-liu",
-    "v-h3-bao-xian",
+    "v-h3-ban-li",
+    "v-h3-bao-cun",
     "v-h3-bao-zheng",
-    "v-h3-bao-2",
-    "v-h3-bao-gao"
-  ],
-  "lesson-h3-ca-4": [
-    "v-h3-bei-hou",
-    "v-h3-bei",
+    "v-h3-bao-gao",
     "v-h3-bei-zi",
-    "v-h3-ben-ling",
-    "v-h3-ben-shi",
-    "v-h3-bi-sai"
+    "v-h3-bi-jiao"
   ],
-  "lesson-h3-ca-5": [
-    "v-h3-bi-ran",
+  "lesson-h3-ca-p1-2": [
     "v-h3-bi-yao",
-    "v-h3-biao-ti",
     "v-h3-biao-zhun",
-    "v-h3-biao-da",
-    "v-h3-biao-ge"
-  ],
-  "lesson-h3-ca-6": [
-    "v-h3-biao-mian",
     "v-h3-biao-ming",
-    "v-h3-biao-xian",
-    "v-h3-biao-yan",
-    "v-h3-bing",
-    "v-h3-bing-qie"
-  ],
-  "lesson-h3-ca-7": [
-    "v-h3-bo-chu",
-    "v-h3-bo-fang",
-    "v-h3-bu",
+    "v-h3-bing-qie",
     "v-h3-bu-chong",
-    "v-h3-bu-an",
-    "v-h3-bu-bi"
-  ],
-  "lesson-h3-ca-8": [
     "v-h3-bu-duan",
-    "v-h3-bu-guang",
-    "v-h3-bu-2",
-    "v-h3-bu-3",
-    "v-h3-bu-4",
-    "v-h3-cai-neng"
+    "v-h3-bu",
+    "v-h3-bu-zhang",
+    "v-h3-cai-se"
   ],
-  "lesson-h3-ca-9": [
-    "v-h3-cai-qu",
-    "v-h3-cai-yong",
-    "v-h3-cai-se",
-    "v-h3-ceng-jing",
-    "v-h3-chan-sheng",
-    "v-h3-han"
-  ],
-  "lesson-h3-ca-10": [
+  "lesson-h3-ca-p1-3": [
     "v-h3-chang-he",
-    "v-h3-chang-suo",
-    "v-h3-chao-ji",
     "v-h3-chao",
-    "v-h3-chao-2",
-    "v-h3-chao-jia"
-  ],
-  "lesson-h3-ca-11": [
-    "v-h3-chen-shan",
-    "v-h3-chen-yi",
     "v-h3-cheng-wei",
-    "v-h3-cheng-gong",
-    "v-h3-cheng-guo",
-    "v-h3-cheng-jiu"
-  ],
-  "lesson-h3-ca-12": [
     "v-h3-cheng-li",
-    "v-h3-cheng-shu",
-    "v-h3-cheng-yuan",
-    "v-h3-cheng-zhang",
     "v-h3-cheng",
-    "v-h3-cheng-shi"
-  ],
-  "lesson-h3-ca-13": [
-    "v-h3-cheng-du",
     "v-h3-chong-man",
-    "v-h3-chu",
-    "v-h3-chu-bu",
-    "v-h3-chu-ji",
-    "v-h3-chu-zhong"
-  ],
-  "lesson-h3-ca-14": [
-    "v-h3-chu-le",
+    "v-h3-chu-yi",
     "v-h3-chuan",
-    "v-h3-chuan-lai",
-    "v-h3-chuang-xin",
-    "v-h3-chuang-ye",
-    "v-h3-chuang-zao"
+    "v-h3-chuang-xin"
   ],
-  "lesson-h3-ca-15": [
-    "v-h3-chuang-zuo",
+  "lesson-h3-ca-p1-4": [
     "v-h3-cong-lai",
-    "v-h3-cong-qian",
-    "v-h3-cong-shi",
     "v-h3-cun",
-    "v-h3-cun-2"
-  ],
-  "lesson-h3-ca-16": [
-    "v-h3-cun-zai",
-    "v-h3-cuo-wu",
     "v-h3-da-po",
-    "v-h3-da-ting",
-    "v-h3-da-fu",
-    "v-h3-da-gai"
-  ],
-  "lesson-h3-ca-17": [
     "v-h3-da-shi-guan",
-    "v-h3-dai",
-    "v-h3-dai-biao",
     "v-h3-dai-biao-tuan",
-    "v-h3-dai-ling",
-    "v-h3-dan-yuan"
-  ],
-  "lesson-h3-ca-18": [
     "v-h3-dang-chu",
-    "v-h3-dang-di",
-    "v-h3-dang-ran",
-    "v-h3-dang-zhong",
     "v-h3-dao",
-    "v-h3-dao-yan"
-  ],
-  "lesson-h3-ca-19": [
-    "v-h3-dao-da",
     "v-h3-de-fen",
-    "v-h3-di-qu",
-    "v-h3-deng-dai",
-    "v-h3-di-xia",
     "v-h3-dian-shi-ju"
   ],
-  "lesson-h3-ca-20": [
-    "v-h3-dian-shi-tai",
-    "v-h3-dian-tai",
-    "v-h3-dian-zi-you-jian",
+  "lesson-h3-ca-p1-5": [
     "v-h3-diao",
-    "v-h3-diao-cha",
-    "v-h3-ding-qi"
-  ],
-  "lesson-h3-ca-21": [
-    "v-h3-dong-bu",
-    "v-h3-dong-li",
-    "v-h3-dong-ren",
+    "v-h3-ding-qi",
     "v-h3-du-zhe",
-    "v-h3-duan-chu",
-    "v-h3-duan-ku"
-  ],
-  "lesson-h3-ca-22": [
-    "v-h3-duan-qi",
     "v-h3-duan",
-    "v-h3-dui-dai",
     "v-h3-dui-shou",
-    "v-h3-dui-xiang",
-    "v-h3-fa-biao"
+    "v-h3-fa-chu",
+    "v-h3-fa-sheng",
+    "v-h3-fan-dui",
+    "v-h3-fan-wei"
   ],
-  "lesson-h3-ca-23": [
-    "v-h3-fa-da",
-    "v-h3-fa-ming",
-    "v-h3-fa-song",
-    "v-h3-fa-yan",
-    "v-h3-fa-zhan",
-    "v-h3-fan-fu"
-  ],
-  "lesson-h3-ca-24": [
-    "v-h3-fan-ying",
-    "v-h3-fan-zheng",
-    "v-h3-fan-wei",
-    "v-h3-fang-shi",
-    "v-h3-fang-zhi",
-    "v-h3-fang-dong"
-  ],
-  "lesson-h3-ca-25": [
-    "v-h3-fang-wu",
-    "v-h3-fang-zu",
+  "lesson-h3-ca-p1-6": [
+    "v-h3-fang-dong",
     "v-h3-fang-dao",
-    "v-h3-fei",
-    "v-h3-fei-yong",
-    "v-h3-fen-zu"
-  ],
-  "lesson-h3-ca-26": [
-    "v-h3-feng-fu",
+    "v-h3-fen-bie",
     "v-h3-feng-xian",
-    "v-h3-fou-ding",
-    "v-h3-fou-ren",
-    "v-fuwuyuan",
-    "v-h3-fu-zhuang"
-  ],
-  "lesson-h3-ca-27": [
+    "v-h3-fu-zhuang",
     "v-h3-fu",
-    "v-h3-fu-mu",
-    "v-h3-fu-qin",
     "v-h3-fu-2",
-    "v-h3-fu-ze",
-    "v-h3-fu-yin"
-  ],
-  "lesson-h3-ca-28": [
-    "v-h3-fu-za",
-    "v-h3-fu-3",
-    "v-h3-gai-zao",
     "v-h3-gan",
-    "v-h3-gan-dao",
-    "v-h3-gan-jin"
+    "v-h3-gan-2"
   ],
-  "lesson-h3-ca-29": [
-    "v-h3-gan-kuai",
-    "v-h3-gan-2",
-    "v-h3-gan-mao",
-    "v-h3-gan-qing",
-    "v-h3-gan-shou",
-    "v-h3-gan-ma"
-  ],
-  "lesson-h3-ca-30": [
-    "v-h3-gao-su",
-    "v-h3-gao-su-gong-lu",
+  "lesson-h3-ca-p1-7": [
+    "v-h3-gan-ma",
     "v-h3-ge-mi",
-    "v-h3-ge-sheng",
-    "v-h3-ge-shou",
-    "v-h3-ge-ren"
-  ],
-  "lesson-h3-ca-31": [
     "v-h3-ge-xing",
-    "v-h3-ge",
     "v-h3-ge-zhong",
-    "v-h3-ge-zi",
-    "v-h3-gen-ben",
-    "v-h3-geng-jia"
-  ],
-  "lesson-h3-ca-32": [
     "v-h3-gong-chang",
-    "v-h3-gong-cheng-shi",
-    "v-h3-gong-fu",
-    "v-h3-gong-ju",
     "v-h3-gong-ye",
-    "v-h3-gong-zi"
-  ],
-  "lesson-h3-ca-33": [
-    "v-h3-gong-bu",
-    "v-h3-gong-min",
-    "v-h3-gong-wu-yuan",
-    "v-h3-gong-fu-2",
+    "v-h3-gong-kai",
     "v-h3-gong-ke",
-    "v-h3-gong-neng"
+    "v-h3-gu-niang"
   ],
-  "lesson-h3-ca-34": [
-    "v-h3-gong-tong",
-    "v-h3-gong-you",
-    "v-h3-gu-niang",
-    "v-h3-gu",
-    "v-h3-gu-dai",
-    "v-h3-gu-xiang"
-  ],
-  "lesson-h3-ca-35": [
-    "v-h3-guan-xi",
-    "v-h3-guan-zhu",
-    "v-h3-guan-cha",
+  "lesson-h3-ca-p1-8": [
+    "v-h3-gua",
     "v-h3-guan-kan",
-    "v-h3-guan-nian",
-    "v-h3-guan-zhong"
-  ],
-  "lesson-h3-ca-36": [
-    "v-h3-guan",
     "v-h3-guan-li",
-    "v-h3-guang",
-    "v-h3-guang-ming",
-    "v-h3-guang-bo",
-    "v-h3-guang-da"
-  ],
-  "lesson-h3-ca-37": [
-    "v-h3-gui-fan",
-    "v-h3-guo-nei",
+    "v-h3-guang-da",
     "v-h3-guo-qing",
-    "v-h3-guo-ran",
-    "v-h3-guo-zhi",
-    "v-h3-guo-cheng"
-  ],
-  "lesson-h3-ca-38": [
     "v-h3-ha-ha",
-    "v-h3-hai-pa",
-    "v-h3-hao-hao",
     "v-h3-hao-qi",
-    "v-h3-ge-2",
-    "v-h3-he-fa"
+    "v-h3-he-li",
+    "v-h3-hong-jiu"
   ],
-  "lesson-h3-ca-39": [
-    "v-h3-he-zuo",
-    "v-h3-he-ping",
-    "v-houmian",
+  "lesson-h3-ca-p1-9": [
     "v-h3-hu-lian-wang",
-    "v-h3-hu-xiang",
-    "v-h3-hua-ren"
-  ],
-  "lesson-h3-ca-40": [
-    "v-h3-hua",
     "v-h3-hua-chuan",
-    "v-h3-hua-ju",
-    "v-h3-huan-le",
     "v-h3-huan",
-    "v-h3-huan-bao"
-  ],
-  "lesson-h3-ca-41": [
-    "v-h3-huan-jing",
     "v-h3-hui-yuan",
-    "v-h3-huo",
-    "v-h3-huo-2",
-    "v-h3-ji-qi",
-    "v-h3-ji-ji"
-  ],
-  "lesson-h3-ca-42": [
-    "v-h3-ji-ji-xing",
-    "v-h3-ji-ben",
-    "v-h3-ji-ben-shang",
+    "v-h3-ji-ji",
     "v-h3-ji-chu",
-    "v-h3-ji-shi",
-    "v-h3-ji-le"
-  ],
-  "lesson-h3-ca-43": [
-    "v-h3-ji-ti",
-    "v-h3-ji-suan",
+    "v-h3-ji-zhong",
     "v-h3-ji-lu",
-    "v-h3-ji-nian",
-    "v-h3-ji-shu",
-    "v-h3-jia-kuai"
+    "v-h3-jia-gong"
   ],
-  "lesson-h3-ca-44": [
-    "v-h3-jia-ju",
+  "lesson-h3-ca-p1-10": [
     "v-h3-jia-shu",
-    "v-h3-jia-xiang",
-    "v-h3-jia-ge",
-    "v-h3-jia-qian",
-    "v-h3-jia-zhi"
-  ],
-  "lesson-h3-ca-45": [
-    "v-h3-jia",
-    "v-h3-jian-jue",
+    "v-h3-jia-zhi",
     "v-h3-jian-qiang",
-    "v-h3-jian-dan",
-    "v-h3-jian-zhi",
-    "v-h3-jian"
-  ],
-  "lesson-h3-ca-46": [
     "v-h3-jian-cheng",
-    "v-h3-jian-li",
     "v-h3-jiang-jin",
-    "v-h3-jiang-lai",
-    "v-h3-jiao-fei",
-    "v-h3-jiao-jing"
+    "v-h3-jiao-liu",
+    "v-h3-jiao-cai",
+    "v-h3-jie-yue",
+    "v-h3-jie-shu"
   ],
-  "lesson-h3-ca-47": [
-    "v-h3-jiao-wang",
-    "v-h3-jiao-yi",
-    "v-h3-jiao-lian",
-    "v-h3-jie-he",
-    "v-h3-jie-hun",
-    "v-h3-jie-shi"
-  ],
-  "lesson-h3-ca-48": [
-    "v-h3-jie-shu",
-    "v-h3-jie-jue",
-    "v-h3-jie-kai",
-    "v-h3-jin",
+  "lesson-h3-ca-p1-11": [
     "v-h3-jin-pai",
-    "v-h3-jin-2"
-  ],
-  "lesson-h3-ca-49": [
-    "v-h3-jin-jin",
-    "v-h3-jin-liang",
-    "v-h3-jin-3",
-    "v-h3-jin-ji",
-    "v-h3-jin-zhang",
-    "v-h3-jin-qi"
-  ],
-  "lesson-h3-ca-50": [
-    "v-h3-jin-yi-bu",
-    "v-h3-jing-ju",
-    "v-h3-jing-ying",
+    "v-h3-jin",
+    "v-h3-jin-bu",
+    "v-h3-jing-ji",
     "v-h3-jing-cai",
-    "v-h3-jing-shen",
-    "v-h3-jing-se"
-  ],
-  "lesson-h3-ca-51": [
-    "v-h3-jing-cha",
     "v-h3-jing",
-    "v-h3-jiu",
-    "v-jiu-old",
-    "v-h3-jiu-2",
-    "v-h3-jiu-shi"
-  ],
-  "lesson-h3-ca-52": [
-    "v-h3-jiu-ye",
+    "v-h3-jiu-shi",
     "v-h3-ju-you",
-    "v-h3-ju-chang",
-    "v-h3-jue-sai",
-    "v-h3-jue-xin",
-    "v-h3-jue-dui"
+    "v-h3-jue-sai"
   ],
-  "lesson-h3-ca-53": [
-    "v-kafei",
+  "lesson-h3-ca-p1-review": [
+    "v-h3-ai-xin",
+    "v-h3-an-zhao",
+    "v-h3-ban-ji",
+    "v-h3-ban-li",
+    "v-h3-bao-cun",
+    "v-h3-bao-zheng",
+    "v-h3-bao-gao",
+    "v-h3-bei-zi",
+    "v-h3-bi-jiao",
+    "v-h3-bi-yao",
+    "v-h3-biao-zhun",
+    "v-h3-biao-ming",
+    "v-h3-bing-qie",
+    "v-h3-bu-chong",
+    "v-h3-bu-duan",
+    "v-h3-bu",
+    "v-h3-bu-zhang",
+    "v-h3-cai-se"
+  ],
+  "lesson-h3-ca-p2-1": [
     "v-h3-kai-fa",
-    "v-h3-kai-fang",
-    "v-h3-kai-shi",
-    "v-h3-kai-ye",
-    "v-h3-kai-zhan"
-  ],
-  "lesson-h3-ca-54": [
-    "v-h3-kan-qi-lai",
-    "v-h3-kan-shang-qu",
-    "v-h3-kao-yan",
+    "v-h3-kai-zhan",
     "v-h3-ke-ji",
-    "v-h3-ke-kao",
-    "v-h3-ke-le"
-  ],
-  "lesson-h3-ca-55": [
-    "v-h3-ke-fu",
     "v-h3-ke-guan",
-    "v-h3-ke-cheng",
-    "v-h3-kong",
     "v-h3-kong-r",
-    "v-h3-kong-pa"
-  ],
-  "lesson-h3-ca-56": [
-    "v-h3-ku-zi",
-    "v-h3-kuai-su",
     "v-h3-kun",
-    "v-h3-kun-nan",
-    "v-h3-lang-fei",
-    "v-h3-lao-bai-xing"
-  ],
-  "lesson-h3-ca-57": [
     "v-h3-lao-ban",
-    "v-h3-lao-tai-tai",
-    "v-h3-lao-tou-r",
-    "v-h3-le",
     "v-h3-yue-dui",
-    "v-h3-le-guan"
+    "v-h3-li-hun"
   ],
-  "lesson-h3-ca-58": [
-    "v-h3-lei",
-    "v-h3-lei-si",
-    "v-h3-li-hun",
-    "v-limian",
+  "lesson-h3-ca-p2-2": [
     "v-h3-li-lun",
-    "v-h3-li"
-  ],
-  "lesson-h3-ca-59": [
-    "v-h3-li-liang",
     "v-h3-li-ke",
-    "v-h3-li-yong",
-    "v-h3-lian",
-    "v-h3-lian-xu-ju",
-    "v-h3-lian-he"
-  ],
-  "lesson-h3-ca-60": [
-    "v-h3-lian-he-guo",
+    "v-h3-lian-xu",
     "v-h3-lian-xi",
-    "v-h3-liang-shui",
-    "v-h3-ling",
-    "v-h3-ling-dao",
-    "v-h3-ling-xian"
-  ],
-  "lesson-h3-ca-61": [
-    "v-h3-ling-wai",
-    "v-h3-ling-yi-fang-mian",
+    "v-h3-ling-xian",
     "v-h3-long",
-    "v-h3-lu",
-    "v-h3-lu-yin",
-    "v-h3-lu-xian"
-  ],
-  "lesson-h3-ca-62": [
     "v-h3-lu-guan",
     "v-h3-luo-hou",
-    "v-h3-ma-fan",
-    "v-ma-horse",
-    "v-h3-man-zu",
     "v-h3-man-man"
   ],
-  "lesson-h3-ca-63": [
-    "v-h3-mao-bing",
-    "v-h3-mei-yong",
+  "lesson-h3-ca-p2-3": [
     "v-mei",
-    "v-h3-mei",
-    "v-h3-mei-hao",
-    "v-h3-mei-li"
-  ],
-  "lesson-h3-ca-64": [
     "v-h3-mei-shi",
-    "v-h3-mei-yuan",
-    "v-h3-mi",
-    "v-h3-mian-ji",
-    "v-h3-min-jian",
-    "v-h3-min-zu"
-  ],
-  "lesson-h3-ca-65": [
+    "v-h3-mian-dui",
     "v-h3-ming-que",
-    "v-h3-ming-xian",
-    "v-h3-ming-yun",
-    "v-h3-mou",
     "v-h3-mu-qin",
-    "v-h3-mu-tou"
-  ],
-  "lesson-h3-ca-66": [
-    "v-h3-mu-biao",
-    "v-h3-mu-qian",
-    "v-h3-nan-zi",
+    "v-h3-nai-cha",
     "v-h3-nan-du",
-    "v-h3-nei",
-    "v-h3-neng-buneng"
+    "v-h3-neng-buneng",
+    "v-h3-nian-di"
   ],
-  "lesson-h3-ca-67": [
-    "v-h3-neng-li",
-    "v-h3-nian-dai",
-    "v-h3-nian-ji",
-    "v-h3-nian",
-    "v-h3-niu",
-    "v-h3-nong-cun"
-  ],
-  "lesson-h3-ca-68": [
-    "v-h3-nong-min",
-    "v-h3-nu-zi",
+  "lesson-h3-ca-p2-4": [
+    "v-h3-nong-cun",
     "v-h3-nuan-huo",
     "v-h3-pai",
-    "v-h3-pai-ming",
-    "v-h3-pai-2"
-  ],
-  "lesson-h3-ca-69": [
-    "v-h3-pan-duan",
-    "v-h3-pan",
-    "v-h3-pao-bu",
-    "v-h3-pi-ping",
+    "v-h3-pei",
     "v-h3-pi",
-    "v-h3-pi-bao"
-  ],
-  "lesson-h3-ca-70": [
-    "v-pijiu",
-    "v-h3-piao-jia",
     "v-h3-ping-jia",
-    "v-pingguo",
-    "v-h3-po",
-    "v-h3-po-huai"
-  ],
-  "lesson-h3-ca-71": [
     "v-h3-pu-bian",
-    "v-h3-pu-ji",
-    "v-h3-qi",
-    "v-h3-qi-2",
     "v-h3-qi-ci",
-    "v-h3-qi-shi"
+    "v-h3-qian-wan"
   ],
-  "lesson-h3-ca-72": [
-    "v-h3-qi-guai",
-    "v-h3-qi-hou",
-    "v-h3-qian-wan",
-    "v-h3-qian-hou",
-    "v-h3-qian-jin",
-    "v-qianmian"
-  ],
-  "lesson-h3-ca-73": [
-    "v-h3-qiang",
-    "v-h3-qiang-da",
-    "v-h3-qiang-diao",
+  "lesson-h3-ca-p2-5": [
+    "v-h3-qian-wang",
     "v-h3-qiang-lie",
-    "v-h3-qiao",
-    "v-h3-qiao-2"
-  ],
-  "lesson-h3-ca-74": [
-    "v-h3-qin",
     "v-h3-qin-qie",
-    "v-h3-qin-zi",
-    "v-h3-qing-gan",
     "v-h3-qing-kuang",
-    "v-h3-qing-jiao"
-  ],
-  "lesson-h3-ca-75": [
-    "v-h3-qiu-mi",
     "v-h3-ou",
-    "v-h3-qu-bie",
-    "v-h3-qu-shi",
-    "v-h3-quan-mian",
-    "v-h3-quan-qiu"
-  ],
-  "lesson-h3-ca-76": [
-    "v-h3-que",
+    "v-h3-quan-chang",
     "v-h3-que-dian",
-    "v-h3-que-shao",
-    "v-h3-que-bao",
-    "v-h3-que-ding",
-    "v-h3-que-shi"
+    "v-h3-que-shi",
+    "v-h3-re-lie"
   ],
-  "lesson-h3-ca-77": [
-    "v-h3-qun-zi",
-    "v-h3-qun",
-    "v-h3-re-ai",
-    "v-h3-re-lie",
-    "v-h3-ren-cai",
-    "v-h3-ren-lei"
-  ],
-  "lesson-h3-ca-78": [
+  "lesson-h3-ca-p2-6": [
     "v-h3-ren-min",
-    "v-h3-ren-min-bi",
-    "v-h3-ren-qun",
     "v-h3-ren-yuan",
-    "v-h3-ren-chu",
-    "v-h3-ren-de"
-  ],
-  "lesson-h3-ca-79": [
     "v-h3-ren",
-    "v-h3-ren-he",
-    "v-h3-reng",
-    "v-h3-rong-yi",
-    "v-h3-ru-he",
-    "v-h3-san-bu"
-  ],
-  "lesson-h3-ca-80": [
-    "v-h3-sha-fa",
-    "v-h3-sha-zi",
-    "v-h3-shang",
+    "v-h3-reng-ran",
+    "v-h3-san-bu",
     "v-h3-shang-xin",
-    "v-h3-shang-pin",
-    "v-h3-shang-ye"
-  ],
-  "lesson-h3-ca-81": [
-    "v-h3-shang-lai",
     "v-h3-shang-mian",
-    "v-h3-shang-qu",
-    "v-h3-shang-sheng",
-    "v-h3-shang-yi",
-    "v-h3-she-bei"
+    "v-h3-she-bei",
+    "v-h3-shen-fen-zheng"
   ],
-  "lesson-h3-ca-82": [
-    "v-h3-she-li",
-    "v-h3-she-hui",
-    "v-h3-shen-fen-zheng",
-    "v-h3-shen",
-    "v-h3-shen-ru",
-    "v-h3-sheng-cun"
-  ],
-  "lesson-h3-ca-83": [
-    "v-h3-sheng-dong",
+  "lesson-h3-ca-p2-7": [
+    "v-h3-sheng",
     "v-h3-sheng-ming",
-    "v-h3-sheng-yi",
-    "v-h3-sheng-zhang",
-    "v-h3-sheng-ming-2",
-    "v-h3-sheng"
-  ],
-  "lesson-h3-ca-84": [
-    "v-h3-sheng-li",
-    "v-h3-shi-tou",
+    "v-h3-sheng-2",
     "v-h3-shi-you",
-    "v-h3-shi",
-    "v-h3-shi-ke",
-    "v-h3-shi-ji-shang"
-  ],
-  "lesson-h3-ca-85": [
-    "v-h3-shi-li",
-    "v-h3-shi-xing",
-    "v-h3-shi-yan",
+    "v-h3-shi-ji-shang",
     "v-h3-shi-yan-shi",
-    "v-h3-shi-2",
-    "v-h3-shi-ji"
-  ],
-  "lesson-h3-ca-86": [
-    "v-h3-shi-jie",
-    "v-h3-shi-jie-bei",
-    "v-h3-shi-chang",
+    "v-h3-shi-ji",
     "v-h3-shi-gu",
-    "v-h3-shi-jian",
-    "v-h3-shi-shi"
+    "v-h3-shi-ye"
   ],
-  "lesson-h3-ca-87": [
-    "v-h3-shi-shi-shang",
-    "v-h3-shi-ye",
-    "v-h3-shi-ti",
-    "v-h3-shi-yan-2",
-    "v-h3-shi-3",
-    "v-h3-shi-he"
-  ],
-  "lesson-h3-ca-88": [
-    "v-h3-shi-yong",
-    "v-h3-shou-fei",
-    "v-h3-shou-ting",
-    "v-h3-shou-yin-ji",
+  "lesson-h3-ca-p2-8": [
+    "v-h3-shi-he",
+    "v-h3-shou-kan",
     "v-h3-shou-zhi",
-    "v-h3-shou-du"
-  ],
-  "lesson-h3-ca-89": [
-    "v-h3-shou-xian",
-    "v-h3-shou",
     "v-h3-shou-shang",
-    "v-h3-shu-jia",
-    "v-h3-shu-ru",
-    "v-h3-shu-ren"
-  ],
-  "lesson-h3-ca-90": [
-    "v-h3-shu",
-    "v-h3-shu-yu",
-    "v-h3-shu-2",
+    "v-h3-shu-ren",
     "v-h3-shu-liang",
-    "v-h3-shuang",
-    "v-h3-si-xiang"
-  ],
-  "lesson-h3-ca-91": [
     "v-h3-si",
-    "v-h3-su-du",
-    "v-h3-sui",
-    "v-h3-suo",
     "v-h3-suo-chang",
-    "v-h3-tai"
+    "v-h3-tan-pan"
   ],
-  "lesson-h3-ca-92": [
-    "v-h3-tan",
-    "v-h3-tan-hua",
-    "v-h3-tan-pan",
-    "v-tang",
-    "v-h3-tang",
-    "v-h3-te-se"
-  ],
-  "lesson-h3-ca-93": [
+  "lesson-h3-ca-p2-9": [
     "v-h3-ti-qian",
-    "v-h3-ti-wen",
-    "v-h3-ti-mu",
     "v-h3-ti-xian",
-    "v-h3-tian-kong",
-    "v-h3-tian"
-  ],
-  "lesson-h3-ca-94": [
     "v-h3-tiao",
-    "v-h3-tiao-gao",
-    "v-h3-tiao-wu",
-    "v-h3-tiao-yuan",
     "v-h3-tie",
-    "v-h3-tie-lu"
-  ],
-  "lesson-h3-ca-95": [
-    "v-h3-ting-li",
-    "v-h3-ting-zhong",
-    "v-h3-tong-chang",
-    "v-h3-tong-xin",
+    "v-h3-ting-zhi",
     "v-h3-tong",
-    "v-h3-tong-ku"
-  ],
-  "lesson-h3-ca-96": [
-    "v-h3-tou-nao",
     "v-h3-tu-ran",
-    "v-h3-tu",
-    "v-h3-tu-2",
     "v-h3-tuan",
-    "v-h3-tuan-jie"
+    "v-h3-tui-guang"
   ],
-  "lesson-h3-ca-97": [
-    "v-h3-tuan-ti",
-    "v-h3-tui-jin",
-    "v-h3-tui-kai",
-    "v-h3-tui",
+  "lesson-h3-ca-p2-10": [
     "v-h3-tui-chu",
-    "v-h3-tui-xiu"
-  ],
-  "lesson-h3-ca-98": [
-    "v-h3-wai-jiao",
-    "v-waimian",
     "v-h3-wai-wen",
-    "v-h3-wan-mei",
-    "v-h3-wan-shan",
-    "v-h3-wan-ju"
-  ],
-  "lesson-h3-ca-99": [
-    "v-h3-wang-wang",
-    "v-h3-wei-hai",
+    "v-h3-wan-ju",
     "v-h3-wei",
-    "v-h3-wei-sheng",
-    "v-h3-wei-sheng-jian",
-    "v-h3-wei-le"
-  ],
-  "lesson-h3-ca-100": [
-    "v-h3-wen-nuan",
-    "v-h3-wen-jian",
+    "v-h3-wei-le",
     "v-h3-wen-ming",
-    "v-h3-wen-xue",
-    "v-h3-wen-zi",
-    "v-h3-wo-shou"
-  ],
-  "lesson-h3-ca-101": [
-    "v-h3-wu-zi",
-    "v-h3-wu-qi",
-    "v-h3-wu-shu",
+    "v-h3-wo-shou",
     "v-h3-wu-tai",
-    "v-h3-xi-wang",
     "v-h3-xia-lai"
   ],
-  "lesson-h3-ca-102": [
-    "v-h3-xia-mian",
-    "v-h3-xia-qu",
+  "lesson-h3-ca-p2-11": [
     "v-h3-xian-de",
-    "v-h3-xian-ran",
-    "v-h3-xian-shi",
-    "v-h3-xian-chang"
-  ],
-  "lesson-h3-ca-103": [
     "v-h3-xian-dai",
-    "v-h3-xian-dai-hua",
-    "v-h3-xian-jin",
-    "v-h3-xian-shi-2",
     "v-h3-xian-xiang",
-    "v-h3-xian"
-  ],
-  "lesson-h3-ca-104": [
-    "v-h3-xiang-dang",
-    "v-h3-xiang-hu",
-    "v-h3-xiang-si",
-    "v-h3-xiang",
+    "v-h3-xiang-guan",
     "v-xiangjiao",
-    "v-h3-xiao-shi"
-  ],
-  "lesson-h3-ca-105": [
     "v-h3-xiao-guo",
-    "v-h3-xie-zuo",
-    "v-h3-xin-feng",
     "v-h3-xin-ren",
-    "v-h3-xing-li",
-    "v-h3-xing-cheng"
-  ],
-  "lesson-h3-ca-106": [
-    "v-h3-xing-shi",
     "v-h3-xing-xiang",
-    "v-h3-xing-zhuang",
-    "v-h3-xing-fu",
-    "v-h3-xing-yun",
     "v-h3-xing"
   ],
-  "lesson-h3-ca-107": [
-    "v-h3-xing-ge",
-    "v-h3-xiu",
-    "v-h3-xu-qiu",
-    "v-h3-xu-yao",
-    "v-h3-xuan-bu",
-    "v-h3-xuan-chuan"
+  "lesson-h3-ca-p2-review": [
+    "v-h3-kai-fa",
+    "v-h3-kai-zhan",
+    "v-h3-ke-ji",
+    "v-h3-ke-guan",
+    "v-h3-kong-r",
+    "v-h3-kun",
+    "v-h3-lao-ban",
+    "v-h3-yue-dui",
+    "v-h3-li-hun",
+    "v-h3-li-lun",
+    "v-h3-li-ke",
+    "v-h3-lian-xu",
+    "v-h3-lian-xi",
+    "v-h3-ling-xian",
+    "v-h3-long",
+    "v-h3-lu-guan",
+    "v-h3-luo-hou",
+    "v-h3-man-man"
   ],
-  "lesson-h3-ca-108": [
-    "v-h3-xuan-shou",
-    "v-h3-xue-fei",
-    "v-h3-xue",
+  "lesson-h3-ca-p3-1": [
+    "v-h3-xiu-gai",
+    "v-h3-xuan-chuan",
     "v-h3-xun-lian",
-    "v-h3-ya",
-    "v-h3-ya-li"
-  ],
-  "lesson-h3-ca-109": [
-    "v-h3-yan",
-    "v-h3-yan-2",
-    "v-h3-yan-chang",
+    "v-h3-yan-qian",
     "v-h3-yan-chu",
-    "v-h3-yan-yuan",
-    "v-h3-yang"
-  ],
-  "lesson-h3-ca-110": [
-    "v-h3-yang-guang",
     "v-h3-yao-shi",
-    "v-h3-yi-fang-mian",
-    "v-h3-yi-jia",
-    "v-h3-yi-wai",
-    "v-h3-yi-yi"
+    "v-h3-yi",
+    "v-h3-yi-yi",
+    "v-h3-yin-xiang"
   ],
-  "lesson-h3-ca-111": [
-    "v-h3-yin",
-    "v-h3-yin-pai",
-    "v-h3-ying-dang",
-    "v-h3-ying-yong",
-    "v-h3-ying-jie",
-    "v-h3-ying-yang"
-  ],
-  "lesson-h3-ca-112": [
-    "v-h3-ying",
-    "v-h3-ying-shi",
-    "v-h3-you-dian",
+  "lesson-h3-ca-p3-2": [
+    "v-h3-ying-yang",
     "v-h3-you-shi",
-    "v-h3-you",
-    "v-h3-you-yu"
-  ],
-  "lesson-h3-ca-113": [
-    "v-h3-you-jian",
     "v-h3-you-piao",
-    "v-h3-you-xiang",
-    "v-h3-you-2",
-    "v-h3-you-xi",
-    "v-h3-you-yong"
-  ],
-  "lesson-h3-ca-114": [
-    "v-h3-you-de-shi",
-    "v-h3-you-xiao",
+    "v-h3-you-yong",
     "v-h3-yu-bao",
-    "v-h3-yu-fang",
-    "v-h3-yu-ji",
-    "v-h3-yuan"
-  ],
-  "lesson-h3-ca-115": [
-    "v-h3-yuan-gong",
-    "v-h3-yuan-wang",
-    "v-h3-yao",
+    "v-h3-yuan",
     "v-h3-yun-shu",
-    "v-h3-za-zhi",
-    "v-h3-zao"
-  ],
-  "lesson-h3-ca-116": [
     "v-h3-zao-cheng",
-    "v-h3-ze-ren",
-    "v-h3-zeng-jia",
-    "v-h3-zeng-zhang",
-    "v-h3-zhan-kai",
-    "v-h3-zhang"
+    "v-h3-zhan-kai"
   ],
-  "lesson-h3-ca-117": [
-    "v-h3-chang-cheng",
-    "v-h3-chang-chu",
+  "lesson-h3-ca-p3-3": [
     "v-h3-chang-qi",
-    "v-h3-zhao",
-    "v-h3-zhe",
-    "v-h3-zhen-shi"
-  ],
-  "lesson-h3-ca-118": [
     "v-h3-zheng",
-    "v-h3-zheng-qu",
-    "v-h3-zheng-2",
-    "v-h3-zheng-ge",
-    "v-h3-zheng-qi",
-    "v-h3-zheng-ti"
-  ],
-  "lesson-h3-ca-119": [
-    "v-h3-zheng-tian",
+    "v-h3-zheng-li",
     "v-h3-zheng-zheng",
-    "v-h3-zheng-shi",
-    "v-h3-zheng-3",
-    "v-h3-zheng-jian",
-    "v-h3-zheng-ju"
-  ],
-  "lesson-h3-ca-120": [
-    "v-h3-zhi",
-    "v-h3-zhi-chi",
+    "v-h3-zheng-ju",
     "v-h3-zhi-fu",
-    "v-h3-zhi-2",
-    "v-h3-zhi-bo",
-    "v-h3-zhi-dao"
-  ],
-  "lesson-h3-ca-121": [
-    "v-h3-zhi-3",
-    "v-h3-zhi-de",
-    "v-h3-zhi-gong",
-    "v-h3-zhi-you",
-    "v-h3-zhi-4",
+    "v-h3-zhi",
+    "v-h3-zhi-hao",
     "v-h3-zhi-chu"
   ],
-  "lesson-h3-ca-122": [
-    "v-h3-zhi-dao-2",
-    "v-h3-zhi-jin",
-    "v-h3-zhi-shao",
+  "lesson-h3-ca-p3-4": [
     "v-h3-zhi-yuan",
-    "v-h3-zhi-yuan-zhe",
-    "v-h3-zhi-du"
-  ],
-  "lesson-h3-ca-123": [
     "v-h3-zhi-zao",
-    "v-h3-zhi-zuo",
-    "v-h3-zhong-hua-min-zu",
     "v-h3-zhong-yu",
-    "v-h3-zhong",
-    "v-h3-zhong-2"
-  ],
-  "lesson-h3-ca-124": [
-    "v-h3-zhong-zi",
     "v-h3-zhong-da",
-    "v-h3-zhou-wei",
-    "v-h3-zhu",
-    "v-h3-zhu-chi",
-    "v-h3-zhu-dong"
-  ],
-  "lesson-h3-ca-125": [
-    "v-h3-zhu-ren",
-    "v-h3-zhu-zhang",
+    "v-h3-zhu-dong",
     "v-h3-zhu-yi",
-    "v-h3-zhu-2",
-    "v-h3-zhua",
-    "v-h3-zhua-zhu"
-  ],
-  "lesson-h3-ca-126": [
     "v-h3-zhuan-jia",
-    "v-h3-zhuan-men",
-    "v-h3-zhuan-ye",
     "v-h3-zhuai",
-    "v-h3-dui",
+    "v-h3-dui"
+  ],
+  "lesson-h3-ca-p3-5": [
+    "v-h3-zi-nu",
+    "v-h3-zi-ran",
+    "v-h3-zong-jie",
+    "v-h3-zu-he",
+    "v-h3-zuo-ke"
+  ],
+  "lesson-h3-ca-p3-review": [
+    "v-h3-xiu-gai",
+    "v-h3-xuan-chuan",
+    "v-h3-xun-lian",
+    "v-h3-yan-qian",
+    "v-h3-yan-chu",
+    "v-h3-yao-shi",
+    "v-h3-yi",
+    "v-h3-yi-yi",
+    "v-h3-yin-xiang",
+    "v-h3-ying-yang",
+    "v-h3-you-shi",
+    "v-h3-you-piao",
+    "v-h3-you-yong",
+    "v-h3-yu-bao",
+    "v-h3-yuan",
+    "v-h3-yun-shu",
+    "v-h3-zao-cheng",
+    "v-h3-zhan-kai"
+  ],
+  "lesson-h3-cb-p1-1": [
+    "v-h3-an-pai",
+    "v-h3-ba",
+    "v-h3-ban",
+    "v-h3-bao",
+    "v-h3-bao-hu",
+    "v-h3-bao-2",
+    "v-h3-bei-bu",
+    "v-h3-ben-lai",
+    "v-h3-bi-li"
+  ],
+  "lesson-h3-cb-p1-2": [
+    "v-h3-bian-hua",
+    "v-h3-biao-da",
+    "v-h3-biao-xian",
+    "v-h3-bo-chu",
+    "v-h3-bu-an",
+    "v-h3-bu-guang",
+    "v-h3-bu-2",
+    "v-h3-cai-neng",
+    "v-h3-ceng-jing"
+  ],
+  "lesson-h3-cb-p1-3": [
+    "v-h3-chang-suo",
+    "v-h3-chao-jia",
+    "v-h3-cheng-gong",
+    "v-h3-cheng-shu",
+    "v-h3-cheng-shi",
+    "v-h3-chu",
+    "v-h3-chu-zhong",
+    "v-h3-chuan-bo",
+    "v-h3-chuang-ye"
+  ],
+  "lesson-h3-cb-p1-4": [
+    "v-h3-cong-qian",
+    "v-h3-cun-zai",
+    "v-h3-da-ting",
+    "v-h3-da-yue",
+    "v-h3-dai-dong",
+    "v-h3-dang-di",
+    "v-h3-dao-yan",
+    "v-h3-di-qu",
+    "v-h3-dian-shi-tai"
+  ],
+  "lesson-h3-cb-p1-5": [
+    "v-h3-diao-cha",
+    "v-h3-dong-bu",
+    "v-h3-duan-chu",
+    "v-h3-dui-yuan",
+    "v-h3-dui-xiang",
+    "v-h3-fa-da",
+    "v-h3-fa-song",
+    "v-h3-fan-fu",
+    "v-h3-fang-shi"
+  ],
+  "lesson-h3-cb-p1-6": [
+    "v-h3-fang-wu",
+    "v-h3-fei-xing",
+    "v-h3-fen-pei",
+    "v-h3-fou-ding",
+    "v-h3-fu-3",
+    "v-h3-fu-ze",
+    "v-h3-gai-jin",
+    "v-h3-gan-dao",
+    "v-h3-gan-mao"
+  ],
+  "lesson-h3-cb-p1-7": [
+    "v-h3-gao-su",
+    "v-h3-ge-sheng",
+    "v-h3-ge",
+    "v-h3-ge-zi",
+    "v-h3-gong-cheng-shi",
+    "v-h3-gong-zi",
+    "v-h3-gong-min",
+    "v-h3-gong-neng",
+    "v-h3-gu"
+  ],
+  "lesson-h3-cb-p1-8": [
+    "v-h3-guan-xi",
+    "v-h3-guan-nian",
+    "v-h3-guang",
+    "v-h3-gui-ding",
+    "v-h3-guo-ran",
+    "v-h3-hai-guan",
+    "v-h3-ge-2",
+    "v-h3-he-zuo",
+    "v-h3-hou-guo"
+  ],
+  "lesson-h3-cb-p1-9": [
+    "v-h3-hu-xiang",
+    "v-h3-hua-ju",
+    "v-h3-huan-bao",
+    "v-h3-huo",
+    "v-h3-ji-ji-xing",
+    "v-h3-ji-shi",
+    "v-h3-ji-suan",
+    "v-h3-ji-nian",
+    "v-h3-jia-kuai"
+  ],
+  "lesson-h3-cb-p1-10": [
+    "v-h3-jia-xiang",
+    "v-h3-jia",
+    "v-h3-jian-dan",
+    "v-h3-jian-li",
+    "v-h3-jiang-lai",
+    "v-h3-jiao-wang",
+    "v-h3-jiao-lian",
+    "v-h3-jie-he",
+    "v-h3-jie-jue"
+  ],
+  "lesson-h3-cb-p1-11": [
+    "v-h3-jin-2",
+    "v-h3-jin-ji",
+    "v-h3-jin-yi-bu",
+    "v-h3-jing-li",
+    "v-h3-jing-shen",
+    "v-h3-jiu",
+    "v-h3-jiu-ye",
+    "v-h3-ju-chang",
+    "v-h3-jue-xin"
+  ],
+  "lesson-h3-cb-p1-review": [
+    "v-h3-an-pai",
+    "v-h3-ba",
+    "v-h3-ban",
+    "v-h3-bao",
+    "v-h3-bao-hu",
+    "v-h3-bao-2",
+    "v-h3-bei-bu",
+    "v-h3-ben-lai",
+    "v-h3-bi-li",
+    "v-h3-bian-hua",
+    "v-h3-biao-da",
+    "v-h3-biao-xian",
+    "v-h3-bo-chu",
+    "v-h3-bu-an",
+    "v-h3-bu-guang",
+    "v-h3-bu-2",
+    "v-h3-cai-neng",
+    "v-h3-ceng-jing"
+  ],
+  "lesson-h3-cb-p2-1": [
+    "v-h3-kai-fang",
+    "v-h3-kan-qi-lai",
+    "v-h3-ke-kao",
+    "v-h3-ke-cheng",
+    "v-h3-kong-pa",
+    "v-h3-kun-nan",
+    "v-h3-lao-tai-tai",
+    "v-h3-le-guan",
+    "v-limian"
+  ],
+  "lesson-h3-cb-p2-2": [
+    "v-h3-li-you",
+    "v-h3-li-yong",
+    "v-h3-lian-xu-ju",
+    "v-h3-liang-shui",
+    "v-h3-ling-wai",
+    "v-h3-lu",
+    "v-h3-lu-xing-she",
+    "v-h3-ma-fan",
+    "v-h3-mao-bing"
+  ],
+  "lesson-h3-cb-p2-3": [
+    "v-h3-mei",
+    "v-h3-mei-shu",
+    "v-h3-mian-ji",
+    "v-h3-ming-xian",
+    "v-h3-mu-tou",
+    "v-h3-nan-zi",
+    "v-h3-nei",
+    "v-h3-neng-li",
+    "v-h3-nian-ji"
+  ],
+  "lesson-h3-cb-p2-4": [
+    "v-h3-nong-min",
+    "v-h3-pai-2",
+    "v-h3-pan-duan",
+    "v-h3-pei-he",
+    "v-h3-pi-bao",
+    "v-pingguo",
+    "v-h3-pu-ji",
+    "v-h3-qi-shi",
+    "v-h3-qian-hou"
+  ],
+  "lesson-h3-cb-p2-5": [
+    "v-h3-qiang",
+    "v-h3-qiao",
+    "v-h3-qin-ren",
+    "v-h3-qing-jiao",
+    "v-h3-qu-bie",
+    "v-h3-quan-mian",
+    "v-h3-que-shao",
+    "v-h3-qun-zi",
+    "v-h3-ren-cai"
+  ],
+  "lesson-h3-cb-p2-6": [
+    "v-h3-ren-min-bi",
+    "v-h3-ren-chu",
+    "v-h3-ren-he",
+    "v-h3-ri-chang",
+    "v-h3-sha-fa",
+    "v-h3-shang-pin",
+    "v-h3-shang-qu",
+    "v-h3-she-ji",
+    "v-h3-shen"
+  ],
+  "lesson-h3-cb-p2-7": [
+    "v-h3-sheng-chan",
+    "v-h3-sheng-yi",
+    "v-h3-sheng-li",
+    "v-h3-shi",
+    "v-h3-shi-li",
+    "v-h3-shi-pin",
+    "v-h3-shi-jie",
+    "v-h3-shi-jian",
+    "v-h3-shi-ti"
+  ],
+  "lesson-h3-cb-p2-8": [
+    "v-h3-shi-ying",
+    "v-h3-shou-ting",
+    "v-h3-shou-du",
+    "v-h3-shu-jia",
+    "v-h3-shu",
+    "v-h3-shuang",
+    "v-h3-su-du",
+    "v-h3-tai",
+    "v-tang"
+  ],
+  "lesson-h3-cb-p2-9": [
+    "v-h3-ti-wen",
+    "v-h3-ti-yan",
+    "v-h3-tiao-gao",
+    "v-h3-tie-lu",
+    "v-h3-tong-chang",
+    "v-h3-tong-ku",
+    "v-h3-tu",
+    "v-h3-tuan-jie",
+    "v-h3-tui-jin"
+  ],
+  "lesson-h3-cb-p2-10": [
+    "v-h3-tui-xiu",
+    "v-h3-wan-mei",
+    "v-h3-wang-wang",
+    "v-h3-wei-da",
+    "v-h3-wen-nuan",
+    "v-h3-wen-xue",
+    "v-h3-wu-zi",
+    "v-h3-xi-bu",
+    "v-h3-xia-mian"
+  ],
+  "lesson-h3-cb-p2-11": [
+    "v-h3-xian-ran",
+    "v-h3-xian-dai-hua",
+    "v-h3-xian",
+    "v-h3-xiang-hu",
+    "v-h3-xiao-fei",
+    "v-h3-xie-zuo",
+    "v-h3-xing-li",
+    "v-h3-xing-zhuang",
+    "v-h3-xing-bie"
+  ],
+  "lesson-h3-cb-p2-review": [
+    "v-h3-kai-fang",
+    "v-h3-kan-qi-lai",
+    "v-h3-ke-kao",
+    "v-h3-ke-cheng",
+    "v-h3-kong-pa",
+    "v-h3-kun-nan",
+    "v-h3-lao-tai-tai",
+    "v-h3-le-guan",
+    "v-limian",
+    "v-h3-li-you",
+    "v-h3-li-yong",
+    "v-h3-lian-xu-ju",
+    "v-h3-liang-shui",
+    "v-h3-ling-wai",
+    "v-h3-lu",
+    "v-h3-lu-xing-she",
+    "v-h3-ma-fan",
+    "v-h3-mao-bing"
+  ],
+  "lesson-h3-cb-p3-1": [
+    "v-h3-xu-qiu",
+    "v-h3-xuan-shou",
+    "v-h3-ya",
+    "v-h3-yan",
+    "v-h3-yan-yuan",
+    "v-h3-yi-fang-mian",
+    "v-h3-yi-lai",
+    "v-h3-yin-ci",
+    "v-h3-ying-dang"
+  ],
+  "lesson-h3-cb-p3-2": [
+    "v-h3-ying",
+    "v-h3-you",
+    "v-h3-you-xiang",
+    "v-h3-you-de-shi",
+    "v-h3-yu-fang",
+    "v-h3-yuan-gong",
+    "v-h3-za-zhi",
+    "v-h3-ze-ren",
+    "v-h3-zhang"
+  ],
+  "lesson-h3-cb-p3-3": [
+    "v-h3-zhao",
+    "v-h3-zheng-qu",
+    "v-h3-zheng-qi",
+    "v-h3-zheng-shi",
+    "v-h3-zheng-ming",
+    "v-h3-zhi-2",
+    "v-h3-zhi-de",
+    "v-h3-zhi-shi",
+    "v-h3-zhi-dao"
+  ],
+  "lesson-h3-cb-p3-4": [
+    "v-h3-zhi-yuan-zhe",
+    "v-h3-zhi-zuo",
+    "v-h3-zhong",
+    "v-h3-zhou-wei",
+    "v-h3-zhu-ren",
+    "v-h3-zhu",
+    "v-h3-zhuan-men",
+    "v-h3-zhuan-bian",
+    "v-h3-zhun"
+  ],
+  "lesson-h3-cb-p3-5": [
+    "v-h3-zi-cong",
+    "v-h3-zi-shen",
+    "v-h3-zong-shi",
+    "v-h3-zuo-you"
+  ],
+  "lesson-h3-cb-p3-review": [
+    "v-h3-xu-qiu",
+    "v-h3-xuan-shou",
+    "v-h3-ya",
+    "v-h3-yan",
+    "v-h3-yan-yuan",
+    "v-h3-yi-fang-mian",
+    "v-h3-yi-lai",
+    "v-h3-yin-ci",
+    "v-h3-ying-dang",
+    "v-h3-ying",
+    "v-h3-you",
+    "v-h3-you-xiang",
+    "v-h3-you-de-shi",
+    "v-h3-yu-fang",
+    "v-h3-yuan-gong",
+    "v-h3-za-zhi",
+    "v-h3-ze-ren",
+    "v-h3-zhang"
+  ],
+  "lesson-h3-cc-p1-1": [
+    "v-h3-an-zhuang",
+    "v-h3-ba-wo",
+    "v-h3-ban-jia",
+    "v-h3-bao-an",
+    "v-h3-bao-liu",
+    "v-h3-bao-dao",
+    "v-h3-bei-hou",
+    "v-h3-ben-ling",
+    "v-h3-bi-sai"
+  ],
+  "lesson-h3-cc-p1-2": [
+    "v-h3-bian-wei",
+    "v-h3-biao-ge",
+    "v-h3-biao-yan",
+    "v-h3-bo-fang",
+    "v-h3-bu-bi",
+    "v-h3-bu-jin",
+    "v-h3-bu-3",
+    "v-h3-cai-qu",
+    "v-h3-chan-sheng"
+  ],
+  "lesson-h3-cc-p1-3": [
+    "v-h3-chao-ji",
+    "v-h3-chen-shan",
+    "v-h3-cheng-guo",
+    "v-h3-cheng-yuan",
+    "v-h3-cheng-du",
+    "v-h3-chu-bu",
+    "v-h3-chu-le",
+    "v-h3-chuan-lai",
+    "v-h3-chuang-zao"
+  ],
+  "lesson-h3-cc-p1-4": [
+    "v-h3-cong-shi",
+    "v-h3-cuo-wu",
+    "v-h3-da-fu",
+    "v-h3-dai",
+    "v-h3-dai-ling",
+    "v-h3-dang-ran",
+    "v-h3-dao-da",
+    "v-h3-deng-dai",
+    "v-h3-dian-tai"
+  ],
+  "lesson-h3-cc-p1-5": [
+    "v-h3-tiao-zheng",
+    "v-h3-dong-li",
+    "v-h3-duan-ku",
+    "v-h3-dui-dai",
+    "v-h3-dun",
+    "v-h3-fa-dong",
+    "v-h3-fa-yan",
+    "v-h3-fan-ying",
+    "v-h3-fang"
+  ],
+  "lesson-h3-cc-p1-6": [
+    "v-h3-fang-zu",
+    "v-h3-fei",
+    "v-h3-fen-zu",
+    "v-h3-fou-ren",
+    "v-h3-fu-mu",
+    "v-h3-fu-yin",
+    "v-h3-gai-zao",
+    "v-h3-gan-jin",
+    "v-h3-gan-qing"
+  ],
+  "lesson-h3-cc-p1-7": [
+    "v-h3-gao-su-gong-lu",
+    "v-h3-ge-shou",
+    "v-h3-ge-di",
+    "v-h3-gen-ben",
+    "v-h3-gong-fu",
+    "v-h3-gong-bu",
+    "v-h3-gong-wu-yuan",
+    "v-h3-gong-tong",
+    "v-h3-gu-dai"
+  ],
+  "lesson-h3-cc-p1-8": [
+    "v-h3-guan-zhu",
+    "v-h3-guan-zhong",
+    "v-h3-guang-ming",
+    "v-h3-gui-fan",
+    "v-h3-guo-zhi",
+    "v-h3-hai-pa",
+    "v-h3-he-fa",
+    "v-h3-he-ping",
+    "v-houmian"
+  ],
+  "lesson-h3-cc-p1-9": [
+    "v-h3-hua-ren",
+    "v-h3-hua-ti",
+    "v-h3-huan-jing",
+    "v-h3-huo-2",
+    "v-h3-ji-ben",
+    "v-h3-ji-le",
+    "v-h3-ji-lu-2",
+    "v-h3-ji-shu",
+    "v-h3-jia-qiang"
+  ],
+  "lesson-h3-cc-p1-10": [
+    "v-h3-jia-ge",
+    "v-h3-jian-chi",
+    "v-h3-jian-zhi",
+    "v-h3-jian-she",
+    "v-h3-jiao-fei",
+    "v-h3-jiao-yi",
+    "v-h3-jie-dai",
+    "v-h3-jie-hun",
+    "v-h3-jie-kai"
+  ],
+  "lesson-h3-cc-p1-11": [
+    "v-h3-jin-jin",
+    "v-h3-jin-zhang",
+    "v-h3-jin-zhan",
+    "v-h3-jing-yan",
+    "v-h3-jing-se",
+    "v-jiu-old",
+    "v-h3-ju-ban",
+    "v-h3-ju-shuo",
+    "v-h3-jue-dui"
+  ],
+  "lesson-h3-cc-p1-review": [
+    "v-h3-an-zhuang",
+    "v-h3-ba-wo",
+    "v-h3-ban-jia",
+    "v-h3-bao-an",
+    "v-h3-bao-liu",
+    "v-h3-bao-dao",
+    "v-h3-bei-hou",
+    "v-h3-ben-ling",
+    "v-h3-bi-sai",
+    "v-h3-bian-wei",
+    "v-h3-biao-ge",
+    "v-h3-biao-yan",
+    "v-h3-bo-fang",
+    "v-h3-bu-bi",
+    "v-h3-bu-jin",
+    "v-h3-bu-3",
+    "v-h3-cai-qu",
+    "v-h3-chan-sheng"
+  ],
+  "lesson-h3-cc-p2-1": [
+    "v-h3-kai-shi",
+    "v-h3-kan-shang-qu",
+    "v-h3-ke-le",
+    "v-h3-kong",
+    "v-h3-ku-zi",
+    "v-h3-lang-fei",
+    "v-h3-lao-tou-r",
+    "v-h3-lei",
+    "v-h3-li-fa"
+  ],
+  "lesson-h3-cc-p2-2": [
+    "v-h3-li",
+    "v-h3-lian",
+    "v-h3-lian-he",
+    "v-h3-ling",
+    "v-h3-ling-yi-fang-mian",
+    "v-h3-lu-yin",
+    "v-h3-lu-cha",
+    "v-ma-horse",
+    "v-h3-mei-yong"
+  ],
+  "lesson-h3-cc-p2-3": [
+    "v-h3-mei-hao",
+    "v-h3-mei-yuan",
+    "v-h3-min-jian",
+    "v-h3-ming-yun",
+    "v-h3-mu-biao",
+    "v-h3-nan-bu",
+    "v-h3-nei-rong",
+    "v-h3-nian-chu",
+    "v-h3-nian"
+  ],
+  "lesson-h3-cc-p2-4": [
+    "v-h3-nong-ye",
+    "v-h3-pai-ming",
+    "v-h3-pan",
+    "v-h3-pi-ping",
+    "v-pijiu",
+    "v-h3-po",
+    "v-h3-qi",
+    "v-h3-qi-guai",
+    "v-h3-qian-jin"
+  ],
+  "lesson-h3-cc-p2-5": [
+    "v-h3-qiang-da",
+    "v-h3-qiao-2",
+    "v-h3-qin-zi",
+    "v-h3-qing-zhu",
+    "v-h3-qu-xiao",
+    "v-h3-quan-qiu",
+    "v-h3-que-bao",
+    "v-h3-qun",
+    "v-h3-ren-gong"
+  ],
+  "lesson-h3-cc-p2-6": [
+    "v-h3-ren-qun",
+    "v-h3-ren-de",
+    "v-h3-ren-wu",
+    "v-h3-rong-yi",
+    "v-h3-sha-zi",
+    "v-h3-shang-ye",
+    "v-h3-shang-sheng",
+    "v-h3-she-li",
+    "v-h3-shen-ke"
+  ],
+  "lesson-h3-cc-p2-7": [
+    "v-h3-sheng-cun",
+    "v-h3-sheng-zhang",
+    "v-h3-shi-qu",
+    "v-h3-shi-dai",
+    "v-h3-shi-xing",
+    "v-h3-shi-2",
+    "v-h3-shi-jie-bei",
+    "v-h3-shi-shi",
+    "v-h3-shi-yan"
+  ],
+  "lesson-h3-cc-p2-8": [
+    "v-h3-shi-yong",
+    "v-h3-shou-yin-ji",
+    "v-h3-shou-xian",
+    "v-h3-shu-2",
+    "v-h3-shu-yu",
+    "v-h3-shuang-fang",
+    "v-h3-sui",
+    "v-h3-tan",
+    "v-h3-tang"
+  ],
+  "lesson-h3-cc-p2-9": [
+    "v-h3-ti-mu",
+    "v-h3-tian-kong",
+    "v-h3-tiao-wu",
+    "v-h3-ting-li",
+    "v-h3-tong-xin",
+    "v-h3-tou-nao",
+    "v-h3-tu-hua",
+    "v-h3-tuan-ti",
+    "v-h3-tui-kai"
+  ],
+  "lesson-h3-cc-p2-10": [
+    "v-h3-wai-jiao",
+    "v-h3-wan-shan",
+    "v-h3-wei-hai",
+    "v-h3-wei-sheng",
+    "v-h3-wen-hua",
+    "v-h3-wen-zhang",
+    "v-h3-wu-qi",
+    "v-h3-xi-wang",
+    "v-h3-xia-qu"
+  ],
+  "lesson-h3-cc-p2-11": [
+    "v-h3-xian-shi",
+    "v-h3-xian-jin",
+    "v-h3-xiang-bi",
+    "v-h3-xiang-si",
+    "v-h3-xiao-shi",
+    "v-h3-xin",
+    "v-h3-xing-cheng",
+    "v-h3-xing-fu",
+    "v-h3-xing-ge"
+  ],
+  "lesson-h3-cc-p2-review": [
+    "v-h3-kai-shi",
+    "v-h3-kan-shang-qu",
+    "v-h3-ke-le",
+    "v-h3-kong",
+    "v-h3-ku-zi",
+    "v-h3-lang-fei",
+    "v-h3-lao-tou-r",
+    "v-h3-lei",
+    "v-h3-li-fa",
+    "v-h3-li",
+    "v-h3-lian",
+    "v-h3-lian-he",
+    "v-h3-ling",
+    "v-h3-ling-yi-fang-mian",
+    "v-h3-lu-yin",
+    "v-h3-lu-cha",
+    "v-ma-horse",
+    "v-h3-mei-yong"
+  ],
+  "lesson-h3-cc-p3-1": [
+    "v-h3-xu-yao",
+    "v-h3-xue-fei",
+    "v-h3-ya-li",
+    "v-h3-yan-chang",
+    "v-h3-yang",
+    "v-h3-yi-qie",
+    "v-h3-yi-shu",
+    "v-h3-yin",
+    "v-h3-ying-yong"
+  ],
+  "lesson-h3-cc-p3-2": [
+    "v-h3-ying-shi",
+    "v-h3-you-yu",
+    "v-h3-you-2",
+    "v-h3-you-li",
+    "v-h3-yu-ji",
+    "v-h3-yuan-wang",
+    "v-h3-zao-yi",
+    "v-h3-zeng-jia",
+    "v-h3-chang-cheng"
+  ],
+  "lesson-h3-cc-p3-3": [
+    "v-h3-zhe",
+    "v-h3-zheng-2",
+    "v-h3-zheng-ti",
+    "v-h3-zheng-3",
+    "v-h3-zhi-3",
+    "v-h3-zhi-bo",
+    "v-h3-zhi-gong",
+    "v-h3-zhi-you",
+    "v-h3-zhi-jin"
+  ],
+  "lesson-h3-cc-p3-4": [
+    "v-h3-zhi-ding",
+    "v-h3-zhong-bu",
+    "v-h3-zhong-2",
+    "v-h3-zhu-2",
+    "v-h3-zhu-yi-2",
+    "v-h3-zhua",
+    "v-h3-zhuan-ti",
+    "v-h3-zhuang-kuang",
     "v-h3-zi-ge"
   ],
-  "lesson-h3-ca-127": [
-    "v-h3-zi-jin",
-    "v-h3-zi-nu",
+  "lesson-h3-cc-p3-5": [
     "v-h3-zi-dong",
-    "v-h3-zi-ran",
-    "v-h3-zi-shen",
-    "v-h3-zong"
+    "v-h3-zi-zhu",
+    "v-h3-zu-gou",
+    "v-h3-zuo-pin"
   ],
-  "lesson-h3-ca-128": [
+  "lesson-h3-cc-p3-review": [
+    "v-h3-xu-yao",
+    "v-h3-xue-fei",
+    "v-h3-ya-li",
+    "v-h3-yan-chang",
+    "v-h3-yang",
+    "v-h3-yi-qie",
+    "v-h3-yi-shu",
+    "v-h3-yin",
+    "v-h3-ying-yong",
+    "v-h3-ying-shi",
+    "v-h3-you-yu",
+    "v-h3-you-2",
+    "v-h3-you-li",
+    "v-h3-yu-ji",
+    "v-h3-yuan-wang",
+    "v-h3-zao-yi",
+    "v-h3-zeng-jia",
+    "v-h3-chang-cheng"
+  ],
+  "lesson-h3-cd-p1-1": [
+    "v-h3-an",
+    "v-h3-bai-cai",
+    "v-h3-ban-2",
+    "v-h3-bao-chi",
+    "v-h3-bao-xian",
+    "v-h3-bao-dao-2",
+    "v-h3-bei",
+    "v-h3-ben-shi",
+    "v-h3-bi-ran"
+  ],
+  "lesson-h3-cd-p1-2": [
+    "v-h3-biao-ti",
+    "v-h3-biao-mian",
+    "v-h3-bing",
+    "v-h3-bu-4",
+    "v-h3-bu-de-bu",
+    "v-h3-bu-lun",
+    "v-h3-bu-men",
+    "v-h3-cai-yong",
+    "v-h3-han"
+  ],
+  "lesson-h3-cd-p1-3": [
+    "v-h3-chao-2",
+    "v-h3-chen-yi",
+    "v-h3-cheng-jiu",
+    "v-h3-cheng-zhang",
+    "v-h3-chi-xu",
+    "v-h3-chu-ji",
+    "v-h3-chu-li",
+    "v-h3-chuan-shuo",
+    "v-h3-chuang-zuo"
+  ],
+  "lesson-h3-cd-p1-4": [
+    "v-h3-cun-2",
+    "v-h3-da-dao",
+    "v-h3-da-gai",
+    "v-h3-dai-biao",
+    "v-h3-dan-yuan",
+    "v-h3-dang-zhong",
+    "v-h3-dao-di",
+    "v-h3-di-xia",
+    "v-h3-dian-zi-you-jian"
+  ],
+  "lesson-h3-cd-p1-5": [
+    "v-h3-ding",
+    "v-h3-dong-ren",
+    "v-h3-duan-qi",
+    "v-h3-dui-fang",
+    "v-h3-fa-biao",
+    "v-h3-fa-ming",
+    "v-h3-fa-zhan",
+    "v-h3-fan-zheng",
+    "v-h3-fang-zhi"
+  ],
+  "lesson-h3-cd-p1-6": [
+    "v-h3-fang-wen",
+    "v-h3-fei-yong",
+    "v-h3-feng-fu",
+    "v-fuwuyuan",
+    "v-h3-fu-qin",
+    "v-h3-fu-za",
+    "v-h3-gai-nian",
+    "v-h3-gan-kuai",
+    "v-h3-gan-shou"
+  ],
+  "lesson-h3-cd-p1-7": [
+    "v-h3-gao-bie",
+    "v-h3-ge-ren",
+    "v-h3-ge-wei",
+    "v-h3-geng-jia",
+    "v-h3-gong-ju",
+    "v-h3-gong-gong",
+    "v-h3-gong-fu-2",
+    "v-h3-gong-you",
+    "v-h3-gu-xiang"
+  ],
+  "lesson-h3-cd-p1-8": [
+    "v-h3-guan-cha",
+    "v-h3-guan",
+    "v-h3-guang-bo",
+    "v-h3-guo-nei",
+    "v-h3-guo-cheng",
+    "v-h3-hao-hao",
+    "v-h3-he-ge",
+    "v-h3-hong-cha",
+    "v-h3-hou-nian"
+  ],
+  "lesson-h3-cd-p1-9": [
+    "v-h3-hua",
+    "v-h3-huan-le",
+    "v-h3-hui-yi",
+    "v-h3-ji-qi",
+    "v-h3-ji-ben-shang",
+    "v-h3-ji-ti",
+    "v-h3-ji-zhe",
+    "v-h3-ji-xu",
+    "v-h3-jia-ju"
+  ],
+  "lesson-h3-cd-p1-10": [
+    "v-h3-jia-qian",
+    "v-h3-jian-jue",
+    "v-h3-jian",
+    "v-h3-jian-yi",
+    "v-h3-jiao-jing",
+    "v-h3-jiao",
+    "v-h3-jie-jin",
+    "v-h3-jie-shi",
+    "v-h3-jin-3"
+  ],
+  "lesson-h3-cd-p1-11": [
+    "v-h3-jin-liang",
+    "v-h3-jin-qi",
+    "v-h3-jing-ju",
+    "v-h3-jing-ying",
+    "v-h3-jing-cha",
+    "v-h3-jiu-2",
+    "v-h3-ju-ti",
+    "v-h3-jue-ding",
+    "v-kafei"
+  ],
+  "lesson-h3-cd-p1-review": [
+    "v-h3-an",
+    "v-h3-bai-cai",
+    "v-h3-ban-2",
+    "v-h3-bao-chi",
+    "v-h3-bao-xian",
+    "v-h3-bao-dao-2",
+    "v-h3-bei",
+    "v-h3-ben-shi",
+    "v-h3-bi-ran",
+    "v-h3-biao-ti",
+    "v-h3-biao-mian",
+    "v-h3-bing",
+    "v-h3-bu-4",
+    "v-h3-bu-de-bu",
+    "v-h3-bu-lun",
+    "v-h3-bu-men",
+    "v-h3-cai-yong",
+    "v-h3-han"
+  ],
+  "lesson-h3-cd-p2-1": [
+    "v-h3-kai-ye",
+    "v-h3-kao-yan",
+    "v-h3-ke-fu",
+    "v-h3-kong-tiao",
+    "v-h3-kuai-su",
+    "v-h3-lao-bai-xing",
+    "v-h3-le",
+    "v-h3-lei-si",
+    "v-h3-li-jie"
+  ],
+  "lesson-h3-cd-p2-2": [
+    "v-h3-li-liang",
+    "v-h3-lian-mang",
+    "v-h3-lian-he-guo",
+    "v-h3-ling-dao",
+    "v-h3-liu-xue",
+    "v-h3-lu-xian",
+    "v-h3-luan",
+    "v-h3-man-zu",
+    "v-h3-mei-ti"
+  ],
+  "lesson-h3-cd-p2-3": [
+    "v-h3-mei-li",
+    "v-h3-mi",
+    "v-h3-min-zu",
+    "v-h3-mou",
+    "v-h3-mu-qian",
+    "v-h3-nan-dao",
+    "v-h3-nei-xin",
+    "v-h3-nian-dai",
+    "v-h3-niu"
+  ],
+  "lesson-h3-cd-p2-4": [
+    "v-h3-nu-zi",
+    "v-h3-pai-zi",
+    "v-h3-pao-bu",
+    "v-h3-pi-zhun",
+    "v-h3-piao-jia",
+    "v-h3-po-huai",
+    "v-h3-qi-2",
+    "v-h3-qi-hou",
+    "v-qianmian"
+  ],
+  "lesson-h3-cd-p2-5": [
+    "v-h3-qiang-diao",
+    "v-h3-qin",
+    "v-h3-qing-gan",
+    "v-h3-qiu-mi",
+    "v-h3-qu-shi",
+    "v-h3-que",
+    "v-h3-que-ding",
+    "v-h3-re-ai",
+    "v-h3-ren-lei"
+  ],
+  "lesson-h3-cd-p2-6": [
+    "v-h3-ren-sheng",
+    "v-h3-ren-ke",
+    "v-h3-reng",
+    "v-h3-ru-he",
+    "v-h3-shang",
+    "v-h3-shang-lai",
+    "v-h3-shang-yi",
+    "v-h3-she-hui",
+    "v-h3-shen-ru"
+  ],
+  "lesson-h3-cd-p2-7": [
+    "v-h3-sheng-dong",
+    "v-h3-sheng-ming-2",
+    "v-h3-shi-tou",
+    "v-h3-shi-ke",
+    "v-h3-shi-yan-2",
+    "v-h3-shi-zhong",
+    "v-h3-shi-chang",
+    "v-h3-shi-shi-shang",
+    "v-h3-shi-3"
+  ],
+  "lesson-h3-cd-p2-8": [
+    "v-h3-shou-fei",
+    "v-h3-shou-xu",
+    "v-h3-shou",
+    "v-h3-shu-ru",
+    "v-h3-shu-3",
+    "v-h3-si-xiang",
+    "v-h3-suo",
+    "v-h3-tan-hua",
+    "v-h3-te-se"
+  ],
+  "lesson-h3-cd-p2-9": [
+    "v-h3-ti-hui",
+    "v-h3-tian",
+    "v-h3-tiao-yuan",
+    "v-h3-ting-zhong",
+    "v-h3-tong-yi",
+    "v-h3-tu-chu",
+    "v-h3-tu-2",
+    "v-h3-tui-dong",
+    "v-h3-tui"
+  ],
+  "lesson-h3-cd-p2-10": [
+    "v-waimian",
+    "v-h3-wan-zheng",
+    "v-h3-wei-xian",
+    "v-h3-wei-sheng-jian",
+    "v-h3-wen-jian",
+    "v-h3-wen-zi",
+    "v-h3-wu-shu",
+    "v-h3-xi",
+    "v-h3-xian-jin-2"
+  ],
+  "lesson-h3-cd-p2-11": [
+    "v-h3-xian-chang",
+    "v-h3-xian-shi-2",
+    "v-h3-xiang-dang",
+    "v-h3-xiang",
+    "v-h3-xiao-xi",
+    "v-h3-xin-feng",
+    "v-h3-xing-shi",
+    "v-h3-xing-yun",
+    "v-h3-xiu"
+  ],
+  "lesson-h3-cd-p2-review": [
+    "v-h3-kai-ye",
+    "v-h3-kao-yan",
+    "v-h3-ke-fu",
+    "v-h3-kong-tiao",
+    "v-h3-kuai-su",
+    "v-h3-lao-bai-xing",
+    "v-h3-le",
+    "v-h3-lei-si",
+    "v-h3-li-jie",
+    "v-h3-li-liang",
+    "v-h3-lian-mang",
+    "v-h3-lian-he-guo",
+    "v-h3-ling-dao",
+    "v-h3-liu-xue",
+    "v-h3-lu-xian",
+    "v-h3-luan",
+    "v-h3-man-zu",
+    "v-h3-mei-ti"
+  ],
+  "lesson-h3-cd-p3-1": [
+    "v-h3-xuan-bu",
+    "v-h3-xue",
+    "v-h3-yan-2",
+    "v-h3-yan-chang-hui",
+    "v-h3-yang-guang",
+    "v-h3-yi-jia",
+    "v-h3-yi-wai",
+    "v-h3-yin-pai",
+    "v-h3-ying-jie"
+  ],
+  "lesson-h3-cd-p3-2": [
+    "v-h3-you-dian",
+    "v-h3-you-jian",
+    "v-h3-you-xi",
+    "v-h3-you-xiao",
+    "v-h3-yu-xi",
+    "v-h3-yao",
+    "v-h3-zao",
+    "v-h3-zeng-zhang",
+    "v-h3-chang-chu"
+  ],
+  "lesson-h3-cd-p3-3": [
+    "v-h3-zhen-shi",
+    "v-h3-zheng-ge",
+    "v-h3-zheng-tian",
+    "v-h3-zheng-jian",
+    "v-h3-zhi-chi",
+    "v-h3-zhi-dao-2",
+    "v-h3-zhi-ye",
+    "v-h3-zhi-4",
+    "v-h3-zhi-shao"
+  ],
+  "lesson-h3-cd-p3-4": [
+    "v-h3-zhi-du",
+    "v-h3-zhong-hua-min-zu",
+    "v-h3-zhong-zi",
+    "v-h3-zhu-chi",
+    "v-h3-zhu-zhang",
+    "v-h3-zhua-zhu",
+    "v-h3-zhuan-ye",
+    "v-h3-zhuang-tai",
+    "v-h3-zi-jin"
+  ],
+  "lesson-h3-cd-p3-5": [
+    "v-h3-zi-jue",
+    "v-h3-zong",
+    "v-h3-zu-qiu",
+    "v-h3-zuo-zhe"
+  ],
+  "lesson-h3-cd-p3-review": [
+    "v-h3-xuan-bu",
+    "v-h3-xue",
+    "v-h3-yan-2",
+    "v-h3-yan-chang-hui",
+    "v-h3-yang-guang",
+    "v-h3-yi-jia",
+    "v-h3-yi-wai",
+    "v-h3-yin-pai",
+    "v-h3-ying-jie",
+    "v-h3-you-dian",
+    "v-h3-you-jian",
+    "v-h3-you-xi",
+    "v-h3-you-xiao",
+    "v-h3-yu-xi",
+    "v-h3-yao",
+    "v-h3-zao",
+    "v-h3-zeng-zhang",
+    "v-h3-chang-chu"
+  ],
+  "lesson-h3-ce-review-1": [
+    "v-h3-ai-xin",
+    "v-h3-bao",
+    "v-h3-bei-hou",
+    "v-h3-biao-ti",
+    "v-h3-bu-chong",
+    "v-h3-cai-neng",
+    "v-h3-chen-shan",
+    "v-h3-chi-xu",
+    "v-h3-chuang-xin"
+  ],
+  "lesson-h3-ce-review-2": [
+    "v-h3-da-ting",
+    "v-h3-dang-ran",
+    "v-h3-dian-zi-you-jian",
+    "v-h3-duan",
+    "v-h3-fa-song",
+    "v-h3-fang-zu",
+    "v-fuwuyuan",
+    "v-h3-gan",
+    "v-h3-ge-sheng"
+  ],
+  "lesson-h3-ce-review-3": [
+    "v-h3-gong-fu",
+    "v-h3-gong-you",
+    "v-h3-guan-li",
+    "v-h3-hai-guan",
+    "v-houmian",
+    "v-h3-hui-yi",
+    "v-h3-ji-zhong",
+    "v-h3-jia-xiang",
+    "v-h3-jian-she"
+  ],
+  "lesson-h3-ce-review-4": [
+    "v-h3-jie-jin",
+    "v-h3-jin",
+    "v-h3-jing-shen",
+    "v-h3-ju-shuo",
+    "v-h3-kao-yan",
+    "v-h3-kun",
+    "v-limian",
+    "v-h3-lian-he",
+    "v-h3-lu-xian"
+  ],
+  "lesson-h3-ce-review-5": [
+    "v-mei",
+    "v-h3-ming-xian",
+    "v-h3-nei-rong",
+    "v-h3-nu-zi",
+    "v-h3-pi",
+    "v-h3-qi-shi",
+    "v-h3-qiao-2",
+    "v-h3-qu-shi",
+    "v-h3-re-lie"
+  ],
+  "lesson-h3-ce-review-6": [
+    "v-h3-ren-he",
+    "v-h3-shang-ye",
+    "v-h3-shen-ru",
+    "v-h3-shi-you",
+    "v-h3-shi-jie",
+    "v-h3-shi-yong",
+    "v-h3-shu-ru",
+    "v-h3-suo-chang",
+    "v-h3-ti-yan"
+  ],
+  "lesson-h3-ce-review-7": [
+    "v-h3-tong-xin",
+    "v-h3-tui-dong",
+    "v-h3-wan-ju",
+    "v-h3-wen-xue",
+    "v-h3-xia-qu",
+    "v-h3-xiang-dang",
+    "v-h3-xin-ren",
+    "v-h3-xu-qiu",
+    "v-h3-yan-chang"
+  ],
+  "lesson-h3-ce-review-8": [
+    "v-h3-yi-wai",
+    "v-h3-you-shi",
+    "v-h3-yu-fang",
+    "v-h3-zeng-jia",
+    "v-h3-zheng-ge",
+    "v-h3-zhi-fu",
+    "v-h3-zhi-dao",
+    "v-h3-zhong-2",
+    "v-h3-zhua-zhu"
+  ],
+  "lesson-h3-ce-graduation": [
     "v-h3-zong-jie",
     "v-h3-zong-shi",
     "v-h3-zu-gou",
     "v-h3-zu-qiu",
     "v-h3-zu-he",
-    "v-h3-zuo-you"
-  ],
-  "lesson-h3-ca-129": [
-    "v-h3-zuo-zhe"
-  ],
-  "lesson-h3-ca-review": [
-    "v-h3-ai-xin",
-    "v-h3-an-zhuang",
-    "v-h3-an",
-    "v-h3-an-zhao",
-    "v-h3-ba",
-    "v-h3-ba-wo",
-    "v-h3-bai-cai",
-    "v-h3-ban-ji",
-    "v-h3-ban",
-    "v-h3-ban-jia",
-    "v-h3-ban-2",
-    "v-h3-bao"
-  ],
-  "lesson-h3-cb-1": [
-    "v-h3-ban-li",
-    "v-h3-ben-lai",
-    "v-h3-bian-hua",
-    "v-h3-bian-wei",
-    "v-h3-bu-jin",
-    "v-h3-bu-lun"
-  ],
-  "lesson-h3-cb-2": [
-    "v-h3-chi-xu",
-    "v-h3-chu-li",
-    "v-h3-chuan-shuo",
-    "v-h3-dao-di",
-    "v-h3-tiao-zheng",
-    "v-h3-dun"
-  ],
-  "lesson-h3-cb-3": [
-    "v-h3-fa-chu",
-    "v-h3-fa-dong",
-    "v-h3-fan-dui",
-    "v-h3-fang-wen",
-    "v-h3-ge-wei",
-    "v-h3-gua"
-  ],
-  "lesson-h3-cb-4": [
-    "v-h3-ji-xu",
-    "v-h3-jia-qiang",
-    "v-h3-jian-chi",
-    "v-h3-jiao-liu",
-    "v-h3-jie-dai",
-    "v-h3-jing-li"
-  ],
-  "lesson-h3-cb-5": [
-    "v-h3-jing-yan",
-    "v-h3-li-fa",
-    "v-h3-li-jie",
-    "v-h3-lu-xing-she",
-    "v-h3-quan-chang",
-    "v-h3-reng-ran"
-  ],
-  "lesson-h3-cb-6": [
-    "v-h3-ri-chang",
-    "v-h3-sheng-2",
-    "v-h3-shi-zhong",
-    "v-h3-shi-ying",
-    "v-h3-shuang-fang",
-    "v-h3-ti-hui"
-  ],
-  "lesson-h3-cb-7": [
-    "v-h3-ti-yan",
-    "v-h3-ting-zhi",
-    "v-h3-tui-guang",
-    "v-h3-wan-zheng",
-    "v-h3-xing-bie",
-    "v-h3-xiu-gai"
-  ],
-  "lesson-h3-cb-8": [
-    "v-h3-yan-qian",
-    "v-h3-yi-qie",
-    "v-h3-yi",
-    "v-h3-yin-xiang",
-    "v-h3-zhi-shi",
-    "v-h3-zhuan-bian"
-  ],
-  "lesson-h3-cb-9": [
-    "v-h3-zi-zhu",
+    "v-h3-zuo-you",
+    "v-h3-zuo-pin",
+    "v-h3-zuo-zhe",
     "v-h3-zuo-ke"
-  ],
-  "lesson-h3-cb-review": [
-    "v-h3-ban-li",
-    "v-h3-ben-lai",
-    "v-h3-bian-hua",
-    "v-h3-bian-wei",
-    "v-h3-bu-jin",
-    "v-h3-bu-lun",
-    "v-h3-chi-xu",
-    "v-h3-chu-li",
-    "v-h3-chuan-shuo",
-    "v-h3-dao-di",
-    "v-h3-tiao-zheng",
-    "v-h3-dun"
-  ],
-  "lesson-h3-cc-1": [
-    "v-h3-an-pai",
-    "v-h3-chu-yi",
-    "v-h3-da-dao",
-    "v-h3-fei-xing",
-    "v-h3-gui-ding",
-    "v-h3-he-ge"
-  ],
-  "lesson-h3-cc-2": [
-    "v-h3-hou-nian",
-    "v-h3-hui-yi",
-    "v-h3-liu-xue",
-    "v-h3-nian-chu",
-    "v-h3-nian-di",
-    "v-h3-qu-xiao"
-  ],
-  "lesson-h3-cc-3": [
-    "v-h3-she-ji",
-    "v-h3-shi-dai",
-    "v-h3-tui-dong",
-    "v-h3-xian-jin-2",
-    "v-h3-xiang-guan",
-    "v-h3-yu-xi"
-  ],
-  "lesson-h3-cc-4": [
-    "v-h3-zheng-li",
-    "v-h3-zhi-ding",
-    "v-h3-zhu-yi-2"
-  ],
-  "lesson-h3-cc-review": [
-    "v-h3-an-pai",
-    "v-h3-chu-yi",
-    "v-h3-da-dao",
-    "v-h3-fei-xing",
-    "v-h3-gui-ding",
-    "v-h3-he-ge",
-    "v-h3-hou-nian",
-    "v-h3-hui-yi",
-    "v-h3-liu-xue",
-    "v-h3-nian-chu",
-    "v-h3-nian-di",
-    "v-h3-qu-xiao"
-  ],
-  "lesson-h3-cd-1": [
-    "v-h3-bao-cun",
-    "v-h3-bao-hu",
-    "v-h3-bi-jiao",
-    "v-h3-bi-li",
-    "v-h3-bu-de-bu",
-    "v-h3-chuan-bo"
-  ],
-  "lesson-h3-cd-2": [
-    "v-h3-da-yue",
-    "v-h3-dai-dong",
-    "v-h3-ding",
-    "v-h3-fang",
-    "v-h3-fen-pei",
-    "v-h3-gai-jin"
-  ],
-  "lesson-h3-cd-3": [
-    "v-h3-gai-nian",
-    "v-h3-he-li",
-    "v-h3-hou-guo",
-    "v-h3-hua-ti",
-    "v-h3-ji-zhong",
-    "v-h3-ji-lu-2"
-  ],
-  "lesson-h3-cd-4": [
-    "v-h3-jia-gong",
-    "v-h3-jian-she",
-    "v-h3-jian-yi",
-    "v-h3-jiao",
-    "v-h3-jie-jin",
-    "v-h3-jie-yue"
-  ],
-  "lesson-h3-cd-5": [
-    "v-h3-jin-bu",
-    "v-h3-jin-zhan",
-    "v-h3-jing-ji",
-    "v-h3-ju-ban",
-    "v-h3-ju-ti",
-    "v-h3-jue-ding"
-  ],
-  "lesson-h3-cd-6": [
-    "v-h3-kong-tiao",
-    "v-h3-li-you",
-    "v-h3-lian-mang",
-    "v-h3-lian-xu",
-    "v-h3-luan",
-    "v-h3-mian-dui"
-  ],
-  "lesson-h3-cd-7": [
-    "v-h3-nei-rong",
-    "v-h3-pi-zhun",
-    "v-h3-qian-wang",
-    "v-h3-ren-ke",
-    "v-h3-shen-ke",
-    "v-h3-sheng-chan"
-  ],
-  "lesson-h3-cd-8": [
-    "v-h3-shi-pin",
-    "v-h3-shou-kan",
-    "v-h3-shou-xu",
-    "v-h3-tong-yi",
-    "v-h3-tu-chu",
-    "v-h3-wei-da"
-  ],
-  "lesson-h3-cd-9": [
-    "v-h3-xi",
-    "v-h3-xiang-bi",
-    "v-h3-xiao-fei",
-    "v-h3-yan-chang-hui",
-    "v-h3-yi-lai",
-    "v-h3-yin-ci"
-  ],
-  "lesson-h3-cd-10": [
-    "v-h3-you-li",
-    "v-h3-zao-yi",
-    "v-h3-zheng-ming",
-    "v-h3-zhi-ye",
-    "v-h3-zhi-hao",
-    "v-h3-zhuan-ti"
-  ],
-  "lesson-h3-cd-11": [
-    "v-h3-zhuang-kuang",
-    "v-h3-zhuang-tai",
-    "v-h3-zi-cong",
-    "v-h3-zi-jue"
-  ],
-  "lesson-h3-cd-review": [
-    "v-h3-bao-cun",
-    "v-h3-bao-hu",
-    "v-h3-bi-jiao",
-    "v-h3-bi-li",
-    "v-h3-bu-de-bu",
-    "v-h3-chuan-bo",
-    "v-h3-da-yue",
-    "v-h3-dai-dong",
-    "v-h3-ding",
-    "v-h3-fang",
-    "v-h3-fen-pei",
-    "v-h3-gai-jin"
-  ],
-  "lesson-h3-ce-1": [
-    "v-h3-bao-an",
-    "v-h3-bao-dao",
-    "v-h3-bao-dao-2",
-    "v-h3-bei-bu",
-    "v-h3-bu-men",
-    "v-h3-bu-zhang"
-  ],
-  "lesson-h3-ce-2": [
-    "v-h3-dui-yuan",
-    "v-h3-dui-fang",
-    "v-h3-fa-sheng",
-    "v-h3-fen-bie",
-    "v-h3-gao-bie",
-    "v-h3-ge-di"
-  ],
-  "lesson-h3-ce-3": [
-    "v-h3-gong-gong",
-    "v-h3-gong-kai",
-    "v-h3-hai-guan",
-    "v-h3-hong-cha",
-    "v-h3-hong-jiu",
-    "v-h3-ji-zhe"
-  ],
-  "lesson-h3-ce-4": [
-    "v-h3-jiao-cai",
-    "v-h3-ju-shuo",
-    "v-h3-lu-cha",
-    "v-h3-mei-ti",
-    "v-h3-mei-shu",
-    "v-h3-nai-cha"
-  ],
-  "lesson-h3-ce-5": [
-    "v-h3-nan-bu",
-    "v-h3-nan-dao",
-    "v-h3-nei-xin",
-    "v-h3-nong-ye",
-    "v-h3-pai-zi",
-    "v-h3-pei"
-  ],
-  "lesson-h3-ce-6": [
-    "v-h3-pei-he",
-    "v-h3-qin-ren",
-    "v-h3-qing-zhu",
-    "v-h3-ren-gong",
-    "v-h3-ren-sheng",
-    "v-h3-ren-wu"
-  ],
-  "lesson-h3-ce-7": [
-    "v-h3-shi-qu",
-    "v-h3-shu-3",
-    "v-h3-tu-hua",
-    "v-h3-wei-xian",
-    "v-h3-wen-hua",
-    "v-h3-wen-zhang"
-  ],
-  "lesson-h3-ce-8": [
-    "v-h3-xi-bu",
-    "v-h3-xiao-xi",
-    "v-h3-xin",
-    "v-h3-yi-shu",
-    "v-h3-zhong-bu",
-    "v-h3-zhun"
-  ],
-  "lesson-h3-ce-9": [
-    "v-h3-zuo-pin"
   ]
 };
 
 export const hsk3LessonSentenceMap: Record<string, string[]> = {
-  "lesson-h3-ca-1": [
+  "lesson-h3-ca-p1-1": [
     "s-h3-132"
   ],
-  "lesson-h3-ca-2": [
+  "lesson-h3-ca-p1-2": [
     "s-h3-133"
   ],
-  "lesson-h3-ca-3": [
+  "lesson-h3-ca-p1-3": [
     "s-h3-134"
   ],
-  "lesson-h3-ca-4": [
+  "lesson-h3-ca-p1-4": [
     "s-h3-135"
   ],
-  "lesson-h3-ca-5": [
+  "lesson-h3-ca-p1-5": [
     "s-h3-136"
   ],
-  "lesson-h3-ca-6": [
+  "lesson-h3-ca-p1-6": [
     "s-h3-137"
   ],
-  "lesson-h3-ca-7": [
+  "lesson-h3-ca-p1-7": [
     "s-h3-138"
   ],
-  "lesson-h3-ca-8": [
+  "lesson-h3-ca-p1-8": [
     "s-h3-139"
   ],
-  "lesson-h3-ca-9": [
+  "lesson-h3-ca-p1-9": [
     "s-h3-140"
   ],
-  "lesson-h3-ca-10": [
+  "lesson-h3-ca-p1-10": [
     "s-h3-141"
   ],
-  "lesson-h3-ca-11": [
+  "lesson-h3-ca-p1-11": [
     "s-h3-142"
   ],
-  "lesson-h3-ca-12": [
-    "s-h3-143"
-  ],
-  "lesson-h3-ca-13": [
-    "s-h3-144"
-  ],
-  "lesson-h3-ca-14": [
-    "s-h3-145"
-  ],
-  "lesson-h3-ca-15": [
-    "s-h3-146"
-  ],
-  "lesson-h3-ca-16": [
-    "s-h3-147"
-  ],
-  "lesson-h3-ca-17": [
-    "s-h3-148"
-  ],
-  "lesson-h3-ca-18": [
-    "s-h3-149"
-  ],
-  "lesson-h3-ca-19": [
-    "s-h3-150"
-  ],
-  "lesson-h3-ca-20": [
-    "s-h3-151"
-  ],
-  "lesson-h3-ca-21": [
-    "s-h3-152"
-  ],
-  "lesson-h3-ca-22": [
-    "s-h3-153"
-  ],
-  "lesson-h3-ca-23": [
-    "s-h3-154"
-  ],
-  "lesson-h3-ca-24": [
-    "s-h3-155"
-  ],
-  "lesson-h3-ca-25": [
-    "s-h3-156"
-  ],
-  "lesson-h3-ca-26": [
-    "s-h3-157"
-  ],
-  "lesson-h3-ca-27": [
-    "s-h3-158"
-  ],
-  "lesson-h3-ca-28": [
-    "s-h3-159"
-  ],
-  "lesson-h3-ca-29": [
-    "s-h3-160"
-  ],
-  "lesson-h3-ca-30": [
-    "s-h3-131"
-  ],
-  "lesson-h3-ca-31": [
+  "lesson-h3-ca-p2-1": [
     "s-h3-132"
   ],
-  "lesson-h3-ca-32": [
+  "lesson-h3-ca-p2-2": [
     "s-h3-133"
   ],
-  "lesson-h3-ca-33": [
+  "lesson-h3-ca-p2-3": [
     "s-h3-134"
   ],
-  "lesson-h3-ca-34": [
+  "lesson-h3-ca-p2-4": [
     "s-h3-135"
   ],
-  "lesson-h3-ca-35": [
+  "lesson-h3-ca-p2-5": [
     "s-h3-136"
   ],
-  "lesson-h3-ca-36": [
+  "lesson-h3-ca-p2-6": [
     "s-h3-137"
   ],
-  "lesson-h3-ca-37": [
+  "lesson-h3-ca-p2-7": [
     "s-h3-138"
   ],
-  "lesson-h3-ca-38": [
+  "lesson-h3-ca-p2-8": [
     "s-h3-139"
   ],
-  "lesson-h3-ca-39": [
+  "lesson-h3-ca-p2-9": [
     "s-h3-140"
   ],
-  "lesson-h3-ca-40": [
+  "lesson-h3-ca-p2-10": [
     "s-h3-141"
   ],
-  "lesson-h3-ca-41": [
+  "lesson-h3-ca-p2-11": [
     "s-h3-142"
   ],
-  "lesson-h3-ca-42": [
-    "s-h3-143"
-  ],
-  "lesson-h3-ca-43": [
-    "s-h3-144"
-  ],
-  "lesson-h3-ca-44": [
-    "s-h3-145"
-  ],
-  "lesson-h3-ca-45": [
-    "s-h3-146"
-  ],
-  "lesson-h3-ca-46": [
-    "s-h3-147"
-  ],
-  "lesson-h3-ca-47": [
-    "s-h3-148"
-  ],
-  "lesson-h3-ca-48": [
-    "s-h3-149"
-  ],
-  "lesson-h3-ca-49": [
-    "s-h3-150"
-  ],
-  "lesson-h3-ca-50": [
-    "s-h3-151"
-  ],
-  "lesson-h3-ca-51": [
-    "s-h3-152"
-  ],
-  "lesson-h3-ca-52": [
-    "s-h3-153"
-  ],
-  "lesson-h3-ca-53": [
-    "s-h3-154"
-  ],
-  "lesson-h3-ca-54": [
-    "s-h3-155"
-  ],
-  "lesson-h3-ca-55": [
-    "s-h3-156"
-  ],
-  "lesson-h3-ca-56": [
-    "s-h3-157"
-  ],
-  "lesson-h3-ca-57": [
-    "s-h3-158"
-  ],
-  "lesson-h3-ca-58": [
-    "s-h3-159"
-  ],
-  "lesson-h3-ca-59": [
-    "s-h3-160"
-  ],
-  "lesson-h3-ca-60": [
-    "s-h3-131"
-  ],
-  "lesson-h3-ca-61": [
+  "lesson-h3-ca-p3-1": [
     "s-h3-132"
   ],
-  "lesson-h3-ca-62": [
+  "lesson-h3-ca-p3-2": [
     "s-h3-133"
   ],
-  "lesson-h3-ca-63": [
+  "lesson-h3-ca-p3-3": [
     "s-h3-134"
   ],
-  "lesson-h3-ca-64": [
+  "lesson-h3-ca-p3-4": [
     "s-h3-135"
   ],
-  "lesson-h3-ca-65": [
+  "lesson-h3-ca-p3-5": [
     "s-h3-136"
   ],
-  "lesson-h3-ca-66": [
+  "lesson-h3-cb-p1-1": [
+    "s-h3-132"
+  ],
+  "lesson-h3-cb-p1-2": [
+    "s-h3-133"
+  ],
+  "lesson-h3-cb-p1-3": [
+    "s-h3-134"
+  ],
+  "lesson-h3-cb-p1-4": [
+    "s-h3-135"
+  ],
+  "lesson-h3-cb-p1-5": [
+    "s-h3-136"
+  ],
+  "lesson-h3-cb-p1-6": [
     "s-h3-137"
   ],
-  "lesson-h3-ca-67": [
+  "lesson-h3-cb-p1-7": [
     "s-h3-138"
   ],
-  "lesson-h3-ca-68": [
+  "lesson-h3-cb-p1-8": [
     "s-h3-139"
   ],
-  "lesson-h3-ca-69": [
+  "lesson-h3-cb-p1-9": [
     "s-h3-140"
   ],
-  "lesson-h3-ca-70": [
+  "lesson-h3-cb-p1-10": [
     "s-h3-141"
   ],
-  "lesson-h3-ca-71": [
+  "lesson-h3-cb-p1-11": [
     "s-h3-142"
   ],
-  "lesson-h3-ca-72": [
-    "s-h3-143"
-  ],
-  "lesson-h3-ca-73": [
-    "s-h3-144"
-  ],
-  "lesson-h3-ca-74": [
-    "s-h3-145"
-  ],
-  "lesson-h3-ca-75": [
-    "s-h3-146"
-  ],
-  "lesson-h3-ca-76": [
-    "s-h3-147"
-  ],
-  "lesson-h3-ca-77": [
-    "s-h3-148"
-  ],
-  "lesson-h3-ca-78": [
-    "s-h3-149"
-  ],
-  "lesson-h3-ca-79": [
-    "s-h3-150"
-  ],
-  "lesson-h3-ca-80": [
-    "s-h3-151"
-  ],
-  "lesson-h3-ca-81": [
-    "s-h3-152"
-  ],
-  "lesson-h3-ca-82": [
-    "s-h3-153"
-  ],
-  "lesson-h3-ca-83": [
-    "s-h3-154"
-  ],
-  "lesson-h3-ca-84": [
-    "s-h3-155"
-  ],
-  "lesson-h3-ca-85": [
-    "s-h3-156"
-  ],
-  "lesson-h3-ca-86": [
-    "s-h3-157"
-  ],
-  "lesson-h3-ca-87": [
-    "s-h3-158"
-  ],
-  "lesson-h3-ca-88": [
-    "s-h3-159"
-  ],
-  "lesson-h3-ca-89": [
-    "s-h3-160"
-  ],
-  "lesson-h3-ca-90": [
-    "s-h3-131"
-  ],
-  "lesson-h3-ca-91": [
+  "lesson-h3-cb-p2-1": [
     "s-h3-132"
   ],
-  "lesson-h3-ca-92": [
+  "lesson-h3-cb-p2-2": [
     "s-h3-133"
   ],
-  "lesson-h3-ca-93": [
+  "lesson-h3-cb-p2-3": [
     "s-h3-134"
   ],
-  "lesson-h3-ca-94": [
+  "lesson-h3-cb-p2-4": [
     "s-h3-135"
   ],
-  "lesson-h3-ca-95": [
+  "lesson-h3-cb-p2-5": [
     "s-h3-136"
   ],
-  "lesson-h3-ca-96": [
+  "lesson-h3-cb-p2-6": [
     "s-h3-137"
   ],
-  "lesson-h3-ca-97": [
+  "lesson-h3-cb-p2-7": [
     "s-h3-138"
   ],
-  "lesson-h3-ca-98": [
+  "lesson-h3-cb-p2-8": [
     "s-h3-139"
   ],
-  "lesson-h3-ca-99": [
+  "lesson-h3-cb-p2-9": [
     "s-h3-140"
   ],
-  "lesson-h3-ca-100": [
+  "lesson-h3-cb-p2-10": [
     "s-h3-141"
   ],
-  "lesson-h3-ca-101": [
+  "lesson-h3-cb-p2-11": [
     "s-h3-142"
   ],
-  "lesson-h3-ca-102": [
-    "s-h3-143"
-  ],
-  "lesson-h3-ca-103": [
-    "s-h3-144"
-  ],
-  "lesson-h3-ca-104": [
-    "s-h3-145"
-  ],
-  "lesson-h3-ca-105": [
-    "s-h3-146"
-  ],
-  "lesson-h3-ca-106": [
-    "s-h3-147"
-  ],
-  "lesson-h3-ca-107": [
-    "s-h3-148"
-  ],
-  "lesson-h3-ca-108": [
-    "s-h3-149"
-  ],
-  "lesson-h3-ca-109": [
-    "s-h3-150"
-  ],
-  "lesson-h3-ca-110": [
-    "s-h3-151"
-  ],
-  "lesson-h3-ca-111": [
-    "s-h3-152"
-  ],
-  "lesson-h3-ca-112": [
-    "s-h3-153"
-  ],
-  "lesson-h3-ca-113": [
-    "s-h3-154"
-  ],
-  "lesson-h3-ca-114": [
-    "s-h3-155"
-  ],
-  "lesson-h3-ca-115": [
-    "s-h3-156"
-  ],
-  "lesson-h3-ca-116": [
-    "s-h3-157"
-  ],
-  "lesson-h3-ca-117": [
-    "s-h3-158"
-  ],
-  "lesson-h3-ca-118": [
-    "s-h3-159"
-  ],
-  "lesson-h3-ca-119": [
-    "s-h3-160"
-  ],
-  "lesson-h3-ca-120": [
-    "s-h3-131"
-  ],
-  "lesson-h3-ca-121": [
+  "lesson-h3-cb-p3-1": [
     "s-h3-132"
   ],
-  "lesson-h3-ca-122": [
+  "lesson-h3-cb-p3-2": [
     "s-h3-133"
   ],
-  "lesson-h3-ca-123": [
+  "lesson-h3-cb-p3-3": [
     "s-h3-134"
   ],
-  "lesson-h3-ca-124": [
+  "lesson-h3-cb-p3-4": [
     "s-h3-135"
   ],
-  "lesson-h3-ca-125": [
+  "lesson-h3-cb-p3-5": [
     "s-h3-136"
   ],
-  "lesson-h3-ca-126": [
-    "s-h3-137"
-  ],
-  "lesson-h3-ca-127": [
-    "s-h3-138"
-  ],
-  "lesson-h3-ca-128": [
-    "s-h3-139"
-  ],
-  "lesson-h3-ca-129": [
-    "s-h3-140"
-  ],
-  "lesson-h3-cb-1": [
+  "lesson-h3-cc-p1-1": [
     "s-h3-132"
   ],
-  "lesson-h3-cb-2": [
+  "lesson-h3-cc-p1-2": [
     "s-h3-133"
   ],
-  "lesson-h3-cb-3": [
+  "lesson-h3-cc-p1-3": [
     "s-h3-134"
   ],
-  "lesson-h3-cb-4": [
+  "lesson-h3-cc-p1-4": [
     "s-h3-135"
   ],
-  "lesson-h3-cb-5": [
+  "lesson-h3-cc-p1-5": [
     "s-h3-136"
   ],
-  "lesson-h3-cb-6": [
+  "lesson-h3-cc-p1-6": [
     "s-h3-137"
   ],
-  "lesson-h3-cb-7": [
+  "lesson-h3-cc-p1-7": [
     "s-h3-138"
   ],
-  "lesson-h3-cb-8": [
+  "lesson-h3-cc-p1-8": [
     "s-h3-139"
   ],
-  "lesson-h3-cb-9": [
+  "lesson-h3-cc-p1-9": [
     "s-h3-140"
   ],
-  "lesson-h3-cc-1": [
-    "s-h3-132"
-  ],
-  "lesson-h3-cc-2": [
-    "s-h3-133"
-  ],
-  "lesson-h3-cc-3": [
-    "s-h3-134"
-  ],
-  "lesson-h3-cc-4": [
-    "s-h3-135"
-  ],
-  "lesson-h3-cd-1": [
-    "s-h3-132"
-  ],
-  "lesson-h3-cd-2": [
-    "s-h3-133"
-  ],
-  "lesson-h3-cd-3": [
-    "s-h3-134"
-  ],
-  "lesson-h3-cd-4": [
-    "s-h3-135"
-  ],
-  "lesson-h3-cd-5": [
-    "s-h3-136"
-  ],
-  "lesson-h3-cd-6": [
-    "s-h3-137"
-  ],
-  "lesson-h3-cd-7": [
-    "s-h3-138"
-  ],
-  "lesson-h3-cd-8": [
-    "s-h3-139"
-  ],
-  "lesson-h3-cd-9": [
-    "s-h3-140"
-  ],
-  "lesson-h3-cd-10": [
+  "lesson-h3-cc-p1-10": [
     "s-h3-141"
   ],
-  "lesson-h3-cd-11": [
+  "lesson-h3-cc-p1-11": [
     "s-h3-142"
   ],
-  "lesson-h3-ce-1": [
+  "lesson-h3-cc-p2-1": [
     "s-h3-132"
   ],
-  "lesson-h3-ce-2": [
+  "lesson-h3-cc-p2-2": [
     "s-h3-133"
   ],
-  "lesson-h3-ce-3": [
+  "lesson-h3-cc-p2-3": [
     "s-h3-134"
   ],
-  "lesson-h3-ce-4": [
+  "lesson-h3-cc-p2-4": [
     "s-h3-135"
   ],
-  "lesson-h3-ce-5": [
+  "lesson-h3-cc-p2-5": [
     "s-h3-136"
   ],
-  "lesson-h3-ce-6": [
+  "lesson-h3-cc-p2-6": [
     "s-h3-137"
   ],
-  "lesson-h3-ce-7": [
+  "lesson-h3-cc-p2-7": [
     "s-h3-138"
   ],
-  "lesson-h3-ce-8": [
+  "lesson-h3-cc-p2-8": [
     "s-h3-139"
   ],
-  "lesson-h3-ce-9": [
+  "lesson-h3-cc-p2-9": [
+    "s-h3-140"
+  ],
+  "lesson-h3-cc-p2-10": [
+    "s-h3-141"
+  ],
+  "lesson-h3-cc-p2-11": [
+    "s-h3-142"
+  ],
+  "lesson-h3-cc-p3-1": [
+    "s-h3-132"
+  ],
+  "lesson-h3-cc-p3-2": [
+    "s-h3-133"
+  ],
+  "lesson-h3-cc-p3-3": [
+    "s-h3-134"
+  ],
+  "lesson-h3-cc-p3-4": [
+    "s-h3-135"
+  ],
+  "lesson-h3-cc-p3-5": [
+    "s-h3-136"
+  ],
+  "lesson-h3-cd-p1-1": [
+    "s-h3-132"
+  ],
+  "lesson-h3-cd-p1-2": [
+    "s-h3-133"
+  ],
+  "lesson-h3-cd-p1-3": [
+    "s-h3-134"
+  ],
+  "lesson-h3-cd-p1-4": [
+    "s-h3-135"
+  ],
+  "lesson-h3-cd-p1-5": [
+    "s-h3-136"
+  ],
+  "lesson-h3-cd-p1-6": [
+    "s-h3-137"
+  ],
+  "lesson-h3-cd-p1-7": [
+    "s-h3-138"
+  ],
+  "lesson-h3-cd-p1-8": [
+    "s-h3-139"
+  ],
+  "lesson-h3-cd-p1-9": [
+    "s-h3-140"
+  ],
+  "lesson-h3-cd-p1-10": [
+    "s-h3-141"
+  ],
+  "lesson-h3-cd-p1-11": [
+    "s-h3-142"
+  ],
+  "lesson-h3-cd-p2-1": [
+    "s-h3-132"
+  ],
+  "lesson-h3-cd-p2-2": [
+    "s-h3-133"
+  ],
+  "lesson-h3-cd-p2-3": [
+    "s-h3-134"
+  ],
+  "lesson-h3-cd-p2-4": [
+    "s-h3-135"
+  ],
+  "lesson-h3-cd-p2-5": [
+    "s-h3-136"
+  ],
+  "lesson-h3-cd-p2-6": [
+    "s-h3-137"
+  ],
+  "lesson-h3-cd-p2-7": [
+    "s-h3-138"
+  ],
+  "lesson-h3-cd-p2-8": [
+    "s-h3-139"
+  ],
+  "lesson-h3-cd-p2-9": [
+    "s-h3-140"
+  ],
+  "lesson-h3-cd-p2-10": [
+    "s-h3-141"
+  ],
+  "lesson-h3-cd-p2-11": [
+    "s-h3-142"
+  ],
+  "lesson-h3-cd-p3-1": [
+    "s-h3-132"
+  ],
+  "lesson-h3-cd-p3-2": [
+    "s-h3-133"
+  ],
+  "lesson-h3-cd-p3-3": [
+    "s-h3-134"
+  ],
+  "lesson-h3-cd-p3-4": [
+    "s-h3-135"
+  ],
+  "lesson-h3-cd-p3-5": [
+    "s-h3-136"
+  ],
+  "lesson-h3-ce-graduation": [
     "s-h3-140"
   ]
 };
 
-export const HSK3_LESSON_COUNT = 166;
+export const HSK3_LESSON_COUNT = 129;
 export const HSK3_VOCAB_COUNT = 940;

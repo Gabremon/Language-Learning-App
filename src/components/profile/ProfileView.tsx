@@ -9,7 +9,8 @@ import { getAllVocabMemories } from "@/lib/progress";
 import { AuthProgressPrompt } from "@/components/errors/AuthProgressPrompt";
 import { useProgress } from "@/contexts/ProgressContext";
 import { createClient } from "@/lib/supabase/client";
-import { COURSE_TITLE, LESSON_COUNT } from "@/data/starter-hsk1/constants";
+import { LESSON_COUNT } from "@/data/course-content";
+import { COURSE_TITLE } from "@/data/starter-hsk1/constants";
 import { Star, Flame, BookOpen, RotateCcw, Trash2, LogOut } from "lucide-react";
 
 function ProfileSkeleton() {

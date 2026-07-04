@@ -20,7 +20,7 @@ const EMPTY_PROGRESS: UserProgress = {
 
 /** Lesson IDs from the expanded course catalog — skip DB round-trip on read. */
 function isKnownLessonId(lessonId: string): boolean {
-  return lessonId.startsWith("lesson-s") || lessonId.startsWith("lesson-h1-");
+  return /^lesson-(s|h\d)/.test(lessonId);
 }
 
 /** Ensure current_lesson_id references a real lesson (avoids FK errors after course migrations). */
@@ -51,6 +51,29 @@ async function resolveCurrentLessonId(
   }
 
   if (cachedFirstLessonId !== undefined) {
+    return cachedFirstLessonId ?? DEFAULT_LESSON_ID;
+  }
+
+  const { data: firstUnit, error: unitError } = await supabase
+    .from("units")
+    .select("id")
+    .order("order_index")
+    .limit(1)
+    .maybeSingle();
+
+  if (unitError) throw new Error(unitError.message);
+
+  if (firstUnit) {
+    const { data: firstLesson, error: lessonError } = await supabase
+      .from("lessons")
+      .select("id")
+      .eq("unit_id", firstUnit.id)
+      .order("order_index")
+      .limit(1)
+      .maybeSingle();
+
+    if (lessonError) throw new Error(lessonError.message);
+    cachedFirstLessonId = firstLesson?.id ?? null;
     return cachedFirstLessonId ?? DEFAULT_LESSON_ID;
   }
 

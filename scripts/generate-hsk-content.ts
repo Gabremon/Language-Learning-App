@@ -10,6 +10,7 @@ import { join } from "path";
 import { execSync } from "child_process";
 import {
   ALL_HSK_UNIT_PLANS,
+  MAX_LESSONS_PER_UNIT,
   WORDS_PER_LESSON,
   type HskUnitPlan,
 } from "./hsk-unit-plans";
@@ -135,43 +136,96 @@ function makeVocabId(hskLevel: number, pinyin: string, hanzi: string): string {
 
 // --- Unit assignment ---
 
-function scoreWordForUnit(word: RawHskWord, unit: HskUnitPlan): number {
-  const haystack = `${word.english} ${word.hanzi} ${word.pinyin}`.toLowerCase();
-  let score = 0;
-  for (const kw of unit.keywords) {
-    if (haystack.includes(kw.toLowerCase())) score += kw.length;
+function maxWordsPerUnit(wordsPerLesson: number, includeReview: boolean): number {
+  const contentLessons = includeReview ? MAX_LESSONS_PER_UNIT - 1 : MAX_LESSONS_PER_UNIT;
+  return contentLessons * wordsPerLesson;
+}
+
+function partIndex(unitId: string): number {
+  const match = unitId.match(/-p(\d+)$/);
+  return match ? Number.parseInt(match[1], 10) : 0;
+}
+
+/** Evenly spread vocabulary across content units (final units get words separately). */
+function balanceWordsAcrossUnits(
+  words: RawHskWord[],
+  units: HskUnitPlan[]
+): Map<string, RawHskWord[]> {
+  const byUnit = new Map<string, RawHskWord[]>(units.map((u) => [u.id, []]));
+  const contentUnits = units.filter((u) => !u.isFinal);
+
+  if (contentUnits.length === 0) {
+    words.forEach((word, i) => {
+      const unit = units[i % units.length];
+      byUnit.get(unit.id)!.push(word);
+    });
+    return byUnit;
   }
-  return score;
+
+  words.forEach((word, i) => {
+    const unit = contentUnits[i % contentUnits.length];
+    byUnit.get(unit.id)!.push(word);
+  });
+
+  return byUnit;
+}
+
+/** Split any unit that would exceed MAX_LESSONS_PER_UNIT into themed parts. */
+function expandOversizedUnits(
+  units: HskUnitPlan[],
+  wordsByUnit: Map<string, RawHskWord[]>,
+  wordsPerLesson: number
+): { units: HskUnitPlan[]; wordsByUnit: Map<string, RawHskWord[]> } {
+  const expanded: HskUnitPlan[] = [];
+  const expandedWords = new Map<string, RawHskWord[]>();
+
+  for (const unit of units) {
+    const words = wordsByUnit.get(unit.id) ?? [];
+    const includeReview = !unit.isFinal && words.length > 0;
+    const cap = maxWordsPerUnit(wordsPerLesson, includeReview);
+
+    if (unit.isFinal || words.length <= cap) {
+      expanded.push({ ...unit });
+      expandedWords.set(unit.id, words);
+      continue;
+    }
+
+    const partCount = Math.ceil(words.length / cap);
+    for (let p = 0; p < partCount; p++) {
+      const slice = words.slice(p * cap, (p + 1) * cap);
+      const partId = `${unit.id}-p${p + 1}`;
+      expanded.push({
+        ...unit,
+        id: partId,
+        title: partCount > 1 ? `${unit.title} · ${p + 1}` : unit.title,
+        isFinal: false,
+      });
+      expandedWords.set(partId, slice);
+    }
+  }
+
+  const sorted = [...expanded].sort((a, b) => {
+    if (a.orderIndex !== b.orderIndex) return a.orderIndex - b.orderIndex;
+    return partIndex(a.id) - partIndex(b.id);
+  });
+
+  return { units: sorted, wordsByUnit: expandedWords };
 }
 
 function assignWordsToUnits(words: RawHskWord[], units: HskUnitPlan[]): Map<string, RawHskWord[]> {
-  const byUnit = new Map<string, RawHskWord[]>(units.map((u) => [u.id, []]));
+  const balanced = balanceWordsAcrossUnits(words, units);
+  const wordsPerLesson = WORDS_PER_LESSON[units[0]?.hskLevel ?? 2];
+  const { units: expandedUnits, wordsByUnit } = expandOversizedUnits(
+    units,
+    balanced,
+    wordsPerLesson
+  );
 
-  for (const word of words) {
-    let bestUnit = units[0];
-    let bestScore = -1;
-    for (const unit of units) {
-      const score = scoreWordForUnit(word, unit);
-      if (score > bestScore) {
-        bestScore = score;
-        bestUnit = unit;
-      }
-    }
-    byUnit.get(bestUnit.id)!.push(word);
-  }
+  // Replace unit list in-place for downstream generation
+  units.length = 0;
+  units.push(...expandedUnits);
 
-  // Balance empty units by round-robin overflow
-  for (const unit of units) {
-    if (byUnit.get(unit.id)!.length === 0) {
-      const donor = units.find((u) => (byUnit.get(u.id)?.length ?? 0) > 10);
-      if (donor) {
-        const donated = byUnit.get(donor.id)!.splice(-5);
-        byUnit.get(unit.id)!.push(...donated);
-      }
-    }
-  }
-
-  return byUnit;
+  return wordsByUnit;
 }
 
 // --- Lesson building ---
@@ -211,10 +265,49 @@ function lessonTitle(
   return buildVocabPreviewTitle(words, `${unitTitle} ${index + 1}`);
 }
 
+function buildFinalUnitLessons(
+  unit: HskUnitPlan,
+  allLevelWords: RawHskWord[],
+  hskLevel: number,
+  wordsPerLesson: number
+): LessonDef[] {
+  const lessons: LessonDef[] = [];
+  const reviewCount = Math.min(8, Math.max(2, Math.ceil(allLevelWords.length / (wordsPerLesson * 6))));
+  const reviewWords = allLevelWords.filter((_, i) => i % Math.max(1, Math.floor(allLevelWords.length / (reviewCount * wordsPerLesson))) === 0);
+
+  for (let i = 0; i < reviewCount; i++) {
+    const start = (i * wordsPerLesson) % Math.max(1, reviewWords.length - wordsPerLesson + 1);
+    const chunk = reviewWords.slice(start, start + wordsPerLesson);
+    if (chunk.length === 0) continue;
+    const vocabIds = chunk.map((w) => makeVocabId(hskLevel, w.pinyin, w.hanzi));
+    lessons.push({
+      id: `lesson-${unitSlug(unit.id)}-review-${i + 1}`,
+      unitId: unit.id,
+      title: `HSK ${hskLevel} Review ${i + 1}`,
+      orderIndex: i + 1,
+      vocab: vocabIds,
+      isReview: true,
+    });
+  }
+
+  const gradWords = allLevelWords.slice(-wordsPerLesson);
+  const gradVocab = gradWords.map((w) => makeVocabId(hskLevel, w.pinyin, w.hanzi));
+  lessons.push({
+    id: `lesson-${unitSlug(unit.id)}-graduation`,
+    unitId: unit.id,
+    title: `HSK ${hskLevel} Graduation Exam`,
+    orderIndex: lessons.length + 1,
+    vocab: gradVocab,
+  });
+
+  return lessons;
+}
+
 function buildLessonsForLevel(
   hskLevel: number,
   units: HskUnitPlan[],
-  wordsByUnit: Map<string, RawHskWord[]>
+  wordsByUnit: Map<string, RawHskWord[]>,
+  allLevelWords: RawHskWord[]
 ): { lessons: LessonDef[]; vocabItems: VocabItem[]; wordIdMap: Map<string, string> } {
   const lessons: LessonDef[] = [];
   const vocabItems: VocabItem[] = [];
@@ -223,6 +316,31 @@ function buildLessonsForLevel(
 
   for (const unit of units) {
     const words = wordsByUnit.get(unit.id) ?? [];
+
+    if (unit.isFinal) {
+      const finalLessons = buildFinalUnitLessons(unit, allLevelWords, hskLevel, wordsPerLesson);
+      for (const lesson of finalLessons) {
+        for (const vocabId of lesson.vocab) {
+          const word = allLevelWords.find((w) => makeVocabId(hskLevel, w.pinyin, w.hanzi) === vocabId);
+          if (!word) continue;
+          wordIdMap.set(`${word.hanzi}:${hskLevel}`, vocabId);
+          if (!existingVocab.find((v) => v.id === vocabId) && !vocabItems.find((v) => v.id === vocabId)) {
+            vocabItems.push({
+              id: vocabId,
+              courseId: COURSE_ID,
+              hanzi: word.hanzi,
+              pinyin: word.pinyin,
+              english: word.english,
+              partOfSpeech: word.pos,
+              difficulty: hskLevel,
+            });
+          }
+        }
+      }
+      lessons.push(...finalLessons);
+      continue;
+    }
+
     const chunks = chunk(words, wordsPerLesson);
 
     chunks.forEach((wordChunk, chunkIndex) => {
@@ -377,10 +495,51 @@ function buildMigrationSql(
   lessonSentenceMap: Record<string, string[]>,
   exercises: BaseExercise[]
 ): string {
+  const unitPrefix = `unit-h${hskLevel}-`;
+  const vocabPrefix = `v-h${hskLevel}-`;
+  const sentencePrefix = `s-h${hskLevel}-`;
+
   const lines: string[] = [
     `-- HSK ${hskLevel} course content`,
     `-- Generated by npm run db:generate-hsk`,
-    `-- Apply AFTER prior HSK migrations on an existing database.`,
+    `-- Replaces any prior HSK ${hskLevel} units (including split parts).`,
+    "",
+    `-- Clear prior HSK ${hskLevel} content`,
+    `update user_progress`,
+    `  set current_lesson_id = 'lesson-sa-1'`,
+    `  where current_lesson_id in (`,
+    `    select id from lessons where unit_id like ${sqlStr(`${unitPrefix}%`)}`,
+    `  );`,
+    "",
+    `delete from exercise_attempts`,
+    `  where exercise_id in (`,
+    `    select id from exercises where lesson_id in (`,
+    `      select id from lessons where unit_id like ${sqlStr(`${unitPrefix}%`)}`,
+    `    )`,
+    `  );`,
+    "",
+    `delete from lesson_attempts`,
+    `  where lesson_id in (select id from lessons where unit_id like ${sqlStr(`${unitPrefix}%`)});`,
+    "",
+    `delete from vocab_memory`,
+    `  where vocab_item_id like ${sqlStr(`${vocabPrefix}%`)};`,
+    "",
+    `delete from exercises`,
+    `  where lesson_id in (select id from lessons where unit_id like ${sqlStr(`${unitPrefix}%`)});`,
+    "",
+    `delete from lesson_vocab`,
+    `  where lesson_id in (select id from lessons where unit_id like ${sqlStr(`${unitPrefix}%`)});`,
+    "",
+    `delete from lesson_sentences`,
+    `  where lesson_id in (select id from lessons where unit_id like ${sqlStr(`${unitPrefix}%`)});`,
+    "",
+    `delete from lessons where unit_id like ${sqlStr(`${unitPrefix}%`)};`,
+    "",
+    `delete from units where id like ${sqlStr(`${unitPrefix}%`)};`,
+    "",
+    `delete from sentences where id like ${sqlStr(`${sentencePrefix}%`)};`,
+    "",
+    `delete from vocab_items where id like ${sqlStr(`${vocabPrefix}%`)};`,
     "",
     `insert into units (id, course_id, title, order_index) values`,
     units
@@ -499,16 +658,20 @@ interface LevelOutput {
   exercises: BaseExercise[];
 }
 
-function generateLevel(hskLevel: number): LevelOutput {
-  const unitPlans = ALL_HSK_UNIT_PLANS.filter((u) => u.hskLevel === hskLevel);
+function generateLevel(hskLevel: number, startOrderIndex: number): { output: LevelOutput; nextOrderIndex: number } {
+  const unitPlans = ALL_HSK_UNIT_PLANS.filter((u) => u.hskLevel === hskLevel).map((u) => ({ ...u }));
   const rawWords = loadHskWords(hskLevel);
-  console.log(`HSK ${hskLevel}: ${rawWords.length} words, ${unitPlans.length} units`);
-
   const wordsByUnit = assignWordsToUnits(rawWords, unitPlans);
+  console.log(`HSK ${hskLevel}: ${rawWords.length} words → ${unitPlans.length} units`);
+  unitPlans.forEach((unit, index) => {
+    unit.orderIndex = startOrderIndex + index;
+  });
+
   const { lessons: lessonDefs, vocabItems: newVocab } = buildLessonsForLevel(
     hskLevel,
     unitPlans,
-    wordsByUnit
+    wordsByUnit,
+    rawWords
   );
 
   const units: Unit[] = unitPlans.map((u) => ({
@@ -539,14 +702,17 @@ function generateLevel(hskLevel: number): LevelOutput {
   const exercises = buildExercises(lessonDefs, allVocab, sentences, units);
 
   return {
-    hskLevel,
-    units,
-    lessons,
-    vocabItems: newVocab,
-    sentences,
-    lessonVocabMap,
-    lessonSentenceMap,
-    exercises,
+    output: {
+      hskLevel,
+      units,
+      lessons,
+      vocabItems: newVocab,
+      sentences,
+      lessonVocabMap,
+      lessonSentenceMap,
+      exercises,
+    },
+    nextOrderIndex: startOrderIndex + unitPlans.length,
   };
 }
 
@@ -562,9 +728,12 @@ mkdirSync(GENERATED_DIR, { recursive: true });
 mkdirSync(MIGRATIONS_DIR, { recursive: true });
 
 const allOutputs: LevelOutput[] = [];
+let nextOrderIndex =
+  Math.max(...existingUnits.map((u) => u.orderIndex), 0) + 1;
 
 for (const level of [2, 3, 4, 5, 6] as const) {
-  const output = generateLevel(level);
+  const { output, nextOrderIndex: next } = generateLevel(level, nextOrderIndex);
+  nextOrderIndex = next;
   allOutputs.push(output);
 
   writeTsModule(

@@ -316,9 +316,12 @@ export const ALL_HSK_UNIT_PLANS: HskUnitPlan[] = [
 ];
 
 export const WORDS_PER_LESSON: Record<number, number> = {
-  2: 5,
-  3: 6,
-  4: 7,
-  5: 8,
-  6: 8,
+  2: 8,
+  3: 9,
+  4: 10,
+  5: 10,
+  6: 10,
 };
+
+/** Max lessons per unit on the course map (includes optional unit review). */
+export const MAX_LESSONS_PER_UNIT = 12;

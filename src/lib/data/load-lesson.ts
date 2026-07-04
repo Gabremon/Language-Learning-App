@@ -2,39 +2,28 @@ import "server-only";
 
 import type { LessonBundle } from "@/lib/course-utils";
 import { getLessonBundle } from "@/lib/data/course";
-import {
-  getExercisesForLesson,
-  getLessonById,
-  getVocabForLesson,
-} from "@/data/seed";
+import { normalizeExercises } from "@/lib/exercise-normalize";
 
-function localLessonBundle(lessonId: string): LessonBundle | null {
-  const lesson = getLessonById(lessonId);
-  const exercises = getExercisesForLesson(lessonId);
-  const vocab = getVocabForLesson(lessonId);
-
-  if (!lesson || exercises.length === 0) {
-    return null;
-  }
-
-  return { lesson, exercises, vocab };
+function withNormalizedExercises(bundle: LessonBundle): LessonBundle {
+  return { ...bundle, exercises: normalizeExercises(bundle.exercises) };
 }
 
 export async function loadLessonBundle(lessonId: string): Promise<LessonBundle> {
   try {
     const bundle = await getLessonBundle(lessonId);
     if (bundle.lesson && bundle.exercises.length > 0) {
-      return bundle;
+      return withNormalizedExercises(bundle);
     }
     throw new Error(`Lesson ${lessonId} not found in database`);
   } catch (dbErr) {
-    const local = localLessonBundle(lessonId);
+    const { buildLocalLessonBundle } = await import("@/lib/local-lesson-bundle");
+    const local = buildLocalLessonBundle(lessonId);
     if (local) {
       console.warn(
         `[loadLessonBundle] Using local seed for ${lessonId}. ` +
           "Apply HSK migrations in Supabase to persist lesson progress."
       );
-      return local;
+      return withNormalizedExercises(local);
     }
     throw dbErr;
   }

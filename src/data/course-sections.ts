@@ -92,8 +92,36 @@ export const UNIT_IDS_BY_SECTION: Record<CourseSectionId, string[]> = {
   hsk6: ["unit-h6-aa", "unit-h6-ab", "unit-h6-ac", "unit-h6-ad", "unit-h6-ae"],
 };
 
-export function getUnitIdsForSection(sectionId: CourseSectionId): string[] {
+export function getUnitIdsForSection(
+  sectionId: CourseSectionId,
+  catalogUnits?: { id: string; orderIndex: number }[]
+): string[] {
+  if (sectionId === "starter" || sectionId === "hsk1") {
+    return UNIT_IDS_BY_SECTION[sectionId];
+  }
+
+  if (catalogUnits?.length) {
+    const level = sectionId.replace("hsk", "");
+    const prefix = `unit-h${level}-`;
+    return catalogUnits
+      .filter((unit) => unit.id.startsWith(prefix))
+      .sort((a, b) => a.orderIndex - b.orderIndex)
+      .map((unit) => unit.id);
+  }
+
   return UNIT_IDS_BY_SECTION[sectionId] ?? [];
+}
+
+export function getSectionIdForUnit(
+  unitId: string,
+  catalogUnits?: { id: string; orderIndex: number }[]
+): CourseSectionId | null {
+  for (const section of COURSE_SECTIONS) {
+    if (getUnitIdsForSection(section.id, catalogUnits).includes(unitId)) {
+      return section.id;
+    }
+  }
+  return null;
 }
 
 export const SECTION_STYLES = {

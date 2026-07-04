@@ -20,7 +20,9 @@ function splitMigrationStatements(sql: string): string[] {
   let current: string[] = [];
 
   for (const line of sql.split("\n")) {
-    if (/^insert into /i.test(line) && current.length > 0) {
+    const isNewStatement =
+      /^(insert into |delete from |update )/i.test(line) && current.length > 0;
+    if (isNewStatement) {
       statements.push(current.join("\n"));
       current = [line];
     } else {
@@ -31,11 +33,11 @@ function splitMigrationStatements(sql: string): string[] {
 
   return statements
     .map((s) => s.trim())
-    .filter((s) => /^insert into /i.test(s));
+    .filter((s) => /^(insert into |delete from |update )/i.test(s));
 }
 
 function chunkInsert(sql: string, maxRows: number): string[] {
-  const headerMatch = sql.match(/^(insert into\s+\S+\s*\([^)]+\)\s+values)\s*/is);
+  const headerMatch = sql.match(/^(insert into\s+\S+\s*\([^)]+\)\s+values)\s*/i);
   if (!headerMatch) return [sql.endsWith(";") ? sql : `${sql};`];
 
   const header = headerMatch[1];
@@ -62,7 +64,7 @@ function chunkInsert(sql: string, maxRows: number): string[] {
 function prepareStatements(sql: string, maxRowsPerInsert: number): string[] {
   const out: string[] = [];
   for (const stmt of splitMigrationStatements(sql)) {
-    if (stmt.length > 400_000) {
+    if (/^insert into /i.test(stmt) && stmt.length > 400_000) {
       out.push(...chunkInsert(stmt, maxRowsPerInsert));
     } else {
       out.push(stmt.endsWith(";") ? stmt : `${stmt};`);
@@ -71,7 +73,62 @@ function prepareStatements(sql: string, maxRowsPerInsert: number): string[] {
   return out;
 }
 
+async function clearHskLevel(client: pg.Client, hskLevel: number): Promise<void> {
+  const unitPrefix = `unit-h${hskLevel}-`;
+  const vocabPrefix = `v-h${hskLevel}-`;
+  const sentencePrefix = `s-h${hskLevel}-`;
+
+  console.log(`   Clearing prior HSK ${hskLevel} content...`);
+  await client.query(
+    `update user_progress
+     set current_lesson_id = 'lesson-sa-1'
+     where current_lesson_id in (
+       select id from lessons where unit_id like $1
+     )`,
+    [`${unitPrefix}%`]
+  );
+  await client.query(
+    `delete from exercise_attempts
+     where exercise_id in (
+       select id from exercises where lesson_id in (
+         select id from lessons where unit_id like $1
+       )
+     )`,
+    [`${unitPrefix}%`]
+  );
+  await client.query(
+    `delete from lesson_attempts
+     where lesson_id in (select id from lessons where unit_id like $1)`,
+    [`${unitPrefix}%`]
+  );
+  await client.query(`delete from vocab_memory where vocab_item_id like $1`, [`${vocabPrefix}%`]);
+  await client.query(
+    `delete from exercises
+     where lesson_id in (select id from lessons where unit_id like $1)`,
+    [`${unitPrefix}%`]
+  );
+  await client.query(
+    `delete from lesson_vocab
+     where lesson_id in (select id from lessons where unit_id like $1)`,
+    [`${unitPrefix}%`]
+  );
+  await client.query(
+    `delete from lesson_sentences
+     where lesson_id in (select id from lessons where unit_id like $1)`,
+    [`${unitPrefix}%`]
+  );
+  await client.query(`delete from lessons where unit_id like $1`, [`${unitPrefix}%`]);
+  await client.query(`delete from units where id like $1`, [`${unitPrefix}%`]);
+  await client.query(`delete from sentences where id like $1`, [`${sentencePrefix}%`]);
+  await client.query(`delete from vocab_items where id like $1`, [`${vocabPrefix}%`]);
+}
+
 async function applyFile(client: pg.Client, filePath: string): Promise<void> {
+  const levelMatch = filePath.match(/hsk(\d)\.sql$/i);
+  if (levelMatch) {
+    await clearHskLevel(client, Number(levelMatch[1]));
+  }
+
   const sql = readFileSync(filePath, "utf8");
   const statements = prepareStatements(sql, 200);
   const name = filePath.split("/").pop();

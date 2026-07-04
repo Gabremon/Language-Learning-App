@@ -8,6 +8,7 @@ import {
   isMultipleChoice,
   isPinyinRecognition,
   isReversePinyin,
+  isToneAndEnglish,
 } from "@/types/exercises";
 
 export function normalizeEnglishAnswer(answer: string): string {
@@ -149,12 +150,34 @@ export function checkExerciseAnswer(
     };
   }
 
+  if (isToneAndEnglish(exercise)) {
+    const answer =
+      typeof userAnswer === "object" && userAnswer !== null && !Array.isArray(userAnswer)
+        ? (userAnswer as { tone?: string; english?: string })
+        : {};
+    const toneOk = answer.tone === exercise.payload.correctTone;
+    const englishOk = matchesEnglishAnswer(
+      answer.english ?? "",
+      exercise.payload.acceptedEnglishAnswers
+    );
+    const gloss = exercise.payload.acceptedEnglishAnswers[0] ?? "";
+    return {
+      isCorrect: toneOk && englishOk,
+      correctAnswer: `${gloss} (tone ${exercise.payload.correctTone})`,
+      explanation: exercise.explanation,
+    };
+  }
+
   return { isCorrect: false, correctAnswer: "" };
 }
 
 export function formatUserAnswer(userAnswer: UserAnswer): string {
   if (Array.isArray(userAnswer)) return userAnswer.join("");
-  if (typeof userAnswer === "object") {
+  if (typeof userAnswer === "object" && userAnswer !== null) {
+    if ("tone" in userAnswer && "english" in userAnswer) {
+      const answer = userAnswer as { tone: string; english: string };
+      return `Tone ${answer.tone} · ${answer.english}`;
+    }
     return Object.entries(userAnswer)
       .map(([, v]) => v)
       .join(", ");

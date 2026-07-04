@@ -6,7 +6,13 @@ export type ExerciseType =
   | "listening"
   | "fill_in_blank"
   | "pinyin_recognition"
-  | "reverse_pinyin";
+  | "reverse_pinyin"
+  | "tone_and_english";
+
+export interface ToneAndEnglishAnswer {
+  tone: string;
+  english: string;
+}
 
 export interface BaseExercise {
   id: string;
@@ -88,6 +94,15 @@ export interface ReversePinyinPayload {
   correctAnswer: string;
 }
 
+export interface ToneAndEnglishPayload {
+  hanzi: string;
+  toneOptions: string[];
+  correctTone: string;
+  acceptedEnglishAnswers: string[];
+  imageUrl?: string;
+  emoji?: string;
+}
+
 export type ExercisePayload =
   | MultipleChoicePayload
   | HanziToEnglishPayload
@@ -96,12 +111,14 @@ export type ExercisePayload =
   | ListeningPayload
   | FillInBlankPayload
   | PinyinRecognitionPayload
-  | ReversePinyinPayload;
+  | ReversePinyinPayload
+  | ToneAndEnglishPayload;
 
 export type UserAnswer =
   | string
   | string[]
-  | Record<string, string>;
+  | Record<string, string>
+  | ToneAndEnglishAnswer;
 
 export interface ExerciseResult {
   isCorrect: boolean;
@@ -155,4 +172,10 @@ export function isReversePinyin(
   exercise: BaseExercise
 ): exercise is BaseExercise & { payload: ReversePinyinPayload } {
   return exercise.type === "reverse_pinyin";
+}
+
+export function isToneAndEnglish(
+  exercise: BaseExercise
+): exercise is BaseExercise & { payload: ToneAndEnglishPayload } {
+  return exercise.type === "tone_and_english";
 }

@@ -4,7 +4,6 @@ import { getCourseCatalog } from "@/lib/data/course";
 import { loadLessonBundle } from "@/lib/data/load-lesson";
 import { getNextLesson } from "@/lib/course-utils";
 import { isDemoLesson } from "@/lib/demo";
-import { getNextLesson as getNextLessonFromSeed } from "@/data/seed";
 
 interface Props {
   params: Promise<{ lessonId: string }>;
@@ -25,12 +24,12 @@ export default async function LessonPage({ params }: Props) {
     );
   }
 
-  let nextLesson = getNextLessonFromSeed(lessonId);
+  let nextLesson = null;
   try {
     const catalog = await getCourseCatalog();
-    nextLesson = getNextLesson(catalog.lessons, lessonId) ?? nextLesson;
+    nextLesson = getNextLesson(catalog.lessons, lessonId, catalog.units);
   } catch {
-    // seed fallback is fine for demo
+    // next lesson is optional on the completion screen
   }
 
   return (

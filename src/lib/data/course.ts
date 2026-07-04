@@ -4,23 +4,18 @@ import { cache } from "react";
 import type { Course, Lesson, VocabItem } from "@/types/course";
 import type { BaseExercise, ExercisePayload } from "@/types/exercises";
 import type { CourseCatalog, LessonBundle } from "@/lib/course-utils";
+import { sortLessonsByCourseOrder } from "@/lib/course-utils";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { createClient } from "@/lib/supabase/server";
-import {
-  course as seedCourse,
-  units as seedUnits,
-  lessons as seedLessons,
-} from "@/data/course-content";
 
 export type { CourseCatalog, LessonBundle };
 
-function localCatalog(): CourseCatalog {
-  return { course: seedCourse, units: seedUnits, lessons: seedLessons };
+async function localCatalog(): Promise<CourseCatalog> {
+  const { course, units, lessons } = await import("@/data/course-content");
+  return { course, units, lessons };
 }
 
 function dbMissingHskAdvanced(units: { id: string }[]): boolean {
-  const seedHasHsk2 = seedUnits.some((u) => u.id.startsWith("unit-h2"));
-  if (!seedHasHsk2) return false;
   return !units.some((u) => u.id.startsWith("unit-h2"));
 }
 
@@ -118,7 +113,7 @@ function mapExercise(row: {
 
 export const getCourseCatalog = cache(async function getCourseCatalog(): Promise<CourseCatalog> {
   if (!isSupabaseConfigured()) {
-    return localCatalog();
+    return await localCatalog();
   }
 
   const supabase = await createClient();
@@ -148,7 +143,7 @@ export const getCourseCatalog = cache(async function getCourseCatalog(): Promise
     console.warn(
       "[getCourseCatalog] No course in database — using local seed. Run supabase/setup.sql in the SQL Editor."
     );
-    return localCatalog();
+    return await localCatalog();
   }
 
   const units = (unitsRes.data ?? []).map(mapUnit);
@@ -159,18 +154,22 @@ export const getCourseCatalog = cache(async function getCourseCatalog(): Promise
       "[getCourseCatalog] Supabase is missing HSK 2–6 content — using local seed. " +
         "Apply supabase/migrations/20260703000000_hsk2.sql through 20260707000000_hsk6.sql in the SQL Editor."
     );
-    return localCatalog();
+    return await localCatalog();
   }
 
   return {
     course: mapCourse(courseRes.data),
     units,
-    lessons,
+    lessons: sortLessonsByCourseOrder(lessons, units),
   };
 });
 
 export async function getAllVocab(): Promise<VocabItem[]> {
-  requireSupabase();
+  if (!isSupabaseConfigured()) {
+    const { vocabItems } = await import("@/data/course-content");
+    return vocabItems;
+  }
+
   const supabase = await createClient();
 
   const { data, error } = await supabase
@@ -179,10 +178,17 @@ export async function getAllVocab(): Promise<VocabItem[]> {
     .order("hanzi");
 
   if (error) {
-    throw new Error(`Failed to load vocabulary: ${error.message}`);
+    console.warn(`[getAllVocab] ${error.message} — using local seed`);
+    const { vocabItems } = await import("@/data/course-content");
+    return vocabItems;
   }
 
-  return (data ?? []).map(mapVocab);
+  if (!data?.length) {
+    const { vocabItems } = await import("@/data/course-content");
+    return vocabItems;
+  }
+
+  return data.map(mapVocab);
 }
 
 export async function getLessonBundle(lessonId: string): Promise<LessonBundle> {

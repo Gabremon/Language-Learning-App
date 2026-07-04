@@ -48,7 +48,8 @@ export function applyLessonCompletion(
   lessonId: string,
   score: number,
   totalQuestions: number,
-  attempt: LessonAttempt
+  attempt: LessonAttempt,
+  nextLessonId?: string | null
 ): UserProgress {
   const completedLessonIds = progress.completedLessonIds.includes(lessonId)
     ? progress.completedLessonIds
@@ -61,7 +62,7 @@ export function applyLessonCompletion(
       {
         ...progress,
         completedLessonIds,
-        currentLessonId: lessonId,
+        currentLessonId: nextLessonId ?? lessonId,
         lessonAttempts: [...progress.lessonAttempts, attempt],
       },
       xpGained

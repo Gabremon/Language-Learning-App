@@ -15,12 +15,13 @@ import { Badge } from "@/components/ui/badge";
 import { checkExerciseAnswer } from "@/lib/exercise-checker";
 import { getRelatedVocab, recordMiss, type MissedExerciseRecord } from "@/lib/exercise-vocab";
 import { getLessonDisplayTitle } from "@/lib/lesson-titles";
+import { getVocabMemory } from "@/lib/progress";
 import { loadGuestProgress } from "@/lib/guest-progress";
 import { updateVocabMemoryOnReview } from "@/lib/srs";
 import { useProgress } from "@/contexts/ProgressContext";
 import type { Lesson, VocabItem } from "@/types/course";
 import type { BaseExercise, ExerciseResult, UserAnswer } from "@/types/exercises";
-import { isEnglishToHanziWordBank, isMatchPairs } from "@/types/exercises";
+import { isEnglishToHanziWordBank, isMatchPairs, isToneAndEnglish } from "@/types/exercises";
 import { X, RotateCcw } from "lucide-react";
 import Link from "next/link";
 
@@ -42,6 +43,10 @@ function isAnswerReady(exercise: BaseExercise, answer: UserAnswer | null): boole
   }
   if (isEnglishToHanziWordBank(exercise)) {
     return (answer as string[]).length === exercise.payload.correctAnswer.length;
+  }
+  if (isToneAndEnglish(exercise)) {
+    const typed = answer as { tone?: string; english?: string };
+    return Boolean(typed.tone && typed.english?.trim());
   }
   if (typeof answer === "string") return answer.trim().length > 0;
   return true;
@@ -71,6 +76,7 @@ export function LessonPlayer({
   const [isComplete, setIsComplete] = useState(false);
   const [xpGained, setXpGained] = useState(0);
   const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   const activeExercises = phase === "main" ? exercises : phase === "review" ? reviewQueue : [];
   const exercise = activeExercises[index];
@@ -129,14 +135,23 @@ export function LessonPlayer({
 
   const finishLesson = useCallback(async () => {
     setSaving(true);
+    setSaveError(null);
     try {
-      const { xpGained: xp } = await completeLesson(lessonId, firstTryCorrect, exercises.length);
+      const { xpGained: xp } = await completeLesson(
+        lessonId,
+        firstTryCorrect,
+        exercises.length,
+        nextLesson?.id
+      );
       setXpGained(xp);
       setIsComplete(true);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Failed to save lesson";
+      setSaveError(message);
     } finally {
       setSaving(false);
     }
-  }, [completeLesson, lessonId, firstTryCorrect, exercises.length]);
+  }, [completeLesson, lessonId, firstTryCorrect, exercises.length, nextLesson?.id]);
 
   const handleContinue = useCallback(async () => {
     if (!result?.isCorrect) return;
@@ -182,6 +197,9 @@ export function LessonPlayer({
       if (result?.isCorrect) {
         e.preventDefault();
         handleContinue();
+      } else if (result && !result.isCorrect) {
+        e.preventDefault();
+        handleTryAgain();
       } else if (!result && exercise && isAnswerReady(exercise, answer)) {
         e.preventDefault();
         handleSubmit();
@@ -189,9 +207,17 @@ export function LessonPlayer({
     }
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [result, exercise, answer, handleSubmit, handleContinue, saving]);
+  }, [result, exercise, answer, handleSubmit, handleContinue, handleTryAgain, saving]);
 
   const canPlay = Boolean(activeProgress) && (allowGuest || !loading);
+
+  if (!allowGuest && loading) {
+    return (
+      <div className="flex min-h-[50vh] flex-col items-center justify-center gap-3">
+        <p className="text-sm text-stone-500">Loading your progress…</p>
+      </div>
+    );
+  }
 
   if (!canPlay) {
     return (
@@ -241,6 +267,9 @@ export function LessonPlayer({
         <Button size="lg" className="w-full" disabled={saving} onClick={() => finishLesson()}>
           {saving ? "Saving..." : isGuest ? "Finish demo" : "Finish lesson"}
         </Button>
+        {saveError && (
+          <p className="text-center text-sm text-red-600">{saveError}</p>
+        )}
       </div>
     );
   }

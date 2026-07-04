@@ -25,9 +25,11 @@ import {
   sentences,
   lessonVocabMap,
   lessonSentenceMap,
-  exercises,
+  getAllExercises,
   COURSE_ID,
 } from "../src/data/seed";
+
+const exercises = getAllExercises();
 
 function sqlStr(value: string): string {
   return `'${value.replace(/'/g, "''")}'`;
