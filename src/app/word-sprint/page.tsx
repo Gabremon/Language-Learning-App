@@ -1,7 +1,19 @@
 import { WordSprintView } from "@/components/word-sprint/WordSprintView";
-import { getAllVocab } from "@/lib/data/course";
+import { getAllVocab, getCourseCatalog, getLessonVocabMap } from "@/lib/data/course";
 
 export default async function WordSprintPage() {
-  const vocab = await getAllVocab();
-  return <WordSprintView vocabItems={vocab} />;
+  const [vocabItems, catalog, lessonVocabMap] = await Promise.all([
+    getAllVocab(),
+    getCourseCatalog(),
+    getLessonVocabMap(),
+  ]);
+
+  return (
+    <WordSprintView
+      vocabItems={vocabItems}
+      lessons={catalog.lessons}
+      units={catalog.units}
+      lessonVocabMap={lessonVocabMap}
+    />
+  );
 }

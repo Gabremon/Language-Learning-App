@@ -6,9 +6,9 @@ import { AppShell } from "@/components/layout/AppShell";
 import { InkPageHeader, InkPanel, InkProgress } from "@/components/ui/ink-shell";
 import { Button } from "@/components/ui/button";
 import { ExerciseFeedback } from "@/components/exercises/ExerciseFeedback";
-import type { VocabItem } from "@/types/course";
 import { getVocabMemory } from "@/lib/progress";
-import { isDueForReview, updateVocabMemoryOnReview } from "@/lib/srs";
+import { buildReviewQueue, type PracticeVocabContext } from "@/lib/practice-vocab";
+import { updateVocabMemoryOnReview } from "@/lib/srs";
 import { matchesEnglishAnswer } from "@/lib/exercise-checker";
 import { speakMandarin } from "@/lib/speech";
 import { AuthProgressPrompt } from "@/components/errors/AuthProgressPrompt";
@@ -26,11 +26,9 @@ interface ReviewItem {
   english: string;
 }
 
-interface Props {
-  vocabItems: VocabItem[];
-}
+interface Props extends PracticeVocabContext {}
 
-export function ReviewView({ vocabItems }: Props) {
+export function ReviewView({ vocabItems, lessons, units, lessonVocabMap }: Props) {
   const { progress, loading, error, retryLoad, applyReviewUpdate } = useProgress();
   const { recordReviewCorrect } = useGamification();
   const [items, setItems] = useState<ReviewItem[]>([]);
@@ -44,32 +42,19 @@ export function ReviewView({ vocabItems }: Props) {
   useEffect(() => {
     if (!progress) return;
 
-    const due = vocabItems
-      .map((v) => {
-        const memory = getVocabMemory(progress, v.id);
-        return { vocab: v, memory };
-      })
-      .filter(({ memory }) => isDueForReview(memory) || memory.timesSeen === 0)
-      .slice(0, 10)
-      .map(({ vocab }) => ({
+    const practiceContext = { vocabItems, lessons, units, lessonVocabMap };
+    const queue = buildReviewQueue(progress, practiceContext);
+
+    setItems(
+      queue.map((vocab) => ({
         vocabId: vocab.id,
         hanzi: vocab.hanzi,
         pinyin: vocab.pinyin,
         english: vocab.english,
-      }));
-
-    setItems(
-      due.length > 0
-        ? due
-        : vocabItems.slice(0, 5).map((v) => ({
-            vocabId: v.id,
-            hanzi: v.hanzi,
-            pinyin: v.pinyin,
-            english: v.english,
-          }))
+      }))
     );
     setItemsReady(true);
-  }, [progress, vocabItems]);
+  }, [progress, vocabItems, lessons, units, lessonVocabMap]);
 
   const current = items[currentIndex];
 

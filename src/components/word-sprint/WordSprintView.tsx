@@ -13,20 +13,19 @@ import { useGamification } from "@/contexts/GamificationContext";
 import { XP_VALUES } from "@/lib/gamification/xp";
 import {
   buildWordSprintPayload,
-  getEncounteredVocab,
+  getWordSprintVocab,
   shuffleWordSprintQueue,
 } from "@/lib/word-sprint";
+import type { PracticeVocabContext } from "@/lib/practice-vocab";
 import type { VocabItem } from "@/types/course";
 import type { EnglishToHanziWordBankPayload } from "@/types/exercises";
 import { Timer, Trophy, Zap } from "lucide-react";
 
 const SPRINT_SECONDS = 30;
 
-interface Props {
-  vocabItems: VocabItem[];
-}
+interface Props extends PracticeVocabContext {}
 
-export function WordSprintView({ vocabItems }: Props) {
+export function WordSprintView({ vocabItems, lessons, units, lessonVocabMap }: Props) {
   const { progress, loading, error, retryLoad } = useProgress();
   const { state, recordGauntletRun } = useGamification();
 
@@ -43,9 +42,14 @@ export function WordSprintView({ vocabItems }: Props) {
   const [finished, setFinished] = useState(false);
   const [xpEarned, setXpEarned] = useState(0);
 
-  const encounteredWords = useMemo(
-    () => (progress ? getEncounteredVocab(progress, vocabItems) : []),
-    [progress, vocabItems]
+  const practiceContext = useMemo(
+    () => ({ vocabItems, lessons, units, lessonVocabMap }),
+    [vocabItems, lessons, units, lessonVocabMap]
+  );
+
+  const sprintWords = useMemo(
+    () => (progress ? getWordSprintVocab(progress, practiceContext) : []),
+    [progress, practiceContext]
   );
 
   const current = queue.length > 0 ? queue[wordIndex % queue.length] : undefined;
@@ -55,9 +59,9 @@ export function WordSprintView({ vocabItems }: Props) {
       setCurrentPayload(null);
       return;
     }
-    setCurrentPayload(buildWordSprintPayload(current, encounteredWords));
+    setCurrentPayload(buildWordSprintPayload(current, sprintWords));
     setSelected([]);
-  }, [current?.id, encounteredWords]);
+  }, [current?.id, sprintWords]);
 
   const endRun = useCallback(
     async (finalScore: number, finalCombo: number) => {
@@ -108,7 +112,7 @@ export function WordSprintView({ vocabItems }: Props) {
   );
 
   function handleStart() {
-    setQueue(shuffleWordSprintQueue(encounteredWords));
+    setQueue(shuffleWordSprintQueue(sprintWords));
     setStarted(true);
     setTimeLeft(SPRINT_SECONDS);
     setWordIndex(0);
@@ -138,7 +142,7 @@ export function WordSprintView({ vocabItems }: Props) {
   }
 
   if (!started) {
-    const hasWords = encounteredWords.length > 0;
+    const hasWords = sprintWords.length > 0;
 
     return (
       <AppShell>
@@ -154,11 +158,11 @@ export function WordSprintView({ vocabItems }: Props) {
             {hasWords ? (
               <>
                 <p className="mt-3 text-sm text-stone-600">
-                  Tap characters to build words you&apos;ve learned in lessons. Combo streaks earn
-                  bonus XP. Only words you&apos;ve already encountered appear here.
+                  Tap characters to build words from lessons you&apos;ve reached on the trail.
+                  Combo streaks earn bonus XP.
                 </p>
                 <p className="mt-2 text-xs font-medium text-brand-600">
-                  {encounteredWords.length} word{encounteredWords.length === 1 ? "" : "s"} ready
+                  {sprintWords.length} word{sprintWords.length === 1 ? "" : "s"} ready
                 </p>
                 {state.gauntletBestScore > 0 && (
                   <p className="mt-2 flex items-center justify-center gap-1 text-sm font-semibold text-amber-600">
@@ -172,8 +176,8 @@ export function WordSprintView({ vocabItems }: Props) {
             ) : (
               <>
                 <p className="mt-3 text-sm text-stone-600">
-                  Complete a lesson first — word sprint only uses vocabulary you&apos;ve already
-                  seen in exercises.
+                  Keep going on the trail — word sprint unlocks vocabulary from lessons you&apos;ve
+                  reached.
                 </p>
                 <Link href="/dashboard">
                   <Button size="lg" className="mt-5 w-full">

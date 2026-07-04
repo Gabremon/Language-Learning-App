@@ -191,6 +191,32 @@ export async function getAllVocab(): Promise<VocabItem[]> {
   return data.map(mapVocab);
 }
 
+export async function getLessonVocabMap(): Promise<Record<string, string[]>> {
+  if (!isSupabaseConfigured()) {
+    const { lessonVocabMap } = await import("@/data/course-content");
+    return lessonVocabMap;
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("lesson_vocab")
+    .select("lesson_id, vocab_item_id");
+
+  if (error || !data?.length) {
+    const { lessonVocabMap } = await import("@/data/course-content");
+    return lessonVocabMap;
+  }
+
+  const map: Record<string, string[]> = {};
+  for (const row of data) {
+    const lessonId = row.lesson_id as string;
+    const vocabId = row.vocab_item_id as string;
+    if (!map[lessonId]) map[lessonId] = [];
+    map[lessonId].push(vocabId);
+  }
+  return map;
+}
+
 export async function getLessonBundle(lessonId: string): Promise<LessonBundle> {
   requireSupabase();
   const supabase = await createClient();

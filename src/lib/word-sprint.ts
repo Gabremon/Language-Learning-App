@@ -1,27 +1,28 @@
 import { seededShuffle } from "@/lib/lesson-generator";
+import {
+  getPracticeVocabPool,
+  type PracticeVocabContext,
+} from "@/lib/practice-vocab";
 import type { UserProgress } from "@/lib/progress";
 import type { VocabItem } from "@/types/course";
 import type { EnglishToHanziWordBankPayload } from "@/types/exercises";
 
-/** Words the learner has actually seen in a lesson or review. */
+/** Words from lessons the learner has reached on the trail. */
 export const WORD_SPRINT_PATH = "/word-sprint";
 
-export function getEncounteredVocab(
+export function getWordSprintVocab(
   progress: UserProgress,
-  vocabItems: VocabItem[]
+  context: PracticeVocabContext
 ): VocabItem[] {
-  return vocabItems.filter((v) => {
-    const memory = progress.vocabMemory[v.id];
-    return memory != null && memory.timesSeen > 0;
-  });
+  return getPracticeVocabPool(progress, context);
 }
 
 export function buildWordSprintPayload(
   vocab: VocabItem,
-  encountered: VocabItem[]
+  practicePool: VocabItem[]
 ): EnglishToHanziWordBankPayload {
   const chars = [...vocab.hanzi];
-  const decoyChars = encountered
+  const decoyChars = practicePool
     .filter((x) => x.id !== vocab.id)
     .flatMap((x) => x.hanzi.split(""));
   const decoys = seededShuffle(decoyChars, `sprint-${vocab.id}-d`).slice(
