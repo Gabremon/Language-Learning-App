@@ -1,6 +1,6 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
+import { AutoFocusInput } from "@/components/ui/AutoFocusInput";
 import { VocabIllustration } from "@/components/ui/VocabIllustration";
 import { PinyinDisplay } from "@/components/ui/PinyinDisplay";
 import { AudioButton } from "@/components/ui/AudioButton";
@@ -31,12 +31,12 @@ export function HanziToEnglishExercise({ payload, value, onChange, disabled }: P
           </div>
         )}
       </div>
-      <Input
+      <AutoFocusInput
+        focusKey={payload.hanzi}
         placeholder="Type the English meaning..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
         disabled={disabled}
-        autoFocus
         className="text-lg py-6"
       />
     </div>

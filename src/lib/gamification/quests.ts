@@ -140,6 +140,34 @@ export function buildWeeklyQuestState(activity: QuestActivity): UserQuestProgres
   };
 }
 
+/** Recompute quest progress while preserving claimed flags. */
+export function mergeDailyQuestStates(
+  activity: QuestActivity,
+  existing: UserQuestProgress[]
+): UserQuestProgress[] {
+  return buildDailyQuestStates(activity).map((quest) => {
+    const prev = existing.find((item) => item.questId === quest.questId);
+    return prev?.claimed ? { ...quest, claimed: true } : quest;
+  });
+}
+
+export function mergeWeeklyQuestState(
+  activity: QuestActivity,
+  existing: UserQuestProgress
+): UserQuestProgress {
+  const next = buildWeeklyQuestState(activity);
+  return existing.claimed ? { ...next, claimed: true } : next;
+}
+
+export function markDailyQuestClaimed(
+  state: { questActivity: QuestActivity; dailyQuests: UserQuestProgress[] },
+  questId: string
+): UserQuestProgress[] {
+  return mergeDailyQuestStates(state.questActivity, state.dailyQuests).map((quest) =>
+    quest.questId === questId ? { ...quest, claimed: true } : quest
+  );
+}
+
 export function recordActiveDay(activity: QuestActivity, date: string): QuestActivity {
   if (activity.activeDays.includes(date)) return activity;
   return { ...activity, activeDays: [...activity.activeDays, date] };

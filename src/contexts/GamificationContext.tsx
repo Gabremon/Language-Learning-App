@@ -6,6 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import { createClient } from "@/lib/supabase/client";
@@ -27,8 +28,9 @@ import {
 } from "@/lib/gamification/xp";
 import {
   DAILY_QUESTS,
-  buildDailyQuestStates,
-  buildWeeklyQuestState,
+  mergeDailyQuestStates,
+  mergeWeeklyQuestState,
+  markDailyQuestClaimed,
   isQuestComplete,
   type QuestActivity,
   WEEKLY_QUEST,
@@ -69,6 +71,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
   const [state, setState] = useState<GamificationState>(EMPTY_GAMIFICATION);
   const [loading, setLoading] = useState(true);
   const [recentUnlocks, setRecentUnlocks] = useState<string[]>([]);
+  const claimingQuestIds = useRef(new Set<string>());
 
   const persist = useCallback(
     async (next: GamificationState) => {
@@ -83,11 +86,16 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
   );
 
   const awardXp = useCallback(
-    async (source: XpSource, amount: number, label?: string) => {
+    async (
+      source: XpSource,
+      amount: number,
+      label?: string,
+      baseState?: GamificationState
+    ) => {
       if (!progress || amount <= 0) return;
 
       const entry = createXpEntry(source, amount, label);
-      const nextState = appendXpLedger(state, entry);
+      const nextState = appendXpLedger(baseState ?? state, entry);
       await persist(nextState);
 
       const nextProgress = addXp(progress, amount);
@@ -164,14 +172,8 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       };
       next = {
         ...next,
-        dailyQuests: buildDailyQuestStates(next.questActivity).map((q) => {
-          const prev = next.dailyQuests.find((d) => d.questId === q.questId);
-          return prev?.claimed ? { ...q, claimed: true } : q;
-        }),
-        weeklyQuest: (() => {
-          const wq = buildWeeklyQuestState(next.questActivity);
-          return next.weeklyQuest.claimed ? { ...wq, claimed: true } : wq;
-        })(),
+        dailyQuests: mergeDailyQuestStates(next.questActivity, next.dailyQuests),
+        weeklyQuest: mergeWeeklyQuestState(next.questActivity, next.weeklyQuest),
       };
 
       next = await processAchievements(next, progress?.streakCount ?? 0);
@@ -192,10 +194,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
     };
     next = {
       ...next,
-      dailyQuests: buildDailyQuestStates(next.questActivity).map((q) => {
-        const prev = next.dailyQuests.find((d) => d.questId === q.questId);
-        return prev?.claimed ? { ...q, claimed: true } : q;
-      }),
+      dailyQuests: mergeDailyQuestStates(next.questActivity, next.dailyQuests),
     };
     next = (await processAchievements(next, progress?.streakCount ?? 0)) ?? next;
     await persist(next);
@@ -223,6 +222,8 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
 
   const claimQuest = useCallback(
     async (questId: string) => {
+      if (claimingQuestIds.current.has(questId)) return;
+
       const quest =
         DAILY_QUESTS.find((q) => q.id === questId) ??
         (WEEKLY_QUEST.id === questId ? WEEKLY_QUEST : null);
@@ -231,26 +232,34 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       const isWeekly = quest.type === "weekly";
       const alreadyClaimed = isWeekly
         ? state.weeklyQuest.claimed
-        : state.dailyQuests.find((q) => q.questId === questId)?.claimed;
+        : mergeDailyQuestStates(state.questActivity, state.dailyQuests).find(
+            (q) => q.questId === questId
+          )?.claimed;
       if (alreadyClaimed) return;
 
-      const next = isWeekly
-        ? { ...state, weeklyQuest: { ...state.weeklyQuest, claimed: true } }
-        : {
-            ...state,
-            dailyQuests: state.dailyQuests.map((q) =>
-              q.questId === questId ? { ...q, claimed: true } : q
-            ),
-          };
+      claimingQuestIds.current.add(questId);
+      try {
+        const claimedState: GamificationState = isWeekly
+          ? {
+              ...state,
+              weeklyQuest: { ...mergeWeeklyQuestState(state.questActivity, state.weeklyQuest), claimed: true },
+            }
+          : {
+              ...state,
+              dailyQuests: markDailyQuestClaimed(state, questId),
+            };
 
-      await persist(next);
-      await awardXp(
-        isWeekly ? "quest_weekly" : "quest_daily",
-        quest.xpReward,
-        quest.title
-      );
+        await awardXp(
+          isWeekly ? "quest_weekly" : "quest_daily",
+          quest.xpReward,
+          quest.title,
+          claimedState
+        );
+      } finally {
+        claimingQuestIds.current.delete(questId);
+      }
     },
-    [state, persist, awardXp]
+    [state, awardXp]
   );
 
   const equipCosmetic = useCallback(

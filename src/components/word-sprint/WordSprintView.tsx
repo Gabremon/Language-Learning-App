@@ -17,15 +17,20 @@ import {
   shuffleWordSprintQueue,
 } from "@/lib/word-sprint";
 import type { PracticeVocabContext } from "@/lib/practice-vocab";
+import { lessonVocabMap } from "@/lib/lesson-vocab-map";
 import type { VocabItem } from "@/types/course";
 import type { EnglishToHanziWordBankPayload } from "@/types/exercises";
 import { Timer, Trophy, Zap } from "lucide-react";
 
 const SPRINT_SECONDS = 30;
 
-interface Props extends PracticeVocabContext {}
+interface Props {
+  vocabItems: PracticeVocabContext["vocabItems"];
+  lessons: PracticeVocabContext["lessons"];
+  units: PracticeVocabContext["units"];
+}
 
-export function WordSprintView({ vocabItems, lessons, units, lessonVocabMap }: Props) {
+export function WordSprintView({ vocabItems, lessons, units }: Props) {
   const { progress, loading, error, retryLoad } = useProgress();
   const { state, recordGauntletRun } = useGamification();
 
@@ -44,7 +49,7 @@ export function WordSprintView({ vocabItems, lessons, units, lessonVocabMap }: P
 
   const practiceContext = useMemo(
     () => ({ vocabItems, lessons, units, lessonVocabMap }),
-    [vocabItems, lessons, units, lessonVocabMap]
+    [vocabItems, lessons, units]
   );
 
   const sprintWords = useMemo(

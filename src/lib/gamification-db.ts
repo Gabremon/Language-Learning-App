@@ -4,6 +4,8 @@ import type { XpEntry } from "@/lib/gamification/xp";
 import {
   buildDailyQuestStates,
   buildWeeklyQuestState,
+  mergeDailyQuestStates,
+  mergeWeeklyQuestState,
   emptyQuestActivity,
   recordActiveDay,
 } from "@/lib/gamification/quests";
@@ -159,13 +161,7 @@ export function touchActiveDay(state: GamificationState): GamificationState {
   return {
     ...state,
     questActivity,
-    dailyQuests: buildDailyQuestStates(questActivity).map((q) => {
-      const existing = state.dailyQuests.find((d) => d.questId === q.questId);
-      return existing?.claimed ? { ...q, claimed: true } : q;
-    }),
-    weeklyQuest: (() => {
-      const wq = buildWeeklyQuestState(questActivity);
-      return state.weeklyQuest.claimed ? { ...wq, claimed: true } : wq;
-    })(),
+    dailyQuests: mergeDailyQuestStates(questActivity, state.dailyQuests),
+    weeklyQuest: mergeWeeklyQuestState(questActivity, state.weeklyQuest),
   };
 }

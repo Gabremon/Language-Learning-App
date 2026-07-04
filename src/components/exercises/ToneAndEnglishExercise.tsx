@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { AutoFocusInput } from "@/components/ui/AutoFocusInput";
 import { VocabIllustration } from "@/components/ui/VocabIllustration";
 import { AudioButton } from "@/components/ui/AudioButton";
 import type { ToneAndEnglishAnswer, ToneAndEnglishPayload } from "@/types/exercises";
@@ -68,7 +68,8 @@ export function ToneAndEnglishExercise({ payload, value, onChange, disabled }: P
 
       <div className="space-y-2">
         <p className="text-center text-sm font-medium text-gray-600">Type the English meaning</p>
-        <Input
+        <AutoFocusInput
+          focusKey={payload.hanzi}
           placeholder="e.g. mother"
           value={english}
           onChange={(e) =>

@@ -1,4 +1,4 @@
-import { getContinueLesson, sortLessonsByCourseOrder } from "@/lib/course-utils";
+import { sortLessonsByCourseOrder } from "@/lib/course-utils";
 import { getVocabMemory } from "@/lib/progress";
 import type { UserProgress } from "@/lib/progress";
 import { isDueForReview } from "@/lib/srs";
@@ -14,22 +14,41 @@ export interface PracticeVocabContext {
   vocabItems: VocabItem[];
 }
 
-/** Lesson ids from the start of the course through the learner's current lesson (inclusive). */
+/**
+ * Lesson ids whose vocabulary is available for practice.
+ * Includes all completed lessons plus the next lesson only once its words have been seen in exercises.
+ */
 export function getLessonIdsUpToCurrent(
   lessons: Lesson[],
   units: Unit[],
-  progress: Pick<UserProgress, "currentLessonId" | "completedLessonIds">
+  progress: Pick<UserProgress, "currentLessonId" | "completedLessonIds" | "vocabMemory">,
+  lessonVocabMap: Record<string, string[]>
 ): string[] {
   const ordered = sortLessonsByCourseOrder(lessons, units);
-  const current = getContinueLesson(
-    lessons,
-    units,
-    progress.currentLessonId,
-    progress.completedLessonIds
-  );
-  const idx = ordered.findIndex((lesson) => lesson.id === current.id);
-  if (idx < 0) return [];
-  return ordered.slice(0, idx + 1).map((lesson) => lesson.id);
+
+  let maxIdx = -1;
+  for (const lessonId of progress.completedLessonIds) {
+    const idx = ordered.findIndex((lesson) => lesson.id === lessonId);
+    if (idx > maxIdx) maxIdx = idx;
+  }
+
+  const nextIdx = maxIdx + 1;
+  if (nextIdx < ordered.length) {
+    const nextLesson = ordered[nextIdx];
+    const nextVocab = lessonVocabMap[nextLesson.id] ?? [];
+    const hasSeenNext = nextVocab.some(
+      (vocabId) => (progress.vocabMemory[vocabId]?.timesSeen ?? 0) > 0
+    );
+    if (hasSeenNext) maxIdx = nextIdx;
+  }
+
+  if (maxIdx < 0) {
+    if (progress.completedLessonIds.length === 0) return [];
+    return progress.completedLessonIds.filter(
+      (lessonId) => (lessonVocabMap[lessonId]?.length ?? 0) > 0
+    );
+  }
+  return ordered.slice(0, maxIdx + 1).map((lesson) => lesson.id);
 }
 
 export function collectVocabIdsForLessons(
@@ -50,7 +69,12 @@ export function getPracticeVocabPool(
   progress: UserProgress,
   context: PracticeVocabContext
 ): VocabItem[] {
-  const lessonIds = getLessonIdsUpToCurrent(context.lessons, context.units, progress);
+  const lessonIds = getLessonIdsUpToCurrent(
+    context.lessons,
+    context.units,
+    progress,
+    context.lessonVocabMap
+  );
   const allowedIds = collectVocabIdsForLessons(lessonIds, context.lessonVocabMap);
   if (allowedIds.size === 0) return [];
 
@@ -65,9 +89,35 @@ export function filterMemoriesToPracticePool(
   progress: UserProgress,
   context: PracticeVocabContext
 ): VocabMemory[] {
-  const lessonIds = getLessonIdsUpToCurrent(context.lessons, context.units, progress);
+  const lessonIds = getLessonIdsUpToCurrent(
+    context.lessons,
+    context.units,
+    progress,
+    context.lessonVocabMap
+  );
   const allowedIds = collectVocabIdsForLessons(lessonIds, context.lessonVocabMap);
   return memories.filter((memory) => allowedIds.has(memory.vocabItemId));
+}
+
+export function countPracticeWordsAvailable(
+  progress: UserProgress,
+  context: PracticeVocabContext,
+  maxItems = MAX_REVIEW_ITEMS
+): number {
+  const lessonIds = getLessonIdsUpToCurrent(
+    context.lessons,
+    context.units,
+    progress,
+    context.lessonVocabMap
+  );
+  const allowedIds = collectVocabIdsForLessons(lessonIds, context.lessonVocabMap);
+  if (allowedIds.size === 0) return 0;
+
+  if (context.vocabItems.length === 0) {
+    return Math.min(allowedIds.size, maxItems);
+  }
+
+  return Math.min(getPracticeVocabPool(progress, context).length, maxItems);
 }
 
 export function countDueReviewsInPracticePool(
@@ -88,13 +138,24 @@ export function buildReviewQueue(
   const pool = getPracticeVocabPool(progress, context);
   if (pool.length === 0) return [];
 
-  const due = pool
-    .map((vocab) => ({
-      vocab,
-      memory: getVocabMemory(progress, vocab.id),
-    }))
+  const limit = Math.min(maxItems, pool.length);
+  const withMemory = pool.map((vocab) => ({
+    vocab,
+    memory: getVocabMemory(progress, vocab.id),
+  }));
+
+  const due = withMemory
     .filter(({ memory }) => memory.timesSeen > 0 && isDueForReview(memory))
     .map(({ vocab }) => vocab);
 
-  return due.slice(0, Math.min(maxItems, due.length));
+  const practiced = withMemory
+    .filter(({ vocab, memory }) => memory.timesSeen > 0 && !due.some((item) => item.id === vocab.id))
+    .map(({ vocab }) => vocab);
+
+  const queue = [...due, ...practiced];
+  if (queue.length === 0) {
+    return pool.slice(0, limit);
+  }
+
+  return queue.slice(0, limit);
 }

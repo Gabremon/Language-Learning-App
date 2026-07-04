@@ -107,14 +107,17 @@ function PracticeModeCard({
 
 interface Props {
   dueReviews: number;
+  practiceWords?: number;
   sprintBestScore?: number;
 }
 
-export function PracticeSection({ dueReviews, sprintBestScore = 0 }: Props) {
+export function PracticeSection({ dueReviews, practiceWords = 0, sprintBestScore = 0 }: Props) {
   const reviewSubtitle =
     dueReviews > 0
       ? `${dueReviews} word${dueReviews === 1 ? "" : "s"} due in your queue`
-      : "All caught up — review anytime";
+      : practiceWords > 0
+        ? `${practiceWords} word${practiceWords === 1 ? "" : "s"} from your lessons`
+        : "Complete a lesson to unlock practice words";
 
   const sprintSubtitle =
     sprintBestScore > 0
@@ -131,7 +134,13 @@ export function PracticeSection({ dueReviews, sprintBestScore = 0 }: Props) {
           flair="violet"
           label="Spaced review"
           labelIcon={RotateCcw}
-          title={dueReviews > 0 ? `Review ${dueReviews} words` : "Word recall"}
+          title={
+            dueReviews > 0
+              ? `Review ${dueReviews} words`
+              : practiceWords > 0
+                ? `Practice ${practiceWords} words`
+                : "Word recall"
+          }
           subtitle={reviewSubtitle}
         />
         <PracticeModeCard

@@ -9,7 +9,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { CourseCatalog } from "@/lib/course-utils";
 import { getActiveUnit, getContinueLesson, getLessonsForUnit, isLessonUnlocked } from "@/lib/course-utils";
-import { countDueReviewsInPracticePool } from "@/lib/practice-vocab";
+import { countDueReviewsInPracticePool, countPracticeWordsAvailable } from "@/lib/practice-vocab";
+import { lessonVocabMap } from "@/lib/lesson-vocab-map";
 import { useProgress } from "@/contexts/ProgressContext";
 import { APP_MARK, APP_NAME } from "@/lib/brand";
 import { Flame, Star, RotateCcw, ChevronRight, Sparkles } from "lucide-react";
@@ -22,10 +23,9 @@ import { getLessonDisplayTitle } from "@/lib/lesson-titles";
 
 interface Props {
   catalog: CourseCatalog;
-  lessonVocabMap: Record<string, string[]>;
 }
 
-export function DashboardView({ catalog, lessonVocabMap }: Props) {
+export function DashboardView({ catalog }: Props) {
   const { course, units, lessons } = catalog;
   const { progress, loading, error, retryLoad, getAllMemories } = useProgress();
   const { level, state } = useGamification();
@@ -46,12 +46,14 @@ export function DashboardView({ catalog, lessonVocabMap }: Props) {
     );
   }
 
-  const dueReviews = countDueReviewsInPracticePool(progress, getAllMemories(), {
+  const practiceContext = {
     lessons,
     units,
     lessonVocabMap,
     vocabItems: [],
-  });
+  };
+  const dueReviews = countDueReviewsInPracticePool(progress, getAllMemories(), practiceContext);
+  const practiceWords = countPracticeWordsAvailable(progress, practiceContext);
   const currentLesson = getContinueLesson(
     lessons,
     units,
@@ -135,7 +137,11 @@ export function DashboardView({ catalog, lessonVocabMap }: Props) {
 
         <MiniTrail unit={activeUnit} items={miniTrailItems} remainingCount={remainingInUnit} />
 
-        <PracticeSection dueReviews={dueReviews} sprintBestScore={state.gauntletBestScore} />
+        <PracticeSection
+          dueReviews={dueReviews}
+          practiceWords={practiceWords}
+          sprintBestScore={state.gauntletBestScore}
+        />
 
         <QuestCards />
       </div>
