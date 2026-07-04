@@ -12,7 +12,10 @@ import { isDueForReview, updateVocabMemoryOnReview } from "@/lib/srs";
 import { matchesEnglishAnswer } from "@/lib/exercise-checker";
 import { speakMandarin } from "@/lib/speech";
 import { AuthProgressPrompt } from "@/components/errors/AuthProgressPrompt";
+import { PageLoadingShell } from "@/components/ui/PageLoadingShell";
+import { PinyinDisplay } from "@/components/ui/PinyinDisplay";
 import { useProgress } from "@/contexts/ProgressContext";
+import { useGamification } from "@/contexts/GamificationContext";
 import { Input } from "@/components/ui/input";
 import { Volume2 } from "lucide-react";
 
@@ -29,6 +32,7 @@ interface Props {
 
 export function ReviewView({ vocabItems }: Props) {
   const { progress, loading, error, retryLoad, applyReviewUpdate } = useProgress();
+  const { recordReviewCorrect } = useGamification();
   const [items, setItems] = useState<ReviewItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answer, setAnswer] = useState("");
@@ -79,7 +83,8 @@ export function ReviewView({ vocabItems }: Props) {
     const memory = getVocabMemory(progress, current.vocabId);
     const updated = updateVocabMemoryOnReview(memory, isCorrect);
     await applyReviewUpdate(current.vocabId, updated, isCorrect ? 5 : 0);
-  }, [answer, current, progress, applyReviewUpdate]);
+    if (isCorrect) await recordReviewCorrect();
+  }, [answer, current, progress, applyReviewUpdate, recordReviewCorrect]);
 
   const handleContinue = useCallback(() => {
     if (currentIndex < items.length - 1) {
@@ -108,11 +113,11 @@ export function ReviewView({ vocabItems }: Props) {
 
   if (loading) {
     return (
-      <AppShell>
-        <div className="flex min-h-[40vh] items-center justify-center">
-          <p className="text-sm text-stone-500">Loading review...</p>
-        </div>
-      </AppShell>
+      <PageLoadingShell
+        glyph="复"
+        title="Checking what words are due…"
+        subtitle="Loading your spaced review queue"
+      />
     );
   }
 
@@ -126,11 +131,11 @@ export function ReviewView({ vocabItems }: Props) {
 
   if (!itemsReady) {
     return (
-      <AppShell>
-        <div className="flex min-h-[40vh] items-center justify-center">
-          <p className="text-sm text-stone-500">Preparing review...</p>
-        </div>
-      </AppShell>
+      <PageLoadingShell
+        glyph="复"
+        title="Preparing review…"
+        subtitle="Sorting words by what needs practice most"
+      />
     );
   }
 
@@ -141,11 +146,18 @@ export function ReviewView({ vocabItems }: Props) {
           <div className="flex h-14 w-14 items-center justify-center rounded-xl border-2 border-emerald-300 bg-emerald-50 text-xl font-bold text-emerald-600">
             复
           </div>
-          <p className="text-xl font-bold text-stone-800">All caught up!</p>
-          <p className="text-sm text-stone-500">No words due right now. Keep walking the trail.</p>
-          <Link href="/dashboard">
-            <Button>Back to trail</Button>
-          </Link>
+          <p className="text-xl font-bold text-stone-800">Nothing due right now</p>
+          <p className="max-w-xs text-sm text-stone-500">
+            Do a new lesson to grow tomorrow&apos;s review — or try word sprint for extra practice.
+          </p>
+          <div className="flex flex-col gap-2">
+            <Link href="/course">
+              <Button>Continue the trail</Button>
+            </Link>
+            <Link href="/word-sprint">
+              <Button variant="secondary">Word sprint</Button>
+            </Link>
+          </div>
         </div>
       </AppShell>
     );
@@ -213,11 +225,16 @@ export function ReviewView({ vocabItems }: Props) {
               className="border-stone-200 bg-white/80"
             />
             {result && (
-              <ExerciseFeedback
-                isCorrect={result.isCorrect}
-                correctAnswer={result.correctAnswer}
-                explanation={`${current.hanzi} (${current.pinyin})`}
-              />
+              <>
+                <ExerciseFeedback
+                  isCorrect={result.isCorrect}
+                  correctAnswer={result.correctAnswer}
+                  explanation={current.english}
+                />
+                <div className="flex justify-center">
+                  <PinyinDisplay pinyin={current.pinyin} size="sm" />
+                </div>
+              </>
             )}
             <div className="flex justify-end">
               {!result ? (

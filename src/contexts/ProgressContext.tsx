@@ -94,58 +94,39 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     let mounted = true;
 
-    async function init() {
-      try {
-        const {
-          data: { user: currentUser },
-        } = await supabase.auth.getUser();
-
-        if (!mounted) return;
-
-        setUser(currentUser);
-        if (currentUser) {
-          clearGuestProgress();
-          await loadProgressForUser(currentUser.id);
-        } else {
-          setProgress(loadGuestProgress());
-          setIsGuest(true);
-        }
-      } catch (err) {
-        if (!mounted) return;
-        const message = err instanceof Error ? err.message : "Failed to load progress";
-        setError(message);
-        console.error("[ProgressProvider]", err);
-      } finally {
-        if (mounted) setLoading(false);
-      }
-    }
-
-    init();
-
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (_event, session) => {
+    } = supabase.auth.onAuthStateChange((event, session) => {
       const nextUser = session?.user ?? null;
+      if (!mounted) return;
       setUser(nextUser);
-      if (nextUser) {
-        setLoading(true);
-        clearGuestProgress();
-        try {
-          await loadProgressForUser(nextUser.id);
+
+      // Defer async Supabase calls — running them inside this callback can deadlock getUser().
+      setTimeout(async () => {
+        if (!mounted) return;
+
+        if (nextUser) {
+          if (event === "INITIAL_SESSION" || event === "SIGNED_IN" || event === "TOKEN_REFRESHED") {
+            setLoading(true);
+            clearGuestProgress();
+            try {
+              await loadProgressForUser(nextUser.id);
+              setError(null);
+            } catch (err) {
+              const message = err instanceof Error ? err.message : "Failed to load progress";
+              setError(message);
+              console.error("[ProgressProvider]", err);
+            } finally {
+              if (mounted) setLoading(false);
+            }
+          }
+        } else if (event === "INITIAL_SESSION" || event === "SIGNED_OUT") {
+          setProgress(loadGuestProgress());
+          setIsGuest(true);
           setError(null);
-        } catch (err) {
-          const message = err instanceof Error ? err.message : "Failed to load progress";
-          setError(message);
-          console.error("[ProgressProvider]", err);
-        } finally {
           setLoading(false);
         }
-      } else {
-        setProgress(loadGuestProgress());
-        setIsGuest(true);
-        setError(null);
-        setLoading(false);
-      }
+      }, 0);
     });
 
     return () => {

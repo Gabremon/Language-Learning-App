@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Home, RotateCcw, User, Library } from "lucide-react";
+import { BookOpen, Home, RotateCcw, User, Library, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { WORD_SPRINT_PATH } from "@/lib/word-sprint";
 
 const navItems = [
   { href: "/dashboard", label: "Learn", icon: Home, glyph: "学" },
+  { href: WORD_SPRINT_PATH, label: "Sprint", icon: Zap, glyph: "速" },
   { href: "/course", label: "Path", icon: BookOpen, glyph: "径" },
   { href: "/review", label: "Review", icon: RotateCcw, glyph: "复" },
   { href: "/vocabulary", label: "Words", icon: Library, glyph: "词" },

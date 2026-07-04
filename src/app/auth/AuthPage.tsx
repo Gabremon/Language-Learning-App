@@ -40,20 +40,41 @@ export default function AuthPage() {
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [checking, setChecking] = useState(true);
+  const [signInError, setSignInError] = useState<string | null>(null);
   const error = searchParams.get("error");
   const errorDescription = searchParams.get("error_description");
-  const errorMessage = getErrorMessage(error, errorDescription);
+  const errorMessage = getErrorMessage(error, errorDescription) ?? signInError;
 
   useEffect(() => {
     const supabase = createClient();
-    supabase.auth.getUser().then(({ data: { user } }) => {
-      if (user) {
+    let settled = false;
+
+    function finishChecking() {
+      if (!settled) {
+        settled = true;
+        setChecking(false);
+      }
+    }
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      if (session?.user) {
         const next = searchParams.get("next") || "/dashboard";
         window.location.href = next;
         return;
       }
-      setChecking(false);
+      if (event === "INITIAL_SESSION" || event === "SIGNED_OUT") {
+        finishChecking();
+      }
     });
+
+    const timeout = window.setTimeout(finishChecking, 4000);
+
+    return () => {
+      subscription.unsubscribe();
+      window.clearTimeout(timeout);
+    };
   }, [searchParams]);
 
   async function signInWithGoogle() {
@@ -72,6 +93,7 @@ export default function AuthPage() {
     });
     if (signInError) {
       setLoading(false);
+      setSignInError(signInError.message);
       console.error(signInError);
     }
   }

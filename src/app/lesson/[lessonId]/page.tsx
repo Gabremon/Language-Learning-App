@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { LessonPlayer } from "@/components/lesson/LessonPlayer";
 import { DataLoadError } from "@/components/errors/DataLoadError";
 import { getCourseCatalog } from "@/lib/data/course";
@@ -34,13 +35,15 @@ export default async function LessonPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-paper px-3 py-4 sm:px-4">
-      <LessonPlayer
-        lesson={bundle.lesson}
-        exercises={bundle.exercises}
-        lessonVocab={bundle.vocab}
-        nextLesson={nextLesson}
-        allowGuest={isDemoLesson(lessonId)}
-      />
+      <Suspense fallback={<div className="py-12 text-center text-sm text-stone-500">Loading lesson…</div>}>
+        <LessonPlayer
+          lesson={bundle.lesson}
+          exercises={bundle.exercises}
+          lessonVocab={bundle.vocab}
+          nextLesson={nextLesson}
+          allowGuest={isDemoLesson(lessonId)}
+        />
+      </Suspense>
     </div>
   );
 }

@@ -1,13 +1,14 @@
 "use client";
 
 import { useState, useCallback, useEffect, useMemo } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ExerciseRenderer } from "@/components/exercises/ExerciseRenderer";
 import { ExerciseFeedback } from "@/components/exercises/ExerciseFeedback";
 import { LessonComplete } from "@/components/lesson/LessonComplete";
 import { LessonPhaseBar } from "@/components/lesson/LessonPhaseBar";
 import { MissedConceptsPanel } from "@/components/lesson/MissedConceptsPanel";
 import { AuthProgressPrompt } from "@/components/errors/AuthProgressPrompt";
+import { PageLoadingShell } from "@/components/ui/PageLoadingShell";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent } from "@/components/ui/card";
@@ -19,6 +20,11 @@ import { getVocabMemory } from "@/lib/progress";
 import { loadGuestProgress } from "@/lib/guest-progress";
 import { updateVocabMemoryOnReview } from "@/lib/srs";
 import { useProgress } from "@/contexts/ProgressContext";
+import { useGamification } from "@/contexts/GamificationContext";
+import {
+  FIRST_SESSION_EXERCISE_CAP,
+  isFirstSessionMode,
+} from "@/lib/demo";
 import type { Lesson, VocabItem } from "@/types/course";
 import type { BaseExercise, ExerciseResult, UserAnswer } from "@/types/exercises";
 import { isEnglishToHanziWordBank, isMatchPairs, isToneAndEnglish } from "@/types/exercises";
@@ -54,16 +60,27 @@ function isAnswerReady(exercise: BaseExercise, answer: UserAnswer | null): boole
 
 export function LessonPlayer({
   lesson,
-  exercises,
+  exercises: allExercises,
   lessonVocab,
   nextLesson,
   allowGuest = false,
 }: Props) {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { progress, loading, isGuest, updateVocabMemories, completeLesson } = useProgress();
+  const { recordLessonComplete } = useGamification();
   const lessonId = lesson?.id ?? "";
+  const firstSession = isFirstSessionMode(lessonId, { mode: searchParams.get("mode") });
   const exitHref = isGuest ? "/" : "/dashboard";
   const activeProgress = progress ?? (allowGuest ? loadGuestProgress() : null);
+
+  const exercises = useMemo(() => {
+    if (!firstSession) return allExercises;
+    const listening = allExercises.filter((e) => e.type === "listening");
+    const rest = allExercises.filter((e) => e.type !== "listening");
+    const picked = [...listening.slice(0, 2), ...rest].slice(0, FIRST_SESSION_EXERCISE_CAP);
+    return picked.length > 0 ? picked : allExercises.slice(0, FIRST_SESSION_EXERCISE_CAP);
+  }, [allExercises, firstSession]);
 
   const [phase, setPhase] = useState<LessonPhase>("main");
   const [index, setIndex] = useState(0);
@@ -143,6 +160,7 @@ export function LessonPlayer({
         exercises.length,
         nextLesson?.id
       );
+      await recordLessonComplete(firstTryCorrect, exercises.length);
       setXpGained(xp);
       setIsComplete(true);
     } catch (err) {
@@ -151,7 +169,7 @@ export function LessonPlayer({
     } finally {
       setSaving(false);
     }
-  }, [completeLesson, lessonId, firstTryCorrect, exercises.length, nextLesson?.id]);
+  }, [completeLesson, lessonId, firstTryCorrect, exercises.length, nextLesson?.id, recordLessonComplete]);
 
   const handleContinue = useCallback(async () => {
     if (!result?.isCorrect) return;
@@ -162,14 +180,14 @@ export function LessonPlayer({
       return;
     }
 
-    if (phase === "main" && reviewQueue.length > 0) {
+    if (phase === "main" && reviewQueue.length > 0 && !firstSession) {
       setPhase("review");
       setIndex(0);
       resetQuestion();
       return;
     }
 
-    if (struggledVocab.length > 0) {
+    if (struggledVocab.length > 0 && !firstSession) {
       setPhase("concepts");
       resetQuestion();
       return;
@@ -183,6 +201,7 @@ export function LessonPlayer({
     phase,
     reviewQueue.length,
     struggledVocab.length,
+    firstSession,
     resetQuestion,
     finishLesson,
   ]);
@@ -213,9 +232,13 @@ export function LessonPlayer({
 
   if (!allowGuest && loading) {
     return (
-      <div className="flex min-h-[50vh] flex-col items-center justify-center gap-3">
-        <p className="text-sm text-stone-500">Loading your progress…</p>
-      </div>
+      <PageLoadingShell
+        glyph="课"
+        title="Loading your lesson…"
+        subtitle="Preparing exercises and your progress"
+        variant="paper"
+        className="min-h-[50vh]"
+      />
     );
   }
 
@@ -247,6 +270,8 @@ export function LessonPlayer({
         xpGained={xpGained}
         missedCount={missedLog.length}
         isGuest={isGuest}
+        isFirstSession={firstSession}
+        streakCount={activeProgress?.streakCount ?? 0}
       />
     );
   }

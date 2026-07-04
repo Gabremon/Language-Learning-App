@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import {
   getSyllableTone,
+  normalizePinyin,
   PINYIN_TONE_COLORS,
   splitPinyinTokens,
 } from "@/lib/pinyin";
@@ -21,17 +22,23 @@ export function PinyinDisplay({ pinyin, size = "md", showToneLabels = false, cla
     lg: "text-2xl",
   }[size];
 
-  const syllables = splitPinyinTokens(pinyin);
+  const syllables = splitPinyinTokens(normalizePinyin(pinyin));
 
   return (
-    <div className={cn("flex flex-wrap items-end justify-center gap-x-2 gap-y-1", className)}>
+    <span
+      className={cn("inline-flex flex-wrap items-end justify-start gap-x-1.5 gap-y-0.5", className)}
+      lang="zh-Latn"
+    >
       {syllables.map((syllable, i) => {
         const tone = getSyllableTone(syllable);
         return (
-          <span key={`${i}-${syllable}`} className="inline-flex flex-col items-center">
+          <span
+            key={`${i}-${syllable}`}
+            className="inline-flex flex-col items-center whitespace-nowrap"
+          >
             <span
               className={cn(
-                "font-medium tracking-wide",
+                "font-medium tracking-normal",
                 sizeClass,
                 PINYIN_TONE_COLORS[tone]
               )}
@@ -44,6 +51,6 @@ export function PinyinDisplay({ pinyin, size = "md", showToneLabels = false, cla
           </span>
         );
       })}
-    </div>
+    </span>
   );
 }

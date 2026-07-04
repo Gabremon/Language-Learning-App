@@ -20,7 +20,11 @@ export interface LessonAttempt {
 }
 
 function getToday(): string {
-  return new Date().toISOString().split("T")[0];
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
 }
 
 export function updateStreak(progress: UserProgress): UserProgress {
@@ -29,7 +33,10 @@ export function updateStreak(progress: UserProgress): UserProgress {
 
   const yesterday = new Date();
   yesterday.setDate(yesterday.getDate() - 1);
-  const yesterdayStr = yesterday.toISOString().split("T")[0];
+  const y = yesterday.getFullYear();
+  const m = String(yesterday.getMonth() + 1).padStart(2, "0");
+  const day = String(yesterday.getDate()).padStart(2, "0");
+  const yesterdayStr = `${y}-${m}-${day}`;
 
   let streakCount = 1;
   if (progress.lastActiveDate === yesterdayStr) {
@@ -97,6 +104,4 @@ export function getAllVocabMemories(progress: UserProgress): VocabMemory[] {
   return Object.values(progress.vocabMemory);
 }
 
-export function getXpForLesson(score: number, totalQuestions: number): number {
-  return score * 10 + (score === totalQuestions ? 20 : 0);
-}
+export { getXpForLesson } from "@/lib/gamification/xp";

@@ -7,6 +7,7 @@ import {
   MarketingFeatureList,
   MarketingHeroPanel,
   MarketingNav,
+  WordSprintPromoCard,
 } from "@/components/marketing/MarketingShell";
 import { ArrowRight, Play } from "lucide-react";
 
@@ -56,6 +57,10 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
+
+        <section className="relative mt-10 animate-slide-up [animation-delay:120ms]">
+          <WordSprintPromoCard />
+        </section>
 
         <section className="mt-16 animate-fade-in [animation-delay:160ms]">
           <div className="mb-6 text-center lg:text-left">

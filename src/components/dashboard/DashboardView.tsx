@@ -12,9 +12,11 @@ import { getActiveUnit, getContinueLesson, getLessonsForUnit, isLessonUnlocked }
 import { getDueReviewCount } from "@/lib/srs";
 import { useProgress } from "@/contexts/ProgressContext";
 import { APP_MARK, APP_NAME } from "@/lib/brand";
-import { Flame, Star, RotateCcw, ChevronRight, Sparkles, Map } from "lucide-react";
-import { COURSE_SECTIONS, SECTION_STYLES, getUnitIdsForSection } from "@/data/course-sections";
+import { Flame, Star, RotateCcw, ChevronRight, Sparkles } from "lucide-react";
 import { MiniTrail } from "@/components/course/ink-trail/MiniTrail";
+import { QuestCards } from "@/components/dashboard/QuestCards";
+import { PracticeSection } from "@/components/dashboard/PracticeSection";
+import { useGamification } from "@/contexts/GamificationContext";
 import { cn } from "@/lib/utils";
 import { getLessonDisplayTitle } from "@/lib/lesson-titles";
 
@@ -25,6 +27,7 @@ interface Props {
 export function DashboardView({ catalog }: Props) {
   const { course, units, lessons } = catalog;
   const { progress, loading, error, retryLoad, getAllMemories } = useProgress();
+  const { level, state } = useGamification();
 
   if (loading) {
     return (
@@ -80,7 +83,7 @@ export function DashboardView({ catalog }: Props) {
               <p className="text-[10px] font-bold uppercase tracking-widest text-brand-100/80">{APP_NAME}</p>
               <h1 className="text-lg font-bold">{course.title}</h1>
               <p className="text-xs text-brand-100">
-                {completedCount}/{totalLessons} steps · {Math.round((completedCount / totalLessons) * 100)}%
+                Level {level.level}: {level.title} · {completedCount}/{totalLessons} steps
               </p>
             </div>
           </div>
@@ -126,79 +129,9 @@ export function DashboardView({ catalog }: Props) {
 
         <MiniTrail unit={activeUnit} items={miniTrailItems} remainingCount={remainingInUnit} />
 
-        {dueReviews > 0 && (
-          <Link href="/review">
-            <Card className="border-0 bg-white/80 shadow-sm ring-1 ring-violet-100 transition hover:shadow-md">
-              <CardContent className="flex items-center justify-between p-3">
-                <div className="flex items-center gap-2">
-                  <span className="text-lg">🔄</span>
-                  <span className="text-sm font-semibold text-stone-800">Review {dueReviews} words</span>
-                </div>
-                <ChevronRight className="h-4 w-4 text-violet-400" />
-              </CardContent>
-            </Card>
-          </Link>
-        )}
+        <PracticeSection dueReviews={dueReviews} sprintBestScore={state.gauntletBestScore} />
 
-        <div className="space-y-2">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5">
-              <Map className="h-4 w-4 text-brand-500" />
-              <h2 className="text-sm font-bold text-stone-800">Trail map</h2>
-            </div>
-            <Link href="/course" className="text-xs font-semibold text-brand-600 hover:underline">
-              Open full path →
-            </Link>
-          </div>
-
-          <div className="grid gap-2 sm:grid-cols-2">
-            {COURSE_SECTIONS.map((section) => {
-              const sectionUnits = getUnitIdsForSection(section.id, units)
-                .map((id) => units.find((u) => u.id === id)!)
-                .filter(Boolean);
-              const sectionLessons = sectionUnits.flatMap((u) => getLessonsForUnit(lessons, u.id));
-              const sectionCompleted = sectionLessons.filter((l) =>
-                progress.completedLessonIds.includes(l.id)
-              ).length;
-              const pct = sectionLessons.length
-                ? Math.round((sectionCompleted / sectionLessons.length) * 100)
-                : 0;
-              const style = SECTION_STYLES[section.id];
-
-              return (
-                <Link key={section.id} href="/course">
-                  <Card
-                    className={cn(
-                      "border bg-gradient-to-br shadow-sm transition hover:shadow-md",
-                      style.border,
-                      style.paper
-                    )}
-                  >
-                    <CardContent className="p-3">
-                      <div className="flex items-center gap-2">
-                        <span
-                          className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/80 text-sm font-bold"
-                          style={{ color: style.accent }}
-                        >
-                          {style.glyph}
-                        </span>
-                        <div className="min-w-0 flex-1">
-                          <p className="text-xs font-bold text-stone-800">{section.title}</p>
-                          <p className="text-[10px] text-stone-500">
-                            {sectionCompleted}/{sectionLessons.length} steps
-                          </p>
-                        </div>
-                        <span className="text-xs font-bold" style={{ color: style.accent }}>
-                          {pct}%
-                        </span>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
+        <QuestCards />
       </div>
     </AppShell>
   );

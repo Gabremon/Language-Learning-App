@@ -2,14 +2,20 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { APP_MARK, APP_NAME, APP_TAGLINE } from "@/lib/brand";
 import { demoLessonPath } from "@/lib/demo";
+import { WORD_SPRINT_PATH } from "@/lib/word-sprint";
 import { cn } from "@/lib/utils";
-import { BookOpen, Brain, Headphones, RotateCcw } from "lucide-react";
+import { BookOpen, Brain, Headphones, RotateCcw, Timer, Zap } from "lucide-react";
 
 export const MARKETING_FEATURES = [
   {
     icon: BookOpen,
     title: "Structured path",
     text: "117 lessons from first tones through full HSK 1",
+  },
+  {
+    icon: Timer,
+    title: "Word sprint",
+    text: "30-second hanzi build challenges using words you've already learned",
   },
   {
     icon: Brain,
@@ -68,6 +74,13 @@ export function MarketingNav() {
         </div>
       </Link>
       <div className="flex items-center gap-2">
+        <Link
+          href={WORD_SPRINT_PATH}
+          className="hidden rounded-xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 px-4 py-2 text-sm font-semibold text-amber-800 shadow-sm transition hover:border-amber-300 hover:from-amber-100 sm:inline-flex"
+        >
+          <Zap className="mr-1.5 h-4 w-4" />
+          Word sprint
+        </Link>
         <Link
           href={demoLessonPath()}
           className="hidden rounded-xl border border-brand-200 bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700 shadow-sm transition hover:bg-brand-100 sm:inline-flex"
@@ -173,5 +186,96 @@ export function LessonPreviewCard() {
       </div>
       <p className="mt-4 text-center text-xs font-semibold text-brand-600">Tap to start →</p>
     </Link>
+  );
+}
+
+export function WordSprintPromoCard({ compact = false }: { compact?: boolean }) {
+  if (compact) {
+    return (
+      <Link
+        href={WORD_SPRINT_PATH}
+        className="group block overflow-hidden rounded-2xl border border-amber-200/80 bg-gradient-to-br from-amber-400 via-orange-500 to-red-500 p-4 text-white shadow-lg transition hover:shadow-xl"
+      >
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <BadgeRow />
+            <p className="mt-2 text-lg font-extrabold leading-tight">Word sprint</p>
+            <p className="mt-1 text-sm text-amber-50/90">30 seconds — build hanzi fast</p>
+          </div>
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-white/30 bg-white/15 text-2xl font-bold backdrop-blur">
+            速
+          </div>
+        </div>
+      </Link>
+    );
+  }
+
+  return (
+    <Link
+      href={WORD_SPRINT_PATH}
+      className="group relative block overflow-hidden rounded-3xl border border-amber-200/60 bg-gradient-to-br from-amber-400 via-orange-500 to-red-600 p-6 text-white shadow-xl transition hover:shadow-2xl sm:p-8"
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.2),transparent_55%)]" />
+      <div className="relative grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div>
+          <BadgeRow />
+          <h2 className="mt-3 text-2xl font-extrabold leading-tight sm:text-3xl">
+            Word sprint — 30 seconds to prove what you know
+          </h2>
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-amber-50/95 sm:text-base">
+            Tap characters to build hanzi from English prompts. Only words you&apos;ve already met in
+            lessons count — no surprises. Combo streaks earn bonus XP.
+          </p>
+          <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-bold backdrop-blur transition group-hover:bg-white/20">
+            <Zap className="h-4 w-4" />
+            Start word sprint
+            <span aria-hidden>→</span>
+          </p>
+        </div>
+
+        <WordSprintPreviewMock />
+      </div>
+    </Link>
+  );
+}
+
+function BadgeRow() {
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="rounded-full bg-white/20 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider backdrop-blur">
+        New mode
+      </span>
+      <span className="flex items-center gap-1 rounded-full bg-black/15 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider">
+        <Timer className="h-3 w-3" /> 30 sec
+      </span>
+    </div>
+  );
+}
+
+function WordSprintPreviewMock() {
+  return (
+    <div className="mx-auto w-full max-w-xs rounded-2xl border border-white/25 bg-white/10 p-4 backdrop-blur">
+      <div className="flex items-center justify-between text-xs font-bold">
+        <span className="flex items-center gap-1">
+          <Timer className="h-3.5 w-3.5" /> 24s
+        </span>
+        <span className="text-amber-100">7 words · 3x combo</span>
+      </div>
+      <p className="mt-4 text-center text-lg font-bold">hello</p>
+      <div className="mt-3 flex min-h-[44px] items-center justify-center gap-1 rounded-xl border border-dashed border-white/30 bg-black/10 px-2">
+        <span className="rounded-lg bg-white px-3 py-1.5 text-xl font-bold text-orange-600">你</span>
+        <span className="rounded-lg bg-white px-3 py-1.5 text-xl font-bold text-orange-600">好</span>
+      </div>
+      <div className="mt-3 flex flex-wrap justify-center gap-1.5">
+        {["你", "好", "我", "是", "的", "人"].map((char) => (
+          <span
+            key={char}
+            className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/90 text-lg font-bold text-stone-800 shadow-sm"
+          >
+            {char}
+          </span>
+        ))}
+      </div>
+    </div>
   );
 }

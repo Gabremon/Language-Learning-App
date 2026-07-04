@@ -11,6 +11,7 @@ import { useProgress } from "@/contexts/ProgressContext";
 import { createClient } from "@/lib/supabase/client";
 import { LESSON_COUNT } from "@/data/course-content";
 import { COURSE_TITLE } from "@/data/starter-hsk1/constants";
+import { AchievementShowcase } from "@/components/profile/AchievementShowcase";
 import { Star, Flame, BookOpen, RotateCcw, Trash2, LogOut } from "lucide-react";
 
 function ProfileSkeleton() {
@@ -96,6 +97,8 @@ export function ProfileView() {
               </div>
               <InkProgress value={completionPct} />
             </InkPanel>
+
+            <AchievementShowcase />
 
             {progress.lessonAttempts.length > 0 && (
               <InkPanel className="p-4">
