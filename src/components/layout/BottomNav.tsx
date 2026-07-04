@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Home, RotateCcw, User, Library } from "lucide-react";
+import { BookOpen, BarChart3, Home, RotateCcw, User, Library } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAdmin } from "@/hooks/useAdmin";
 
 const navItems = [
   { href: "/dashboard", label: "Learn", icon: Home, glyph: "学" },
@@ -13,15 +14,26 @@ const navItems = [
   { href: "/profile", label: "Profile", icon: User, glyph: "我" },
 ];
 
+const adminNavItem = {
+  href: "/stats",
+  label: "Stats",
+  icon: BarChart3,
+  glyph: "析",
+};
+
 export function BottomNav() {
   const pathname = usePathname();
+  const { isAdmin } = useAdmin();
+  const items = isAdmin
+    ? [...navItems.slice(0, 4), adminNavItem, navItems[4]]
+    : navItems;
 
   if (pathname === "/" || pathname.startsWith("/lesson/") || pathname.startsWith("/auth")) return null;
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-stone-200/80 bg-[#faf8f5]/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-lg items-center justify-around px-1 py-1.5">
-        {navItems.map(({ href, label, icon: Icon, glyph }) => {
+        {items.map(({ href, label, icon: Icon, glyph }) => {
           const active = pathname === href || pathname.startsWith(href + "/");
           return (
             <Link
