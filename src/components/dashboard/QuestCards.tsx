@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { InkPanel } from "@/components/ui/ink-shell";
 import { Badge } from "@/components/ui/badge";
@@ -11,6 +12,17 @@ import { cn } from "@/lib/utils";
 export function QuestCards() {
   const { state, claimQuest } = useGamification();
   const activity = state.questActivity;
+  const [claimingId, setClaimingId] = useState<string | null>(null);
+
+  async function handleClaim(questId: string) {
+    if (claimingId) return;
+    setClaimingId(questId);
+    try {
+      await claimQuest(questId);
+    } finally {
+      setClaimingId(null);
+    }
+  }
 
   return (
     <div className="space-y-2">
@@ -43,7 +55,12 @@ export function QuestCards() {
                 </p>
               </div>
               {complete && !claimed ? (
-                <Button size="sm" className="h-8 shrink-0 gap-1 text-xs" onClick={() => claimQuest(quest.id)}>
+                <Button
+                  size="sm"
+                  className="h-8 shrink-0 gap-1 text-xs"
+                  disabled={claimingId === quest.id}
+                  onClick={() => handleClaim(quest.id)}
+                >
                   <Gift className="h-3.5 w-3.5" />
                   +{quest.xpReward}
                 </Button>
@@ -79,7 +96,8 @@ export function QuestCards() {
             <Button
               size="sm"
               className="h-8 shrink-0 gap-1 bg-violet-600 text-xs hover:bg-violet-700"
-              onClick={() => claimQuest(WEEKLY_QUEST.id)}
+              disabled={claimingId === WEEKLY_QUEST.id}
+              onClick={() => handleClaim(WEEKLY_QUEST.id)}
             >
               <Gift className="h-3.5 w-3.5" />
               +{WEEKLY_QUEST.xpReward}
