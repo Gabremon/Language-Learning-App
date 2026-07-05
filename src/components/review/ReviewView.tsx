@@ -230,6 +230,7 @@ export function ReviewView({ vocabItems }: Props) {
                   isCorrect={result.isCorrect}
                   correctAnswer={result.correctAnswer}
                   explanation={current.english}
+                  speakText={current.hanzi}
                 />
                 <div className="flex justify-center">
                   <PinyinDisplay pinyin={current.pinyin} size="sm" />

@@ -15,6 +15,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { checkExerciseAnswer } from "@/lib/exercise-checker";
 import { getRelatedVocab, recordMiss, type MissedExerciseRecord } from "@/lib/exercise-vocab";
+import { getSpeakableHanzi } from "@/lib/exercise-speech";
 import { getLessonDisplayTitle } from "@/lib/lesson-titles";
 import { getVocabMemory } from "@/lib/progress";
 import { loadGuestProgress } from "@/lib/guest-progress";
@@ -25,6 +26,7 @@ import {
   FIRST_SESSION_EXERCISE_CAP,
   isFirstSessionMode,
 } from "@/lib/demo";
+import { shuffleLessonExercises } from "@/lib/shuffle-lesson-exercises";
 import type { Lesson, VocabItem } from "@/types/course";
 import type { BaseExercise, ExerciseResult, UserAnswer } from "@/types/exercises";
 import { isEnglishToHanziWordBank, isMatchPairs, isToneAndEnglish } from "@/types/exercises";
@@ -74,13 +76,21 @@ export function LessonPlayer({
   const exitHref = isGuest ? "/" : "/dashboard";
   const activeProgress = progress ?? (allowGuest ? loadGuestProgress() : null);
 
+  const shuffleSeed = useMemo(
+    () => `${lessonId}-${Math.random().toString(36).slice(2, 11)}`,
+    [lessonId]
+  );
+
   const exercises = useMemo(() => {
-    if (!firstSession) return allExercises;
-    const listening = allExercises.filter((e) => e.type === "listening");
-    const rest = allExercises.filter((e) => e.type !== "listening");
-    const picked = [...listening.slice(0, 2), ...rest].slice(0, FIRST_SESSION_EXERCISE_CAP);
-    return picked.length > 0 ? picked : allExercises.slice(0, FIRST_SESSION_EXERCISE_CAP);
-  }, [allExercises, firstSession]);
+    let base = allExercises;
+    if (firstSession) {
+      const listening = base.filter((e) => e.type === "listening");
+      const rest = base.filter((e) => e.type !== "listening");
+      const picked = [...listening.slice(0, 2), ...rest].slice(0, FIRST_SESSION_EXERCISE_CAP);
+      base = picked.length > 0 ? picked : base.slice(0, FIRST_SESSION_EXERCISE_CAP);
+    }
+    return shuffleLessonExercises(base, shuffleSeed);
+  }, [allExercises, firstSession, shuffleSeed]);
 
   const [phase, setPhase] = useState<LessonPhase>("main");
   const [index, setIndex] = useState(0);
@@ -183,6 +193,7 @@ export function LessonPlayer({
     if (phase === "main" && reviewQueue.length > 0 && !firstSession) {
       setPhase("review");
       setIndex(0);
+      setReviewQueue((queue) => shuffleLessonExercises(queue, `${shuffleSeed}:review`));
       resetQuestion();
       return;
     }
@@ -204,6 +215,7 @@ export function LessonPlayer({
     firstSession,
     resetQuestion,
     finishLesson,
+    shuffleSeed,
   ]);
 
   const handleTryAgain = useCallback(() => {
@@ -362,6 +374,7 @@ export function LessonPlayer({
               isCorrect={result.isCorrect}
               correctAnswer={result.correctAnswer}
               explanation={result.explanation}
+              speakText={getSpeakableHanzi(exercise)}
             />
           )}
 

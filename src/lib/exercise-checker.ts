@@ -9,6 +9,8 @@ import {
   isPinyinRecognition,
   isReversePinyin,
   isToneAndEnglish,
+  isDialogueResponse,
+  isYesNoQuestion,
 } from "@/types/exercises";
 
 export function normalizeEnglishAnswer(answer: string): string {
@@ -164,6 +166,26 @@ export function checkExerciseAnswer(
     return {
       isCorrect: toneOk && englishOk,
       correctAnswer: `${gloss} (tone ${exercise.payload.correctTone})`,
+      explanation: exercise.explanation,
+    };
+  }
+
+  if (isDialogueResponse(exercise)) {
+    const selected = String(userAnswer);
+    const isCorrect = selected === exercise.payload.correctAnswer;
+    return {
+      isCorrect,
+      correctAnswer: exercise.payload.correctAnswer,
+      explanation: exercise.explanation,
+    };
+  }
+
+  if (isYesNoQuestion(exercise)) {
+    const selected = String(userAnswer);
+    const isCorrect = selected === exercise.payload.correctAnswer;
+    return {
+      isCorrect,
+      correctAnswer: exercise.payload.correctAnswer === "yes" ? "Yes · 是" : "No · 不是",
       explanation: exercise.explanation,
     };
   }

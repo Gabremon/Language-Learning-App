@@ -159,9 +159,19 @@ async function main(): Promise<void> {
   const args = process.argv.slice(2).filter((a) => a !== "--");
   const migrationsDir = join(process.cwd(), "supabase/migrations");
 
+  function resolveMigrationPath(arg: string): string {
+    if (arg.startsWith("/")) return arg;
+    if (arg.includes("/")) return join(process.cwd(), arg);
+    const withDir = join(migrationsDir, arg);
+    if (existsSync(withDir)) return withDir;
+    const withSql = join(migrationsDir, `${arg}.sql`);
+    if (existsSync(withSql)) return withSql;
+    return join(process.cwd(), arg);
+  }
+
   const files =
     args.length > 0
-      ? args.map((f) => (f.startsWith("/") ? f : join(process.cwd(), f)))
+      ? args.map(resolveMigrationPath)
       : HSK_MIGRATIONS.map((f) => join(migrationsDir, f));
 
   for (const file of files) {

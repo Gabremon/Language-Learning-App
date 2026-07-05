@@ -9,6 +9,8 @@ import { MultipleChoiceExercise } from "@/components/exercises/MultipleChoiceExe
 import { PinyinRecognitionExercise } from "@/components/exercises/PinyinRecognitionExercise";
 import { ReversePinyinExercise } from "@/components/exercises/ReversePinyinExercise";
 import { ToneAndEnglishExercise } from "@/components/exercises/ToneAndEnglishExercise";
+import { DialogueResponseExercise } from "@/components/exercises/DialogueResponseExercise";
+import { YesNoQuestionExercise } from "@/components/exercises/YesNoQuestionExercise";
 import type { BaseExercise, ToneAndEnglishAnswer, UserAnswer } from "@/types/exercises";
 import {
   isEnglishToHanziWordBank,
@@ -20,6 +22,8 @@ import {
   isPinyinRecognition,
   isReversePinyin,
   isToneAndEnglish,
+  isDialogueResponse,
+  isYesNoQuestion,
 } from "@/types/exercises";
 
 interface Props {
@@ -140,6 +144,30 @@ export function ExerciseRenderer({ exercise, answer, onAnswerChange, disabled }:
         payload={exercise.payload}
         value={toneAnswer}
         onChange={onAnswerChange}
+        disabled={disabled}
+      />
+    );
+  }
+
+  if (isDialogueResponse(exercise)) {
+    return (
+      <DialogueResponseExercise
+        payload={exercise.payload}
+        selected={typeof answer === "string" ? answer : null}
+        onSelect={onAnswerChange}
+        disabled={disabled}
+      />
+    );
+  }
+
+  if (isYesNoQuestion(exercise)) {
+    const selected =
+      answer === "yes" || answer === "no" ? answer : null;
+    return (
+      <YesNoQuestionExercise
+        payload={exercise.payload}
+        selected={selected}
+        onSelect={onAnswerChange}
         disabled={disabled}
       />
     );

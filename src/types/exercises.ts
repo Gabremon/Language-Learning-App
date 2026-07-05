@@ -7,7 +7,9 @@ export type ExerciseType =
   | "fill_in_blank"
   | "pinyin_recognition"
   | "reverse_pinyin"
-  | "tone_and_english";
+  | "tone_and_english"
+  | "dialogue_response"
+  | "yes_no_question";
 
 export interface ToneAndEnglishAnswer {
   tone: string;
@@ -29,6 +31,7 @@ export interface MultipleChoicePayload {
   options: string[];
   correctAnswer: string;
   displayHanzi?: string;
+  displaySentence?: string;
   pinyin?: string;
   imageUrl?: string;
   emoji?: string;
@@ -103,6 +106,26 @@ export interface ToneAndEnglishPayload {
   emoji?: string;
 }
 
+export interface DialogueLine {
+  speaker: string;
+  hanzi: string;
+  pinyin?: string;
+}
+
+export interface DialogueResponsePayload {
+  lines: DialogueLine[];
+  question: string;
+  options: string[];
+  correctAnswer: string;
+}
+
+export interface YesNoQuestionPayload {
+  statement: string;
+  statementPinyin?: string;
+  claim: string;
+  correctAnswer: "yes" | "no";
+}
+
 export type ExercisePayload =
   | MultipleChoicePayload
   | HanziToEnglishPayload
@@ -112,7 +135,9 @@ export type ExercisePayload =
   | FillInBlankPayload
   | PinyinRecognitionPayload
   | ReversePinyinPayload
-  | ToneAndEnglishPayload;
+  | ToneAndEnglishPayload
+  | DialogueResponsePayload
+  | YesNoQuestionPayload;
 
 export type UserAnswer =
   | string
@@ -178,4 +203,16 @@ export function isToneAndEnglish(
   exercise: BaseExercise
 ): exercise is BaseExercise & { payload: ToneAndEnglishPayload } {
   return exercise.type === "tone_and_english";
+}
+
+export function isDialogueResponse(
+  exercise: BaseExercise
+): exercise is BaseExercise & { payload: DialogueResponsePayload } {
+  return exercise.type === "dialogue_response";
+}
+
+export function isYesNoQuestion(
+  exercise: BaseExercise
+): exercise is BaseExercise & { payload: YesNoQuestionPayload } {
+  return exercise.type === "yes_no_question";
 }

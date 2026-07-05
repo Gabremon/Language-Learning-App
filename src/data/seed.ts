@@ -12,8 +12,10 @@ import {
 import {
   buildLessonExercises,
   getLessonContext,
+  getBandForUnitId,
 } from "@/lib/lesson-generator";
 import { getVocabImageUrl } from "@/lib/vocab-images";
+import { getStarterDistractorPool } from "@/lib/starter-distractors";
 
 export {
   course,
@@ -99,6 +101,10 @@ function buildExercisesForLesson(lessonId: string): BaseExercise[] {
     sentences: lessonSentences,
     ctx,
     getImageUrl: (id) => getVocabImageUrl(id),
+    distractorPool:
+      getBandForUnitId(unit.id) === "starter"
+        ? getStarterDistractorPool(lessonId, vocab, vocabItems)
+        : undefined,
   }).map((ex) => {
     const payload = ex.payload as unknown as Record<string, string | undefined>;
     const hanzi = payload.displayHanzi ?? payload.hanzi;
