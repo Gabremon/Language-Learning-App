@@ -164,14 +164,14 @@ export function LessonPlayer({
     setSaving(true);
     setSaveError(null);
     try {
-      const { xpGained: xp } = await completeLesson(
+      const result = await completeLesson(
         lessonId,
         firstTryCorrect,
         exercises.length,
         nextLesson?.id
       );
-      await recordLessonComplete(firstTryCorrect, exercises.length);
-      setXpGained(xp);
+      await recordLessonComplete(firstTryCorrect, exercises.length, result.progress);
+      setXpGained(result.xpGained);
       setIsComplete(true);
     } catch (err) {
       const message = err instanceof Error ? err.message : "Failed to save lesson";
@@ -182,7 +182,7 @@ export function LessonPlayer({
   }, [completeLesson, lessonId, firstTryCorrect, exercises.length, nextLesson?.id, recordLessonComplete]);
 
   const handleContinue = useCallback(async () => {
-    if (!result?.isCorrect) return;
+    if (!result) return;
 
     if (index < activeExercises.length - 1) {
       setIndex((i) => i + 1);
@@ -218,27 +218,20 @@ export function LessonPlayer({
     shuffleSeed,
   ]);
 
-  const handleTryAgain = useCallback(() => {
-    resetQuestion();
-  }, [resetQuestion]);
-
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key !== "Enter" || saving) return;
-      if (result?.isCorrect) {
+      if (result) {
         e.preventDefault();
         handleContinue();
-      } else if (result && !result.isCorrect) {
-        e.preventDefault();
-        handleTryAgain();
-      } else if (!result && exercise && isAnswerReady(exercise, answer)) {
+      } else if (exercise && isAnswerReady(exercise, answer)) {
         e.preventDefault();
         handleSubmit();
       }
     }
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [result, exercise, answer, handleSubmit, handleContinue, handleTryAgain, saving]);
+  }, [result, exercise, answer, handleSubmit, handleContinue, saving]);
 
   const canPlay = Boolean(activeProgress) && (allowGuest || !loading);
 
@@ -314,7 +307,7 @@ export function LessonPlayer({
   const canSubmit = exercise ? isAnswerReady(exercise, answer) : false;
   const totalSteps = exercises.length + (reviewQueue.length > 0 ? reviewQueue.length : 0);
   const completedSteps =
-    (phase === "main" ? index : exercises.length + index) + (result?.isCorrect ? 1 : 0);
+    (phase === "main" ? index : exercises.length + index) + (result ? 1 : 0);
   const progressValue = (completedSteps / totalSteps) * 100;
 
   return (
@@ -345,7 +338,7 @@ export function LessonPlayer({
         <div className="flex items-center gap-2 rounded-xl border border-violet-200 bg-violet-50 px-3 py-2">
           <RotateCcw className="h-4 w-4 text-violet-600" />
           <p className="text-sm font-semibold text-violet-800">
-            Review round — get these right to finish the lesson
+            Review round — try the ones you missed
           </p>
           <Badge variant="muted" className="ml-auto">
             {index + 1}/{reviewQueue.length}
@@ -383,25 +376,30 @@ export function LessonPlayer({
               <Button onClick={handleSubmit} disabled={!canSubmit} size="lg">
                 Check
               </Button>
-            ) : result.isCorrect ? (
+            ) : (
               <Button
                 onClick={handleContinue}
                 size="lg"
                 disabled={saving}
-                variant="success"
+                variant={result.isCorrect ? "success" : "default"}
               >
-                {saving ? "Saving..." : phase === "review" && index === reviewQueue.length - 1 ? "Finish lesson" : "Continue"}
-              </Button>
-            ) : (
-              <Button onClick={handleTryAgain} size="lg" variant="error">
-                Try again
+                {saving
+                  ? "Saving..."
+                  : phase === "review" && index === reviewQueue.length - 1
+                    ? "Finish lesson"
+                    : "Continue"}
               </Button>
             )}
           </div>
         </CardContent>
       </Card>
 
-      {missedLog.length > 0 && (
+      {result && !result.isCorrect && phase === "main" && !firstSession && (
+        <p className="text-center text-xs text-stone-500">
+          You&apos;ll see this again at the end of the lesson.
+        </p>
+      )}
+      {missedLog.length > 0 && !result && (
         <p className="text-center text-xs text-stone-400">
           {missedLog.reduce((n, m) => n + m.missCount, 0)} miss
           {missedLog.reduce((n, m) => n + m.missCount, 0) === 1 ? "" : "es"} this lesson — keep going!

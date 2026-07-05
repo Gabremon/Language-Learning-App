@@ -45,7 +45,7 @@ import {
   saveGamificationState as saveDbGamification,
   touchActiveDay,
 } from "@/lib/gamification-db";
-import { addXp } from "@/lib/progress";
+import { addXp, type UserProgress } from "@/lib/progress";
 
 interface GamificationContextValue {
   state: GamificationState;
@@ -53,7 +53,7 @@ interface GamificationContextValue {
   loading: boolean;
   recentUnlocks: string[];
   awardXp: (source: XpSource, amount: number, label?: string) => Promise<void>;
-  recordLessonComplete: (score: number, total: number) => Promise<void>;
+  recordLessonComplete: (score: number, total: number, latestProgress?: UserProgress) => Promise<void>;
   recordReviewCorrect: () => Promise<void>;
   recordGauntletRun: (wordsBuilt: number, xpEarned: number) => Promise<void>;
   claimQuest: (questId: string) => Promise<void>;
@@ -84,14 +84,13 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
 
   const awardXp = useCallback(
     async (source: XpSource, amount: number, label?: string) => {
-      if (!progress || amount <= 0) return;
+      if (amount <= 0) return;
 
       const entry = createXpEntry(source, amount, label);
       const nextState = appendXpLedger(state, entry);
       await persist(nextState);
 
-      const nextProgress = addXp(progress, amount);
-      await saveProgress(nextProgress);
+      await saveProgress((prev) => addXp(prev, amount));
 
       if (!isGuest && user) {
         try {
@@ -101,14 +100,19 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
         }
       }
     },
-    [progress, state, persist, saveProgress, isGuest, user, supabase]
+    [state, persist, saveProgress, isGuest, user, supabase]
   );
 
   const processAchievements = useCallback(
-    async (nextState: GamificationState, streakCount: number): Promise<GamificationState> => {
+    async (
+      nextState: GamificationState,
+      streakCount: number,
+      latestProgress?: UserProgress
+    ): Promise<GamificationState> => {
+      const progressForCheck = latestProgress ?? progress;
       const newly = checkAchievements(nextState.earnedAchievements, {
         streakCount,
-        lessonsCompleted: progress?.completedLessonIds.length ?? 0,
+        lessonsCompleted: progressForCheck?.completedLessonIds.length ?? 0,
         reviewsCorrect: nextState.totalReviewsCorrect,
         perfectLessons: nextState.perfectLessons,
         gauntletBestScore: nextState.gauntletBestScore,
@@ -129,9 +133,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
         if (ach) {
           const entry = createXpEntry("achievement", 25, `Badge: ${ach.title}`);
           updated = appendXpLedger(updated, entry);
-          if (progress) {
-            await saveProgress(addXp(progress, 25));
-          }
+          await saveProgress((prev) => addXp(prev, 25));
           if (!isGuest && user) {
             try {
               await insertXpLedgerEntry(supabase, user.id, entry);
@@ -148,7 +150,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
   );
 
   const recordLessonComplete = useCallback(
-    async (score: number, total: number) => {
+    async (score: number, total: number, latestProgress?: UserProgress) => {
       const accuracy = total > 0 ? Math.round((score / total) * 100) : 0;
       const perfect = score === total;
 
@@ -174,7 +176,11 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
         })(),
       };
 
-      next = await processAchievements(next, progress?.streakCount ?? 0);
+      next = await processAchievements(
+        next,
+        latestProgress?.streakCount ?? progress?.streakCount ?? 0,
+        latestProgress
+      );
       await persist(next);
     },
     [state, persist, processAchievements, progress]

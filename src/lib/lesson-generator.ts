@@ -297,6 +297,76 @@ function englishGloss(english: string): string {
   return englishWithoutToneLabel(english.split("/")[0].trim());
 }
 
+function normalizeSentenceEnglish(english: string): string {
+  return english.replace(/[.!？?]/g, "").trim();
+}
+
+/** Character positions that can be blanked in a sentence (one hanzi each). */
+function getBlankIndices(s: Sentence): number[] {
+  const parts = s.hanzi.replace(/[。！？]/g, "").split("");
+  return parts
+    .map((char, idx) => ({ char, idx }))
+    .filter(({ char }) => char !== "我" && char !== "是" && char !== "的" && char.length === 1)
+    .map(({ idx }) => idx);
+}
+
+/** Prefer blanks that teach the current lesson's vocabulary (e.g. 一 in a numbers lesson). */
+function orderBlankIndices(s: Sentence, indices: number[], vocab: VocabItem[]): number[] {
+  const parts = s.hanzi.replace(/[。！？]/g, "").split("");
+  return [...indices].sort((a, b) => {
+    const charA = parts[a];
+    const charB = parts[b];
+    const rankA = vocab.findIndex((v) => v.hanzi.includes(charA));
+    const rankB = vocab.findIndex((v) => v.hanzi.includes(charB));
+    const lessonRankA = rankA >= 0 ? rankA : 999;
+    const lessonRankB = rankB >= 0 ? rankB : 999;
+    if (lessonRankA !== lessonRankB) return lessonRankA - lessonRankB;
+    return a - b;
+  });
+}
+
+function addFillInBlankExercise(
+  s: Sentence,
+  blankIdx: number,
+  lessonId: string,
+  pool: VocabItem[],
+  slotKey: string,
+  add: (
+    type: ExerciseType,
+    prompt: string,
+    payload: BaseExercise["payload"],
+    explanation?: string
+  ) => void
+): void {
+  const parts = s.hanzi.replace(/[。！？]/g, "").split("");
+  const blankChar = parts[blankIdx];
+  if (!blankChar) return;
+  const display = parts.map((c, idx) => (idx === blankIdx ? "___" : c)).join("") + "。";
+  add(
+    "fill_in_blank",
+    "Fill in the missing character",
+    {
+      sentence: display,
+      blankIndex: blankIdx,
+      correctAnswer: blankChar,
+      fullSentence: s.hanzi,
+      fullPinyin: s.pinyin,
+      options: buildShuffledOptions(
+        blankChar,
+        seededShuffle(
+          pool.map((item) => item.hanzi[0]),
+          `${lessonId}-${slotKey}-fib-d`
+        )
+          .filter((c) => c !== blankChar)
+          .filter((c, idx, arr) => arr.indexOf(c) === idx)
+          .slice(0, 3),
+        `${lessonId}-${slotKey}-fib`
+      ),
+    },
+    s.grammarNotes ?? `Full sentence: ${s.hanzi} — ${s.english}`
+  );
+}
+
 function toneForVocab(v: VocabItem): string | null {
   const fromEnglish = extractToneFromEnglish(v.english);
   if (fromEnglish) return fromEnglish;
@@ -387,15 +457,17 @@ export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[
     );
   }
 
-  // Sentence listening / comprehension for communicative starter lessons
-  for (let i = 0; i < mix.sentence_comprehension; i++) {
-    const s = sentences[i % Math.max(sentences.length, 1)];
-    if (!s) continue;
+  // Sentence comprehension — at most one per linked sentence (no repeats)
+  const comprehensionSentences = sentences.slice(
+    0,
+    Math.min(mix.sentence_comprehension, sentences.length)
+  );
+  comprehensionSentences.forEach((s, i) => {
     const wrongEnglish = seededShuffle(
       pool
         .map((item) => englishGloss(item.english))
         .filter((gloss) => gloss !== englishGloss(s.english.split("—")[0])),
-      `${lessonId}-${s.id}-sc-d`
+      `${lessonId}-${s.id}-sc-d-${i}`
     ).slice(0, 3);
     add(
       "multiple_choice",
@@ -405,15 +477,15 @@ export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[
         displaySentence: s.hanzi,
         pinyin: s.pinyin,
         options: buildShuffledOptions(
-          s.english.replace(/[.!？?]/g, "").trim(),
+          normalizeSentenceEnglish(s.english),
           wrongEnglish,
-          `${lessonId}-${s.id}-sc`
+          `${lessonId}-${s.id}-sc-${i}`
         ),
-        correctAnswer: s.english.replace(/[.!？?]/g, "").trim(),
+        correctAnswer: normalizeSentenceEnglish(s.english),
       },
       s.grammarNotes ?? s.english
     );
-  }
+  });
 
   // Input: pinyin recognition
   for (let i = 0; i < mix.pinyin_recognition; i++) {
@@ -606,41 +678,18 @@ export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[
     }
   }
 
-  // Exit: fill in blank from sentences
-  for (let i = 0; i < mix.fill_in_blank; i++) {
-    const s = sentences[i % sentences.length];
-    if (!s) continue;
-    const parts = s.hanzi.replace("。", "").split("");
-    const blankIdx = parts.findIndex(
-      (c) => c !== "我" && c !== "是" && c !== "的" && c.length === 1
-    );
-    if (blankIdx < 0) continue;
-    const blankChar = parts[blankIdx];
-    const display = parts.map((c, idx) => (idx === blankIdx ? "___" : c)).join("") + "。";
-    add(
-      "fill_in_blank",
-      "Fill in the missing character",
-      {
-        sentence: display,
-        blankIndex: blankIdx,
-        correctAnswer: blankChar,
-        fullSentence: s.hanzi,
-        fullPinyin: s.pinyin,
-        options: buildShuffledOptions(
-          blankChar,
-          seededShuffle(
-            pool.map((item) => item.hanzi[0]),
-            `${lessonId}-${s.id}-fib-d`
-          )
-            .filter((c) => c !== blankChar)
-            .filter((c, idx, arr) => arr.indexOf(c) === idx)
-            .slice(0, 3),
-          `${lessonId}-${s.id}-fib`
-        ),
-      },
-      s.grammarNotes ?? `Full sentence: ${s.hanzi} — ${s.english}`
-    );
+  // Exit: fill in blank — at most one per sentence, lesson-vocab blank preferred
+  const fillSlots: { sentence: Sentence; blankIdx: number }[] = [];
+  for (const s of sentences) {
+    if (fillSlots.length >= mix.fill_in_blank) break;
+    const ordered = orderBlankIndices(s, getBlankIndices(s), vocab);
+    if (ordered.length > 0) {
+      fillSlots.push({ sentence: s, blankIdx: ordered[0] });
+    }
   }
+  fillSlots.forEach(({ sentence: s, blankIdx }, i) => {
+    addFillInBlankExercise(s, blankIdx, lessonId, pool, `${s.id}-${blankIdx}-${i}`, add);
+  });
 
   // Sort by lesson phase for Duolingo-like flow
   exercises.sort((a, b) => {

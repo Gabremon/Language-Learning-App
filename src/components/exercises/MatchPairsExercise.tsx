@@ -2,8 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import type { MatchPairsPayload } from "@/types/exercises";
+import { seededShuffle } from "@/lib/seeded-shuffle";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 interface Props {
   payload: MatchPairsPayload;
@@ -14,7 +15,21 @@ interface Props {
 
 export function MatchPairsExercise({ payload, matches, onMatch, disabled }: Props) {
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
+  const [displaySeed] = useState(() => Math.random().toString(36).slice(2, 11));
   const matchedRights = new Set(Object.values(matches));
+
+  const leftPairs = useMemo(
+    () => seededShuffle(payload.pairs, `${displaySeed}-left`),
+    [payload.pairs, displaySeed]
+  );
+
+  const rights = useMemo(
+    () => seededShuffle(
+      payload.pairs.map((pair) => pair.right),
+      `${displaySeed}-right`
+    ),
+    [payload.pairs, displaySeed]
+  );
 
   function handleLeftClick(id: string) {
     if (disabled || matches[id]) return;
@@ -34,13 +49,11 @@ export function MatchPairsExercise({ payload, matches, onMatch, disabled }: Prop
     onMatch(next);
   }
 
-  const rights = payload.pairs.map((p) => p.right);
-
   return (
     <div className="grid gap-6 md:grid-cols-2">
       <div className="space-y-2">
         <p className="text-sm font-semibold text-gray-500">Hanzi</p>
-        {payload.pairs.map((pair) => (
+        {leftPairs.map((pair) => (
           <button
             key={pair.id}
             onClick={() => (matches[pair.id] ? handleReset(pair.id) : handleLeftClick(pair.id))}

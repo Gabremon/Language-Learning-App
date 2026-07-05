@@ -19,6 +19,7 @@ import { PracticeSection } from "@/components/dashboard/PracticeSection";
 import { useGamification } from "@/contexts/GamificationContext";
 import { cn } from "@/lib/utils";
 import { getLessonDisplayTitle } from "@/lib/lesson-titles";
+import { useRefreshProgressOnFocus } from "@/hooks/useRefreshProgressOnFocus";
 
 interface Props {
   catalog: CourseCatalog;
@@ -28,6 +29,7 @@ export function DashboardView({ catalog }: Props) {
   const { course, units, lessons } = catalog;
   const { progress, loading, error, retryLoad, getAllMemories } = useProgress();
   const { level, state } = useGamification();
+  useRefreshProgressOnFocus();
 
   if (loading) {
     return (

@@ -128,6 +128,60 @@ export const STARTER_DIALOGUES: StarterDialogueDef[] = [
     wrongAnswers: ["我不是学生。", "你好！", "谢谢！"],
     explanation: "我是学生 answers yes to 你是学生吗.",
   },
+  {
+    id: "dlg-count-one",
+    fromLesson: "lesson-sb-4",
+    lines: [{ speaker: "A", hanzi: "几个人？", pinyin: "Jǐ gè rén?" }],
+    question: "How do you say one person?",
+    correctAnswer: "一个人。",
+    wrongAnswers: ["两个学生。", "我是学生。", "你好！"],
+    explanation: "一 + 个 + 人 counts one person.",
+  },
+  {
+    id: "dlg-count-three",
+    fromLesson: "lesson-sb-4",
+    lines: [{ speaker: "A", hanzi: "几个老师？", pinyin: "Jǐ gè lǎoshī?" }],
+    question: "Choose: three teachers.",
+    correctAnswer: "三个老师。",
+    wrongAnswers: ["一个人。", "我是老师。", "再见！"],
+    explanation: "三 + 个 + noun counts three.",
+  },
+  {
+    id: "dlg-count-five",
+    fromLesson: "lesson-sb-5",
+    lines: [{ speaker: "A", hanzi: "几个学生？", pinyin: "Jǐ gè xuéshēng?" }],
+    question: "Pick the answer: five students.",
+    correctAnswer: "五个学生。",
+    wrongAnswers: ["四个人。", "六个老师。", "你好！"],
+    explanation: "五 + 个 + 学生 means five students.",
+  },
+  {
+    id: "dlg-count-ten",
+    fromLesson: "lesson-sb-6",
+    lines: [{ speaker: "A", hanzi: "几个学生？", pinyin: "Jǐ gè xuéshēng?" }],
+    question: "How do you say ten students?",
+    correctAnswer: "十个学生。",
+    wrongAnswers: ["八个老师。", "七个学生。", "我是学生。"],
+    explanation: "十 + 个 counts ten items.",
+  },
+  {
+    id: "dlg-measure-student",
+    fromLesson: "lesson-sb-7",
+    lines: [{ speaker: "A", hanzi: "一个学生还是两个学生？", pinyin: "Yī gè xuéshēng háishi liǎng gè xuéshēng?" }],
+    question: "Choose: one student.",
+    correctAnswer: "一个学生。",
+    wrongAnswers: ["三个老师。", "我是学生。", "你好！"],
+    explanation: "个 is the general measure word.",
+  },
+  {
+    id: "dlg-this-what",
+    fromLesson: "lesson-sb-9",
+    lines: [{ speaker: "A", hanzi: "这是什么？", pinyin: "Zhè shì shénme?" }],
+    question: "Choose a natural answer: this is a teacher.",
+    correctAnswer: "这是老师。",
+    wrongAnswers: ["那是谁？", "我是老师。", "你好！"],
+    explanation: "这是… answers 这是什么？",
+  },
 ];
 
 export const STARTER_YES_NO: StarterYesNoDef[] = [
@@ -239,6 +293,60 @@ export const STARTER_YES_NO: StarterYesNoDef[] = [
     correctAnswer: "yes",
     explanation: "A natural short self-introduction opening.",
   },
+  {
+    id: "yn-one-person",
+    fromLesson: "lesson-sb-4",
+    statement: "一个人。",
+    statementPinyin: "Yī gè rén.",
+    claim: "This means one person.",
+    correctAnswer: "yes",
+    explanation: "一 + 个 + 人 counts one person.",
+  },
+  {
+    id: "yn-three-teachers",
+    fromLesson: "lesson-sb-4",
+    statement: "三个老师。",
+    statementPinyin: "Sān gè lǎoshī.",
+    claim: "This means three teachers.",
+    correctAnswer: "yes",
+    explanation: "三 + 个 + noun counts three.",
+  },
+  {
+    id: "yn-five-students",
+    fromLesson: "lesson-sb-5",
+    statement: "五个学生。",
+    statementPinyin: "Wǔ gè xuéshēng.",
+    claim: "This means five students.",
+    correctAnswer: "yes",
+    explanation: "五 + 个 + 学生 counts five students.",
+  },
+  {
+    id: "yn-ten-not-seven",
+    fromLesson: "lesson-sb-6",
+    statement: "十个学生。",
+    statementPinyin: "Shí gè xuéshēng.",
+    claim: "This means seven students.",
+    correctAnswer: "no",
+    explanation: "十个 is ten, not seven (七个).",
+  },
+  {
+    id: "yn-measure-ge",
+    fromLesson: "lesson-sb-7",
+    statement: "一个学生。",
+    statementPinyin: "Yī gè xuéshēng.",
+    claim: "个 is a measure word before the noun.",
+    correctAnswer: "yes",
+    explanation: "个 is the general measure word in Mandarin.",
+  },
+  {
+    id: "yn-this-teacher",
+    fromLesson: "lesson-sb-9",
+    statement: "这是老师。",
+    statementPinyin: "Zhè shì lǎoshī.",
+    claim: "This means This is a teacher.",
+    correctAnswer: "yes",
+    explanation: "这是… introduces what something is.",
+  },
 ];
 
 const STARTER_LESSON_ORDER = [
@@ -253,13 +361,21 @@ function lessonIndex(lessonId: string): number {
 }
 
 export function getStarterDialoguesForLesson(lessonId: string): StarterDialogueDef[] {
+  const forLesson = STARTER_DIALOGUES.filter((dialogue) => dialogue.fromLesson === lessonId);
+  if (forLesson.length > 0) return forLesson;
+
   const index = lessonIndex(lessonId);
-  if (index < 0) return [];
-  return STARTER_DIALOGUES.filter((dialogue) => lessonIndex(dialogue.fromLesson) <= index);
+  if (index <= 0) return [];
+  const prevLesson = STARTER_LESSON_ORDER[index - 1];
+  return STARTER_DIALOGUES.filter((dialogue) => dialogue.fromLesson === prevLesson).slice(0, 1);
 }
 
 export function getStarterYesNoForLesson(lessonId: string): StarterYesNoDef[] {
+  const forLesson = STARTER_YES_NO.filter((item) => item.fromLesson === lessonId);
+  if (forLesson.length > 0) return forLesson;
+
   const index = lessonIndex(lessonId);
-  if (index < 0) return [];
-  return STARTER_YES_NO.filter((item) => lessonIndex(item.fromLesson) <= index);
+  if (index <= 0) return [];
+  const prevLesson = STARTER_LESSON_ORDER[index - 1];
+  return STARTER_YES_NO.filter((item) => item.fromLesson === prevLesson).slice(0, 1);
 }
