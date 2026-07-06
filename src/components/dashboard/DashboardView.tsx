@@ -10,7 +10,6 @@ import { Badge } from "@/components/ui/badge";
 import type { CourseCatalog } from "@/lib/course-utils";
 import { getActiveUnit, getContinueLesson, getLessonsForUnit, isLessonUnlocked } from "@/lib/course-utils";
 import { countDueReviewsInPracticePool, countPracticeWordsAvailable } from "@/lib/practice-vocab";
-import { lessonVocabMap } from "@/lib/lesson-vocab-map";
 import { useProgress } from "@/contexts/ProgressContext";
 import { APP_MARK, APP_NAME } from "@/lib/brand";
 import { Flame, Star, RotateCcw, ChevronRight, Sparkles } from "lucide-react";
@@ -20,15 +19,18 @@ import { PracticeSection } from "@/components/dashboard/PracticeSection";
 import { useGamification } from "@/contexts/GamificationContext";
 import { cn } from "@/lib/utils";
 import { getLessonDisplayTitle } from "@/lib/lesson-titles";
+import { useRefreshProgressOnFocus } from "@/hooks/useRefreshProgressOnFocus";
 
 interface Props {
   catalog: CourseCatalog;
+  lessonVocabMap: Record<string, string[]>;
 }
 
-export function DashboardView({ catalog }: Props) {
+export function DashboardView({ catalog, lessonVocabMap }: Props) {
   const { course, units, lessons } = catalog;
   const { progress, loading, error, retryLoad, getAllMemories } = useProgress();
   const { level, state } = useGamification();
+  useRefreshProgressOnFocus();
 
   if (loading) {
     return (

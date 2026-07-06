@@ -2,6 +2,7 @@ import type { Lesson, Sentence, Unit } from "@/types/course";
 import { COURSE_ID } from "./constants";
 import { UNIT_DEFS } from "./units";
 import { LESSON_CATALOG } from "./lesson-catalog";
+import { STARTER_SENTENCES } from "./starter-sentences";
 
 export const units: Unit[] = UNIT_DEFS.map((u) => ({
   id: u.id,
@@ -42,4 +43,5 @@ export const sentences: Sentence[] = [
   { id: "s-22", courseId: COURSE_ID, hanzi: "今天天气很冷。", pinyin: "Jīntiān tiānqì hěn lěng.", english: "The weather is very cold today.", difficulty: 2 },
   { id: "s-23", courseId: COURSE_ID, hanzi: "你怎么去？", pinyin: "Nǐ zěnme qù?", english: "How do you get there?", difficulty: 2 },
   { id: "s-24", courseId: COURSE_ID, hanzi: "谢谢！不客气。", pinyin: "Xièxie! Bù kèqi.", english: "Thank you! You're welcome.", difficulty: 1 },
+  ...STARTER_SENTENCES,
 ];

@@ -1,6 +1,7 @@
 import { sortLessonsByCourseOrder } from "@/lib/course-utils";
 import { getVocabMemory } from "@/lib/progress";
 import type { UserProgress } from "@/lib/progress";
+import { seededShuffle } from "@/lib/seeded-shuffle";
 import { isDueForReview } from "@/lib/srs";
 import type { VocabMemory } from "@/lib/srs";
 import type { Lesson, Unit, VocabItem } from "@/types/course";
@@ -133,7 +134,8 @@ export function countDueReviewsInPracticePool(
 export function buildReviewQueue(
   progress: UserProgress,
   context: PracticeVocabContext,
-  maxItems = MAX_REVIEW_ITEMS
+  maxItems = MAX_REVIEW_ITEMS,
+  seed?: string
 ): VocabItem[] {
   const pool = getPracticeVocabPool(progress, context);
   if (pool.length === 0) return [];
@@ -152,10 +154,21 @@ export function buildReviewQueue(
     .filter(({ vocab, memory }) => memory.timesSeen > 0 && !due.some((item) => item.id === vocab.id))
     .map(({ vocab }) => vocab);
 
-  const queue = [...due, ...practiced];
-  if (queue.length === 0) {
-    return pool.slice(0, limit);
+  const unseen = withMemory
+    .filter(({ memory }) => memory.timesSeen === 0)
+    .map(({ vocab }) => vocab);
+
+  if (!seed) {
+    const queue = [...due, ...practiced, ...unseen];
+    if (queue.length === 0) return pool.slice(0, limit);
+    return queue.slice(0, limit);
   }
 
-  return queue.slice(0, limit);
+  const queue = [
+    ...seededShuffle(due, `${seed}:due`),
+    ...seededShuffle(practiced, `${seed}:rest`),
+    ...seededShuffle(unseen, `${seed}:new`),
+  ].slice(0, limit);
+
+  return queue.length > 0 ? queue : seededShuffle(pool, seed).slice(0, limit);
 }

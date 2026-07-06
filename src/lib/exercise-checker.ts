@@ -1,4 +1,5 @@
 import type { BaseExercise, ExerciseResult, UserAnswer } from "@/types/exercises";
+import { expandNumberVariants } from "@/lib/english-number-variants";
 import {
   isEnglishToHanziWordBank,
   isFillInBlank,
@@ -9,6 +10,8 @@ import {
   isPinyinRecognition,
   isReversePinyin,
   isToneAndEnglish,
+  isDialogueResponse,
+  isYesNoQuestion,
 } from "@/types/exercises";
 
 export function normalizeEnglishAnswer(answer: string): string {
@@ -29,10 +32,18 @@ export function expandEnglishAnswerVariants(answer: string): Set<string> {
 
   for (const part of normParts) {
     variants.add(part);
+    for (const numberVariant of expandNumberVariants(part)) {
+      variants.add(numberVariant);
+    }
   }
 
   const fullNorm = normalizeEnglishAnswer(answer);
-  if (fullNorm) variants.add(fullNorm);
+  if (fullNorm) {
+    variants.add(fullNorm);
+    for (const numberVariant of expandNumberVariants(fullNorm)) {
+      variants.add(numberVariant);
+    }
+  }
 
   if (normParts.length > 1) {
     variants.add([...normParts].sort().join("/"));
@@ -122,10 +133,13 @@ export function checkExerciseAnswer(
 
   if (isFillInBlank(exercise)) {
     const answer = String(userAnswer).trim();
-    const isCorrect = answer === exercise.payload.correctAnswer;
+    const correct = exercise.payload.correctAnswer;
+    const isCorrect = /[\u4e00-\u9fff]/.test(correct)
+      ? answer === correct
+      : matchesEnglishAnswer(answer, [correct]);
     return {
       isCorrect,
-      correctAnswer: exercise.payload.correctAnswer,
+      correctAnswer: correct,
       explanation: exercise.explanation,
     };
   }
@@ -164,6 +178,26 @@ export function checkExerciseAnswer(
     return {
       isCorrect: toneOk && englishOk,
       correctAnswer: `${gloss} (tone ${exercise.payload.correctTone})`,
+      explanation: exercise.explanation,
+    };
+  }
+
+  if (isDialogueResponse(exercise)) {
+    const selected = String(userAnswer);
+    const isCorrect = selected === exercise.payload.correctAnswer;
+    return {
+      isCorrect,
+      correctAnswer: exercise.payload.correctAnswer,
+      explanation: exercise.explanation,
+    };
+  }
+
+  if (isYesNoQuestion(exercise)) {
+    const selected = String(userAnswer);
+    const isCorrect = selected === exercise.payload.correctAnswer;
+    return {
+      isCorrect,
+      correctAnswer: exercise.payload.correctAnswer === "yes" ? "Yes · 是" : "No · 不是",
       explanation: exercise.explanation,
     };
   }

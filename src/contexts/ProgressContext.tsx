@@ -6,6 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import type { User } from "@supabase/supabase-js";
@@ -39,7 +40,10 @@ interface ProgressContextValue {
   loading: boolean;
   error: string | null;
   retryLoad: () => Promise<void>;
-  saveProgress: (progress: UserProgress) => Promise<void>;
+  refreshProgress: () => Promise<void>;
+  saveProgress: (
+    progress: UserProgress | ((prev: UserProgress) => UserProgress)
+  ) => Promise<void>;
   completeLesson: (
     lessonId: string,
     score: number,
@@ -66,11 +70,17 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const [isGuest, setIsGuest] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const progressRef = useRef<UserProgress | null>(null);
+
+  useEffect(() => {
+    progressRef.current = progress;
+  }, [progress]);
 
   const loadProgressForUser = useCallback(
     async (userId: string) => {
       setError(null);
       const data = await fetchUserProgress(supabase, userId);
+      progressRef.current = data;
       setProgress(data);
       setIsGuest(false);
     },
@@ -91,6 +101,18 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     }
   }, [user, loadProgressForUser]);
 
+  const refreshProgress = useCallback(async () => {
+    if (isGuest || !user) return;
+    try {
+      await loadProgressForUser(user.id);
+      setError(null);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Failed to refresh progress";
+      setError(message);
+      console.error("[ProgressProvider] refresh", err);
+    }
+  }, [user, isGuest, loadProgressForUser]);
+
   useEffect(() => {
     let mounted = true;
 
@@ -106,7 +128,8 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         if (!mounted) return;
 
         if (nextUser) {
-          if (event === "INITIAL_SESSION" || event === "SIGNED_IN" || event === "TOKEN_REFRESHED") {
+          // Avoid TOKEN_REFRESHED — it races with in-flight lesson saves and can overwrite local progress.
+          if (event === "INITIAL_SESSION" || event === "SIGNED_IN") {
             setLoading(true);
             clearGuestProgress();
             try {
@@ -121,7 +144,9 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
             }
           }
         } else if (event === "INITIAL_SESSION" || event === "SIGNED_OUT") {
-          setProgress(loadGuestProgress());
+          const guest = loadGuestProgress();
+          progressRef.current = guest;
+          setProgress(guest);
           setIsGuest(true);
           setError(null);
           setLoading(false);
@@ -136,13 +161,21 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   }, [supabase, loadProgressForUser]);
 
   const saveProgress = useCallback(
-    async (nextProgress: UserProgress) => {
+    async (update: UserProgress | ((prev: UserProgress) => UserProgress)) => {
+      const prev = progressRef.current;
+      if (!prev) {
+        throw new Error("Progress not loaded");
+      }
+
+      const nextProgress = typeof update === "function" ? update(prev) : update;
+      progressRef.current = nextProgress;
+      setProgress(nextProgress);
+
       if (isGuest || !user) {
-        setProgress(nextProgress);
         saveGuestProgress(nextProgress);
         return;
       }
-      setProgress(nextProgress);
+
       try {
         await saveUserProgressState(supabase, user.id, nextProgress);
         setError(null);
@@ -162,7 +195,8 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
       totalQuestions: number,
       nextLessonId?: string | null
     ) => {
-      if (!progress) {
+      const current = progressRef.current;
+      if (!current) {
         throw new Error("Progress not loaded");
       }
 
@@ -177,13 +211,14 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
           completedAt: new Date().toISOString(),
         };
         const nextProgress = applyLessonCompletion(
-          progress,
+          current,
           lessonId,
           score,
           totalQuestions,
           attempt,
           nextLessonId
         );
+        progressRef.current = nextProgress;
         setProgress(nextProgress);
         saveGuestProgress(nextProgress);
         return { progress: nextProgress, xpGained };
@@ -198,8 +233,9 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
           totalQuestions
         );
 
+        const latest = progressRef.current ?? current;
         const nextProgress = applyLessonCompletion(
-          progress,
+          latest,
           lessonId,
           score,
           totalQuestions,
@@ -208,6 +244,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         );
 
         await saveUserProgressState(supabase, user.id, nextProgress);
+        progressRef.current = nextProgress;
         setProgress(nextProgress);
         setError(null);
         return { progress: nextProgress, xpGained };
@@ -217,39 +254,45 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         throw err;
       }
     },
-    [supabase, user, progress, isGuest]
+    [supabase, user, isGuest]
   );
 
   const updateVocabMemories = useCallback(
     async (memories: VocabMemory[]) => {
-      if (!progress) return;
+      if (!progressRef.current || memories.length === 0) return;
 
-      let nextProgress = progress;
-      for (const memory of memories) {
-        nextProgress = setVocabMemory(nextProgress, memory);
-      }
-      await saveProgress(nextProgress);
+      await saveProgress((prev) => {
+        let next = prev;
+        for (const memory of memories) {
+          next = setVocabMemory(next, memory);
+        }
+        return next;
+      });
     },
-    [progress, saveProgress]
+    [saveProgress]
   );
 
   const applyReviewUpdate = useCallback(
     async (vocabItemId: string, memory: VocabMemory, xpBonus = 0) => {
-      if (!progress) return;
+      if (!progressRef.current) return;
 
-      let nextProgress = setVocabMemory(progress, memory);
-      if (xpBonus > 0) {
-        nextProgress = addXp(updateStreak(nextProgress), xpBonus);
-      }
-      await saveProgress(nextProgress);
+      await saveProgress((prev) => {
+        let next = setVocabMemory(prev, memory);
+        if (xpBonus > 0) {
+          next = addXp(updateStreak(next), xpBonus);
+        }
+        return next;
+      });
     },
-    [progress, saveProgress]
+    [saveProgress]
   );
 
   const resetProgress = useCallback(async () => {
     if (isGuest || !user) {
       clearGuestProgress();
-      setProgress(loadGuestProgress());
+      const guest = loadGuestProgress();
+      progressRef.current = guest;
+      setProgress(guest);
       return;
     }
     await resetUserProgress(supabase, user.id);
@@ -259,7 +302,9 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const signOut = useCallback(async () => {
     await supabase.auth.signOut();
     setUser(null);
-    setProgress(loadGuestProgress());
+    const guest = loadGuestProgress();
+    progressRef.current = guest;
+    setProgress(guest);
     setIsGuest(true);
     window.location.href = "/";
   }, [supabase]);
@@ -271,6 +316,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     loading,
     error,
     retryLoad,
+    refreshProgress,
     saveProgress,
     completeLesson,
     updateVocabMemories,

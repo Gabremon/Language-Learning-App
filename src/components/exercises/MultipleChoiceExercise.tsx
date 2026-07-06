@@ -17,28 +17,35 @@ interface Props {
 export function MultipleChoiceExercise({ payload, selected, onSelect, disabled }: Props) {
   return (
     <div className="space-y-5 animate-fade-in">
-      {(payload.displayHanzi || payload.imageUrl || payload.emoji) && (
-        <div className="flex flex-col items-center gap-3">
-          <VocabIllustration
-            emoji={payload.emoji}
-            imageUrl={payload.imageUrl}
-            hanzi={payload.displayHanzi}
-            size="lg"
-          />
-          {payload.displayHanzi && (
-            <p className="text-5xl font-bold text-brand-800">{payload.displayHanzi}</p>
-          )}
-          {payload.pinyin && (
-            <div className="flex items-center gap-2">
-              <PinyinDisplay pinyin={payload.pinyin} size="lg" />
-              <AudioButton
-                key={payload.displayHanzi ?? payload.pinyin}
-                text={payload.displayHanzi ?? payload.pinyin}
-                size="sm"
-              />
-            </div>
-          )}
+      {payload.displaySentence ? (
+        <div className="flex flex-col items-center gap-2">
+          <p className="text-3xl font-bold text-brand-800">{payload.displaySentence}</p>
+          {payload.pinyin && <PinyinDisplay pinyin={payload.pinyin} size="lg" />}
         </div>
+      ) : (
+        (payload.displayHanzi || payload.imageUrl || payload.emoji) && (
+          <div className="flex flex-col items-center gap-3">
+            <VocabIllustration
+              emoji={payload.emoji}
+              imageUrl={payload.imageUrl}
+              hanzi={payload.displayHanzi}
+              size="lg"
+            />
+            {payload.displayHanzi && (
+              <p className="text-5xl font-bold text-brand-800">{payload.displayHanzi}</p>
+            )}
+            {payload.pinyin && (
+              <div className="flex items-center gap-2">
+                <PinyinDisplay pinyin={payload.pinyin} size="lg" />
+                <AudioButton
+                  key={payload.displayHanzi ?? payload.pinyin}
+                  text={payload.displayHanzi ?? payload.pinyin}
+                  size="sm"
+                />
+              </div>
+            )}
+          </div>
+        )
       )}
       <p className="text-center text-lg font-medium text-gray-700">{payload.question}</p>
       <div className="grid gap-3">

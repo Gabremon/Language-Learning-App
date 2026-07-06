@@ -9,6 +9,8 @@ import {
   isMultipleChoice,
   isPinyinRecognition,
   isReversePinyin,
+  isDialogueResponse,
+  isYesNoQuestion,
 } from "@/types/exercises";
 
 /** Collect hanzi / english tokens from an exercise payload for vocab matching. */
@@ -42,6 +44,15 @@ export function extractExerciseTerms(exercise: BaseExercise): string[] {
   }
   if (isReversePinyin(exercise)) {
     terms.push(exercise.payload.correctAnswer, exercise.payload.pinyin);
+  }
+  if (isDialogueResponse(exercise)) {
+    for (const line of exercise.payload.lines) {
+      terms.push(line.hanzi);
+    }
+    terms.push(exercise.payload.correctAnswer);
+  }
+  if (isYesNoQuestion(exercise)) {
+    terms.push(exercise.payload.statement, exercise.payload.claim);
   }
 
   if (exercise.explanation) terms.push(exercise.explanation);

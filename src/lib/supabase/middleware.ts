@@ -45,6 +45,7 @@ export async function updateSession(request: NextRequest) {
     "/review",
     "/vocabulary",
     "/profile",
+    "/stats",
     "/lesson",
     "/word-sprint",
   ];

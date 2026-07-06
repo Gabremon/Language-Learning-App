@@ -15,6 +15,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { checkExerciseAnswer } from "@/lib/exercise-checker";
 import { getRelatedVocab, recordMiss, type MissedExerciseRecord } from "@/lib/exercise-vocab";
+import { getSpeakableHanzi } from "@/lib/exercise-speech";
 import { getLessonDisplayTitle } from "@/lib/lesson-titles";
 import { getVocabMemory } from "@/lib/progress";
 import { loadGuestProgress } from "@/lib/guest-progress";
@@ -25,6 +26,7 @@ import {
   FIRST_SESSION_EXERCISE_CAP,
   isFirstSessionMode,
 } from "@/lib/demo";
+import { shuffleLessonExercises } from "@/lib/shuffle-lesson-exercises";
 import type { Lesson, VocabItem } from "@/types/course";
 import type { BaseExercise, ExerciseResult, UserAnswer } from "@/types/exercises";
 import { isEnglishToHanziWordBank, isMatchPairs, isToneAndEnglish } from "@/types/exercises";
@@ -74,13 +76,21 @@ export function LessonPlayer({
   const exitHref = isGuest ? "/" : "/dashboard";
   const activeProgress = progress ?? (allowGuest ? loadGuestProgress() : null);
 
+  const shuffleSeed = useMemo(
+    () => `${lessonId}-${Math.random().toString(36).slice(2, 11)}`,
+    [lessonId]
+  );
+
   const exercises = useMemo(() => {
-    if (!firstSession) return allExercises;
-    const listening = allExercises.filter((e) => e.type === "listening");
-    const rest = allExercises.filter((e) => e.type !== "listening");
-    const picked = [...listening.slice(0, 2), ...rest].slice(0, FIRST_SESSION_EXERCISE_CAP);
-    return picked.length > 0 ? picked : allExercises.slice(0, FIRST_SESSION_EXERCISE_CAP);
-  }, [allExercises, firstSession]);
+    let base = allExercises;
+    if (firstSession) {
+      const listening = base.filter((e) => e.type === "listening");
+      const rest = base.filter((e) => e.type !== "listening");
+      const picked = [...listening.slice(0, 2), ...rest].slice(0, FIRST_SESSION_EXERCISE_CAP);
+      base = picked.length > 0 ? picked : base.slice(0, FIRST_SESSION_EXERCISE_CAP);
+    }
+    return shuffleLessonExercises(base, shuffleSeed);
+  }, [allExercises, firstSession, shuffleSeed]);
 
   const [phase, setPhase] = useState<LessonPhase>("main");
   const [index, setIndex] = useState(0);
@@ -154,14 +164,14 @@ export function LessonPlayer({
     setSaving(true);
     setSaveError(null);
     try {
-      const { xpGained: xp } = await completeLesson(
+      const result = await completeLesson(
         lessonId,
         firstTryCorrect,
         exercises.length,
         nextLesson?.id
       );
-      await recordLessonComplete(firstTryCorrect, exercises.length);
-      setXpGained(xp);
+      await recordLessonComplete(firstTryCorrect, exercises.length, result.progress);
+      setXpGained(result.xpGained);
       setIsComplete(true);
     } catch (err) {
       const message = err instanceof Error ? err.message : "Failed to save lesson";
@@ -172,7 +182,7 @@ export function LessonPlayer({
   }, [completeLesson, lessonId, firstTryCorrect, exercises.length, nextLesson?.id, recordLessonComplete]);
 
   const handleContinue = useCallback(async () => {
-    if (!result?.isCorrect) return;
+    if (!result) return;
 
     if (index < activeExercises.length - 1) {
       setIndex((i) => i + 1);
@@ -183,6 +193,7 @@ export function LessonPlayer({
     if (phase === "main" && reviewQueue.length > 0 && !firstSession) {
       setPhase("review");
       setIndex(0);
+      setReviewQueue((queue) => shuffleLessonExercises(queue, `${shuffleSeed}:review`));
       resetQuestion();
       return;
     }
@@ -204,29 +215,23 @@ export function LessonPlayer({
     firstSession,
     resetQuestion,
     finishLesson,
+    shuffleSeed,
   ]);
-
-  const handleTryAgain = useCallback(() => {
-    resetQuestion();
-  }, [resetQuestion]);
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key !== "Enter" || saving) return;
-      if (result?.isCorrect) {
+      if (result) {
         e.preventDefault();
         handleContinue();
-      } else if (result && !result.isCorrect) {
-        e.preventDefault();
-        handleTryAgain();
-      } else if (!result && exercise && isAnswerReady(exercise, answer)) {
+      } else if (exercise && isAnswerReady(exercise, answer)) {
         e.preventDefault();
         handleSubmit();
       }
     }
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [result, exercise, answer, handleSubmit, handleContinue, handleTryAgain, saving]);
+  }, [result, exercise, answer, handleSubmit, handleContinue, saving]);
 
   const canPlay = Boolean(activeProgress) && (allowGuest || !loading);
 
@@ -302,7 +307,7 @@ export function LessonPlayer({
   const canSubmit = exercise ? isAnswerReady(exercise, answer) : false;
   const totalSteps = exercises.length + (reviewQueue.length > 0 ? reviewQueue.length : 0);
   const completedSteps =
-    (phase === "main" ? index : exercises.length + index) + (result?.isCorrect ? 1 : 0);
+    (phase === "main" ? index : exercises.length + index) + (result ? 1 : 0);
   const progressValue = (completedSteps / totalSteps) * 100;
 
   return (
@@ -333,7 +338,7 @@ export function LessonPlayer({
         <div className="flex items-center gap-2 rounded-xl border border-violet-200 bg-violet-50 px-3 py-2">
           <RotateCcw className="h-4 w-4 text-violet-600" />
           <p className="text-sm font-semibold text-violet-800">
-            Review round — get these right to finish the lesson
+            Review round — try the ones you missed
           </p>
           <Badge variant="muted" className="ml-auto">
             {index + 1}/{reviewQueue.length}
@@ -362,6 +367,7 @@ export function LessonPlayer({
               isCorrect={result.isCorrect}
               correctAnswer={result.correctAnswer}
               explanation={result.explanation}
+              speakText={getSpeakableHanzi(exercise)}
             />
           )}
 
@@ -370,25 +376,30 @@ export function LessonPlayer({
               <Button onClick={handleSubmit} disabled={!canSubmit} size="lg">
                 Check
               </Button>
-            ) : result.isCorrect ? (
+            ) : (
               <Button
                 onClick={handleContinue}
                 size="lg"
                 disabled={saving}
-                variant="success"
+                variant={result.isCorrect ? "success" : "default"}
               >
-                {saving ? "Saving..." : phase === "review" && index === reviewQueue.length - 1 ? "Finish lesson" : "Continue"}
-              </Button>
-            ) : (
-              <Button onClick={handleTryAgain} size="lg" variant="error">
-                Try again
+                {saving
+                  ? "Saving..."
+                  : phase === "review" && index === reviewQueue.length - 1
+                    ? "Finish lesson"
+                    : "Continue"}
               </Button>
             )}
           </div>
         </CardContent>
       </Card>
 
-      {missedLog.length > 0 && (
+      {result && !result.isCorrect && phase === "main" && !firstSession && (
+        <p className="text-center text-xs text-stone-500">
+          You&apos;ll see this again at the end of the lesson.
+        </p>
+      )}
+      {missedLog.length > 0 && !result && (
         <p className="text-center text-xs text-stone-400">
           {missedLog.reduce((n, m) => n + m.missCount, 0)} miss
           {missedLog.reduce((n, m) => n + m.missCount, 0) === 1 ? "" : "es"} this lesson — keep going!

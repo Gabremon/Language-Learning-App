@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { VercelAnalyticsProvider } from "@/components/analytics/VercelAnalyticsProvider";
 import { Providers } from "@/components/providers/Providers";
 import "./globals.css";
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <Providers>{children}</Providers>
+        <VercelAnalyticsProvider />
       </body>
     </html>
   );

@@ -2,6 +2,16 @@ import type { Sentence, Unit, VocabItem } from "@/types/course";
 import type { BaseExercise, ExerciseType } from "@/types/exercises";
 import { englishWithoutToneLabel, extractToneFromEnglish, isToneDrillVocab } from "@/lib/tone-vocab";
 import { getSyllableTone } from "@/lib/pinyin";
+import {
+  buildEnglishDistractors,
+  buildHanziDistractors,
+  getStarterLessonIndex,
+} from "@/lib/starter-distractors";
+import { seededShuffle } from "@/lib/seeded-shuffle";
+import {
+  getStarterDialoguesForLesson,
+  getStarterYesNoForLesson,
+} from "@/data/starter-hsk1/starter-scenarios";
 
 /** HSK band derived from unit order (PDF curriculum architecture). */
 export type Band = "starter" | "hsk1" | "hsk2" | "hsk3" | "hsk4" | "hsk5" | "hsk6";
@@ -23,6 +33,9 @@ export interface ExerciseMix {
   english_to_hanzi_word_bank: number;
   match_pairs: number;
   fill_in_blank: number;
+  dialogue_response: number;
+  yes_no_question: number;
+  sentence_comprehension: number;
 }
 
 export interface LessonContext {
@@ -77,7 +90,7 @@ export function getLessonContext(
 /** Target exercise count per band (PDF: Starter 18–22, HSK1 20–22, etc.). */
 export function getTargetExerciseCount(band: Band, lessonOrderIndex: number): number {
   const base: Record<Band, number> = {
-    starter: 18,
+    starter: 22,
     hsk1: 20,
     hsk2: 22,
     hsk3: 24,
@@ -98,15 +111,35 @@ export function getExerciseMix(ctx: LessonContext): ExerciseMix {
   const progress = (lessonOrderIndex - 1) / Math.max(lessonsInUnit - 1, 1);
 
   if (band === "starter") {
+    const starterIndex = getStarterLessonIndex(ctx.lessonId);
+    const isEarlySounds = starterIndex >= 0 && starterIndex < 4;
+    if (isEarlySounds) {
+      return {
+        multiple_choice: 3,
+        listening: 3,
+        pinyin_recognition: 5,
+        reverse_pinyin: 2,
+        hanzi_to_english: 1,
+        english_to_hanzi_word_bank: 0,
+        match_pairs: 1,
+        fill_in_blank: 0,
+        dialogue_response: 0,
+        yes_no_question: 0,
+        sentence_comprehension: 0,
+      };
+    }
     return {
-      multiple_choice: 5,
-      listening: 4,
-      pinyin_recognition: 4,
-      reverse_pinyin: 2,
-      hanzi_to_english: 2,
+      multiple_choice: 2,
+      listening: 2,
+      pinyin_recognition: 2,
+      reverse_pinyin: 1,
+      hanzi_to_english: 1,
       english_to_hanzi_word_bank: 0,
       match_pairs: 1,
-      fill_in_blank: 0,
+      fill_in_blank: 2,
+      dialogue_response: 2,
+      yes_no_question: 2,
+      sentence_comprehension: 2,
     };
   }
 
@@ -122,6 +155,9 @@ export function getExerciseMix(ctx: LessonContext): ExerciseMix {
       english_to_hanzi_word_bank: progress > 0.3 ? 2 : 1,
       match_pairs: 1,
       fill_in_blank: progress > 0.5 ? 1 : 0,
+      dialogue_response: 0,
+      yes_no_question: 0,
+      sentence_comprehension: 0,
     };
   }
 
@@ -135,6 +171,9 @@ export function getExerciseMix(ctx: LessonContext): ExerciseMix {
       english_to_hanzi_word_bank: 3,
       match_pairs: 1,
       fill_in_blank: 2,
+      dialogue_response: 0,
+      yes_no_question: 0,
+      sentence_comprehension: 0,
     };
   }
 
@@ -148,6 +187,9 @@ export function getExerciseMix(ctx: LessonContext): ExerciseMix {
       english_to_hanzi_word_bank: 4,
       match_pairs: 1,
       fill_in_blank: 3,
+      dialogue_response: 0,
+      yes_no_question: 0,
+      sentence_comprehension: 0,
     };
   }
 
@@ -161,6 +203,9 @@ export function getExerciseMix(ctx: LessonContext): ExerciseMix {
     english_to_hanzi_word_bank: 4,
     match_pairs: 1,
     fill_in_blank: 3,
+    dialogue_response: 0,
+    yes_no_question: 0,
+    sentence_comprehension: 0,
   };
 }
 
@@ -175,6 +220,8 @@ export const PHASE_FOR_TYPE: Record<ExerciseType, LessonPhase> = {
   english_to_hanzi_word_bank: "productive",
   match_pairs: "memory",
   fill_in_blank: "exit",
+  dialogue_response: "productive",
+  yes_no_question: "exit",
 };
 
 const PHASE_ORDER: LessonPhase[] = [
@@ -212,24 +259,7 @@ export function getPhaseColor(phase: LessonPhase): string {
 
 // --- Seeded shuffle & distractors (shared with seed generation) ---
 
-function hashString(str: string): number {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
-  }
-  return hash || 1;
-}
-
-export function seededShuffle<T>(arr: T[], seed: string): T[] {
-  const copy = [...arr];
-  let state = hashString(seed);
-  for (let i = copy.length - 1; i > 0; i--) {
-    state = (state * 1664525 + 1013904223) >>> 0;
-    const j = state % (i + 1);
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
+export { seededShuffle } from "@/lib/seeded-shuffle";
 
 function distractors(
   target: VocabItem,
@@ -267,6 +297,76 @@ function englishGloss(english: string): string {
   return englishWithoutToneLabel(english.split("/")[0].trim());
 }
 
+function normalizeSentenceEnglish(english: string): string {
+  return english.replace(/[.!？?]/g, "").trim();
+}
+
+/** Character positions that can be blanked in a sentence (one hanzi each). */
+function getBlankIndices(s: Sentence): number[] {
+  const parts = s.hanzi.replace(/[。！？]/g, "").split("");
+  return parts
+    .map((char, idx) => ({ char, idx }))
+    .filter(({ char }) => char !== "我" && char !== "是" && char !== "的" && char.length === 1)
+    .map(({ idx }) => idx);
+}
+
+/** Prefer blanks that teach the current lesson's vocabulary (e.g. 一 in a numbers lesson). */
+function orderBlankIndices(s: Sentence, indices: number[], vocab: VocabItem[]): number[] {
+  const parts = s.hanzi.replace(/[。！？]/g, "").split("");
+  return [...indices].sort((a, b) => {
+    const charA = parts[a];
+    const charB = parts[b];
+    const rankA = vocab.findIndex((v) => v.hanzi.includes(charA));
+    const rankB = vocab.findIndex((v) => v.hanzi.includes(charB));
+    const lessonRankA = rankA >= 0 ? rankA : 999;
+    const lessonRankB = rankB >= 0 ? rankB : 999;
+    if (lessonRankA !== lessonRankB) return lessonRankA - lessonRankB;
+    return a - b;
+  });
+}
+
+function addFillInBlankExercise(
+  s: Sentence,
+  blankIdx: number,
+  lessonId: string,
+  pool: VocabItem[],
+  slotKey: string,
+  add: (
+    type: ExerciseType,
+    prompt: string,
+    payload: BaseExercise["payload"],
+    explanation?: string
+  ) => void
+): void {
+  const parts = s.hanzi.replace(/[。！？]/g, "").split("");
+  const blankChar = parts[blankIdx];
+  if (!blankChar) return;
+  const display = parts.map((c, idx) => (idx === blankIdx ? "___" : c)).join("") + "。";
+  add(
+    "fill_in_blank",
+    "Fill in the missing character",
+    {
+      sentence: display,
+      blankIndex: blankIdx,
+      correctAnswer: blankChar,
+      fullSentence: s.hanzi,
+      fullPinyin: s.pinyin,
+      options: buildShuffledOptions(
+        blankChar,
+        seededShuffle(
+          pool.map((item) => item.hanzi[0]),
+          `${lessonId}-${slotKey}-fib-d`
+        )
+          .filter((c) => c !== blankChar)
+          .filter((c, idx, arr) => arr.indexOf(c) === idx)
+          .slice(0, 3),
+        `${lessonId}-${slotKey}-fib`
+      ),
+    },
+    s.grammarNotes ?? `Full sentence: ${s.hanzi} — ${s.english}`
+  );
+}
+
 function toneForVocab(v: VocabItem): string | null {
   const fromEnglish = extractToneFromEnglish(v.english);
   if (fromEnglish) return fromEnglish;
@@ -281,6 +381,8 @@ export interface BuildLessonOptions {
   sentences: Sentence[];
   ctx: LessonContext;
   getImageUrl?: (vocabId: string) => string | undefined;
+  /** Wider pool for distractors (starter band uses prior + preview vocab). */
+  distractorPool?: VocabItem[];
 }
 
 /**
@@ -288,11 +390,25 @@ export interface BuildLessonOptions {
  * from lesson vocab, constrained by band-specific exercise mix.
  */
 export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[] {
-  const { lessonId, vocab, sentences, ctx, getImageUrl } = options;
+  const { lessonId, vocab, sentences, ctx, getImageUrl, distractorPool } = options;
   const mix = getExerciseMix(ctx);
   const targetCount = getTargetExerciseCount(ctx.band, ctx.lessonOrderIndex);
+  const pool = distractorPool && distractorPool.length > 0 ? distractorPool : vocab;
   const exercises: BaseExercise[] = [];
   let order = 0;
+
+  const englishDistractorsFor = (target: VocabItem, seed: string, count = 3) =>
+    ctx.band === "starter" && distractorPool
+      ? buildEnglishDistractors(target, pool, seed, count)
+      : distractors(target, vocab, "english", seed, count).map(englishGloss);
+
+  const hanziDistractorsFor = (target: VocabItem, seed: string, count = 3) =>
+    ctx.band === "starter" && distractorPool
+      ? buildHanziDistractors(target, pool, seed, count)
+      : distractors(target, vocab, "hanzi", seed, count);
+
+  const pinyinDistractorsFor = (target: VocabItem, seed: string, count = 3) =>
+    distractors(target, pool, "pinyin", seed, count);
 
   const add = (
     type: ExerciseType,
@@ -330,7 +446,7 @@ export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[
         hanzi: v.hanzi,
         options: buildShuffledOptions(
           englishGloss(v.english),
-          distractors(v, vocab, "english", `${lessonId}-${v.id}-li-d`).map(englishGloss),
+          englishDistractorsFor(v, `${lessonId}-${v.id}-li-d`),
           `${lessonId}-${v.id}-li`
         ),
         correctAnswer: englishGloss(v.english),
@@ -340,6 +456,36 @@ export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[
       `You heard: ${v.hanzi} (${v.pinyin})`
     );
   }
+
+  // Sentence comprehension — at most one per linked sentence (no repeats)
+  const comprehensionSentences = sentences.slice(
+    0,
+    Math.min(mix.sentence_comprehension, sentences.length)
+  );
+  comprehensionSentences.forEach((s, i) => {
+    const wrongEnglish = seededShuffle(
+      pool
+        .map((item) => englishGloss(item.english))
+        .filter((gloss) => gloss !== englishGloss(s.english.split("—")[0])),
+      `${lessonId}-${s.id}-sc-d-${i}`
+    ).slice(0, 3);
+    add(
+      "multiple_choice",
+      "What does this sentence mean?",
+      {
+        question: "Choose the best English meaning.",
+        displaySentence: s.hanzi,
+        pinyin: s.pinyin,
+        options: buildShuffledOptions(
+          normalizeSentenceEnglish(s.english),
+          wrongEnglish,
+          `${lessonId}-${s.id}-sc-${i}`
+        ),
+        correctAnswer: normalizeSentenceEnglish(s.english),
+      },
+      s.grammarNotes ?? s.english
+    );
+  });
 
   // Input: pinyin recognition
   for (let i = 0; i < mix.pinyin_recognition; i++) {
@@ -352,7 +498,7 @@ export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[
         hanzi: v.hanzi,
         options: buildShuffledOptions(
           v.pinyin,
-          distractors(v, vocab, "pinyin", `${lessonId}-${v.id}-py-d`),
+          pinyinDistractorsFor(v, `${lessonId}-${v.id}-py-d`),
           `${lessonId}-${v.id}-py`
         ),
         correctAnswer: v.pinyin,
@@ -373,7 +519,7 @@ export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[
         question: `What does "${v.hanzi}" mean?`,
         options: buildShuffledOptions(
           englishGloss(v.english),
-          distractors(v, vocab, "english", `${lessonId}-${v.id}-mc-d`).map(englishGloss),
+          englishDistractorsFor(v, `${lessonId}-${v.id}-mc-d`),
           `${lessonId}-${v.id}-mc`
         ),
         correctAnswer: englishGloss(v.english),
@@ -452,7 +598,7 @@ export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[
         pinyin: v.pinyin,
         options: buildShuffledOptions(
           v.hanzi,
-          distractors(v, vocab, "hanzi", `${lessonId}-${v.id}-rp-d`),
+          hanziDistractorsFor(v, `${lessonId}-${v.id}-rp-d`),
           `${lessonId}-${v.id}-rp`
         ),
         correctAnswer: v.hanzi,
@@ -461,55 +607,89 @@ export function buildLessonExercises(options: BuildLessonOptions): BaseExercise[
     );
   }
 
-  // Memory: match pairs (one exercise, multiple pairs)
-  if (mix.match_pairs > 0 && vocab.length >= 4) {
-    const pairCount = Math.min(4, vocab.length);
-    const pairVocab = seededShuffle(vocab, `${lessonId}-pairs`).slice(0, pairCount);
-    add("match_pairs", "Match each hanzi to its meaning", {
-      pairs: pairVocab.map((v) => ({
-        id: v.id,
-        left: v.hanzi,
-        right: englishGloss(v.english),
-        imageUrl: getImageUrl?.(v.id),
-      })),
+  // Starter mini-dialogues
+  if (mix.dialogue_response > 0) {
+    const dialogues = seededShuffle(
+      getStarterDialoguesForLesson(lessonId),
+      `${lessonId}-dlg`
+    ).slice(0, mix.dialogue_response);
+    dialogues.forEach((dialogue, index) => {
+      const wrong = dialogue.wrongAnswers.filter((answer) => answer !== dialogue.correctAnswer);
+      const options = buildShuffledOptions(
+        dialogue.correctAnswer,
+        wrong,
+        `${lessonId}-${dialogue.id}-${index}-dlg`
+      );
+      add(
+        "dialogue_response",
+        "Choose the best response",
+        {
+          lines: dialogue.lines,
+          question: dialogue.question,
+          options,
+          correctAnswer: dialogue.correctAnswer,
+        },
+        dialogue.explanation
+      );
     });
   }
 
-  // Exit: fill in blank from sentences
-  for (let i = 0; i < mix.fill_in_blank; i++) {
-    const s = sentences[i % sentences.length];
-    if (!s) continue;
-    const parts = s.hanzi.replace("。", "").split("");
-    const blankIdx = parts.findIndex(
-      (c) => c !== "我" && c !== "是" && c !== "的" && c.length === 1
-    );
-    if (blankIdx < 0) continue;
-    const blankChar = parts[blankIdx];
-    const display = parts.map((c, idx) => (idx === blankIdx ? "___" : c)).join("") + "。";
-    add(
-      "fill_in_blank",
-      "Fill in the missing character",
-      {
-        sentence: display,
-        blankIndex: blankIdx,
-        correctAnswer: blankChar,
-        fullSentence: s.hanzi,
-        fullPinyin: s.pinyin,
-        options: buildShuffledOptions(
-          blankChar,
-          seededShuffle(
-            vocab.map((item) => item.hanzi[0]),
-            `${lessonId}-${s.id}-fib-d`
-          )
-            .filter((c) => c !== blankChar)
-            .filter((c, idx, arr) => arr.indexOf(c) === idx)
-            .slice(0, 3),
-          `${lessonId}-${s.id}-fib`
-        ),
-      },
-      s.grammarNotes ?? `Full sentence: ${s.hanzi} — ${s.english}`
-    );
+  // Starter yes/no comprehension checks
+  if (mix.yes_no_question > 0) {
+    const items = seededShuffle(
+      getStarterYesNoForLesson(lessonId),
+      `${lessonId}-yn`
+    ).slice(0, mix.yes_no_question);
+    items.forEach((item) => {
+      add(
+        "yes_no_question",
+        "Is this understanding correct?",
+        {
+          statement: item.statement,
+          statementPinyin: item.statementPinyin,
+          claim: item.claim,
+          correctAnswer: item.correctAnswer,
+        },
+        item.explanation
+      );
+    });
   }
+
+  // Memory: match pairs (one exercise, multiple pairs)
+  if (mix.match_pairs > 0) {
+    const pairSource =
+      vocab.length >= 4
+        ? vocab
+        : [
+            ...vocab,
+            ...pool.filter((item) => !vocab.some((v) => v.id === item.id)),
+          ];
+    if (pairSource.length >= 3) {
+      const pairCount = Math.min(4, pairSource.length);
+      const pairVocab = seededShuffle(pairSource, `${lessonId}-pairs`).slice(0, pairCount);
+      add("match_pairs", "Match each hanzi to its meaning", {
+        pairs: pairVocab.map((v) => ({
+          id: v.id,
+          left: v.hanzi,
+          right: englishGloss(v.english),
+          imageUrl: getImageUrl?.(v.id),
+        })),
+      });
+    }
+  }
+
+  // Exit: fill in blank — at most one per sentence, lesson-vocab blank preferred
+  const fillSlots: { sentence: Sentence; blankIdx: number }[] = [];
+  for (const s of sentences) {
+    if (fillSlots.length >= mix.fill_in_blank) break;
+    const ordered = orderBlankIndices(s, getBlankIndices(s), vocab);
+    if (ordered.length > 0) {
+      fillSlots.push({ sentence: s, blankIdx: ordered[0] });
+    }
+  }
+  fillSlots.forEach(({ sentence: s, blankIdx }, i) => {
+    addFillInBlankExercise(s, blankIdx, lessonId, pool, `${s.id}-${blankIdx}-${i}`, add);
+  });
 
   // Sort by lesson phase for Duolingo-like flow
   exercises.sort((a, b) => {

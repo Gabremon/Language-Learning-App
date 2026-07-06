@@ -1,20 +1,25 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import Link from "next/link";
 import { AppShell } from "@/components/layout/AppShell";
 import { InkPageHeader, InkPanel, InkProgress } from "@/components/ui/ink-shell";
 import { Button } from "@/components/ui/button";
 import { ExerciseFeedback } from "@/components/exercises/ExerciseFeedback";
 import { getVocabMemory } from "@/lib/progress";
+import {
+  getVocabMasteryLevel,
+  MASTERY_LABELS,
+  updateVocabMemoryOnReview,
+  type VocabMasteryLevel,
+} from "@/lib/srs";
 import { buildReviewQueue, type PracticeVocabContext } from "@/lib/practice-vocab";
-import { lessonVocabMap } from "@/lib/lesson-vocab-map";
-import { updateVocabMemoryOnReview } from "@/lib/srs";
 import { matchesEnglishAnswer } from "@/lib/exercise-checker";
 import { speakMandarin } from "@/lib/speech";
 import { AuthProgressPrompt } from "@/components/errors/AuthProgressPrompt";
 import { PageLoadingShell } from "@/components/ui/PageLoadingShell";
 import { PinyinDisplay } from "@/components/ui/PinyinDisplay";
+import { VocabMasteryIndicator } from "@/components/review/VocabMasteryIndicator";
 import { useProgress } from "@/contexts/ProgressContext";
 import { useGamification } from "@/contexts/GamificationContext";
 import { AutoFocusInput } from "@/components/ui/AutoFocusInput";
@@ -31,31 +36,46 @@ interface ReviewItem {
 interface ReviewSessionResult extends ReviewItem {
   isCorrect: boolean;
   userAnswer: string;
+  masteryLevel: VocabMasteryLevel;
 }
 
 interface Props {
   vocabItems: PracticeVocabContext["vocabItems"];
   lessons: PracticeVocabContext["lessons"];
   units: PracticeVocabContext["units"];
+  lessonVocabMap: PracticeVocabContext["lessonVocabMap"];
 }
 
-export function ReviewView({ vocabItems, lessons, units }: Props) {
+export function ReviewView({ vocabItems, lessons, units, lessonVocabMap }: Props) {
   const { progress, loading, error, retryLoad, applyReviewUpdate } = useProgress();
   const { recordReviewCorrect } = useGamification();
   const [items, setItems] = useState<ReviewItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answer, setAnswer] = useState("");
-  const [result, setResult] = useState<{ isCorrect: boolean; correctAnswer: string } | null>(null);
-  const [done, setDone] = useState(false);
+  const [result, setResult] = useState<{
+    isCorrect: boolean;
+    correctAnswer: string;
+    previousLevel: VocabMasteryLevel;
+    updatedMemory: ReturnType<typeof getVocabMemory>;
+  } | null>(null);
+  const [showSummary, setShowSummary] = useState(false);
   const [score, setScore] = useState(0);
   const [sessionResults, setSessionResults] = useState<ReviewSessionResult[]>([]);
   const [itemsReady, setItemsReady] = useState(false);
+  const sessionInitialized = useRef(false);
+  const sessionSeed = useRef(`review-${Date.now()}`);
 
   useEffect(() => {
-    if (!progress) return;
+    if (!progress || sessionInitialized.current) return;
+    sessionInitialized.current = true;
 
     const practiceContext = { vocabItems, lessons, units, lessonVocabMap };
-    const queue = buildReviewQueue(progress, practiceContext);
+    const queue = buildReviewQueue(
+      progress,
+      practiceContext,
+      undefined,
+      sessionSeed.current
+    );
 
     setItems(
       queue.map((vocab) => ({
@@ -66,7 +86,7 @@ export function ReviewView({ vocabItems, lessons, units }: Props) {
       }))
     );
     setItemsReady(true);
-  }, [progress, vocabItems, lessons, units]);
+  }, [progress, vocabItems, lessons, units, lessonVocabMap]);
 
   const current = items[currentIndex];
 
@@ -74,7 +94,11 @@ export function ReviewView({ vocabItems, lessons, units }: Props) {
     if (!current || !progress) return;
     const isCorrect = matchesEnglishAnswer(answer, [current.english]);
 
-    setResult({ isCorrect, correctAnswer: current.english });
+    const memoryBefore = getVocabMemory(progress, current.vocabId);
+    const previousLevel = getVocabMasteryLevel(memoryBefore);
+    const updated = updateVocabMemoryOnReview(memoryBefore, isCorrect);
+
+    setResult({ isCorrect, correctAnswer: current.english, previousLevel, updatedMemory: updated });
     if (isCorrect) setScore((s) => s + 1);
     setSessionResults((prev) => [
       ...prev,
@@ -82,11 +106,10 @@ export function ReviewView({ vocabItems, lessons, units }: Props) {
         ...current,
         isCorrect,
         userAnswer: answer.trim(),
+        masteryLevel: getVocabMasteryLevel(updated),
       },
     ]);
 
-    const memory = getVocabMemory(progress, current.vocabId);
-    const updated = updateVocabMemoryOnReview(memory, isCorrect);
     await applyReviewUpdate(current.vocabId, updated, isCorrect ? 5 : 0);
     if (isCorrect) await recordReviewCorrect();
   }, [answer, current, progress, applyReviewUpdate, recordReviewCorrect]);
@@ -97,7 +120,7 @@ export function ReviewView({ vocabItems, lessons, units }: Props) {
       setAnswer("");
       setResult(null);
     } else {
-      setDone(true);
+      setShowSummary(true);
     }
   }, [currentIndex, items.length]);
 
@@ -145,31 +168,48 @@ export function ReviewView({ vocabItems, lessons, units }: Props) {
   }
 
   if (items.length === 0) {
+    const hasCompletedLessons = progress.completedLessonIds.length > 0;
+
     return (
       <AppShell>
         <div className="flex min-h-[40vh] flex-col items-center justify-center gap-4 text-center">
           <div className="flex h-14 w-14 items-center justify-center rounded-xl border-2 border-emerald-300 bg-emerald-50 text-xl font-bold text-emerald-600">
             复
           </div>
-          <p className="text-xl font-bold text-stone-800">Nothing due right now</p>
+          <p className="text-xl font-bold text-stone-800">
+            {hasCompletedLessons ? "Nothing to review right now" : "Complete a lesson first"}
+          </p>
           <p className="max-w-xs text-sm text-stone-500">
-            Complete more lessons to add words here — review uses vocabulary from lessons
-            you&apos;ve finished.
+            {hasCompletedLessons
+              ? "All words from your completed lessons are up to date. Check back later or keep learning on the trail."
+              : "Word review uses vocabulary from lessons you've finished. Complete your first lesson to unlock recall practice."}
           </p>
           <div className="flex flex-col gap-2">
-            <Link href="/course">
-              <Button>Continue the trail</Button>
+            <Link href={hasCompletedLessons ? "/dashboard" : "/course"}>
+              <Button>{hasCompletedLessons ? "Back to trail" : "Continue the trail"}</Button>
             </Link>
-            <Link href="/word-sprint">
-              <Button variant="secondary">Word sprint</Button>
-            </Link>
+            {hasCompletedLessons && (
+              <Link href="/word-sprint">
+                <Button variant="secondary">Word sprint</Button>
+              </Link>
+            )}
           </div>
         </div>
       </AppShell>
     );
   }
 
-  if (done) {
+  if (showSummary) {
+    const reviewedWords =
+      sessionResults.length > 0
+        ? sessionResults
+        : items.map((item) => ({
+            ...item,
+            isCorrect: false,
+            userAnswer: "",
+            masteryLevel: "new" as const,
+          }));
+
     return (
       <AppShell>
         <div className="space-y-4">
@@ -179,7 +219,7 @@ export function ReviewView({ vocabItems, lessons, units }: Props) {
             </div>
             <p className="mt-4 text-2xl font-bold text-stone-800">Review complete</p>
             <p className="mt-1 text-stone-600">
-              {score}/{items.length} correct
+              {score}/{reviewedWords.length} correct
             </p>
           </div>
 
@@ -188,9 +228,9 @@ export function ReviewView({ vocabItems, lessons, units }: Props) {
               Words you reviewed
             </p>
             <ul className="max-h-[50vh] space-y-2 overflow-y-auto">
-              {sessionResults.map((item) => (
+              {reviewedWords.map((item, index) => (
                 <li
-                  key={item.vocabId}
+                  key={`${item.vocabId}-${index}`}
                   className={cn(
                     "flex items-start gap-3 rounded-xl border px-3 py-2.5",
                     item.isCorrect
@@ -217,6 +257,9 @@ export function ReviewView({ vocabItems, lessons, units }: Props) {
                     </div>
                     <PinyinDisplay pinyin={item.pinyin} size="sm" className="mt-0.5" />
                     <p className="mt-1 text-sm font-medium text-stone-700">{item.english}</p>
+                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-wide text-stone-500">
+                      {MASTERY_LABELS[item.masteryLevel]}
+                    </p>
                     {!item.isCorrect && item.userAnswer && (
                       <p className="mt-1 text-xs text-red-600">You typed: {item.userAnswer}</p>
                     )}
@@ -237,6 +280,7 @@ export function ReviewView({ vocabItems, lessons, units }: Props) {
   }
 
   const progressValue = ((currentIndex + (result ? 1 : 0)) / items.length) * 100;
+  const currentMemory = progress ? getVocabMemory(progress, current.vocabId) : null;
 
   return (
     <AppShell>
@@ -249,6 +293,10 @@ export function ReviewView({ vocabItems, lessons, units }: Props) {
         />
 
         <InkProgress value={progressValue} />
+
+        {currentMemory && !result && (
+          <VocabMasteryIndicator memory={currentMemory} compact />
+        )}
 
         <InkPanel>
           <div className="space-y-5 p-4">
@@ -284,10 +332,15 @@ export function ReviewView({ vocabItems, lessons, units }: Props) {
                   isCorrect={result.isCorrect}
                   correctAnswer={result.correctAnswer}
                   explanation={current.english}
+                  speakText={current.hanzi}
                 />
                 <div className="flex justify-center">
                   <PinyinDisplay pinyin={current.pinyin} size="sm" />
                 </div>
+                <VocabMasteryIndicator
+                  memory={result.updatedMemory}
+                  previousLevel={result.previousLevel}
+                />
               </>
             )}
             <div className="flex justify-end">
@@ -297,7 +350,7 @@ export function ReviewView({ vocabItems, lessons, units }: Props) {
                 </Button>
               ) : (
                 <Button onClick={handleContinue} variant={result.isCorrect ? "success" : "default"}>
-                  Continue
+                  {currentIndex < items.length - 1 ? "Continue" : "See your words"}
                 </Button>
               )}
             </div>

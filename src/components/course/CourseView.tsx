@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { InkPanel } from "@/components/ui/ink-shell";
 import { APP_NAME } from "@/lib/brand";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useRefreshProgressOnFocus } from "@/hooks/useRefreshProgressOnFocus";
 
 interface Props {
   catalog: CourseCatalog;
@@ -20,6 +21,7 @@ interface Props {
 export function CourseView({ catalog }: Props) {
   const { units, lessons } = catalog;
   const { progress, loading, error, retryLoad } = useProgress();
+  useRefreshProgressOnFocus();
   const [collapsedSections, setCollapsedSections] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(COURSE_SECTIONS.map((section) => [section.id, true]))
   );
@@ -30,7 +32,7 @@ export function CourseView({ catalog }: Props) {
 
   const completedIds = useMemo(
     () => progress?.completedLessonIds ?? [],
-    [progress?.completedLessonIds]
+    [progress]
   );
   const currentLessonId = useMemo(() => {
     if (!progress) return lessons[0]?.id ?? "";
