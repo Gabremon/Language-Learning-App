@@ -245,3 +245,34 @@ export async function getLessonBundle(lessonId: string): Promise<LessonBundle> {
     vocab,
   };
 }
+
+function buildLessonVocabMapFromRows(
+  rows: { lesson_id: string; vocab_item_id: string }[]
+): Record<string, string[]> {
+  const map: Record<string, string[]> = {};
+  for (const row of rows) {
+    (map[row.lesson_id] ??= []).push(row.vocab_item_id);
+  }
+  return map;
+}
+
+export const getLessonVocabMap = cache(async function getLessonVocabMap(): Promise<
+  Record<string, string[]>
+> {
+  if (!isSupabaseConfigured()) {
+    const { lessonVocabMap } = await import("@/data/course-content");
+    return lessonVocabMap;
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("lesson_vocab")
+    .select("lesson_id, vocab_item_id");
+
+  if (error || !data?.length) {
+    const { lessonVocabMap } = await import("@/data/course-content");
+    return lessonVocabMap;
+  }
+
+  return buildLessonVocabMapFromRows(data);
+});

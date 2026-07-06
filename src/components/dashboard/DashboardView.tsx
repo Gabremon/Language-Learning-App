@@ -9,7 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { CourseCatalog } from "@/lib/course-utils";
 import { getActiveUnit, getContinueLesson, getLessonsForUnit, isLessonUnlocked } from "@/lib/course-utils";
-import { getDueReviewCount } from "@/lib/srs";
+import { countDueReviewsInPracticePool } from "@/lib/practice-vocab";
 import { useProgress } from "@/contexts/ProgressContext";
 import { APP_MARK, APP_NAME } from "@/lib/brand";
 import { Flame, Star, RotateCcw, ChevronRight, Sparkles } from "lucide-react";
@@ -23,11 +23,12 @@ import { useRefreshProgressOnFocus } from "@/hooks/useRefreshProgressOnFocus";
 
 interface Props {
   catalog: CourseCatalog;
+  lessonVocabMap: Record<string, string[]>;
 }
 
-export function DashboardView({ catalog }: Props) {
+export function DashboardView({ catalog, lessonVocabMap }: Props) {
   const { course, units, lessons } = catalog;
-  const { progress, loading, error, retryLoad, getAllMemories } = useProgress();
+  const { progress, loading, error, retryLoad } = useProgress();
   const { level, state } = useGamification();
   useRefreshProgressOnFocus();
 
@@ -47,7 +48,7 @@ export function DashboardView({ catalog }: Props) {
     );
   }
 
-  const dueReviews = getDueReviewCount(getAllMemories());
+  const dueReviews = countDueReviewsInPracticePool(progress, lessonVocabMap);
   const currentLesson = getContinueLesson(
     lessons,
     units,

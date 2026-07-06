@@ -71,3 +71,41 @@ export function isDueForReview(memory: VocabMemory): boolean {
 export function getDueReviewCount(memories: VocabMemory[]): number {
   return memories.filter(isDueForReview).length;
 }
+
+export type VocabMasteryLevel = "new" | "learning" | "familiar" | "experienced" | "mastered";
+
+export const MASTERY_MAX_STRENGTH = 7;
+
+export const MASTERY_LABELS: Record<VocabMasteryLevel, string> = {
+  new: "New",
+  learning: "Learning",
+  familiar: "Familiar",
+  experienced: "Experienced",
+  mastered: "Mastered",
+};
+
+export function getVocabMasteryLevel(memory: VocabMemory): VocabMasteryLevel {
+  if (memory.timesSeen === 0) return "new";
+  if (memory.strength <= 2) return "learning";
+  if (memory.strength <= 4) return "familiar";
+  if (memory.strength < MASTERY_MAX_STRENGTH) return "experienced";
+  return "mastered";
+}
+
+export function getMasteryProgress(memory: VocabMemory): number {
+  if (memory.timesSeen === 0) return 0;
+  return Math.min(100, Math.round((memory.strength / MASTERY_MAX_STRENGTH) * 100));
+}
+
+export function getMasteryLevelMessage(level: VocabMasteryLevel): string | null {
+  switch (level) {
+    case "familiar":
+      return "Getting familiar — keep reviewing!";
+    case "experienced":
+      return "Experienced with this word!";
+    case "mastered":
+      return "Mastered — long review interval unlocked.";
+    default:
+      return null;
+  }
+}

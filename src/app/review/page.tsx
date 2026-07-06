@@ -1,7 +1,7 @@
 import { ReviewView } from "@/components/review/ReviewView";
-import { getAllVocab } from "@/lib/data/course";
+import { getAllVocab, getLessonVocabMap } from "@/lib/data/course";
 
 export default async function ReviewPage() {
-  const vocabItems = await getAllVocab();
-  return <ReviewView vocabItems={vocabItems} />;
+  const [vocabItems, lessonVocabMap] = await Promise.all([getAllVocab(), getLessonVocabMap()]);
+  return <ReviewView vocabItems={vocabItems} lessonVocabMap={lessonVocabMap} />;
 }
